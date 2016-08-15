@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class MailHelper extends Controller
+class MailHelperController extends Controller
 {
     
     

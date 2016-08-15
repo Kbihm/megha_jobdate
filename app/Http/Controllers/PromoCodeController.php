@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Promocode;
 
-class PromoCode extends Controller
+class PromoCodeController extends Controller
 {
 
     /**
