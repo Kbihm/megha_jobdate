@@ -19,7 +19,7 @@ class CreatePromocodeTable extends Migration
             $table->integer('percentage');
             $table->integer('days');
             $table->date('expiry');
-            $table->string('code');
+            $table->string('code'); 
 
             $table->timestamps();
         });
