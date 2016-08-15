@@ -20,7 +20,7 @@ class NewsController extends Controller
     {
         $this->middleware('auth');
         //Prevent access from any non Admins
-        if (Auth::user()->admin_id == null)
+        if (Auth::check() && Auth::user()->admin_id == null)
             return back();
     }
 

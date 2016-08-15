@@ -8,5 +8,8 @@ use App\Http\Requests;
 
 class RequestsController extends Controller
 {
-    //
+    
+
+
+
 }

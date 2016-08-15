@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Promocode;
+use Auth;
 
 class PromoCodeController extends Controller
 {
@@ -23,9 +24,9 @@ class PromoCodeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        //Prevent access from any non Admins
-        if (Auth::user()->admin_id == null)
-            return back();
+        //Prevent access from any non Admins - This doesn't work!
+        if (Auth::check() && Auth::user()->admin_id == null)
+            return 'Not Authorized.';
     }
 
     public function index() 
