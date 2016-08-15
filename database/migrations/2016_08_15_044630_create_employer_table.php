@@ -22,6 +22,7 @@ class CreateEmployerTable extends Migration
 
             $table->boolean('email_confirmed')->default(false);
             // $table->boolean('subscription_active')->default(false);
+            
             // GET STRIPE DATA
 
 
