@@ -24,7 +24,7 @@ class Comment extends Model
      * @param None
      *
      * @author  Nate Sanchez-Goodwin <nsg223@gmail.com>
-     * @return void
+     * @return New Rating ? 
      */
     public function update_rating() 
     {

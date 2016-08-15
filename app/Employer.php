@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employer extends Model
 {
+
+    protected $fillable = [
+        'abn',
+        'address',
+        'promo_code'
+    ];
+
+    public static $rules = [
+        'abn' => 'required',
+        'address' => 'required'
+    ];
+
     
     public function request_employee($employee_id, $dates) 
     {

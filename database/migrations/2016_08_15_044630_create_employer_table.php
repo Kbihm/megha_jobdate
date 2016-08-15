@@ -17,7 +17,7 @@ class CreateEmployerTable extends Migration
 
             $table->integer('abn');
             $table->string('address');
-            $table->string('promo_code');
+            $table->string('promo_code')->nullable();
             $table->datetime('subscription_end');
 
             $table->boolean('email_confirmed')->default(false);
