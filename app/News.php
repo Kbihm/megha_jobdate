@@ -8,7 +8,13 @@ class News extends Model
 {
     
     protected $fillable = [
-        'message'
+        'message',
+        'title'
+    ];
+
+    public static $rules = [
+        'title' => 'required',
+        'message' => 'required'
     ];
 
 

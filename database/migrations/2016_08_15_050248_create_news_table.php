@@ -14,6 +14,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
             $table->longtext('message');
             $table->timestamps();
             // Use laravel dates for formatting
