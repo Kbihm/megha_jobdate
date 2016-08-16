@@ -19,6 +19,14 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('comments', 'CommentsController');
+Route::resource('admin/comments', 'CommentsController');
 Route::resource('admin/promocode', 'PromocodeController');
 Route::resource('admin/news', 'NewsController');
+
+/**
+ * @return TODO
+ * 
+ * - Custom Routes for Profiles 
+ * - Modify 
+ *
+ */

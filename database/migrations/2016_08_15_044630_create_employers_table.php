@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployerTable extends Migration
+class CreateEmployersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -37,6 +37,6 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
-        Schema::drop('employer');
+        Schema::drop('employers');
     }
 }

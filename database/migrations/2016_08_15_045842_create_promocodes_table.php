@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminTable extends Migration
+class CreatePromocodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,15 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('promocodes', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('number_of_uses');
+            $table->integer('percentage');
+            $table->integer('days');
+            $table->date('expiry');
+            $table->string('code'); 
+
             $table->timestamps();
         });
     }
@@ -25,6 +32,6 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        Schema::drop('admins');
+        Schema::drop('promocodes');
     }
 }

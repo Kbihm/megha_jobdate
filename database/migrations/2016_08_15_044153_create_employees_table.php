@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePromocodeTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,15 @@ class CreatePromocodeTable extends Migration
      */
     public function up()
     {
-        Schema::create('promocodes', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('number_of_uses');
-            $table->integer('percentage');
-            $table->integer('days');
-            $table->date('expiry');
-            $table->string('code'); 
-
             $table->timestamps();
+            // $table->integer('tfn');
+            $table->string('phone');
+            $table->integer('average_rating');
+            $table->longtext('about');
+            $table->longtext('skills');
+
         });
     }
 
@@ -32,6 +31,6 @@ class CreatePromocodeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('promocode');
+        Schema::drop('employees');
     }
 }
