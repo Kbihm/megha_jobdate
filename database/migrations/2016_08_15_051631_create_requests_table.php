@@ -17,6 +17,7 @@ class CreateRequestsTable extends Migration
             $table->integer('employee_id')->unsigned();
             $table->integer('employer_id')->unsigned();
             $table->string('status');
+            $table->boolean('reviewed');
             $table->timestamps();
         });
     }
