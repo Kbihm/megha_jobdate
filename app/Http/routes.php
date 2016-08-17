@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/promocode/create', function () {
+    return view('promocode/create');
+});
+
+
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');    
 
 Route::resource('admin/comments', 'CommentsController');
 Route::resource('admin/promocode', 'PromocodeController');

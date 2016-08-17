@@ -23,8 +23,8 @@ class PromoCodeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        //Prevent access from any non Admins - This doesn't work!
+       $this->middleware('auth');
+       // Prevent access from any non Admins - This doesn't work!
         if (Auth::check() && Auth::user()->admin_id == null)
             return 'Not Authorized.';
     }
@@ -32,7 +32,7 @@ class PromoCodeController extends Controller
     public function index() 
     {
         $promocodes = Promocode::all();
-        return $promocodes;
+        return view('promocode.index', compact('promocodes'));
     }
 
     public function create()
