@@ -16,7 +16,7 @@
                             <label for="code" class="col-md-4 control-label">Code</label>
 
                             <div class="col-md-6">
-                                <input id="code" type="text" class="form-control" code="code" value="{{ old('code') }}">
+                                <input id="code" type="text" class="form-control" name="code" value="{{ old('code') }}">
 
                                 @if ($errors->has('code'))
                                     <span class="help-block">
@@ -31,7 +31,7 @@
                             <label for="number_of_uses" class="col-md-4 control-label">Number of Uses:</label>
 
                             <div class="col-md-6">
-                                <input id="number_of_uses" type="number" class="form-control" number_of_uses="number_of_uses" value="{{ old('number_of_uses') }}">
+                                <input id="number_of_uses" type="text" class="form-control" name="number_of_uses" value="{{ old('number_of_uses') }}">
 
                                 @if ($errors->has('number_of_uses'))
                                     <span class="help-block">
@@ -41,11 +41,12 @@
                             </div>
                         </div>         
 
+                                                                        
                         <div class="form-group{{ $errors->has('percentage') ? ' has-error' : '' }}">
-                            <label for="percentage" class="col-md-4 control-label">Percentage Discount:</label>
+                            <label for="percentage" class="col-md-4 control-label">percentage: (CLARIFY)</label>
 
                             <div class="col-md-6">
-                                <input id="percentage" type="number" class="form-control" percentage="percentage" value="{{ old('percentage') }}">
+                                <input id="percentage" type="text" class="form-control" name="percentage" value="{{ old('percentage') }}">
 
                                 @if ($errors->has('percentage'))
                                     <span class="help-block">
@@ -54,12 +55,12 @@
                                 @endif
                             </div>
                         </div>
-                                                                        
+                                             
                         <div class="form-group{{ $errors->has('days') ? ' has-error' : '' }}">
                             <label for="days" class="col-md-4 control-label">Days: (CLARIFY)</label>
 
                             <div class="col-md-6">
-                                <input id="days" type="text" class="form-control" days="days" value="{{ old('days') }}">
+                                <input id="days" type="text" class="form-control" name="days" value="{{ old('days') }}">
 
                                 @if ($errors->has('days'))
                                     <span class="help-block">
@@ -73,7 +74,7 @@
                             <label for="expiry" class="col-md-4 control-label">Expiry Date: (CLARIFY)</label>
 
                             <div class="col-md-6">
-                                <input id="expiry" type="text" class="form-control" expiry="expiry" value="{{ old('expiry') }}">
+                                <input id="expiry" type="text" class="form-control" name="expiry" value="{{ old('expiry') }}">
 
                                 @if ($errors->has('expiry'))
                                     <span class="help-block">

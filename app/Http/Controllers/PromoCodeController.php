@@ -41,11 +41,11 @@ class PromoCodeController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         $this->validate($request->all(), Promocode::$rules);
         $promocode = new Promocode($request->all());
         $promocode->save();
-        return view('promocode.index');
+        return redirect('/admin/promocode');
     }
 
     public function update(Request $request)
