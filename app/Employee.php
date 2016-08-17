@@ -11,7 +11,8 @@ class Employee extends Model
         'phone',
         'average_rating',
         'about',
-        'skills'
+        'skills',
+        'role'
     ];
 
     public static $rules = [
