@@ -6,7 +6,7 @@
 
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Create Promocode</div>
+                <div class="panel-heading">Edit Promocode</div>
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="/admin/promocode/{{ $promocode->id }}">
@@ -94,23 +94,15 @@
                                 <button type="submit" class="btn btn-success">
                                     <i class="fa fa-btn fa-promocode"></i>Update
                                 </button>
-
+                            </form>
                                 <form class="form-horizontal" role="form" method="POST" action="/admin/promocode/{{ $promocode->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type-"submit" class="btn btn-danger"> Delete </button>
                                 </form>
-
-                                
                             </div>
                         </div>
-                    </form>
-
-                    
                 </div>
-
-
-
         </div>
     </div>
 </div>

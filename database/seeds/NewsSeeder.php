@@ -11,6 +11,9 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        //
+            $news = new News;
+        $news->title = 'Test Post';
+        $news->message = 'Hola comment ca, konichiwa, pardon mon francais, bonjour madame';
+        $news->save();
     }
 }
