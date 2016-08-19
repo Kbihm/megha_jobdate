@@ -42,7 +42,7 @@ class PromoCodeController extends Controller
 
     public function store(Request $request)
     {   
-        $this->validate($request->all(), Promocode::$rules);
+        $this->validate($request, Promocode::$rules);
         $promocode = new Promocode($request->all());
         $promocode->save();
         return redirect('/admin/promocode');
@@ -50,7 +50,7 @@ class PromoCodeController extends Controller
 
     public function update(Request $request, Promocode $promocode)
     {
-        $this->validate($request->all(), Promocode::$rules);
+        $this->validate($request, Promocode::$rules);
 
         $promocode->update($request->all());
         return redirect('admin/promocode');
