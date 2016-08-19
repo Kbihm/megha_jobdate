@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/promocode/create', function () {
-    return view('promocode/create');
-});
-
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');    

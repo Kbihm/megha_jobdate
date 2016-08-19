@@ -20,5 +20,14 @@ class PromocodeSeeder extends Seeder
         $promocode->code = "a8sf2";
         $promocode->save();
 
+                $promocode = new Promocode;
+        $promocode->number_of_uses = '10';
+        $promocode->percentage = '10';
+        $promocode->days = '101';
+        $promocode->expiry = '22';
+        $promocode->code = "a8s2222f2";
+        $promocode->save();
+
+
     }
 }

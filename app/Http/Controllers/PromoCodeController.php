@@ -48,20 +48,25 @@ class PromoCodeController extends Controller
         return redirect('/admin/promocode');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Promocode $promocode)
     {
         $this->validate($request->all(), Promocode::$rules);
-        $promocode = Promocode::find($id);
+
         $promocode->update($request->all());
-        return back();
+        return redirect('admin/promocode');
     }
 
     public function destroy($id)
     {
         $promocode = Promocode::find($id);
         $promocode->delete();
-        return redirect('promocode.index');
+        return redirect('admin/promocode');
     }
 
+    public function show($id)
+    {
+        $promocode = Promocode::find($id);
+        return view('promocode.show', compact('promocode'));
+    }
 
 }
