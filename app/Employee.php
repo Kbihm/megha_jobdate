@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use app\User;
 
-class Employee extends Model
+class Employee extends User
 {
 
     protected $fillable = [

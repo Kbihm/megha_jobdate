@@ -17,6 +17,18 @@ Route::get('/', function () {
 
 Route::auth();
 
+
+ /*  Routes to be removed after testing: */
+    
+Route::get('/transaction', function() {
+    return view('/Employer/transaction');
+});
+Route::get('/employee', function() {
+   // $employee = Employee::find($id);
+    return view('/employee/show');
+});
+
+
 Route::get('/home', 'HomeController@index');    
 
 Route::resource('admin/comments', 'CommentsController');
