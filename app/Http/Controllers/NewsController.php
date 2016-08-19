@@ -46,26 +46,25 @@ class NewsController extends Controller
         $this->validate($request, News::$rules);
         $new = New News($request->all());
         $new->save();
-        return redirect()->action('NewsController@show', ['id' => $new->id]);
+        return redirect()->action('NewsController@index');
     }
 
     public function update($id, Request $request)
     {
-       // $this->validate($request, News::$rules);
-        dd('testaa');
+        $this->validate($request, News::$rules);
        
         $new = News::find($id);
         $new->update($request->all());
         $new->save();
-        return redirect()->action('NewsController@show', ['id' => $new->id]);            
+        return redirect()->action('NewsController@index');            
     }
 
     public function destroy($id)
     {
-         dd('test');
+
         $new = News::find($id);
         $new->delete();
-        return redirect('admin/news/index');
+        return redirect()->action('NewsController@index'); 
     }
 
 

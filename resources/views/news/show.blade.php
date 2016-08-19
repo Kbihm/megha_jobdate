@@ -6,7 +6,7 @@
 
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit News</div>
+                <div class="panel-heading">Edit News {{$new->id}}</div>
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="/admin/news/{{ $new->id }}">
@@ -32,7 +32,7 @@
                             <label for="message" class="col-md-4 control-label">Number of Uses:</label>
 
                             <div class="col-md-6">
-                                <input id="message" type="text" class="form-control" name="message" value="{{ $new->message }}">
+                                <input id="message" type="textarea" class="form-control" name="message" value="{{ $new->message }}">
 
                                 @if ($errors->has('message'))
                                     <span class="help-block">
@@ -53,7 +53,7 @@
                                 <form class="form-horizontal" role="form" method="POST" action="/admin/news/{{ $new->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type-"submit" class="btn btn-danger"> Deleaaate </button>
+                                    <button type-"submit" class="btn btn-danger"> Delete </button>
                                 </form>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
 
                     
                 </div>
-
+ 
 
 
         </div>

@@ -31,7 +31,7 @@
                             <label for="message" class="col-md-4 control-label">Message:</label>
 
                             <div class="col-md-6">
-                                <input id="message" type="text" class="form-control" name="message" value="{{ old('message') }}">
+                                <input id="message" type="textarea" class="form-control" name="message" value="{{ old('message') }}">
 
                                 @if ($errors->has('message'))
                                     <span class="help-block">
