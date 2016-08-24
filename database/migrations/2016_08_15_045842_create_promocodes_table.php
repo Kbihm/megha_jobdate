@@ -16,7 +16,8 @@ class CreatePromocodesTable extends Migration
             $table->increments('id');
 
             $table->integer('number_of_uses');
-            $table->integer('percentage');
+            $table->integer('number_of_times_used');
+            // $table->integer('percentage');
             $table->integer('days');
             $table->date('expiry');
             $table->string('code'); 
