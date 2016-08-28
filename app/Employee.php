@@ -13,7 +13,10 @@ class Employee extends User
         'average_rating',
         'about',
         'skills',
-        'role'
+        'role',
+        'gender',
+        'fulltime',
+        'hourly_rate'
     ];
 
     public static $rules = [
