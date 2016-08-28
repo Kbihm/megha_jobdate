@@ -10,7 +10,8 @@ class Comment extends Model
     protected $fillable = [
         'comment',
         'rating',
-        'user_id'
+        'user_id',
+        'prefilled_number'
     ];
 
     public static $rules = [

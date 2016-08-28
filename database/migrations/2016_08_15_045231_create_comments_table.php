@@ -16,8 +16,9 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->integer('owner_user_id'); // Person comment was made by
             $table->integer('user_id'); //Person comment is about
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->integer('rating');
+            $table->integer('prefilled_number')->nullable();
             $table->timestamps();
         });
     }
