@@ -9,7 +9,7 @@ class CreateCommentsTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+    */
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
