@@ -18,7 +18,6 @@ class CreateEmployeesTable extends Migration
             $table->string('phone');
             $table->integer('average_rating');
             $table->longtext('about');
-            $table->longtext('skills');
             $table->integer('gender'); // 0 = male, 1 = female
             $table->boolean('fulltime');
             $table->float('hourly_rate');
