@@ -9,18 +9,18 @@ use App\Settings;
 
 class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+    }
     
     public function index()
     {
-        $settings = Settings::all();
-        return view('settings.index', compact($settings));
+        $settings = Settings::find(1);
+        return view('settings.index', compact('settings'));
     }
 
-    // public function show($id)
-    // {
-    //     $setting = Settings::find($id);
-    //     return view('settings.show', compact($setting));
-    // }
 
     public function update($id, Request $request)
     {
