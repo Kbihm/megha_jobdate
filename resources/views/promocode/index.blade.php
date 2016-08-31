@@ -4,13 +4,17 @@
 
     <div class="col-md-8 col-md-offset-2">
 
+            <a href="{{ URL::to('admin/promocode/create') }} " class ="btn btn-success"> Create Promocode </a>
+            <hr>
+
             @foreach ($promocodes as $promocode)
-                
-                    <div class="panel panel-heading">
+
+                <div class="panel panel-success">    
+                    <div class="panel-heading">
                        {{ $promocode->code }}
                     </div>
 
-                    <div  class="panel panel-body">  
+                    <div  class="panel-body">  
                     <a href="{{ URL::to('admin/promocode/' . $promocode->id) }}">
                         Discount: {{ $promocode->percentage}}
                         <br>
@@ -24,9 +28,10 @@
                             <a href="{{ URL::to('admin/promocode/' . $promocode->id) }}" class="btn btn-success"> Edit </a>
                         </div>
                     </div>
+                </div>
                 
             @endforeach
-            <a href="{{ URL::to('admin/promocode/create') }} " class ="btn btn-success"> Create Promocode </a>
+            
     </div>
 
 @endsection           
