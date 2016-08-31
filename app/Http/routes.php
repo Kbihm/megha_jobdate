@@ -36,6 +36,13 @@ Route::resource('admin/promocode', 'PromocodeController');
 Route::resource('admin/settings', 'SettingsController');
 Route::resource('admin/user', 'UserController');
 
+Route::get('profile', function() {
+
+    $user = Auth::user();
+    return view('profile', compact('user'));
+
+});
+
 /**
  * @return TODO
  * 
