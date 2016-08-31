@@ -13,14 +13,14 @@ class SettingsController extends Controller
     public function index()
     {
         $settings = Settings::all();
-        return $settings;
+        return view('settings.index', compact($settings));
     }
 
-    public function show($id)
-    {
-        $setting = Settings::find($id);
-        return $setting;
-    }
+    // public function show($id)
+    // {
+    //     $setting = Settings::find($id);
+    //     return view('settings.show', compact($setting));
+    // }
 
     public function update($id, Request $request)
     {

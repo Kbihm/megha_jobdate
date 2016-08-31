@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    JobDate
                 </a>
             </div>
 
@@ -57,7 +57,7 @@
 
                         <li><a href="/admin/user">Users</a></li>
                         <li><a href="/admin/comments">Comments</a></li>
-                        <li><a href="/admin/promocodes">PromoCodes</a></li>
+                        <li><a href="/admin/promocode">PromoCodes</a></li>
                         <li><a href="/admin/settings">Settings</a></li>
 
                     @elseif (Auth::user()->employee_id != null)
