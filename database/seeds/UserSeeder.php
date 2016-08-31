@@ -60,12 +60,14 @@ class UserSeeder extends Seeder
         $employer->establishment_name = 'Alfresco Dining';
         $employer->subscription_end = '2018-02-12';
         $employer->email_confirmed = true;
+        $employer->save();
 
         $user = new User;
         $user->first_name = 'Employer';
         $user->email = 'employer@jobdate.com.au';
         $user->last_name = 'Lastname';
         $user->password = bcrypt('password');
+        $user->employer_id = $employer->id;
         $user->save();
 
     }

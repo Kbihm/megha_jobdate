@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>JobDate</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -49,9 +49,33 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
 
-                    <!-- update to show for employees only --> 
-                    <li><a href="#">Job Offers</a></li>
-                    <li><a href="#">Reviews</a></li>
+                    @if (Auth::guest())
+
+                        <li><a href="/search">Search</a></li>
+
+                    @elseif (Auth::user()->admin_id != null)
+
+                        <li><a href="/admin/user">Users</a></li>
+                        <li><a href="/admin/comments">Comments</a></li>
+                        <li><a href="/admin/promocodes">PromoCodes</a></li>
+                        <li><a href="/admin/settings">Settings</a></li>
+
+                    @elseif (Auth::user()->employee_id != null)
+
+                        <!-- update to show for employees only --> 
+                        <li><a href="/offers">Job Offers</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
+
+                    @elseif (Auth::user()->employer_id != null)
+
+                        <li><a href="/jobs">Jobs</a></li>
+                        <li><a href="/search">Search</a></li>
+
+                    @else
+                        
+                        No role set.
+
+                    @endif
 
                 </ul>
 
@@ -69,7 +93,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><i class="fa fa-btn fa-user"></i>My Profile</a></li>
+                                <li><a href="/profile"><i class="fa fa-btn fa-user"></i>My Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
