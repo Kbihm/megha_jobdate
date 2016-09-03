@@ -31,10 +31,11 @@ Route::get('/employee', function() {
 
 Route::get('/home', 'HomeController@index');    
 
-Route::resource('admin/comments', 'CommentsController');
-Route::resource('admin/promocode', 'PromocodeController');
-Route::resource('admin/settings', 'SettingsController');
-Route::resource('admin/user', 'UserController');
+Route::resource('/admin/comments', 'CommentsController');
+Route::resource('/admin/promocode', 'PromocodeController');
+Route::resource('/admin/settings', 'SettingsController');
+Route::resource('/admin/user', 'UserController');
+Route::resource('/offers', 'JobofferController');
 
 Route::get('profile', function() {
 
