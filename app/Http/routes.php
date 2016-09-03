@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,13 +30,22 @@ Route::get('/employee', function() {
 });
 
 
-Route::get('/home', 'HomeController@index');    
+Route::get('/home', 'HomeController@index');
 
+
+//Employee
+Route::resource('/my-reviews', 'EmployeeCommentsController');
+
+//Employer
+Route::resource('/reviews', 'EmployerCommentsController');
+Route::resource('/offers', 'JobofferController');
+
+//Admin
 Route::resource('/admin/comments', 'CommentsController');
 Route::resource('/admin/promocode', 'PromocodeController');
 Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/admin/user', 'UserController');
-Route::resource('/offers', 'JobofferController');
+
 
 Route::get('profile', function() {
 
