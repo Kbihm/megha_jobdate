@@ -28,6 +28,10 @@ Route::get('/employee', function() {
    // $employee = Employee::find($id);
     return view('/employee/show');
 });
+Route::get('/employee/create', function() {
+   // $employee = Employee::find($id);
+    return view('/employee/create');
+});
 
 
 Route::get('/home', 'HomeController@index');
@@ -35,6 +39,7 @@ Route::get('/home', 'HomeController@index');
 
 //Employee
 Route::resource('/my-reviews', 'EmployeeCommentsController');
+
 
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
