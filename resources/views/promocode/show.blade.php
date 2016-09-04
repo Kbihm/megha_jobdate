@@ -41,22 +41,7 @@
                                 @endif
                             </div>
                         </div>         
-
-                                                                        
-                        <div class="form-group{{ $errors->has('percentage') ? ' has-error' : '' }}">
-                            <label for="percentage" class="col-md-4 control-label">percentage: (CLARIFY)</label>
-
-                            <div class="col-md-6">
-                                <input id="percentage" type="text" class="form-control" name="percentage" value="{{ $promocode->percentage }}">
-
-                                @if ($errors->has('percentage'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('percentage') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                                             
+       
                         <div class="form-group{{ $errors->has('days') ? ' has-error' : '' }}">
                             <label for="days" class="col-md-4 control-label">Days: (CLARIFY)</label>
 

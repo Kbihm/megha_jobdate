@@ -16,9 +16,8 @@
 
                     <div  class="panel-body">  
                     <a href="{{ URL::to('admin/promocode/' . $promocode->id) }}">
-                        Discount: {{ $promocode->percentage}}
                         <br>
-                        Days: {{ $promocode->days }}
+                        Days free: {{ $promocode->days }}
                         <br>
                         Expiry: {{ $promocode->expiry}}
                         <br>

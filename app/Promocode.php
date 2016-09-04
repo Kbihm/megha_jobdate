@@ -9,7 +9,6 @@ class Promocode extends Model
     
     protected $fillable = [
         'number_of_uses',
-        'percentage',
         'days',
         'expiry',
         'code'
@@ -17,7 +16,6 @@ class Promocode extends Model
 
     public static $rules = [
         'number_of_uses' => 'required',
-        'percentage' => 'required',
         'days' => 'required',
         'expiry' => 'required',
         'code' => 'required'

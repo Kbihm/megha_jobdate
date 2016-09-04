@@ -26,7 +26,6 @@
                             </div>
                         </div>
                         
-                                                
                         <div class="form-group{{ $errors->has('number_of_uses') ? ' has-error' : '' }}">
                             <label for="number_of_uses" class="col-md-4 control-label">Number of Uses:</label>
 
@@ -40,24 +39,9 @@
                                 @endif
                             </div>
                         </div>         
-
-                                                                        
-                        <div class="form-group{{ $errors->has('percentage') ? ' has-error' : '' }}">
-                            <label for="percentage" class="col-md-4 control-label">percentage: (CLARIFY)</label>
-
-                            <div class="col-md-6">
-                                <input id="percentage" type="text" class="form-control" name="percentage" value="{{ old('percentage') }}">
-
-                                @if ($errors->has('percentage'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('percentage') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
                                              
                         <div class="form-group{{ $errors->has('days') ? ' has-error' : '' }}">
-                            <label for="days" class="col-md-4 control-label">Days: (CLARIFY)</label>
+                            <label for="days" class="col-md-4 control-label">Number of days:</label>
 
                             <div class="col-md-6">
                                 <input id="days" type="text" class="form-control" name="days" value="{{ old('days') }}">
@@ -71,7 +55,7 @@
                         </div>
                                                                                                 
                         <div class="form-group{{ $errors->has('expiry') ? ' has-error' : '' }}">
-                            <label for="expiry" class="col-md-4 control-label">Expiry Date: (CLARIFY)</label>
+                            <label for="expiry" class="col-md-4 control-label">Expiry Date:</label>
 
                             <div class="col-md-6">
                                 <input id="expiry" type="text" class="form-control" name="expiry" value="{{ old('expiry') }}">
@@ -85,8 +69,7 @@
                         </div>        
 
 
-                        
-                        
+                    
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

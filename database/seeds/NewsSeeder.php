@@ -26,4 +26,5 @@ class NewsSeeder extends Seeder
         $news->message = 'Hola comment ca, konichiwa, pardon mon francais, bonjour madame';
         $news->save();
     }
-}
+} 
+

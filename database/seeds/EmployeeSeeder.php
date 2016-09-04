@@ -17,6 +17,7 @@ class EmployeeSeeder extends Seeder
         $employee->last_name = 'Southwella';
         $employee->password = bcrypt('password');
         $employee->phone = '0449918415';
+        $employee->gender = '0';
         $employee->average_rating = '25';
         $employee->about ='Imma be ';
         $employee->skills = 'Qualification One; Qualification 2;';

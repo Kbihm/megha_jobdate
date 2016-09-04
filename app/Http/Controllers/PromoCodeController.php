@@ -50,8 +50,7 @@ class PromoCodeController extends Controller
 
     public function update(Request $request, Promocode $promocode)
     {
-        $this->validate($request, Promocode::$rules);
-
+        $this->validate($request, Promocode::$rules);   
         $promocode->update($request->all());
         return redirect('admin/promocode');
     }
