@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
         $employee->phone = '0400000000';
         $employee->average_rating = '2.2';
         $employee->about = 'This is an awesome about feature for details!';
+        $employee->gender = '0';
         $employee->fulltime = true;
         $employee->hourly_rate = 28.40;
         $employee->save();
