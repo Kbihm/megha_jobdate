@@ -27,4 +27,3 @@ class NewsSeeder extends Seeder
         $news->save();
     }
 } 
-

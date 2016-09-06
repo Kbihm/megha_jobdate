@@ -6,7 +6,12 @@
 
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Promocode</div>
+                <div class="panel-heading">Edit Promocode
+                    <div class="col-md-4 pull-right">
+                        Number of times used: {{ $promocode->number_of_times_used }}
+                    </div>
+                
+                </div>
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="/admin/promocode/{{ $promocode->id }}">
@@ -43,7 +48,7 @@
                         </div>         
        
                         <div class="form-group{{ $errors->has('days') ? ' has-error' : '' }}">
-                            <label for="days" class="col-md-4 control-label">Days: (CLARIFY)</label>
+                            <label for="days" class="col-md-4 control-label">Days Free:</label>
 
                             <div class="col-md-6">
                                 <input id="days" type="text" class="form-control" name="days" value="{{ $promocode->days }}">
@@ -57,7 +62,7 @@
                         </div>
                                                                                                 
                         <div class="form-group{{ $errors->has('expiry') ? ' has-error' : '' }}">
-                            <label for="expiry" class="col-md-4 control-label">Expiry Date: (CLARIFY)</label>
+                            <label for="expiry" class="col-md-4 control-label">Expiry Date:</label>
 
                             <div class="col-md-6">
                                 <input id="expiry" type="text" class="form-control" name="expiry" value="{{ $promocode->expiry }}">
@@ -68,7 +73,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>        
+                        </div>       
 
 
                         

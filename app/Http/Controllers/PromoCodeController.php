@@ -44,6 +44,7 @@ class PromoCodeController extends Controller
     {   
         $this->validate($request, Promocode::$rules);
         $promocode = new Promocode($request->all());
+        $promocode->number_of_times_used = 0;
         $promocode->save();
         return redirect('/admin/promocode');
     }

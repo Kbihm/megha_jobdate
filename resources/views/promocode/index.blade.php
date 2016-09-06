@@ -22,6 +22,8 @@
                         Expiry: {{ $promocode->expiry}}
                         <br>
                         Number of Uses: {{ $promocode->number_of_uses}}
+                        <br>
+                        Number of times used: {{ $promocode->number_of_times_used }}
                     </a>
                         <div class="col-md-2 pull-right">
                             <a href="{{ URL::to('admin/promocode/' . $promocode->id) }}" class="btn btn-success"> Edit </a>
