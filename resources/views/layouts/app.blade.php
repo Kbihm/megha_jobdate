@@ -69,7 +69,7 @@
                     @elseif (Auth::user()->employer_id != null)
 
                         <li><a href="/jobs">Jobs</a></li>
-                        <li><a href="/search">Search</a></li>
+                        <li><a href="/admin/user">Search</a></li>
 
                     @else
                         

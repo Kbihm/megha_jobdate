@@ -33,6 +33,7 @@ class CommentsController extends Controller
      */
     public function create() 
     {
+
         return view('comments.create');
     }
 

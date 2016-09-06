@@ -24,6 +24,10 @@ Route::get('/jobs', function () {
     return view('/joboffers/index');
 });  
 
+Route::get('/comments/create', function () {
+    return view('/comments/create');
+});  
+
 Route::get('/jobs/create', function () {
     return view('/joboffers/create');
 });  

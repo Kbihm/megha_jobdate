@@ -19,4 +19,10 @@ class UserController extends Controller
         return view('user.index', compact('users'));
     }
 
+        // THIS IS A LIAM MADE FUNCTION //
+        public function show($id) {
+        $user = User::find($id);
+        return view('user.show', compact('user'));
+    }
+
 }
