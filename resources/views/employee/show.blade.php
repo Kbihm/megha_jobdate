@@ -12,8 +12,8 @@
 
                 <h4 class="col-md-3"> Average Rating: </h4>
                 <div class="progress col-md-8 pull-right">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                    aria-valuemin="0" aria-valuemax="100" style="width:83%">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
+                    aria-valuemin="0" aria-valuemax="100" style="width:22%">
                         83%
                     </div>
                 </div>
