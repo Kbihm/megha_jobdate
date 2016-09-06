@@ -40,7 +40,7 @@ class JobofferController extends Controller
 
     public function create()
     {
-
+        
     }
 
 }

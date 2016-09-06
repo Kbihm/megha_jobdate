@@ -20,7 +20,14 @@ Route::auth();
 
 
  /*  Routes to be removed after testing: */
-    
+Route::get('/jobs', function () {
+    return view('/joboffers/index');
+});  
+
+Route::get('/jobs/create', function () {
+    return view('/joboffers/create');
+});  
+
 Route::get('/transaction', function() {
     return view('/Employer/transaction');
 });
