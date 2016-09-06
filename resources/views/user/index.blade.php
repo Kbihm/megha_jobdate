@@ -24,7 +24,6 @@
                             <div class="panel panel-body">
                                    <div class="col-md-3">
                                    <img src="http://tinyurl.com/javaltj"></img>
-                                   
                                    </div>
                                    <div class="col-md-3">
                                    <strong>Hourly Rate: {{$user->employee->hourly_rate}}</strong>
