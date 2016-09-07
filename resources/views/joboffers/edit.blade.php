@@ -22,6 +22,24 @@
                                 <input type="text" name="date" class="form-control" @if (count($errors)) value="{{ old('date') }}" @else value="{{ $joboffer->date }}" @endif>
                             </div>
                         </div> 
+                        
+                        <?php
+                        use App\Settings;
+                        $roles = Settings::$roles;
+                        ?>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Role</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="role" >
+                                    @foreach($roles as $role)
+                                    <option value="{{ $role }}">
+                                        {{ $role }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
@@ -44,17 +62,6 @@
                             </label>
                         </div>
 
-                    {{-- 
-                        <div class="form-group">
-                            <label>Role</label>
-                            <select name="role" class="form-control">
-                                @foreach($roles as $role)
-                                <option value="{{ $role }}">
-                                    {{ $role }}
-                                </option>
-                                @endforeach
-                        </div>
-                        --}}
                         <div class="col-sm-offset-5">
                                 <div class="col-sm-4">
                                     <button class="btn btn-success form-control" type="submit" >
