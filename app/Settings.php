@@ -23,6 +23,13 @@ class Settings extends Model
         'employee_registration_blocked' => 'required'
     ];
 
-
+    public static $roles = [
+        'Waiter/Waitress',
+        'Bartender',
+        'Chef',
+        'Musician',
+        'Kitchen Hand',
+        'etc..'
+    ];
 
 }

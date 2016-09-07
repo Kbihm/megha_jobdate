@@ -44,4 +44,9 @@ class JobofferController extends Controller
         
     }
 
+    public function edit($id){
+        $joboffer = Joboffer::find($id);
+        return view('joboffers.edit', compact('joboffer'));
+    }
+
 }
