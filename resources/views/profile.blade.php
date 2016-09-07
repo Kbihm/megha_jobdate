@@ -106,7 +106,7 @@
                             <label for="gender" class="col-md-4 control-label">Gender:</label>
 
                             <div class="col-md-6">
-                                 <select default="Male" class="form=-control" name="gender" id="gender">
+                                 <select default="Male" class="form-control" name="gender" id="gender">
                                 <option <?php if ($user->employee->gender == 0 ) echo 'selected' ; ?> value="0">Male</option> 
                                 <option <?php if ($user->employee->gender == 1 ) echo 'selected' ; ?> value="1">Female</option>
                                 </select> 
@@ -122,7 +122,7 @@
                             <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
 
                             <div class="col-md-6">
-                                 <select class="form=-control" name="fulltime" id="fulltime">
+                                 <select class="form-control" name="fulltime" id="fulltime">
                                 <option <?php if ($user->employee->fulltime == TRUE ) echo 'selected' ; ?> value="TRUE">Yes</option>
                                 <option <?php if ($user->employee->fulltime == FALSE ) echo 'selected' ; ?> value="FALSE">No</option>
                                 </select> 
@@ -150,7 +150,7 @@
                         </div>      
 
                         <div class="form-group{{ $errors->has('hourly_rate') ? ' has-error' : '' }}">
-                            <label for="hourly_rate" class="col-md-4 control-label">What is your desired abn? </label>
+                            <label for="hourly_rate" class="col-md-4 control-label">What is your desired hourly rate? </label>
 
                             <div class="col-md-6">
                                 <input id="hourly_rate" type="number" class="form-control" name="hourly_rate" value="{{ $user->employee->hourly_rate }}">
