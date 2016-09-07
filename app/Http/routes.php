@@ -56,6 +56,8 @@ Route::resource('/my-reviews', 'EmployeeCommentsController');
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::resource('/offers', 'JobofferController');
 
+Route::resource('/jobs', 'JobofferController');
+
 //Admin
 Route::resource('/admin/comments', 'CommentsController');
 Route::resource('/admin/promocode', 'PromocodeController');

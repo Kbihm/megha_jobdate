@@ -13,7 +13,7 @@
                         {{ csrf_field() }}
                         
                         <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label for="date" class="col-md-4 control-label">date</label>
+                            <label for="date" class="col-md-4 control-label">Date</label>
 
                             <div class="col-md-6">
                                 <input id="date" type="text" class="form-control" name="date" value="{{ old('date') }}">
@@ -25,8 +25,16 @@
                                 @endif
                             </div>
                         </div>
-                        
-                        <h1> dates </h1>
+                    
+
+                        <h4> Fields to Add</h4>
+                        <ul>
+                            <li> Role </li>
+                            <li> Hours </li>
+                            <li> Description </li>
+                            <li> Time </li>
+                        </ul>
+
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

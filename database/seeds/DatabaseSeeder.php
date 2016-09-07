@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(NewsSeeder::class);
         $this->call(PromocodeSeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(JobofferSeeder::class);
         //  $this->call(EmployeeSeeder::class);
     }
 }

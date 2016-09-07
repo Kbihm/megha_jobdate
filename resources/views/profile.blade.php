@@ -139,7 +139,7 @@
                             <label for="about" class="col-md-4 control-label">Tell us a bit about yourself:</label>
 
                             <div class="col-md-6">
-                                <input id="about" type="text" class="form-control" name="about" value="{{ $user->employee->about }}">
+                                <textarea id="about" type="text" class="form-control" name="about">{{ $user->employee->about }}</textarea>
 
                                 @if ($errors->has('about'))
                                     <span class="help-block">
@@ -280,7 +280,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('establishment_name') ? ' has-error' : '' }}">
-                            <label for="establishment_name" class="col-md-4 control-label">What is your establishment_name? </label>
+                            <label for="establishment_name" class="col-md-4 control-label">What is your Establishment Name? </label>
 
                             <div class="col-md-6">
                                 <input id="establishment_name" type="text" class="form-control" name="establishment_name" value="{{ $user->employer->establishment_name }}">
@@ -295,7 +295,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-success">
-                                     Edit
+                                     Update
                                 </button>
                             </div>
                         </div>

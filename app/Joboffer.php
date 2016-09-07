@@ -18,4 +18,9 @@ class Joboffer extends Model
     // public static $rules = []
 
 
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
 }
