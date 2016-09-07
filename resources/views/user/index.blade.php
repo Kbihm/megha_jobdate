@@ -14,8 +14,8 @@
                                 </div>
                                     <div class="col-sm-6 pull-right">
                                         <div class="progress">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                            aria-valuemin="0" aria-valuemax="100" style="width:<?php $rating = $user->employee->average_rating; echo $rating*10; ?>%"> 
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: <?php $rating = $user->employee->average_rating; echo $rating*10; ?>%"> 
                                             </div>
                                             <div class="col-md-4"> Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% </div>
                                         </div>

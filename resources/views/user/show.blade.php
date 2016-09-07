@@ -1,9 +1,11 @@
 @extends('layouts.app')
     @section('content')
-
+<?php ?>
 
          <h4><small>Employee Profile</small></h4>
-        
+        @foreach($comments as $comment)
+        test
+        @endforeach
         <div class="panel panel-primary">
             <div class="panel-heading" style="height:110px;">
                 <h2 style="height:30px">Named Namington</h2>
@@ -72,31 +74,41 @@
                 <div class="col-md-6" style="height:200px;">
                     <div class="list-group">
                         <a href="#" class="list-group-item active">
-                            Comments <span class="badge">3</span>
+                            Comments <span class="badge"><?php $number = count($comments); echo $number; ?></span>
                         </a>
                         <div class="list-group-item">
-                            <div class="pre-scrollable">
+                            <div class="pre-scrollable" style="height: 125px;">
 
+                            @foreach($comments as $comment)
                                 <div class="list-group-item">
-
                                     <div class="col-sm-2 pull-right">
-                                        <icon class="btn-sm btn-success "><div class="glyphicon glyphicon-thumbs-up"></div> </icon>
+                                        <icon class="btn-sm btn-<?php 
+                                            if($comment->rating == 1){
+                                            echo"danger";}
+                                            elseif($comment->rating == 2){
+                                            echo"warning";}
+                                            elseif($comment->rating == 3){
+                                            echo"success";}
+                                            ?>
+                                            "> 
+                                            </icon>
                                     </div>
-                                    Name was a great worker! On time and works hard.
+                                    {{$comment->comment}}                                 
+                                    
+                                    @if (Auth::user()->admin_id != null)
+                                        <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type-"submit" class="btn btn-danger"> Delete </button>
+                                        </form>
+                                    @endif
                                 </div>
-
-                                <div class="list-group-item">
-                                First Comment
-                                </div>
-
-                                <div class="list-group-item">
-                                Pagination when comments exist
-                                </div>  
+                            @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="pull-right col-md-6"><button href="/comments/create/{{$user->id}}" class="btn btn-success">Leave A Review</button></div>
+                <div class="pull-right col-md-6"><a href="/admin/comments/create" class="btn btn-success">Leave A Review</a></div>
                 <div class="pull-right col-md-6"><button href="/jobs/test" class="btn btn-danger">Request Contact Details</button></div>
                 <div class="pull-right col-md-3"><h1>Availability</h1></div>
             </div>

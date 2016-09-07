@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Comment;
 
 class UserController extends Controller
 {
@@ -22,7 +23,8 @@ class UserController extends Controller
         // THIS IS A LIAM MADE FUNCTION //
         public function show($id) {
         $user = User::find($id);
-        return view('user.show', compact('user'));
+        $comments = Comment::where('user_id', '=', $id)->get();
+        return view('user.show', compact('user', 'comments'));
     }
 
 }
