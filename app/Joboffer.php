@@ -15,7 +15,13 @@ class Joboffer extends Model
         'date'
     ];
 
-    // public static $rules = []
+    public static $rules = [
+        'role' => 'required',
+        'hours' => 'required',
+        'description' => 'required',
+        'time' => 'required',
+        'date' => 'required'
+    ];
 
 
     public function employer()
