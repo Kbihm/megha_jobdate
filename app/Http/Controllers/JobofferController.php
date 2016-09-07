@@ -41,7 +41,7 @@ class JobofferController extends Controller
 
     public function create()
     {
-        
+        return view('joboffers.create');
     }
 
     public function edit($id){

@@ -9,38 +9,63 @@
                 <div class="panel-heading">Create a New Job Listing</div>
                 <div class="panel-body">
  
-                    <form class="form-horizontal" role="form" method="POST" action="/joboffers/create">
-                        {{ csrf_field() }}
+
+                    <form class="form-horizontal" role="form" method="POST" action="/joboffers/store">
+                        {{ csrf_field() }} 
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="date" class="form-control" @if (count($errors)) value="{{ old('date') }}" @endif>
+                            </div>
+                        </div> 
                         
-                        <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                            <label for="date" class="col-md-4 control-label">Date</label>
+                        <?php
+                        use App\Settings;
+                        $roles = Settings::$roles;
+                        ?>
 
-                            <div class="col-md-6">
-                                <input id="date" type="text" class="form-control" name="date" value="{{ old('date') }}">
-
-                                @if ($errors->has('date'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('date') }}</strong>
-                                    </span>
-                                @endif
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Role</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="role" >
+                                    @foreach($roles as $role)
+                                    <option value="{{ $role }}">
+                                        {{ $role }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
-                    
 
-                        <h4> Fields to Add</h4>
-                        <ul>
-                            <li> Role </li>
-                            <li> Hours </li>
-                            <li> Description </li>
-                            <li> Time </li>
-                        </ul>
-
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea style="resize: none;" type="input" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
+                            </div>
+                        </div>
                         
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Create
-                                </button>
+                            <label for="time" class="col-sm-2 control-label">Time:</label>
+                            <div class="btn-group col-sm-10" data-toggle="buttons">
+                            <label class="btn btn-warning col-sm-3">
+                                <input type="checkbox" autocomplete="off" value="morning"> Morning
+                            </label>
+                            <label class="btn btn-danger col-sm-3">
+                                <input type="checkbox" autocomplete="off" value="lunch"> Lunch
+                            </label>
+                            <label class="btn btn-primary col-sm-3">
+                                <input type="checkbox" autocomplete="off" value="evening"> Evening
+                            </label>
+                        </div>
+
+                        <div class="col-sm-offset-5">
+                                <div class="col-sm-4">
+                                    <button class="btn btn-success form-control" type="submit" >
+                                        Create
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>
