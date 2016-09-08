@@ -12,8 +12,13 @@ class CreateExperienceTable extends Migration
      */
     public function up()
     {
-        Schema::create('experience', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('employee_id')->unsigned();
+            $table->string('title');
+            $table->longtext('description');
+            $table->string('employment_length');
+            $table->string('establishment_name');
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ class CreateExperienceTable extends Migration
      */
     public function down()
     {
-        Schema::drop('experience');
+        Schema::drop('experiences');
     }
 }
