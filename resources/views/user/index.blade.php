@@ -10,7 +10,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                 <div class="col-sm-4">
-                                        <h4>{{$user->first_name}} {{$user->last_name}}</h4> 
+                                        <a href="/admin/user/{{ $user->id }}" ><h4>{{$user->first_name}} {{$user->last_name}}</h4> </a>
                                 </div>
                                     <div class="col-sm-6 pull-right">
                                         <div class="progress">

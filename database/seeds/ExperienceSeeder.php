@@ -21,5 +21,13 @@ class ExperienceSeeder extends Seeder
         $experience->establishment_name = "Zullaz";
         $experience->save();
 
+        $experience = new Experience;
+        $experience->employee_id = 1;
+        $experience->title = "Lead Dishwasher";
+        $experience->description = "In this role I completed several duties, including cleaning dishes and checking stock.";
+        $experience->employment_length = "Jan 2014 - Jan 2015 (12 Months)";
+        $experience->establishment_name = "Alfresco on Elston";
+        $experience->save();
+
     }
 }

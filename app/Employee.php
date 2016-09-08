@@ -26,9 +26,19 @@ class Employee extends User
         'skills' => 'required'
     ];
 
-    public function accept_request($request_id)
-    {
+    // public function accept_request($request_id)
+    // {
 
+    // }
+
+    public function experience()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    public function skill()
+    {
+        return $this->hasMany(Skill::class);
     }
 
 }
