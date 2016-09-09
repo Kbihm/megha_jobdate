@@ -51,7 +51,7 @@
 
                                 <div class="form-group{{ $errors->has('employee_registration_blocked') ? ' has-error' : '' }}">
                                     <label>Employee Registration Blocked</label> <br/>
-                                    <input type="checkbox" name="employee_registration_blocked" value="{{ $settings->employee_registration_blocked }}" class="">
+                                    <input type="checkbox" name="employee_registration_blocked" value="{{ $settings->employee_registration_blocked }}"  class="">
                                 <span class="help-block">
                                         <strong>{{ $errors->first('employee_registration_blocked') }}</strong>
                                     </span>

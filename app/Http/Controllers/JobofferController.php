@@ -26,7 +26,7 @@ class JobofferController extends Controller
 
     public function show($id)
     {
-
+        // set $joboffers to the result all joboffers with the user's ID listed in the INVITATION table(links to joboffers/employee.blade.php)
     }
 
     public function store(Request $request)
