@@ -26,8 +26,9 @@
                 </tr>
                 @endforeach
 
-
-            </table>
+            </table>    
+        
+            {{ $comments->links() }}
 
     </div>
 
