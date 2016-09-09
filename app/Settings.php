@@ -17,10 +17,10 @@ class Settings extends Model
 
     public static $rules = [
         'sub_days' => 'required',
-        'sub_price' => 'required|float',
+        'sub_price' => 'required',
         'support_email' => 'required|email',
         'dispute_email' => 'required|email',
-        'employee_registration_blocked' => 'required'
+        'employee_registration_blocked' => 'required|boolean'
     ];
 
     public static $roles = [
