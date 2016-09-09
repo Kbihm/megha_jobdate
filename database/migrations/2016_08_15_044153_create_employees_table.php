@@ -14,6 +14,7 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
             $table->string('phone');
             $table->integer('average_rating');

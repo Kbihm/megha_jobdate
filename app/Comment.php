@@ -32,4 +32,14 @@ class Comment extends Model
         
     }
 
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
+    public function employer()
+    {
+        return $this->belongsTo(Employer::class);
+    }
+
 }

@@ -13,10 +13,18 @@ class CommentSeeder extends Seeder
     public function run()
     {
         $comment = new Comment;
-        $comment->owner_user_id = '4';
-        $comment->user_id = '2';
+        $comment->employee_id = 1;
+        $comment->employer_id = 1;
         $comment->comment = 'Well Um Ahh';
         $comment->rating = '2';
+        $comment->save();
+
+        $comment = new Comment;
+        $comment->employee_id = 1;
+        $comment->employer_id = 1;
+        $comment->comment = 'Sub Par Performance!';
+        $comment->rating = 1;
+        $comment->approved = true;
         $comment->save();
 
     }

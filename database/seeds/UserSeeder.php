@@ -50,7 +50,10 @@ class UserSeeder extends Seeder
         $user->employee_id = $employee->id;
         $user->save();
 
-                $employee = new Employee;
+        $employee->user_id = $user->id;
+        $employee->save();
+
+        $employee = new Employee;
         $employee->phone = '0400020000';
         $employee->average_rating = '2.2';
         $employee->about = 'This is an awesome about feature for details!';
@@ -66,6 +69,9 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('password');
         $user->employee_id = $employee->id;
         $user->save();
+
+        $employee->user_id = $user->id;
+        $employee->save();
 
         /**
          *  Employer Account
@@ -86,6 +92,9 @@ class UserSeeder extends Seeder
         $user->password = bcrypt('password');
         $user->employer_id = $employer->id;
         $user->save();
+
+        $employer->user_id = $user->id;
+        $employer->save();
 
     }
 }

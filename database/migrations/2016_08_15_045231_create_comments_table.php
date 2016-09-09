@@ -14,11 +14,12 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('owner_user_id'); // Person comment was made by
-            $table->integer('user_id'); //Person comment is about
+            $table->integer('employer_id'); // Person comment was made by
+            $table->integer('employee_id'); //Person comment is about
             $table->string('comment')->nullable();
             $table->integer('rating');
             $table->integer('prefilled_number')->nullable();
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }

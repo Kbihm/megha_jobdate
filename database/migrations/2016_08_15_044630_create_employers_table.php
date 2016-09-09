@@ -14,6 +14,7 @@ class CreateEmployersTable extends Migration
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('abn');
             $table->string('address');
             $table->string('promo_code')->nullable();
