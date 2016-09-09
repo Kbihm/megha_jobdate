@@ -23,7 +23,7 @@
 
                 <div><a href="/admin/comments/create" class="btn btn-primary">Leave A Review</a></div>
                 <br>
-                <div><button href="/jobs/test" class="btn btn-primary">Request Contact Details</button></div>
+                <div><button href="#" class="btn btn-primary">Invite to Job</button></div>
                 
 
             </div>
@@ -78,10 +78,12 @@
 
         <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Reviews about {{$user->first_name}} from other Employers</h3>
+                    <h3 class="panel-title">Reviews about {{$user->first_name}} from other JobDate Employers</h3>
                 </div>
                 <div class="panel-body">
-                    @foreach($comments as $comment)
+                    @if (sizeof($user->employee->comments) > 0)
+                    @foreach($user->employee->comments as $comment)
+                        @if ($comment-> approved != 0)
                                 <div class="list-group-item">
                                     <div class="col-sm-2 pull-right">
                                         <icon class="btn-sm btn-<?php 
@@ -105,7 +107,11 @@
                                         </form>
                                     @endif
                                 </div>
+                        @endif
                     @endforeach
+                    @else
+                     Looks like there aren't any reviews for {{$user->first_name }} just yet.
+                    @endif
                 </div>
             </div>
 

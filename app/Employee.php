@@ -41,6 +41,11 @@ class Employee extends User
         return $this->hasMany(Skill::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

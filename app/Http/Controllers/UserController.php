@@ -15,16 +15,17 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function index() 
+    {
         $users = User::all();
         return view('user.index', compact('users'));
     }
 
-        // THIS IS A LIAM MADE FUNCTION //
-        public function show($id) {
+    // THIS IS A LIAM MADE FUNCTION //
+    public function show($id) 
+    {
         $user = User::find($id);
-        $comments = Comment::where('user_id', '=', $id)->get();
-        return view('user.show', compact('user', 'comments'));
+        return view('user.show', compact('user'));
     }
 
 }
