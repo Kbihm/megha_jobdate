@@ -31,7 +31,7 @@ class PromoCodeController extends Controller
 
     public function index() 
     {
-        $promocodes = Promocode::all();
+        $promocodes = Promocode::paginate(20);
         return view('promocode.index', compact('promocodes'));
     }
 

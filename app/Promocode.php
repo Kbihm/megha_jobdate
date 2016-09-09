@@ -17,7 +17,7 @@ class Promocode extends Model
     public static $rules = [
         'number_of_uses' => 'required',
         'days' => 'required',
-        'expiry' => 'required',
+        'expiry' => 'required|date',
         'code' => 'required'
     ];
 

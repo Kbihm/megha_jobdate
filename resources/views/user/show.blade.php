@@ -14,17 +14,27 @@
                 <hr>
 
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                    aria-valuemin="0" aria-valuemax="100" style="width:<?php $rating = $user->employee->average_rating; echo $rating*10; ?>%">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{ $user->employee->average_rating * 10 }}%;"
+                    aria-valuemin="0" aria-valuemax="100">
                         
                     </div>
                     <div class="col-md-4" style="color:black; text-align: center;"> Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% </div>
                 </div>
 
-                <div><a href="/admin/comments/create" class="btn btn-primary">Leave A Review</a></div>
-                <br>
-                <div><button href="#" class="btn btn-primary">Invite to Job</button></div>
-                
+                <div class="list-group">
+                    <a href="/admin/comments/create" class="list-group-item">
+                        <span class="badge">{{ sizeof(App\Comment::where('employee_id', $user->employee_id)->where('approved', true)->get()) }}</span>
+                        Review {{ $user->first_name }}
+                    </a>
+                    <a href="#" class="list-group-item">
+                        Invite {{ $user->first_name }} to a Job
+                    </a>
+                    @if (Auth::user()->admin_id != null)
+                    <a href="#" class="list-group-item">
+                        Delete {{ $user->first_name }}'s Account
+                    </a>      
+                    @endif
+                </div>
 
             </div>
 
@@ -36,6 +46,15 @@
                 </div>
                 <div class="panel-body">
                     <p>{{$user->employee->about}}</p>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{$user->first_name}}'s Availability</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>Feature in later version.</h4>
                 </div>
             </div>
 
@@ -84,29 +103,30 @@
                     @if (sizeof($user->employee->comments) > 0)
                     @foreach($user->employee->comments as $comment)
                         @if ($comment-> approved != 0)
-                                <div class="list-group-item">
-                                    <div class="col-sm-2 pull-right">
-                                        <icon class="btn-sm btn-<?php 
-                                            if($comment->rating == 1){
-                                            echo"danger";}
-                                            elseif($comment->rating == 2){
-                                            echo"warning";}
-                                            elseif($comment->rating == 3){
-                                            echo"success";}
-                                            ?>
-                                            "> 
-                                            </icon>
+                                <blockquote>
+                                    <div class="pull-right">
+                                    @if ($comment->rating == 1)
+                                        <span class="label label-danger">Negative</span>
+                                    @elseif ($comment->rating == 2)
+                                        <span class="label label-default">Neutral</span>
+                                    @elseif ($comment->rating == 3)
+                                        <span class="label label-success">Positive</span>
+                                    @endif
                                     </div>
-                                    {{$comment->comment}}                                 
-                                    
-                                    @if (Auth::user()->admin_id != null)
+                                    <p>{{$comment->comment}}<p>
+                                    <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }} </small>
+
+                                    @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
                                         <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button type-"submit" class="btn btn-danger"> Delete </button>
+                                            <button type-"submit" class="btn btn-danger btn-xs"> Delete </button>
                                         </form>
                                     @endif
-                                </div>
+                                </blockquote>                             
+                                    
+                                    
+    
                         @endif
                     @endforeach
                     @else

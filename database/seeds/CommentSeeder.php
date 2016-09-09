@@ -16,7 +16,15 @@ class CommentSeeder extends Seeder
         $comment->employee_id = 1;
         $comment->employer_id = 1;
         $comment->comment = 'Well Um Ahh';
-        $comment->rating = '2';
+        $comment->rating = 2;
+        $comment->approved = true;
+        $comment->save();
+
+        $comment = new Comment;
+        $comment->employee_id = 1;
+        $comment->employer_id = 1;
+        $comment->comment = 'Well Um Ahh';
+        $comment->rating = 2;
         $comment->save();
 
         $comment = new Comment;
@@ -24,6 +32,14 @@ class CommentSeeder extends Seeder
         $comment->employer_id = 1;
         $comment->comment = 'Sub Par Performance!';
         $comment->rating = 1;
+        $comment->approved = true;
+        $comment->save();
+
+        $comment = new Comment;
+        $comment->employee_id = 1;
+        $comment->employer_id = 1;
+        $comment->comment = 'Awesome Performance!';
+        $comment->rating = 3;
         $comment->approved = true;
         $comment->save();
 
