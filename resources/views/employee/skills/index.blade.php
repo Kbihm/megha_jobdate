@@ -14,6 +14,9 @@
                 <div class="panel panel-primary">    
                     <div class="panel-heading">
                         {{ $skill->skill }}
+                        <div class="pull-right">
+                        <a href="/skills/{{ $skill->id }}/delete" class="btn btn-primary"> Delete </a>
+                        </div>
                     </div>
                 </div>
                 
