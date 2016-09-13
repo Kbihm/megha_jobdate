@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\User;
+use App\Skill;
+use App\Experience;
 use App\Comment;
 
 class UserController extends Controller
@@ -25,7 +26,9 @@ class UserController extends Controller
     public function show($id) 
     {
         $user = User::find($id);
-        return view('user.show', compact('user'));
+        $skills = Skill::where('employee_id', '=', $id)->get();
+        $experiences = Experience::where('employee_id', '=', $id)->get();
+        return view('user.show', compact('user', 'skills', 'experiences'));
     }
 
 }

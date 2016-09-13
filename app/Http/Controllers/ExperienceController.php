@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use App\Experience;
+use Auth;
 
 class ExperienceController extends Controller
 {
@@ -15,7 +16,9 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $experiences = Experience::where('employee_id', '=', $id)->get();
+        return view('employee.experience.index', compact('experiences'));
     }
 
     /**
@@ -25,7 +28,8 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        return view('employee.experience.create');
+        $user = Auth::user()->id;
+        return view('employee.experience.create', compact('user'));
     }
 
     /**
@@ -36,7 +40,10 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $this->validate($request, Experience::$rules);
+        $experience = new Experience($request->all());
+        $experience->save();
+        return redirect('/experience');
     }
 
     /**
@@ -81,6 +88,8 @@ class ExperienceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $skill = Experience::find($id);
+        $skill->delete();
+        return redirect('/experiences');
     }
 }

@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                 <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/experience/create">
+                <form class="form-horizontal" role="form" method="POST" action="/experience/">
                         {{ csrf_field() }}
                 <br>
                     <div class="form-group">
@@ -39,6 +39,7 @@
                             <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
                         </div>
                     </div> 
+                     <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">

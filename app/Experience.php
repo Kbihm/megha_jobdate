@@ -11,14 +11,16 @@ class Experience extends Model
         'title',
         'description',
         'employment_length',
-        'establishment_name'
+        'establishment_name',
+        'employee_id'
     ];
 
     public static $rules = [
         'title' => 'required',
         'description' => 'required',
         'employment_length' => 'required',
-        'establishment_name' => 'required'
+        'establishment_name' => 'required',
+        'employee_id' => 'required'
     ];
 
 }

@@ -63,9 +63,9 @@
                 <h3 class="panel-title">Skills</h3>
             </div>
             <div class="panel-body">
-                @if (sizeof($user->employee->skill) > 0)
+                @if (sizeof($skills) > 0)
                 <ul>
-                    @foreach ($user->employee->skill as $skill)
+                    @foreach ($skills as $skill)
                     <li> {{ $skill->skill }} </li>
                     @endforeach
                 </ul>
@@ -78,11 +78,11 @@
         
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Experience</h3>
+                <h3 class="panel-title">Experiences</h3>
             </div>
             <div class="panel-body">
-                @if (sizeof($user->employee->experience) > 0)
-                    @foreach ($user->employee->experience as $experience)
+                @if (sizeof($experiences) > 0)
+                    @foreach ($experiences as $experience)
                     <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
                     <h6> {{ $experience->employment_length }} </h6>
                     <p> {{ $experience->description }} </p>

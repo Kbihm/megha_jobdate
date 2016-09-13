@@ -10,33 +10,42 @@
             <hr>
 
             @foreach($experiences as $experience)
-
                 <div class="panel panel-primary">    
                     <div class="panel-heading">
-                        {{ $experience->title }} at {{ $experience->establishment_name }}
+                     <h4 style="color:white;">   Job at <strong> {{ $experience->establishment_name }} </strong> </h4>
+
                     </div>
  
                     <div  class="panel-body">
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Employment Length: $experience->employment_length</h4>
+                                Role: <h4>{{ $experience->title }}</h4>
+                            </div>
+                            <div class="col-md-6">
+                                Employment Length: <h4>{{ $experience->employment_length }}</h4>
                             </div>
                         </div>
 
                         <hr>
-                        <h4>Description </h4>
+                        <h4>Description: </h4>
                         {{ $experience->description }}
+        
                         <br>
                         <hr>
-                        <a href="/experience/{{ $experience->id }}/edit" class="btn btn-primary">Edit </a>
+                        
+                        <div class="pull-right">
+                            <form class="form-horizontal" role="form" method="POST" action="/experience/{{ $experience->id }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type-"submit" class="btn btn-danger"> Delete </button>
+                                </form>
+                         </div>
 
                     </div>
-                </div>
-                
+                </div>                
             @endforeach 
             
     </div>
 
 @endsection           
-
