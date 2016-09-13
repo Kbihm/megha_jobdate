@@ -27,7 +27,7 @@ class CommentsController extends Controller
         $comments = Comment::paginate(15);
         return view('comments.index', compact('comments'));
     }
-
+    
     /**
      * Show the form for creating a comment.
      */

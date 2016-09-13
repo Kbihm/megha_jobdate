@@ -23,6 +23,16 @@ class JobofferController extends Controller
         $joboffers = Joboffer::all();
         return view('joboffers.index', compact('joboffers'));
     }
+        
+    public function test()
+    {      
+       
+        $user = Auth::user();
+        //$joboffers = Joboffer::where('employer_id', $user->employee_id)->get();
+        $joboffers = Joboffer::all();
+        return view('joboffers.index', compact('joboffers'));
+    }
+
 
     public function show($id)
     {

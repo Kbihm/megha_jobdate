@@ -34,7 +34,7 @@
                                    </div>
                                    <div class="col-md-3">
                                         <strong> availability </strong>
-                                        <button class="btn"> Send Job Offer </button>
+                                        <a class="btn" href="/offers/{{$user->id}}"> Send Job Offer </a>
                                    </div>
                             </div>
                             </div>
