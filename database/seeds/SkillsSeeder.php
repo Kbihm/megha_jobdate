@@ -14,18 +14,18 @@ class SkillsSeeder extends Seeder
     {
         
         $skill = new Skill;
-        $skill->name = "Cocktail Making";
-        $skill->employee_id = 1;
+        $skill->skill = "Cocktail Making";
+        $skill->employee_id = 2;
         $skill->save();
 
         $skill = new Skill;
-        $skill->name = "Customer Service";
-        $skill->employee_id = 1;
+        $skill->skill = "Customer Service";
+        $skill->employee_id = 2;
         $skill->save();
 
         $skill = new Skill;
-        $skill->name = "Certificate IV in Food Safety";
-        $skill->employee_id = 1;
+        $skill->skill = "Certificate IV in Food Safety";
+        $skill->employee_id = 2;
         $skill->save();
 
     }

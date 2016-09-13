@@ -8,11 +8,13 @@ class Skill extends Model
 {
     
     protected $fillable = [
-        'name'
+        'skill',
+        'employee_id'
     ];
 
     public static $rules = [
-        'name' => 'required|min:3'
+        'skill' => 'required|min:3',
+        'employee_id' => 'int'
     ];
 
 }

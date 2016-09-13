@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                 <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/skills/create">
+                <form class="form-horizontal" role="form" method="POST" action="/skills">
                         {{ csrf_field() }}
                 <br>
                     
@@ -20,13 +20,14 @@
                             <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
                         </div>
                     </div> 
+                    <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
                                     Submit
                                 </button>
                             </div>
-                        </div>
+                        </div>  
                     </form>
                 </div>
         </div>

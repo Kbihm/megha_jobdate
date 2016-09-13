@@ -17,7 +17,7 @@
             </div>
 
             Email: {{$user->email}} <br/>
-
+            ID: {{$user->id}}
 
             <hr>
 
@@ -163,6 +163,11 @@
                             </div>
                         </div>
                         
+                        <div class="col-md-offset-3">
+                            <a href="skills/create" class="btn btn-primary"> Add Skills </a>
+                            <a href="experiences/create" class="btn btn-primary"> Add Experiences </a>
+                        </div>
+                        <br>
                         
                         
                         <div class="form-group">

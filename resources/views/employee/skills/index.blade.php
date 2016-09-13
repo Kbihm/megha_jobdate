@@ -8,20 +8,24 @@
 
             <h2> My Skills </h2>
             <hr>
-
+            <ul class="list-group">
             @foreach($skills as $skill)
 
-                <div class="panel panel-primary">    
-                    <div class="panel-heading">
-                        {{ $skill->skill }}
-                        <div class="pull-right">
-                        <a href="/skills/{{ $skill->id }}/delete" class="btn btn-primary"> Delete </a>
-                        </div>
-                    </div>
-                </div>
+                        <li class="list-group-item" style="height:60px;">
+                        <strong> {{ $skill->skill }} </strong>
+                         <div class="pull-right">
+                            <form class="form-horizontal" role="form" method="POST" action="/skills/{{ $skill->id }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type-"submit" class="btn btn-danger"> Delete </button>
+                                </form>
+                         </div>
+
+                        </li>
+
                 
             @endforeach 
-            
+            </ul>
     </div>
 
 @endsection           

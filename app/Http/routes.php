@@ -42,6 +42,8 @@ Route::get('/home', 'HomeController@index');
 
 //Employee
 Route::resource('/my-reviews', 'EmployeeCommentsController');
+Route::resource('/skills', 'SkillsController');
+Route::resource('/experience', 'ExperienceController');
 
 
 //Employer
