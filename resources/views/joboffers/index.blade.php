@@ -4,9 +4,10 @@
 
     <div class="col-md-8 col-md-offset-2">
 
+         @if (Auth::user()->employer_id != null)
            <a href="{{ URL::to('jobs/create') }} " class ="btn btn-success"> New Job Offer </a>            
-
-            <h2> My Job Listings </h2>
+         @endif
+            <h2> Job Listings </h2>
             <hr>
 
             @foreach($joboffers as $joboffer)
@@ -34,8 +35,11 @@
                         {{ $joboffer->description }}
                         <br>
                         <hr>
+                          @if (Auth::user()->employer_id != null)
                         <a href="/offers/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
-
+                          @elseif (Auth::user()->employee_id != null)
+                            <a href="/offers/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
+                          @endif
                     </div>
                 </div>
                 
