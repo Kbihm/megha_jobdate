@@ -90,6 +90,6 @@ class ExperienceController extends Controller
     {
         $skill = Experience::find($id);
         $skill->delete();
-        return redirect('/experiences');
+        return redirect('/experience');
     }
 }
