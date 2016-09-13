@@ -26,6 +26,7 @@ class SettingsController extends Controller
     {
         $this->validate($request, Settings::$rules);
         $setting = Settings::find($id);
+        dd($request);
         $setting->update($request->all());
         $setting->save();
         return redirect('admin/settings');

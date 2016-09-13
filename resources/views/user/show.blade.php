@@ -66,7 +66,7 @@
                 @if (sizeof($user->employee->skill) > 0)
                 <ul>
                     @foreach ($user->employee->skill as $skill)
-                    <li> {{ $skill->name }} </li>
+                    <li> {{ $skill->skill }} </li>
                     @endforeach
                 </ul>
                 @else
