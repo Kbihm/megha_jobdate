@@ -1,5 +1,4 @@
- 
- @extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 
     <div class="row">
@@ -8,10 +7,13 @@
 
         <h4> Manage your account </h4>
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#user" data-toggle="tab" aria-expanded="false">User Information</a></li>
+            <li class="active"><a href="#user" data-toggle="tab" aria-expanded="false">Your Information</a></li>
             @if ($user->employee_id != null)
             <li class=""><a href="#skills" data-toggle="tab" aria-expanded="true">Skills</a></li>
             <li class=""><a href="#experience" data-toggle="tab" aria-expanded="true">Experience</a></li>
+            @endif
+            @if ($user->employer_id != null)
+            <li class=""><a href="#subscription" data-toggle="tab" aria-expanded="true">Subscription</a></li>
             @endif
             <li class=""><a href="#security" data-toggle="tab" aria-expanded="true">Security</a></li>
         </ul>
@@ -34,10 +36,8 @@
             </div>
             <div class="panel-body">
 
-            <hr>
-
             @if (Auth::user()->admin_id != null)
-                You're an admin, you don't have any custom attributes. 
+                <h1> You're an admin, you don't have any custom attributes. </h1>
             @elseif (Auth::user()->employee_id != null)
 
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
@@ -195,7 +195,6 @@
                 </div>
 
             @elseif (Auth::user()->employer_id != null)
-                    <h2 class="text-danger text-center"> Subscription Ends: {{ $user->employer->subscription_end }} </h2>
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -232,7 +231,7 @@
                             <label for="email" class="col-md-4 control-label">E-mail:</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" disabled="disabled">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -241,20 +240,6 @@
                                 @endif
                             </div>
                         </div> 
-
-                        <div class="form-group{{ $errors->has('email_confirm') ? ' has-error' : '' }}">
-                            <label for="email_confirm" class="col-md-4 control-label">Confirm E-mail:</label>
-
-                            <div class="col-md-6">
-                                <input id="email_confirm" type="text" class="form-control" name="email_confirm" value="{{ $user->email }}">
-
-                                @if ($errors->has('email_confirm'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email_confirm') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>         
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="phone" class="col-md-4 control-label">Phone Number:</label>
@@ -363,6 +348,9 @@
             </div>
 
         </div>
+        <!--
+            SECURITY
+        -->
         <div class="tab-pane fade" id="security">
            
             <div class="panel panel-primary">
@@ -373,6 +361,25 @@
                 Add Change Password form at later date.
             </div>
             </div>
+        </div>
+
+        <!--
+            Subscription
+        -->
+        <div class="tab-pane fade" id="subscription">
+           
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Subscription</h3>
+            </div>
+            <div class="panel-body">
+                Coming Soon!
+
+                <h2 class="text-danger text-center"> Subscription Ends: {{ $user->employer->subscription_end }} </h2>
+            </div>
+        </div>
+
+        </div>
 
             
         </div>
