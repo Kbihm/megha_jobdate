@@ -50,7 +50,7 @@ class SkillsController extends Controller
         // $this->validate($request, Skills::$rules);
         $skill = new Skill($request->all());
         $skill->save();
-        return redirect('/skills');
+        return redirect()->back();
     }
 
     /**

@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                 <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/joboffers/create">
+                <form class="form-horizontal" role="form" method="POST" action="/comments/create">
                         {{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('rating') ? ' has-error' : '' }}">

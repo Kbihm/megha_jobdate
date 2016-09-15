@@ -43,7 +43,7 @@ class ExperienceController extends Controller
         // $this->validate($request, Experience::$rules);
         $experience = new Experience($request->all());
         $experience->save();
-        return redirect('/experience');
+        return redirect()->back();
     }
 
     /**
@@ -90,6 +90,6 @@ class ExperienceController extends Controller
     {
         $skill = Experience::find($id);
         $skill->delete();
-        return redirect('/experience');
+        return redirect(('/experience'));
     }
 }

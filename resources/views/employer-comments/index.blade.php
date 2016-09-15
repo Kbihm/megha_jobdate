@@ -1,26 +1,33 @@
-
+ 
  @extends('layouts.app')
 @section('content')
-           
-            <div class="row">
 
-            <div class="col-md-3">
+    <div class="col-md-12">
 
-                <h3 class="page-title"> test </h3>
-                <hr>
-                
-            <div class="col-md-9">
+            <table class="table table-striped table-hover">
 
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Hours etc etc</h3>
-                </div>
-                <div class="panel-body">
-                    <p>test</p>
-                </div>
-            </div>
+                <tr> 
+                    <th>Establishment</th>
+                    <th>Employee</th>
+                    <th>Rating</th>
+                    <th>Description</th>
+                    <th>Approved?</th>
 
+                </tr>
 
-@endsection
+                @foreach($comments as $comment)
+                <tr> 
+                    <td>{{ $comment->employer->establishment_name }}</td>
+                    <td>{{ $comment->employee->user->first_name }} {{ $comment->employee->user->last_name }}</td>
+                    <td>{{ $comment->rating }}</td>
+                    <td>{{ $comment->comment }}</td>
+                    <td>@if ($comment->approved == 0) No @else Yes @endif</td>
+                </tr>
+                @endforeach
 
+            </table>    
+
+    </div>
+
+@endsection           
 
