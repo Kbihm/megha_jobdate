@@ -6,18 +6,33 @@
 
         <div class="col-md-3">
 
+        <h4> Manage your account </h4>
+        <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#user" data-toggle="tab" aria-expanded="false">User Information</a></li>
+            @if ($user->employee_id != null)
+            <li class=""><a href="#skills" data-toggle="tab" aria-expanded="true">Skills</a></li>
+            <li class=""><a href="#experience" data-toggle="tab" aria-expanded="true">Experience</a></li>
+            @endif
+            <li class=""><a href="#security" data-toggle="tab" aria-expanded="true">Security</a></li>
+        </ul>
 
 
         </div>
 
-        <div class="panel col-md-9">
-            <div class="panel-header">
-                <h1> {{ $user->first_name }} {{ $user->last_name }} </h1>
-                <div class="col-md-3 pull-right"> Account Type: Employee</div>
-            </div>
 
-            Email: {{$user->email}} <br/>
-            ID: {{$user->id}}
+        <div class="col-md-9">
+        <div id="myTabContent" class="tab-content">
+
+        <!--
+            USER
+        -->
+        <div class="tab-pane fade  active in" id="user">
+
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ $user->first_name }} {{ $user->last_name }}</h3>
+            </div>
+            <div class="panel-body">
 
             <hr>
 
@@ -25,9 +40,6 @@
                 You're an admin, you don't have any custom attributes. 
             @elseif (Auth::user()->employee_id != null)
 
-
-                 <div class="panel-body">
- 
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -64,7 +76,7 @@
                             <label for="email" class="col-md-4 control-label">E-mail:</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" disabled="disabled">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -74,6 +86,7 @@
                             </div>
                         </div> 
 
+                        <!-- Is this really necessary??
                         <div class="form-group{{ $errors->has('email_confirm') ? ' has-error' : '' }}">
                             <label for="email_confirm" class="col-md-4 control-label">Confirm E-mail:</label>
 
@@ -86,7 +99,8 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>         
+                        </div>
+                        -->         
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="phone" class="col-md-4 control-label">Phone Number:</label>
@@ -179,9 +193,9 @@
                         </div>
                     </form>
                 </div>
+
             @elseif (Auth::user()->employer_id != null)
-                                 <div class= "panel-body text-center">
-                    <h2 style="color:red"> Subscription Ends: {{ $user->employer->subscription_end }} <br/> </h2>
+                    <h2 class="text-danger text-center"> Subscription Ends: {{ $user->employer->subscription_end }} </h2>
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -305,13 +319,69 @@
                             </div>
                         </div>
                     </form>
-                </div>
 
             @else
                 No role set, Uh oh... 
             @endif
             
 
+            </div>
+            </div>
+            </div>
+
+        <!--
+            SKILLS
+        -->
+        <div class="tab-pane fade" id="skills">
+                        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Skills</h3>
+            </div>
+            <div class="panel-body">
+                Skill List here.
+
+                <a href="skills/create" class="btn btn-primary"> Add Skills </a>
+                           
+            </div>
+            </div>
+        </div>
+
+        <!--
+            EXPERIENCE
+        -->
+        <div class="tab-pane fade" id="experience">
+             
+
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Experience</h3>
+            </div>
+            <div class="panel-body">
+                Experience List here.
+                <a href="experiences/create" class="btn btn-primary"> Add Experiences </a>
+            </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="security">
+           
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Password</h3>
+            </div>
+            <div class="panel-body">
+                Add Change Password form at later date.
+            </div>
+            </div>
+
+            
+        </div>
+        </div>
+
+
+
+
+        
         </div>
     </div>
 
