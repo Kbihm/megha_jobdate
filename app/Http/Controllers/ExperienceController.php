@@ -17,7 +17,7 @@ class ExperienceController extends Controller
     public function index()
     {
         $id = Auth::user()->id;
-        $experiences = Experience::where('employee_id', '=', $id)->get();
+        $experiences = Experience::where('employee_id', $id)->get();
         return view('employee.experience.index', compact('experiences'));
     }
 

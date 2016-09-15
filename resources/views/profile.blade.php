@@ -84,23 +84,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div> 
-
-                        <!-- Is this really necessary??
-                        <div class="form-group{{ $errors->has('email_confirm') ? ' has-error' : '' }}">
-                            <label for="email_confirm" class="col-md-4 control-label">Confirm E-mail:</label>
-
-                            <div class="col-md-6">
-                                <input id="email_confirm" type="text" class="form-control" name="email_confirm" value="{{ $user->email }}">
-
-                                @if ($errors->has('email_confirm'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email_confirm') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        -->         
+                        </div>     
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <label for="phone" class="col-md-4 control-label">Phone Number:</label>
