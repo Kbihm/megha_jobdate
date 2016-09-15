@@ -58,10 +58,16 @@ Route::resource('/admin/promocode', 'PromocodeController');
 Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/admin/user', 'UserController');
 
-
+use App\Skill;
+use App\Experience;
 Route::get('profile', function() {
 
     $user = Auth::user();
+    if ($user->employee_id != null){
+        $skills = Skill::where('employee_id', '=', $user->id)->get();
+        $experiences = Experience::where('employee_id', $user->id)->get();
+        return view('profile', compact('user', 'skills', 'experiences'));
+    }
     return view('profile', compact('user'));
 
 });

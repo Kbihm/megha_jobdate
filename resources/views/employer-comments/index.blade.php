@@ -6,9 +6,9 @@
 
             <div class="col-md-3">
 
-                <h3 class="page-title"> Job Offer at {{ $joboffer->employer_id->establishment_name }} </h3>
+                <h3 class="page-title"> test </h3>
                 <hr>
-
+                
             <div class="col-md-9">
 
             <div class="panel panel-primary">
