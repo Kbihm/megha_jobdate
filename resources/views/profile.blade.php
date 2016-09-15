@@ -192,7 +192,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
 
             @elseif (Auth::user()->employer_id != null)
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
@@ -366,6 +365,7 @@
         <!--
             Subscription
         -->
+        @if (Auth::user()->employer_id != null)
         <div class="tab-pane fade" id="subscription">
            
             <div class="panel panel-primary">
@@ -380,7 +380,7 @@
         </div>
 
         </div>
-
+        @endif
             
         </div>
         </div>
