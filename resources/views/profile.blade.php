@@ -36,9 +36,9 @@
             </div>
             <div class="panel-body">
 
-            @if (Auth::user()->admin_id != null)
+            @if ($user->admin_id != null)
                 <h1> You're an admin, you don't have any custom attributes. </h1>
-            @elseif (Auth::user()->employee_id != null)
+            @elseif ($user->employee_id != null)
 
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
@@ -177,7 +177,7 @@
                         </div>
                     </form>
 
-            @elseif (Auth::user()->employer_id != null)
+            @elseif ($user->employer_id != null)
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}
@@ -300,23 +300,22 @@
         <!--
             SKILLS
         -->
+        @if ($user->employee_id != null)
         <div class="tab-pane fade" id="skills">
                         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Skills</h3>
             </div>
             <div class="panel-body">
-            @if (isset($skills))
-                @if (sizeof($skills) > 0)
+                @if (sizeof($user->employee->skill) > 0)
                 <ul>
-                    @foreach ($skills as $skill)
+                    @foreach ($user->employee->skill as $skill)
                     <li> {{ $skill->skill }} </li>
                     @endforeach
                 </ul>
                 @else
                  <h3> You don't currently have any skills saved. Try adding one! </h3>
                 @endif
-            @endif
                 <a href="skills/create" class="btn btn-primary"> Add Skills </a>
                            
             </div>
@@ -351,11 +350,12 @@
                 </div>
             </div>
         </div>
-
+        @endif
 
         <!--
             EXPERIENCE
         -->
+        @if ($user->employee_id != null)
         <div class="tab-pane fade" id="experience">
              
 
@@ -364,9 +364,8 @@
                 <h3 class="panel-title">Experience</h3>
             </div>
             <div class="panel-body">
-            @if (isset($experiences))
-                @if (sizeof($experiences) > 0)
-                    @foreach ($experiences as $experience)
+                @if (sizeof($user->employee->experience) > 0)
+                    @foreach ($user->employee->experience as $experience)
                     <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
                     <h6> {{ $experience->employment_length }} </h6>
                     <p> {{ $experience->description }} </p>
@@ -375,7 +374,6 @@
                 @else
                     <h3> You haven't got any experiences saved. Add one now! </h3>
                 @endif
-            @endif
                 <a href="experience/create" class="btn btn-primary"> Add Experiences </a>
             </div>
             </div>
@@ -431,6 +429,7 @@
         </div>
 
         </div>
+        @endif
         <!--
             SECURITY
         -->
@@ -445,11 +444,11 @@
             </div>
             </div>
         </div>
-
+        
         <!--
             Subscription
         -->
-        @if (Auth::user()->employer_id != null)
+        @if ($user->employer_id != null)
         <div class="tab-pane fade" id="subscription">
            
             <div class="panel panel-primary">
