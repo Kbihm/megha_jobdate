@@ -4,7 +4,8 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-            <h2> Job Listings -- This needs to change! Currently Shows All </h2>
+            <h2> Job Listings </h2>
+            <p class="text-muted"> Note: -- This needs to change! Currently Shows All rather than only the employees </p>
             <hr>
 
             @foreach($joboffers as $joboffer)

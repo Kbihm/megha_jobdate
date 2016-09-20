@@ -80,4 +80,10 @@ class CommentsController extends Controller
         return back();
     }
 
+    public function edit($id)
+    {
+        return 'Coming Soon';
+    }
+
+
 }
