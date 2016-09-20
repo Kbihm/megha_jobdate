@@ -14,7 +14,7 @@ class Employer extends Model
     ];
 
     public static $rules = [
-        'abn' => 'required',
+        'abn' => 'required|unique',
         'address' => 'required'
     ];
 

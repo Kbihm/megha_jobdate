@@ -1,39 +1,47 @@
  @extends('layouts.app')
 @section('content')
 
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-3">
+
+        <h4>Search Filters Go Here </h4>
+
+        <ul>
+            <li>Date </li>
+            <li>Time of Day (Morning / Day / Night) </li>
+            <li>Role </li>
+            <li>Looking for fulltime Work </li>
+            <li>Profile Active (Done in background always true) </li>
+        </ul>
+
+
+    </div>
+
+
+    <div class="col-md-9">
         
                     @foreach($users as $user)
                         @if($user->employee_id != null)
 
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <div class="row">
-                                <div class="col-sm-4">
-                                        <a href="/admin/user/{{ $user->id }}" ><h4>{{$user->first_name}} {{$user->last_name}}</h4> </a>
-                                </div>
-                                    <div class="col-sm-6 pull-right">
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: <?php $rating = $user->employee->average_rating; echo $rating*10; ?>%"> 
-                                            </div>
-                                            <div class="col-md-4"> Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% </div>
-                                        </div>
-                                    </div>   
-                                </div>
+                                <a href="/admin/user/{{ $user->id }}" >
+                                    <h3 class="panel-title" style="color:#fff;">{{$user->first_name}} {{$user->last_name}}</h3>
+                                </a>
                             </div>
                             <div class="panel-body">
                                    <div class="col-md-3">
-                                        <img src="http://tinyurl.com/javaltj"></img>
-                                   </div>
-                                   <div class="col-md-3">
-                                        <strong>Hourly Rate: {{$user->employee->hourly_rate}}</strong>
-                                   </div>
-                                   <div class="col-md-3">
-                                        <strong>Bio:</strong> {{ str_limit($user->employee->about, $limit = 100, $end = '...') }}
-                                   </div>
-                                   <div class="col-md-3">
-                                        <strong> availability </strong>
+                                        <img src="http://placehold.it/125x150"></img>
+                                        <hr style="margin-top:10px; margin-bottom:10px;">
+                                        Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% 
+                                   </div>   
+                                   <div class="col-md-9">
+                                        <p>About {{$user->first_name}} </p>
+                                        <ul>
+                                        <li> <strong>Hourly Rate: {{$user->employee->hourly_rate}}</strong> </li>
+                                        <li> <strong>Bio:</strong> {{ str_limit($user->employee->about, $limit = 100, $end = '...') }} </li>
+                                        <li> <strong> Availability </strong> </li>
+                                        </ul>
+
                                         <a class="btn" href="/offers/{{$user->id}}"> Send Job Offer </a>
                                    </div>
                             </div>

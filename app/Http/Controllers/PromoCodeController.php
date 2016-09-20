@@ -68,4 +68,10 @@ class PromoCodeController extends Controller
         return view('promocode.show', compact('promocode'));
     }
 
+    public function edit($id)
+    {
+        $promocode = Promocode::find($id);
+        return view('promocode.show', compact('promocode'));
+    }
+
 }
