@@ -46,9 +46,11 @@ Route::resource('/skills', 'SkillsController');
 Route::resource('/experience', 'ExperienceController');
 
 
+
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::resource('/offers', 'JobofferController');
+Route::resource('/employees', 'UserController');
 
 Route::resource('/jobs', 'JobofferController');
 
