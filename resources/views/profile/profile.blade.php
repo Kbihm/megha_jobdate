@@ -36,7 +36,7 @@
             </div>
             <div class="panel-body">
 
-            @if (Auth::user()->admin_id != null)
+            @if ($user->admin_id != null)
                 <h1> You're an admin, you don't have any custom attributes. </h1>
             @elseif (Auth::user()->employee_id != null)
 
@@ -177,7 +177,7 @@
                         </div>
                     </form>
 
-            @elseif (Auth::user()->employer_id != null)
+            @elseif ($user->employer_id != null)
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH')}}

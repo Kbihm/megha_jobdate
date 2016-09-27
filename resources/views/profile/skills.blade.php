@@ -30,17 +30,15 @@
                 <h3 class="panel-title">Skills</h3>
             </div>
             <div class="panel-body">
-            @if (isset($skills))
-                @if (sizeof($skills) > 0)
+                @if (sizeof($user->employee->skill) > 0)
                 <ul>
-                    @foreach ($skills as $skill)
+                    @foreach ($user->employee->skill as $skill)
                     <li> {{ $skill->skill }} </li>
                     @endforeach
                 </ul>
                 @else
                  <h3> You don't currently have any skills saved. Try adding one! </h3>
                 @endif
-            @endif
                 <a href="skills/create" class="btn btn-primary"> Add Skills </a>
                            
             </div>
@@ -73,6 +71,7 @@
                     </form>
                 </div>
                 </div>
+                
             </div>
         </div>
 

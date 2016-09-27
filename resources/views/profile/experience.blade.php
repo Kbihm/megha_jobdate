@@ -32,9 +32,8 @@
                 <h3 class="panel-title">Experience</h3>
             </div>
             <div class="panel-body">
-            @if (isset($experiences))
-                @if (sizeof($experiences) > 0)
-                    @foreach ($experiences as $experience)
+            @if (sizeof($user->employee->experience) > 0)
+                    @foreach ($user->employee->experience as $experience)
                     <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
                     <h6> {{ $experience->employment_length }} </h6>
                     <p> {{ $experience->description }} </p>
@@ -43,7 +42,6 @@
                 @else
                     <h3> You haven't got any experiences saved. Add one now! </h3>
                 @endif
-            @endif
                 <a href="experience/create" class="btn btn-primary"> Add Experiences </a>
             </div>
             </div>
