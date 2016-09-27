@@ -11,6 +11,12 @@ use Auth;
 class EmployeeJobOfferController extends Controller
 {
     
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->middleware('employee');
+    }
+
     public function index()
     {
         $user = Auth::user();

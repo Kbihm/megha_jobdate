@@ -23,9 +23,7 @@ class PromoCodeController extends Controller
     public function __construct()
     {
        $this->middleware('auth');
-       // Prevent access from any non Admins - This doesn't work!
-        if (Auth::check() && Auth::user()->admin_id == null)
-            return 'Not Authorized.';
+       $this->middleware('admin');
     }
 
     public function index() 
