@@ -7,15 +7,15 @@
 
         <h4> Manage your account </h4>
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="/profile/user" data-toggle="tab" aria-expanded="false">Your Information</a></li>
+            <li class="active"><a href="#user" data-toggle="tab" aria-expanded="false">Your Information</a></li>
             @if ($user->employee_id != null)
-            <li class=""><a href="/profile/skills" data-toggle="tab" aria-expanded="true">Skills</a></li>
-            <li class=""><a href="/profile/experience" data-toggle="tab" aria-expanded="true">Experience</a></li>
+            <li class=""><a href="#skills" data-toggle="tab" aria-expanded="true">Skills</a></li>
+            <li class=""><a href="#experience" data-toggle="tab" aria-expanded="true">Experience</a></li>
             @endif
             @if ($user->employer_id != null)
-            <li class=""><a href="/profile/subscription" data-toggle="tab" aria-expanded="true">Subscription</a></li>
+            <li class=""><a href="#subscription" data-toggle="tab" aria-expanded="true">Subscription</a></li>
             @endif
-            <li class=""><a href="/profile/security" data-toggle="tab" aria-expanded="true">Security</a></li>
+            <li class=""><a href="#security" data-toggle="tab" aria-expanded="true">Security</a></li>
         </ul>
 
 
@@ -28,7 +28,7 @@
         <!--
             USER
         -->
-        <div class="tab-pane fade active in" id="user">
+        <div class="tab-pane fade  active in" id="user">
 
             <div class="panel panel-primary">
             <div class="panel-heading">
@@ -38,7 +38,7 @@
 
             @if ($user->admin_id != null)
                 <h1> You're an admin, you don't have any custom attributes. </h1>
-            @elseif (Auth::user()->employee_id != null)
+            @elseif ($user->employee_id != null)
 
                     <form class="form-horizontal" role="form" method="POST" action="/p/edit">
                         {{ csrf_field() }}
@@ -297,7 +297,174 @@
             </div>
             </div>
 
-       
+        <!--
+            SKILLS
+        -->
+        @if ($user->employee_id != null)
+        <div class="tab-pane fade" id="skills">
+                        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Skills</h3>
+            </div>
+            <div class="panel-body">
+                @if (sizeof($user->employee->skill) > 0)
+                <ul>
+                    @foreach ($user->employee->skill as $skill)
+                    <li> {{ $skill->skill }} </li>
+                    @endforeach
+                </ul>
+                @else
+                 <h3> You don't currently have any skills saved. Try adding one! </h3>
+                @endif
+                <a href="skills/create" class="btn btn-primary"> Add Skills </a>
+                           
+            </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">Add a New Skill</div>
+                <div class="panel-body">
+
+                <div class="text-center">
+                <form class="form-horizontal" role="form" method="POST" action="/skills/">
+                        {{ csrf_field() }}
+                <br>
+                    
+                        
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Skill</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
+                        </div>
+                    </div> 
+                    <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
+                        <div class="form-group">
+                            <div class="text-center" >
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>  
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        <!--
+            EXPERIENCE
+        -->
+        @if ($user->employee_id != null)
+        <div class="tab-pane fade" id="experience">
+             
+
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Experience</h3>
+            </div>
+            <div class="panel-body">
+                @if (sizeof($user->employee->experience) > 0)
+                    @foreach ($user->employee->experience as $experience)
+                    <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
+                    <h6> {{ $experience->employment_length }} </h6>
+                    <p> {{ $experience->description }} </p>
+                    <hr>
+                    @endforeach
+                @else
+                    <h3> You haven't got any experiences saved. Add one now! </h3>
+                @endif
+                <a href="experience/create" class="btn btn-primary"> Add Experiences </a>
+            </div>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Add Past Work Experience</div>
+                <div class="panel-body">
+
+                <div class="text-center">
+                <form class="form-horizontal" role="form" method="POST" action="/experience/">
+                        {{ csrf_field() }}
+                <br>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Position Title:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
+                        </div>
+                    </div> 
+
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Name of Establishment:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
+                        </div>
+                    </div> 
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Employment Length:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
+                        </div>
+                    </div> 
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Describe your roles:</label>
+                        <div class="col-sm-10">
+                            <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
+                        </div>
+                    </div> 
+                     <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
+                        <div class="form-group">
+                            <div class="text-center" >
+                                <button type="submit" class="btn btn-primary">
+                                    Submit Experience
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        @endif
+        <!--
+            SECURITY
+        -->
+        <div class="tab-pane fade" id="security">
+           
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Password</h3>
+            </div>
+            <div class="panel-body">
+                Add Change Password form at later date.
+            </div>
+            </div>
+        </div>
+        
+        <!--
+            Subscription
+        -->
+        @if ($user->employer_id != null)
+        <div class="tab-pane fade" id="subscription">
+           
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Subscription</h3>
+            </div>
+            <div class="panel-body">
+                Coming Soon!
+
+                <h2 class="text-danger text-center"> Subscription Ends: {{ $user->employer->subscription_end }} </h2>
+            </div>
+        </div>
+
+        </div>
+        @endif
+            
         </div>
         </div>
 
