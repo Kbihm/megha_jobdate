@@ -18,7 +18,6 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('user.index', compact('users'));
-        s
     }
     public function show($id) 
     {
