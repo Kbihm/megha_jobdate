@@ -27,7 +27,14 @@ class SettingsController extends Controller
     {
         $this->validate($request, Settings::$rules);
         $setting = Settings::find($id);
-        dd($request);
+
+        if($request['employee_registration_blocked'] = 0){
+            $request['employee_registration_blocked'] = "FALSE";
+        }
+        elseif($request['employee_registration_blocked'] = 1){
+            $request['employee_registration_blocked'] = "TRUE";
+        }
+
         $setting->update($request->all());
         $setting->save();
         return redirect('admin/settings');
