@@ -49,12 +49,9 @@
                                     </span>
                                 </div>
 
-                                <div class="form-group{{ $errors->has('employee_registration_blocked') ? ' has-error' : '' }}">
+                                <div class="form-group">
                                     <label>Employee Registration Blocked</label> <br/>
-                                    <input type="checkbox" name="employee_registration_blocked" value="{{ $settings->employee_registration_blocked }}"  class="">
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('employee_registration_blocked') }}</strong>
-                                    </span>
+                                    <input @if($settings->employee_registration_blocked == 'TRUE') checked="checked" @endif type="checkbox" name="employee_registration_blocked" value="employee_registration_blocked"  class="">
                                 </div>
 
                                 <hr>
