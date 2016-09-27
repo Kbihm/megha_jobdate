@@ -16,9 +16,9 @@ class Employer
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->employer_id == null)
-            return 'Not Authorized to complete this action.';
-        else
+        if (Auth::user()->employer_id != null || Auth::user()->admin_id == null)
             return $next($request);
+        else
+            return 'Not Authorized to complete this action.';
     }
 }
