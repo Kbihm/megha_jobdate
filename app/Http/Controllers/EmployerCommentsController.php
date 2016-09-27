@@ -12,6 +12,12 @@ use Auth;
 class EmployerCommentsController extends Controller
 {
     
+    public function __construct() 
+    {
+        $this->middleware('auth');
+        $this->middleware('employer');
+    }
+
     public function index()
     {
         $user = Auth::user();
