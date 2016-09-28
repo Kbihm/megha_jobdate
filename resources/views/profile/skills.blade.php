@@ -7,10 +7,15 @@
 
         <h4> Manage your account </h4>
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="/profile/user" data-toggle="tab" aria-expanded="false">Your Information</a></li>
-            <li class=""><a href="/profile/skills" data-toggle="tab" aria-expanded="true">Skills</a></li>
-            <li class=""><a href="/profile/experience" data-toggle="tab" aria-expanded="true">Experience</a></li>
-            <li class=""><a href="/profile/security" data-toggle="tab" aria-expanded="true">Security</a></li>
+            <li><a href="/profile">Your Information</a></li>
+            @if ($user->employee_id != null)
+            <li class="active"><a href="/profile/skills" >Skills</a></li>
+            <li class=""><a href="experience">Experience</a></li>
+            @endif
+            @if ($user->employer_id != null)
+            <li class=""><a href="/profile/subscription" >Subscription</a></li>
+            @endif
+            <li class=""><a href="/profile/security">Security</a></li>
         </ul>
 
 
