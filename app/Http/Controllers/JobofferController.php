@@ -32,8 +32,10 @@ class JobofferController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
         $this->validate($request, Joboffer::$rules);
         $joboffer = new Joboffer($request->all());
+        $joboffer->employer_id = $user->employer_id;
         $joboffer->save();
         return redirect('/jobs');
     }

@@ -42,18 +42,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Number of estimated hours:</label>
-                            <div class="col-sm-10">
-                                <textarea style="resize: none;" type="input" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
-                                @if ($errors->has('description'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-                        </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
@@ -65,7 +53,18 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Number of Hours:</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="hours" class="form-control" @if (count($errors)) value="{{ old('hours') }}" @endif></textarea>
+                                @if ($errors->has('hours'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('hours') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                         
                         <div class="form-group">
