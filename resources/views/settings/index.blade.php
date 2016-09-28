@@ -9,7 +9,7 @@
                         <div class="panel-heading">
                         JobDate Settings
                         </div>
-
+                                   
                         <div  class="panel-body">  
                             
                             <form class="form" action="/admin/settings/1" method="POST">
@@ -51,7 +51,11 @@
 
                                 <div class="form-group">
                                     <label>Employee Registration Blocked</label> <br/>
-                                    <input @if($settings->employee_registration_blocked == 'TRUE') checked="checked" @endif type="checkbox" name="employee_registration_blocked" value="employee_registration_blocked"  class="">
+                                    <select name="employee_registration_blocked">
+                                    
+                                    <option @if($settings->employee_registration_blocked == "TRUE") selected @endif value="TRUE">Yes</option>
+                                    <option @if($settings->employee_registration_blocked == "FALSE") selected @endif value="FALSE">No</option>
+                                    </select> 
                                 </div>
 
                                 <hr>

@@ -34,8 +34,8 @@ class JobofferController extends Controller
     {
         $this->validate($request, Joboffer::$rules);
         $joboffer = new Joboffer($request->all());
-        $experience->save();
-        return redirect('/experience');
+        $joboffer->save();
+        return redirect('/jobs');
     }
 
     public function destroy($id)
@@ -47,6 +47,7 @@ class JobofferController extends Controller
 
     public function create()
     {
+
         return view('joboffers.create');
     }
 

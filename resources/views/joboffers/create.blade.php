@@ -10,14 +10,17 @@
                 <div class="panel-body">
  
 
-                    <form class="form-horizontal" role="form" method="POST" action="/joboffers/store">
+                    <form class="form-horizontal" role="form" method="POST" action="/jobs/">
                         {{ csrf_field() }} 
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
                                 <input type="text" name="date" class="form-control" @if (count($errors)) value="{{ old('date') }}" @endif>
+                                @if ($errors->has('date'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('date') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div> 
                         
@@ -40,27 +43,53 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Number of estimated hours:</label>
+                            <div class="col-sm-10">
+                                <textarea style="resize: none;" type="input" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
                             <div class="col-sm-10">
                                 <textarea style="resize: none;" type="input" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                             </div>
+
                         </div>
                         
                         <div class="form-group">
                             <label for="time" class="col-sm-2 control-label">Time:</label>
                             <div class="btn-group col-sm-10" data-toggle="buttons">
                             <label class="btn btn-warning col-sm-3">
-                                <input type="checkbox" autocomplete="off" value="morning"> Morning
+                                <input name="time" type="checkbox" autocomplete="off" value="morning"> Morning
                             </label>
                             <label class="btn btn-danger col-sm-3">
-                                <input type="checkbox" autocomplete="off" value="lunch"> Lunch
+                                <input name="time" type="checkbox" autocomplete="off" value="lunch"> Lunch
                             </label>
                             <label class="btn btn-primary col-sm-3">
-                                <input type="checkbox" autocomplete="off" value="evening"> Evening
+                                <input name="time" type="checkbox" autocomplete="off" value="evening"> Evening
                             </label>
+
                         </div>
 
+
                         <div class="col-sm-offset-5">
+                            @if ($errors->has('time'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('time') }}</strong>
+                                </span>
+                            @endif
                                 <div class="col-sm-4">
                                     <button class="btn btn-success form-control" type="submit" >
                                         Create
