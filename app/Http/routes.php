@@ -58,3 +58,7 @@ Route::resource('/admin/user', 'UserController');
 Route::resource('/email', 'EmailsController');
 
 Route::get('profile', 'UserController@profile');
+Route::get('profile/subscription', 'UserController@subscription');
+Route::get('profile/experience', 'UserController@experience');
+Route::get('profile/skills', 'UserController@skills');
+Route::get('profile/security', 'UserController@security');
