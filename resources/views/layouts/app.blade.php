@@ -64,12 +64,13 @@
 
                         <!-- update to show for employees only --> 
                         <li><a href="/offers">Job Offers</a></li>
-                        <li><a href="/reviews">Reviews</a></li>
+                        <li><a href="/my-reviews">Reviews</a></li>
 
                     @elseif (Auth::user()->employer_id != null)
 
                         <li><a href="/jobs">Jobs</a></li>
                         <li><a href="/admin/user">Search</a></li>
+                        <li><a href="/reviews">Reviews</a></li>
 
                     @else
                         
