@@ -12,7 +12,6 @@ class Employee extends User
         'phone',
         'average_rating',
         'about',
-        'skills',
         'role',
         'gender',
         'fulltime',
@@ -23,7 +22,7 @@ class Employee extends User
         'phone' => 'required',
         'average_rating' => 'required',
         'about' => 'required',
-        'skills' => 'required'
+        'gender' => 'required'
     ];
 
     // public function accept_request($request_id)

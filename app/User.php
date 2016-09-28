@@ -24,6 +24,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static $rules = [
+        'first_name' => 'required', 
+        'last_name' => 'required', 
+        'email' => 'required', 
+        'password' => 'required',
+    ];
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);
