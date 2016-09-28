@@ -6,7 +6,7 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Reviews you've left for JobDate Staff.</h3>
+                    <h3 class="panel-title">Reviews about you from other JobDate Employers</h3>
                 </div>
                 <div class="panel-body">
                     @if (sizeof($comments) > 0)
@@ -39,7 +39,7 @@
                         @endif
                     @endforeach
                     @else
-                     Looks like you haven't left any reviews just yet.
+                     Looks like there aren't any reviews for you just yet.
                     @endif
                 </div>
             </div>

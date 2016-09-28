@@ -9,6 +9,8 @@ use App\Skill;
 use App\Experience;
 use App\Comment;
 use Auth;
+use App\Employee;
+use App\Employer;
 
 class UserController extends Controller
 {
@@ -21,7 +23,6 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // $this->middleware('employer');
     }
 
     public function profile()
@@ -69,5 +70,6 @@ class UserController extends Controller
         $pw_update = true;
         return view('security', compact('user'), $pw_update);
     }
+
 
 }

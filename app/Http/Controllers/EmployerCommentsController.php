@@ -21,7 +21,7 @@ class EmployerCommentsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $comments = Comment::where('owner_user_id', $user->id)->get();
+        $comments = Comment::where('employer_id', $user->employer_id)->get();
         return view('employer-comments.index', compact('comments'));
     }
 
