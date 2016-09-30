@@ -1,6 +1,5 @@
 @extends('layouts.app')
     @section('content')
-<?php ?>
 
         <!--  <small>Employee Profile</small> -->
 
@@ -21,16 +20,37 @@
                     <div class="col-md-4" style="color:black; text-align: center;"> Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% </div>
                 </div>
 
-                <div class="list-group">
-                    <a href="/admin/comments/create" class="list-group-item">
-                        <span class="badge">{{ sizeof(App\Comment::where('employee_id', $user->employee_id)->where('approved', true)->get()) }}</span>
-                        Review {{ $user->first_name }}
-                    </a>
-                    <a href="#" class="list-group-item">
-                        Invite {{ $user->first_name }} to a Job
-                    </a>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default col-md-12">
+                        <div class="col-md-10">
+                            Review {{ $user->first_name }}
+                        </div>
+                        <span class="badge pull-right">{{ sizeof(App\Comment::where('employee_id', $user->employee_id)->where('approved', true)->get()) }}</span>
+                    </button>
+
+                    <button type="button" class="btn btn-default dropdown-toggle col-md-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="col-md-10 pull-left"> 
+                            Invite {{ $user->first_name }} to a Job 
+                        </div> 
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                    @if (isset($jobs))
+                     @foreach($jobs as $job)
+                    <li role="separator" class="divider"></li>
+                    <li><a href="invite/{{$job->id}}">{{$job->date}}, {{$job->time}}</a></li>
+                     @endforeach
+                    @elseif (!isset($jobs))
+                    <li role="seperator" class="divider"> </li>
+                    <li><a href="joboffer/create" class="btn btn-default">You don't have any job listings.</a></li>
+                    @endif
+                    </ul>
+
+                    
+                        
+
                     @if (Auth::user()->admin_id != null)
-                    <a href="#" class="list-group-item">
+                    <button type="button" href="#" class="btn btn-default">
                         Delete {{ $user->first_name }}'s Account
                     </a>      
                     @endif
