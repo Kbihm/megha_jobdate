@@ -36,9 +36,9 @@
                         <br>
                         <hr>
                           @if (Auth::user()->employer_id != null)
-                        <a href="/offers/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
+                        <a href="/jobs/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
                           @elseif (Auth::user()->employee_id != null)
-                            <a href="/offers/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
+                            <a href="/jobs/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
                           @endif
                     </div>
                 </div>
