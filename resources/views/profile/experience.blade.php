@@ -41,12 +41,19 @@
                     <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
                     <h6> {{ $experience->employment_length }} </h6>
                     <p> {{ $experience->description }} </p>
+                        <div>
+                                <form class="form-horizontal" role="form" method="POST" action="/experience/{{ $experience->id }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type-"submit" class="btn btn-danger"> Delete </button>
+                                </form>
+                         </div>
                     <hr>
+
                     @endforeach
                 @else
                     <h3> You haven't got any experiences saved. Add one now! </h3>
                 @endif
-                <a href="experience/create" class="btn btn-primary"> Add Experiences </a>
             </div>
             </div>
 
@@ -87,7 +94,7 @@
                             <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
                         </div>
                     </div> 
-                     <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
+                     <input name="employee_id" class="form-control" type="hidden" value="{{$user->id}}">   
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
@@ -96,6 +103,7 @@
                             </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>
