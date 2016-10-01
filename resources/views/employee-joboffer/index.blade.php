@@ -1,18 +1,17 @@
- 
- @extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 
     <div class="col-md-8 col-md-offset-2">
 
             <h2> Job Listings </h2>
-            <p class="text-muted"> Note: -- This needs to change! Currently Shows All rather than only the employees </p>
+            <p class="text-muted"> Note: Currently Shows All rather than only the employees </p>
             <hr>
 
             @foreach($joboffers as $joboffer)
 
                 <div class="panel panel-primary">    
                     <div class="panel-heading">
-                        {{ $joboffer->role }} at {{ $joboffer->employer->establishment_name }}
+                        {{ $joboffer->role }} at {{ $joboffer->employer['establishment_name'] }}
                     </div>
  
                     <div  class="panel-body">

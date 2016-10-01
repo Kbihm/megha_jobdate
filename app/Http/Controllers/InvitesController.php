@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Invite;
 use Auth;
 use App\Http\Requests;
+use App\Employee;
 
 class InvitesController extends Controller
 {
@@ -17,8 +18,9 @@ class InvitesController extends Controller
     
     public function index()
     {
-        //
+        
     }
+
     public function create()
     {
         //

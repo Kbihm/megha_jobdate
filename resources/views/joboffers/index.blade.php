@@ -33,6 +33,7 @@
                         <h4>Description </h4>
                         {{ $joboffer->description }}
                         <br>
+
                         <hr>
                           @if (Auth::user()->employer_id != null)
                         <a href="/jobs/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>

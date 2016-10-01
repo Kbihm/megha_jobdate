@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use app\User;
+use App\User;
 
-class Employee extends User
+class Employee extends Model
 {
 
     protected $fillable = [
@@ -51,10 +51,9 @@ class Employee extends User
         return $this->belongsTo(User::class);
     }
 
-    public function joboffers()
+    public function invites()
     {
-        // return $this->belongsTo(Joboffers::class);
-        // return $this->morphToMany('App\Invites', 'taggable');
+        return $this->hasMany(Invite::class);
     }
 
 }

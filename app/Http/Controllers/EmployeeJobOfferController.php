@@ -20,7 +20,15 @@ class EmployeeJobOfferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::all();
+        $joboffers = [];
+
+        // This could be done better.
+        for ($i = 0; $i < sizeOf($user->employee->invites); $i++) {
+            array_push($joboffers, $user->employee->invites[$i]->joboffer);
+        }
+
+        // return $user->employee;
+
         return view('employee-joboffer.index', compact('joboffers'));
     }
 

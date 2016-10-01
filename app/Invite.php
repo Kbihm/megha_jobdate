@@ -17,4 +17,14 @@ class Invite extends Model
     ];
 
 
+    public function joboffer()
+    {
+        return $this->belongsTo(Joboffer::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
 }

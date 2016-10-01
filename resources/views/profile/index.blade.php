@@ -430,20 +430,6 @@
 
         </div>
         @endif
-        <!--
-            SECURITY
-        -->
-        <div class="tab-pane fade" id="security">
-           
-            <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Password</h3>
-            </div>
-            <div class="panel-body">
-                Add Change Password form at later date.
-            </div>
-            </div>
-        </div>
         
         <!--
             Subscription
