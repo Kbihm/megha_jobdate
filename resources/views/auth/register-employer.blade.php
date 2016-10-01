@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('abn') ? ' has-error' : '' }}">
-                        <label for="abn" class="col-md-4 control-label">Australian Business Number</label>
+                        <label for="abn" class="col-md-4 control-label">ABN</label>
 
                         <div class="col-md-6">
                             <input id="abn" type="abn" class="form-control" name="abn" value="{{ old('abn') }}">
