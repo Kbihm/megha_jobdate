@@ -1,6 +1,5 @@
 @extends('layouts.app')
     @section('content')
-
         <!--  <small>Employee Profile</small> -->
 
             <div class="row">
@@ -38,7 +37,12 @@
                     @if (isset($jobs))
                      @foreach($jobs as $job)
                     <li role="separator" class="divider"></li>
-                    <li><a href="invite/{{$job->id}}">{{$job->date}}, {{$job->time}}</a></li>
+                    <form method="POST" action="/invite" role="form">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="joboffer_id" value="{{$job->id}}">
+                    <input type="hidden" name="employee_id" value="{{$user->id}}">
+                    <li><button type="submit">{{$job->date}}, {{$job->time}}</button></li>
+                    </form>
                      @endforeach
                     @elseif (!isset($jobs))
                     <li role="seperator" class="divider"> </li>

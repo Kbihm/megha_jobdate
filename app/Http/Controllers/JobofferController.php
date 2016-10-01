@@ -19,7 +19,7 @@ class JobofferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::where('employer_id', $user->employer_id)->get();
+        $joboffers = Joboffer::where('employer_id', $user->id)->get();
         // $joboffers = Joboffer::all();
         return view('joboffers.index', compact('joboffers'));
     }
@@ -35,7 +35,7 @@ class JobofferController extends Controller
         $this->validate($request, Joboffer::$rules);
         
         $joboffer = new Joboffer($request->all());
-        $joboffer->employer_id = $user->employer_id;
+        $joboffer->employer_id = $user->id;
         $joboffer->save();
         return redirect('/jobs');
     }
@@ -60,6 +60,7 @@ class JobofferController extends Controller
     public function update(Request $request, $id)
     { 
         $joboffer = Joboffer::find($id);
+
         $this->validate($request, Joboffer::$rules);
         $joboffer->update($request->all());
         $joboffer->save();

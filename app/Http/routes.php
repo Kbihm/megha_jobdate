@@ -49,6 +49,7 @@ Route::resource('/offers', 'EmployeeJobofferController');
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::resource('/jobs', 'JobofferController');
+Route::resource('/invite', 'InvitesController');
 
 //Admin
 Route::get('/admin/comments/approved', 'CommentsController@approved');
@@ -58,6 +59,7 @@ Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/admin/user', 'ProfileController');
 Route::resource('/email', 'EmailsController');
 
+//Profile
 Route::get('profile', 'UserController@profile');
 Route::get('profile/subscription', 'UserController@subscription');
 Route::get('profile/experience', 'UserController@experience');
