@@ -19,7 +19,7 @@ class Employer
         $user = Auth::user();
         if ($user->employer_id != null || $user->admin_id == null) {
 
-            if ($user->employer->subscribed()) {
+            if ($user->employer->subscribed('main')) {
                 return $next($request);
             }
             else {

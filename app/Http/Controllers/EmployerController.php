@@ -37,8 +37,8 @@ class EmployerController extends Controller
 
     public function cancel() {
         $user = Auth::user();
-        // dd($user->employer->subscription('main'));
-        $user->employer->subscription('main')->cancel();
+        $employer = $user->employer;
+        $employer->subscription('main')->cancel();
         return redirect('profile/subscription');
     }
 

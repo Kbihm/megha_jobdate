@@ -34,11 +34,19 @@
 
             @if (Auth::user()->employer->subscribed('main'))
 
-                <h4> You're currently on a monthly subscription. </h4> 
+                <h4> You're currently on a monthly subscription. </h4>
+                <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}. Your Subscription expires on the {{ $user->employer->subscription('main')->ends_at }}</p>
 
-                @if (Auth::user()->employer->subscription('main')->onGracePeriod())
+                @if ($user->employer->subscription('main')->cancelled())
 
                     You've cancelled your subscription.
+
+                @endif
+
+
+                @if ($user->employer->subscription('main')->onGracePeriod())
+
+                    
 
                     <a href="/subscription/resume" class="btn btn-success"> Resume </a>
 

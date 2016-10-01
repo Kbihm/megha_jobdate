@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Cashier\Billable;
+use Laravel\Cashier\Subscription;
 
 class Employer extends Model
 {
