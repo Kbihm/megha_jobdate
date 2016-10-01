@@ -10,12 +10,16 @@ class Employer extends Model
     protected $fillable = [
         'abn',
         'address',
-        'promo_code'
+        'promo_code',
+        'phone',
+        'establishment_name',
     ];
 
     public static $rules = [
-        'abn' => 'required|unique',
-        'address' => 'required'
+        'abn' => 'required|unique:employers',
+        'address' => 'required',
+        'phone' => 'required',
+        'establishment_name' => 'required'
     ];
 
     /**

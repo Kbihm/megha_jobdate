@@ -21,7 +21,6 @@ class CreateEmployersTable extends Migration
             $table->string('phone');
             $table->string('establishment_name');
             $table->datetime('subscription_end');
-
             $table->boolean('email_confirmed')->default(false);
             // $table->boolean('subscription_active')->default(false);
             

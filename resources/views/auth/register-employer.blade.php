@@ -9,7 +9,7 @@
                 <div class="panel-heading">Register (Employer)</div>
                 <div class="panel-body">
  
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employee') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employer') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">Mobile Number</label>
+                            <label for="phone" class="col-md-4 control-label">Contact Number</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="tel" class="form-control" name="phone" value="{{ old('phone') }}">
@@ -68,64 +68,49 @@
                             </div>
                         </div>
 
-                        
+                        <div class="form-group{{ $errors->has('establishment_name') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Establishment Name</label>
 
-
-                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-                            <label for="role" class="col-md-4 control-label">Role</label>
-                            
                             <div class="col-md-6">
+                                <input id="establishment_name" type="text" class="form-control" name="establishment_name" value="{{ old('establishment_name') }}">
 
-
-                                <select id="role" class="form-control" name="role" value="{{ old('role')}}">
-                                    <option value="waiter"> Waiter/Waitress </option>
-                                    <option value="bartender"> Bartender </option>
-                                    <option value="chef"> Chef </option>
-                                    <option value="kichenhand"> Kitchenhand </option>
-                                    <option value="musician"> Musician </option>
-                                    <option value="barista"> Barista </option>
-                                </select> 
-
-                                @if ($errors->has('role'))
+                                @if ($errors->has('establishment_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
+                                        <strong>{{ $errors->first('establishment_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                            <label for="role" class="col-md-4 control-label">Gender</label>
-                            
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
                             <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
 
-                                <select id="role" class="form-control" name="gender" value="{{ old('gender')}}">
-                                    <option value="Male"> Male </option>
-                                    <option value="Female"> Female </option>
-                                    <option value="Other"> Other </option>
-                                </select> 
-
-                                @if ($errors->has('role'))
+                                @if ($errors->has('address'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('role') }}</strong>
+                                        <strong>{{ $errors->first('address') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('hourly_rate') ? ' has-error' : '' }}">
-                            <label for="hourly_rate" class="col-md-4 control-label">Desired Hourly Rate</label>
+                        <div class="form-group{{ $errors->has('abn') ? ' has-error' : '' }}">
+                        <label for="abn" class="col-md-4 control-label">Australian Business Number</label>
 
-                            <div class="col-md-6">
-                                <input id="hourly_rate" type="text" class="form-control" name="hourly_rate" value="{{ old('hourly_rate') }}">
+                        <div class="col-md-6">
+                            <input id="abn" type="abn" class="form-control" name="abn" value="{{ old('abn') }}">
 
-                                @if ($errors->has('hourly_rate'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('hourly_rate') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            @if ($errors->has('abn'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('abn') }}</strong>
+                                </span>
+                            @endif
                         </div>
+                    </div>
+
+                    <hr>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
@@ -150,6 +135,22 @@
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group{{ $errors->has('promo_code') ? ' has-error' : '' }}">
+                            <label for="promo_code" class="col-md-4 control-label">Promo Code</label>
+
+                            <div class="col-md-6">
+                                <input id="promo_code" type="tel" class="form-control" name="promo_code" value="{{ old('promo_code') }}">
+
+                                @if ($errors->has('promo_code'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('promo_code') }}</strong>
                                     </span>
                                 @endif
                             </div>

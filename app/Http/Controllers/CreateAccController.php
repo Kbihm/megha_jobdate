@@ -23,7 +23,6 @@ class CreateAccController extends Controller
         $user = new User($request->all());
         $employee = new Employee($request->all());
 
-        // $user->password = Hash::make($request->password());
         $user->password = bcrypt($request['password']);
 
         $employee->save();
@@ -39,25 +38,32 @@ class CreateAccController extends Controller
 
     public function CreateEmployer(Request $request) {
 
+        $this->validate($request, User::$rules);
+        $this->validate($request, Employer::$rules);
+
         $user = new User($request->all());
         $employer = new Employer($request->all());
 
-        
-        // $this->validate($request, Employer::$rules);
+        $user->password = bcrypt($request['password']);
 
-        //Not sure if this is required or not.
-        $user->password = Hash::make($user->password());
-
-        $user->save();
         $employer->save();
+        $user->employer_id = $employer->id;
+        $user->save();
 
-        redirect('home');
+        $employer->user_id = $user->id;
+        $user->save();
+        return redirect('home');
 
     }
 
     public function EmployeeRegisterForm()
     {
         return view('auth.register-employee');
+    }
+
+    public function EmployerRegisterForm()
+    {
+        return view('auth.register-employer');
     }
 
 

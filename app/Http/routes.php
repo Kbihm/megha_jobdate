@@ -63,5 +63,9 @@ Route::get('profile/experience', 'UserController@experience');
 Route::get('profile/skills', 'UserController@skills');
 Route::get('profile/security', 'UserController@security');
 
+
+//Creating Accounts
 Route::get('register/employee', 'CreateAccController@EmployeeRegisterForm');
 Route::post('register/employee', 'CreateAccController@CreateEmployee');
+Route::get('register/employer', 'CreateAccController@EmployerRegisterForm');
+Route::post('register/employer', 'CreateAccController@CreateEmployer');
