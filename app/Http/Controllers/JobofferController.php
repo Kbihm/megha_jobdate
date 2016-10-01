@@ -58,10 +58,12 @@ class JobofferController extends Controller
         return view('joboffers.edit', compact('joboffer'));
     }
 
-    public function update(Request $request, Joboffer $joboffer)
+    public function update(Request $request, $id)
     { 
+        $joboffer = Joboffer::find($id);
         $this->validate($request, Joboffer::$rules);
         $joboffer->update($request->all());
+        $joboffer->save();
         return redirect('/jobs');
     }
 
