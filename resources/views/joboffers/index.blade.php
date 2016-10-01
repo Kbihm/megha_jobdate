@@ -1,5 +1,4 @@
- 
- @extends('layouts.app')
+  @extends('layouts.app')
 @section('content')
 
     <div class="col-md-8 col-md-offset-2">
@@ -9,12 +8,12 @@
          @endif
             <h2> Job Listings </h2>
             <hr>
-
+         @if(isset($joboffers))
             @foreach($joboffers as $joboffer)
 
                 <div class="panel panel-primary">    
-                    <div class="panel-heading">
-                        {{ $joboffer->role }} at {{ $joboffer->employer->establishment_name }}
+                    <div class="panel-heading"> 
+                        {{ $joboffer->role }} at {{ Auth::user()->employer->establishment_name }}
                     </div>
  
                     <div  class="panel-body">
@@ -44,7 +43,7 @@
                 </div>
                 
             @endforeach 
-            
+        @endif
     </div>
 
 @endsection           

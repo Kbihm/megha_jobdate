@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Invites;
+use App\Invite;
 use Auth;
 use App\Http\Requests;
 
@@ -24,11 +24,11 @@ class InvitesController extends Controller
         //
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {   
+
         $this->validate($request, Invite::$rules);
         $invite = new Invite($request->all());
-        $invite->employee_id = $id;
         $invite->save();
         return redirect('/jobs');
     }

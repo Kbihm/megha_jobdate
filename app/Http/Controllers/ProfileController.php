@@ -21,9 +21,7 @@ class ProfileController extends Controller
         $self_user = Auth::user();
         $user = User::find($id);
         if($self_user->employer_id != null){
-            //$jobs = Joboffer::where('employer_id', $self_user->id)->get();
-            $jobs = Joboffer::all();
-            dd($jobs);
+            $jobs = Joboffer::where('employer_id', $self_user->id)->get();
             return view('user.show', compact('user', 'jobs'));
         }
         return view('user.show', compact('user'));

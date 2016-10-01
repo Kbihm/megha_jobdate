@@ -49,6 +49,7 @@ Route::resource('/offers', 'EmployeeJobofferController');
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::resource('/jobs', 'JobofferController');
+Route::resource('/invite', 'InvitesController');
 
 //Admin
 Route::resource('/admin/comments', 'CommentsController');
