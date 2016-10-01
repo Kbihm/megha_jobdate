@@ -14,7 +14,6 @@ class CreateJoboffersTable extends Migration
     {
         Schema::create('joboffers', function (Blueprint $table) {
             $table->increments('id');
-
             $table->integer('employer_id');
             $table->string('role');
             $table->string('hours');

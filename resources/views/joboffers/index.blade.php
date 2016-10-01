@@ -13,7 +13,7 @@
 
                 <div class="panel panel-primary">    
                     <div class="panel-heading"> 
-                        {{ $joboffer->role }} at {{ Auth::user()->employer->establishment_name }}
+                        {{ $joboffer->role }} at {{ $joboffer->employer->establishment_name }}
                     </div>
  
                     <div  class="panel-body">
