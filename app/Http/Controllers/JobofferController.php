@@ -35,7 +35,7 @@ class JobofferController extends Controller
         $this->validate($request, Joboffer::$rules);
         
         $joboffer = new Joboffer($request->all());
-        $joboffer->employer_id = $user->employer_id;
+        $joboffer->employer_id = $user->id;
         $joboffer->save();
         return redirect('/jobs');
     }

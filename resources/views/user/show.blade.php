@@ -1,6 +1,6 @@
 @extends('layouts.app')
     @section('content')
-
+<?php dd($jobs); ?>
         <!--  <small>Employee Profile</small> -->
 
             <div class="row">
