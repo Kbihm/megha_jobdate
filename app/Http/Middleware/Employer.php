@@ -16,9 +16,18 @@ class Employer
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->employer_id != null || Auth::user()->admin_id == null)
-            return $next($request);
-        else
+        $user = Auth::user();
+        if ($user->employer_id != null || $user->admin_id == null) {
+
+            if ($user->employer->subscribed()) {
+                return $next($request);
+            }
+            else {
+                return redirect('profile/subscription');
+            }
+        }
+        else {
             return 'Not Authorized to complete this action.';
+        }
     }
 }

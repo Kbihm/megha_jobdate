@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Cashier\Billable;
 
 class Employer extends Model
 {
+
+    use Billable;
+    protected $dates = ['trial_ends_at', 'subscription_ends_at'];
+    
 
     protected $fillable = [
         'abn',
