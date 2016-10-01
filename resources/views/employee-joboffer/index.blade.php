@@ -4,7 +4,7 @@
     <div class="col-md-8 col-md-offset-2">
 
             <h2> Job Listings </h2>
-            <p class="text-muted"> Note: Currently Shows All rather than only the employees </p>
+            <p class="text-muted"> These are the Jobs you've been invited to.</p>
             <hr>
 
             @foreach($joboffers as $joboffer)

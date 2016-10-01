@@ -27,8 +27,6 @@ class EmployeeJobOfferController extends Controller
             array_push($joboffers, $user->employee->invites[$i]->joboffer);
         }
 
-        // return $user->employee;
-
         return view('employee-joboffer.index', compact('joboffers'));
     }
 
