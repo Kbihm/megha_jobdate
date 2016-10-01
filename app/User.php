@@ -29,7 +29,7 @@ class User extends Authenticatable
         'last_name' => 'required', 
         'email' => 'required|unique:users', 
         'password' => 'required|min:5, max:30',
-        'password_confirmation' => 'same:password'
+        'password_confirmation' => 'required|same:password'
     ];
 
     public function employee()

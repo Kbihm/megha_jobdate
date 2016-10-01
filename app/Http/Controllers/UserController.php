@@ -15,9 +15,9 @@ use App\Employer;
 class UserController extends Controller
 {
 
-    static $password_rules = [
-        '',
-        ''
+    public static $password_rules = [
+        'new_password' => 'required',
+        'new_password_confirm' => 'required|same:new_password',
     ];
 
     public function __construct()
@@ -52,23 +52,20 @@ class UserController extends Controller
     public function security()
     {
             $user = Auth::user();
-            return view('profile.security', compact('user'));
+            $pw_update = false;
+            return view('profile.security', compact('user', 'pw_update'));
     }
 
-    public function resetpassword(Request $request)
+    public function updatepassword(Request $request)
     {
         $user = Auth::user();
-        // $this->validate($request, $password_rules);
+        $this->validate($request, self::$password_rules);
 
-        if (Hash::make($request->old_password) == $user->getPassword()) {
-            $user->password = Hash::make($request->new_password);
-            $user->save();
-        } else {
-            return redirect('back');
-        }
+        $user->password = bcrypt($request->new_password);
+        $user->save();
 
         $pw_update = true;
-        return view('security', compact('user'), $pw_update);
+        return view('profile.security', compact('user', 'pw_update'));
     }
 
 

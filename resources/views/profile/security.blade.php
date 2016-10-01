@@ -31,29 +31,23 @@
         <div class="tab-pane fade active in" id="security">
            
           <div class="col-md-10">
+
+          @if ($pw_update == true)
+          <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Updated!</strong> You successfully updated your password.
+            </div>
+          @endif
+
             <div class="panel panel-default">
                 <div class="panel-heading">Change Password</div>
                 <div class="panel-body">
                 
-                    <form class="form-horizontal" role="form" method="POST" action="/p/edit">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/updatepass') }}">
                         {{ csrf_field() }}
-                        
-                        <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
-                            <label for="old_password" class="col-md-4 control-label">Current Password:</label>
-
-                            <div class="col-md-6">
-                                <input id="old_password" type="password" class="form-control" name="old_password" value="{{ old('old_password') }}">
-
-                                @if ($errors->has('old_password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('old_password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
+                                                
                         <div class="form-group{{ $errors->has('new_password') ? ' has-error' : '' }}">
-                            <label for="new_password" class="col-md-4 control-label">New Passord:</label>
+                            <label for="new_password" class="col-md-4 control-label">New Password:</label>
 
                             <div class="col-md-6">
                                 <input id="new_password" type="password" class="form-control" name="new_password" >
@@ -84,7 +78,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                     Edit
+                                     Update
                                 </button>
                             </div>
                         </div>
@@ -95,86 +89,7 @@
                 </div>
             </div>
         </div>
-            @if($user->employer_id != null)
-         <div class="col-md-10">
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Card Details</div>
-                <div class="panel-body">
- 
-                    <form class="form-horizontal" role="form" method="POST" action="">
-                        {{ csrf_field() }}
-                        
-                        <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
-                            <label for="number" class="col-md-4 control-label">Card Number:</label>
-
-                            <div class="col-md-6">
-                                <input id="number" type="text" class="form-control" name="number" value="{{ old('number') }}">
-
-                                @if ($errors->has('number'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('number') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                                                
-                        <div class="form-group{{ $errors->has('expiry') ? ' has-error' : '' }}">
-                            <label for="expiry" class="col-md-4 control-label">Expiry:</label>
-
-                            <div class="col-md-6">
-                                <input id="expiry" type="textarea" class="form-control" name="expiry" value="{{ old('expiry') }}">
-
-                                @if ($errors->has('expiry'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('expiry') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name as it appears on card:</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="textarea" class="form-control" name="name" value="{{ old('name') }}">
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>  
-
-                        <div class="form-group{{ $errors->has('ccv') ? ' has-error' : '' }}">
-                            <label for="ccv" class="col-md-4 control-label">CCV:</label>
-
-                            <div class="col-md-6">
-                                <input id="ccv" type="textarea" class="form-control" ccv="ccv" value="{{ old('ccv') }}">
-
-                                @if ($errors->has('ccv'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('ccv') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>  
-                        
-                           
-                        
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                     Update
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-        </div>
-    @endif
+        
     </div>
 
 @endsection           
