@@ -21,11 +21,18 @@ class CommentsController extends Controller
     }
     
     /**
-     * Return all of the comments that exist - in JSON format.$_COOKIE
-     * @TODO: FIX THIS
+     * Return all of the comments that exist, that are not approved. 
      */
     public function index() {
-        $comments = Comment::paginate(15);
+        $comments = Comment::where('approved', false)->paginate(15);
+        return view('comments.index', compact('comments'));
+    }
+
+    /**
+     * Return all of the comments that exist, that are approved. 
+     */
+    public function approved() {
+        $comments = Comment::where('approved', true)->paginate(15);
         return view('comments.index', compact('comments'));
     }
     
