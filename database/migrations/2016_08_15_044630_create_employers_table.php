@@ -20,7 +20,7 @@ class CreateEmployersTable extends Migration
             $table->string('promo_code')->nullable();
             $table->string('phone');
             $table->string('establishment_name');
-            $table->datetime('subscription_end');
+            $table->datetime('subscription_end')->nullable();
             $table->boolean('email_confirmed')->default(false);
             // $table->boolean('subscription_active')->default(false);
             

@@ -32,7 +32,12 @@ class CreateAccController extends Controller
         $employee->user_id = $user->id;
         $user->save();
 
-        return redirect('home');
+
+        if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
+            return redirect('home');
+        } else {
+            return redirect('/register/employee');
+        }
 
     }
 
@@ -52,7 +57,12 @@ class CreateAccController extends Controller
 
         $employer->user_id = $user->id;
         $user->save();
-        return redirect('home');
+        
+        if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
+            return redirect('home');
+        } else {
+            return redirect('/register/employee');
+        }
 
     }
 
