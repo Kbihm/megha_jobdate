@@ -10,7 +10,7 @@
             <li><a href="/profile">Your Information</a></li>
             @if ($user->employee_id != null)
             <li class="active"><a href="/profile/skills" >Skills</a></li>
-            <li class=""><a href="experience">Experience</a></li>
+            <li class=""><a href="/profile/experience">Experience</a></li>
             @endif
             @if ($user->employer_id != null)
             <li class=""><a href="/profile/subscription" >Subscription</a></li>
