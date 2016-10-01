@@ -33,30 +33,6 @@ class InvitesController extends Controller
         return redirect('/jobs');
     }
 
-    public function update(Request $request, Promocode $promocode)
-    {
-        $this->validate($request, Promocode::$rules);   
-        $promocode->update($request->all());
-        return redirect('admin/promocode');
-    }
 
-    public function destroy($id)
-    {
-        $promocode = Promocode::find($id);
-        $promocode->delete();
-        return redirect('admin/promocode');
-    }
-
-    public function show($id)
-    {
-        $promocode = Promocode::find($id);
-        return view('promocode.show', compact('promocode'));
-    }
-
-    public function edit($id)
-    {
-        $promocode = Promocode::find($id);
-        return view('promocode.show', compact('promocode'));
-    }
 
 }
