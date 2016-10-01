@@ -8,28 +8,36 @@ use App\Http\Requests;
 use App\Employee;
 use App\Employer;
 use App\Admin;
+use Auth;
+use App\User;
+use Hash;
 
 class CreateAccController extends Controller
 {
 
-    public function create_employee(Request $request) {
+    public function CreateEmployee(Request $request) {
+
+        $this->validate($request, User::$rules);
+        $this->validate($request, Employee::$rules);
 
         $user = new User($request->all());
         $employee = new Employee($request->all());
 
-        // $this->validate($request, Employee::$rules);
+        // $user->password = Hash::make($request->password());
+        $user->password = bcrypt($request['password']);
 
-        //Not sure if this is required or not.
-        $user->password = Hash::make($user->password());
-
-        $user->save();
         $employee->save();
+        $user->employee_id = $employee->id;
+        $user->save();
 
-        redirect('home');
+        $employee->user_id = $user->id;
+        $user->save();
+
+        return redirect('home');
 
     }
 
-    public function create_employer(Request $request) {
+    public function CreateEmployer(Request $request) {
 
         $user = new User($request->all());
         $employer = new Employer($request->all());
@@ -45,6 +53,11 @@ class CreateAccController extends Controller
 
         redirect('home');
 
+    }
+
+    public function EmployeeRegisterForm()
+    {
+        return view('auth.register-employee');
     }
 
 

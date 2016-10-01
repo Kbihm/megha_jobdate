@@ -39,6 +39,7 @@ class UserSeeder extends Seeder
         $employee->about = 'This is an awesome about feature for details!';
         $employee->gender = '0';
         $employee->fulltime = true;
+        $employee->role = "Bartender";
         $employee->hourly_rate = 28.40;
         $employee->save();
 
@@ -59,6 +60,7 @@ class UserSeeder extends Seeder
         $employee->about = 'This is an awesome about feature for details!';
         $employee->gender = '1';
         $employee->fulltime = true;
+        $employee->role = "Bartender";
         $employee->hourly_rate = 28.40;
         $employee->save();
 

@@ -62,3 +62,6 @@ Route::get('profile/subscription', 'UserController@subscription');
 Route::get('profile/experience', 'UserController@experience');
 Route::get('profile/skills', 'UserController@skills');
 Route::get('profile/security', 'UserController@security');
+
+Route::get('register/employee', 'CreateAccController@EmployeeRegisterForm');
+Route::post('register/employee', 'CreateAccController@CreateEmployee');

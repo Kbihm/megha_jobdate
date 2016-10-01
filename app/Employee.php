@@ -20,9 +20,10 @@ class Employee extends User
 
     public static $rules = [
         'phone' => 'required',
-        'average_rating' => 'required',
-        'about' => 'required',
-        'gender' => 'required'
+        // 'average_rating' => 'required',
+        // 'about' => 'required',
+        'gender' => 'required',
+        'hourly_rate' => 'required|digits_between:0,150'
     ];
 
     // public function accept_request($request_id)

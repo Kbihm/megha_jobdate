@@ -17,10 +17,11 @@ class CreateEmployeesTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
             $table->string('phone');
-            $table->integer('average_rating');
-            $table->longtext('about');
-            $table->integer('gender'); // 0 = male, 1 = female
-            $table->boolean('fulltime');
+            $table->float('average_rating')->default(0);
+            $table->string('role');
+            $table->longtext('about')->nullable();
+            $table->string('gender'); // 0 = male, 1 = female
+            $table->boolean('fulltime')->default(false);
             $table->float('hourly_rate');
         });
     }
