@@ -53,7 +53,6 @@ class Employee extends User
     public function joboffers()
     {
         // return $this->belongsTo(Joboffers::class);
-        
         // return $this->morphToMany('App\Invites', 'taggable');
     }
 

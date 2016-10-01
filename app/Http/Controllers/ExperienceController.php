@@ -49,10 +49,9 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
         // $this->validate($request, Experience::$rules);
-
         $experience = new Experience($request->all());
+        $experience->employee_id = Auth::user()->employee_id;
         $experience->save();
-
         return redirect()->back();
     }
 
