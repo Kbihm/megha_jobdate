@@ -60,6 +60,7 @@ class JobofferController extends Controller
     public function update(Request $request, $id)
     { 
         $joboffer = Joboffer::find($id);
+
         $this->validate($request, Joboffer::$rules);
         $joboffer->update($request->all());
         $joboffer->save();
