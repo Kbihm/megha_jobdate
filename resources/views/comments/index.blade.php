@@ -32,7 +32,12 @@
                         @endif
                     </td>
                     <td>{{ $comment->comment }}</td>
-                    <td>@if ($comment->approved == 0) No @else Yes @endif</td>
+                    <td>@if ($comment->approved == 0) 
+                          <a href="/comments/approve/{{ $comment->id }}">No</a>
+                        @else 
+                          <a href="/comments/disapprove/{{ $comment->id }}">Yes</a>
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
 

@@ -20,7 +20,7 @@ class Settings extends Model
         'sub_price' => 'required',
         'support_email' => 'required|email',
         'dispute_email' => 'required|email',
-        'employee_registration_blocked' => 'required|boolean'
+        'employee_registration_blocked' => 'required'
     ];
 
     public static $roles = [

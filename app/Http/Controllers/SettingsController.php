@@ -22,12 +22,11 @@ class SettingsController extends Controller
         return view('settings.index', compact('settings'));
     }
 
-
-    public function update($id, Request $request)
+    public function update(Request $request, $id)
     {
 
         $this->validate($request, Settings::$rules);
-        $setting = Settings::find($id);
+        $setting = Settings::find(1);
         $setting->update($request->all());
         $setting->save();
 

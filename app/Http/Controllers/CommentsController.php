@@ -90,8 +90,33 @@ class CommentsController extends Controller
 
     public function edit($id)
     {
-        return 'Coming Soon';
+        return 'Comments can not be edited';
     }
 
+    public function approve($id)
+    {
+        // Admin Check
+        if (Auth::User()->admin_id == null)
+          return 'You can not approve comments';
+
+        $comment = Comment::find($id);
+        $comment->approved = true;
+        $comment->save();
+
+        return redirect('/admin/comments');
+    }
+
+    public function disapprove($id)
+    {
+        // Admin Check
+        if (Auth::User()->admin_id == null)
+          return 'You can not approve comments';
+
+        $comment = Comment::find($id);
+        $comment->approved = false;
+        $comment->save();
+
+        return redirect('/admin/comments');
+    }
 
 }

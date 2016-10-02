@@ -37,6 +37,8 @@
         {{ $user->employer }}
     @elseif ($user->employee_id != null)
         {{ $user->employee }}
+        <hr>
+        <a href="/staff/{{ $user->id }}" class="btn btn-primary">View Employee Profile</a>
     @elseif($user->admin_id != null)
         {{ $user->admin }}
     @else

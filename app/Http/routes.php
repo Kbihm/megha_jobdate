@@ -80,3 +80,6 @@ Route::get('subscription/cancel', 'EmployerController@cancel');
 
 Route::post('profile/update/employee', 'UserController@UpdateEmployee');
 Route::post('profile/update/employer', 'UserController@UpdateEmployer');
+
+Route::get('comments/approve/{id}', 'CommentsController@approve');
+Route::get('comments/disapprove/{id}', 'CommentsController@disapprove');
