@@ -82,4 +82,11 @@ class EmployerController extends Controller
         // return redirect('profile/subscription');
     }
 
+    public function invoice($invoiceId) {
+    return Auth::user()->employer->downloadInvoice($invoiceId, [
+        'vendor'  => 'Job Date',
+        'product' => 'Job Date Subscription',
+    ]);
+}
+
 }

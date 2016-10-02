@@ -115,6 +115,23 @@
 
             @if($user->employer_id != null)
 
+            <div class="panel panel-default">
+                <div class="panel-heading">Invoices</div>
+                <div class="panel-body">
+
+                <table class="table">
+                    @foreach ($user->employer->invoices() as $invoice)
+                        <tr>
+                            <td>{{ $invoice->date()->toFormattedDateString() }}</td>
+                            <td>{{ $invoice->total() }}</td>
+                            <td><a href="/user/invoice/{{ $invoice->id }}">Download</a></td>
+                        </tr>
+                    @endforeach
+                </table>
+
+                </div>
+            </div> 
+
             <div class="panel panel-default sr-only">
                 <div class="panel-heading">Billing Information</div>
                 <div class="panel-body">
