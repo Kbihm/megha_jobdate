@@ -115,12 +115,15 @@
 
             @if($user->employer_id != null)
 
+
+            @if(Auth::user()->employer->subscribed('main'))
             <div class="panel panel-default">
                 <div class="panel-heading">Invoices</div>
                 <div class="panel-body">
 
                 <table class="table">
                     @foreach ($user->employer->invoices() as $invoice)
+                    
                         <tr>
                             <td>{{ $invoice->date()->toFormattedDateString() }}</td>
                             <td>{{ $invoice->total() }}</td>
@@ -131,6 +134,7 @@
 
                 </div>
             </div> 
+            @endif
 
             <div class="panel panel-default sr-only">
                 <div class="panel-heading">Billing Information</div>

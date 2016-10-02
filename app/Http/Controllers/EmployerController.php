@@ -57,7 +57,7 @@ class EmployerController extends Controller
         $user = Auth::user();
         $sub = $user->employer->subscription('main');
 
-        dd($user->employer->subscription('main')->onTrial());
+        // dd($user->employer->subscription('main')->onTrial());
 
         $sub->cancel();
         return redirect('profile/subscription');
@@ -84,7 +84,7 @@ class EmployerController extends Controller
 
     public function invoice($invoiceId) {
     return Auth::user()->employer->downloadInvoice($invoiceId, [
-        'vendor'  => 'Job Date',
+        'vendor'  => 'Job Date ABN: XXX',
         'product' => 'Job Date Subscription',
     ]);
 }
