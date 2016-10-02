@@ -161,17 +161,11 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-offset-3">
-                            <a href="skills/create" class="btn btn-primary"> Add Skills </a>
-                            <a href="experiences/create" class="btn btn-primary"> Add Experiences </a>
-                        </div>
-                        <br>
-                        
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-success">
-                                     Edit
+                                <button type="submit" class="btn btn-primary">
+                                     Update
                                 </button>
                             </div>
                         </div>
