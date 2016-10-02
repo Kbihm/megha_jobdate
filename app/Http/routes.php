@@ -86,3 +86,5 @@ Route::post('profile/update/employer', 'UserController@UpdateEmployer');
 
 Route::get('comments/approve/{id}', 'CommentsController@approve');
 Route::get('comments/disapprove/{id}', 'CommentsController@disapprove');
+
+Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
