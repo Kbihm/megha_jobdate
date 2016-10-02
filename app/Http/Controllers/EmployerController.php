@@ -35,6 +35,24 @@ class EmployerController extends Controller
 
     }
 
+    public function SubscribeYearly(Request $request) {
+
+        $user = Auth::user();
+
+        if ($user->employer_id == null)
+            return back();
+
+        $creditCardToken = $request->stripeToken;
+        
+        $employer = $user->employer;
+        $employer->newSubscription('main', 'yearly')->create($creditCardToken, [
+            'email' => $user->email,
+        ]);
+
+        return redirect('profile/subscription');
+
+    }
+
     public function cancel() {
         $user = Auth::user();
         $employer = $user->employer;

@@ -76,6 +76,7 @@ Route::post('register/employer', 'CreateAccController@CreateEmployer');
 
 Route::post('updatepass', 'UserController@updatepassword');
 Route::post('subscribe', 'EmployerController@subscribe');
+Route::post('subscribe/yearly', 'EmployerController@SubscribeYearly');
 Route::get('subscription/cancel', 'EmployerController@cancel');
 
 Route::post('profile/update/employee', 'UserController@UpdateEmployee');

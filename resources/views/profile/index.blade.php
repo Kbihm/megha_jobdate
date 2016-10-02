@@ -37,7 +37,7 @@
             <div class="panel-body">
 
             @if ($user->admin_id != null)
-                <h1> You're an admin, you don't have any custom attributes. </h1>
+                <h4> You're an admin, you don't have any custom attributes. </h4>
             @elseif ($user->employee_id != null)
                     
                     <form class="form-horizontal" role="form" method="POST" action="profile/update/employee">

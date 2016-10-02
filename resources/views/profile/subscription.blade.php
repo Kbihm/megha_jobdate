@@ -34,9 +34,12 @@
 
             @if (Auth::user()->employer->subscribed('main'))
 
-                <h4> You're currently on a monthly subscription. </h4>
-                <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}. Your Subscription expires on the {{ $user->employer->subscription('main')->ends_at }}</p>
+                <h4> You're currently on a {{ $user->employer->subscription('main')->stripe_plan }} subscription. </h4>
+                <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}.</p>
+                <p> Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br />
+                    Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }}<br /></p>
                 <hr>
+                
                 <a href="#" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
                 <a href="#" class="btn btn-primary"> Change Card Details </a> &nbsp;
 
@@ -75,7 +78,7 @@
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
-                    data-amount="2900"
+                    data-amount="3000"
                     data-name="Job Date"
                     data-description="Widget"
                     data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
@@ -91,11 +94,11 @@
 
             <h4> Subscribe Yearly </h4>
 
-                <form action="/subscribe" method="POST">
+                <form action="/subscribe/yearly" method="POST">
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
-                    data-amount="2900"
+                    data-amount="30000"
                     data-name="Job Date"
                     data-description="Widget"
                     data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
