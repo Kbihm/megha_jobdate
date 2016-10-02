@@ -34,33 +34,30 @@
 
             @if (Auth::user()->employer->subscribed('main'))
 
+                @if (Auth::user()->employer->subscription('main')->onTrial())
+
+                <h4> You're still on your free trial!</h4>
+
+                @endif
+
                 <h4> You're currently on a {{ $user->employer->subscription('main')->stripe_plan }} subscription. </h4>
                 <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}.</p>
                 <p> Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br />
                     Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }}<br /></p>
                 <hr>
                 
-                <a href="#" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
+                <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
                 <a href="#" class="btn btn-primary"> Change Card Details </a> &nbsp;
 
                 @if ($user->employer->subscription('main')->cancelled())
-
                     You've cancelled your subscription.
-
                 @endif
 
-
                 @if ($user->employer->subscription('main')->onGracePeriod())
-
-                    
-
+                    On Grace Period
                     <a href="/subscription/resume" class="btn btn-success"> Resume </a>
-
-
                 @else 
-
                     <a href="/subscription/cancel" class="btn btn-danger"> Cancel </a>
-
                 @endif
 
                 
@@ -80,7 +77,7 @@
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
                     data-amount="3000"
                     data-name="Job Date"
-                    data-description="Widget"
+                    data-description="Monthly Subscription"
                     data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
                     data-locale="auto"
                     data-currency="aud"
@@ -100,7 +97,7 @@
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
                     data-amount="30000"
                     data-name="Job Date"
-                    data-description="Widget"
+                    data-description="Yearly Subscription"
                     data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
                     data-locale="auto"
                     data-currency="aud"

@@ -55,8 +55,11 @@ class EmployerController extends Controller
 
     public function cancel() {
         $user = Auth::user();
-        $employer = $user->employer;
-        $employer->subscription('main')->cancel();
+        $sub = $user->employer->subscription('main');
+
+        dd($user->employer->subscription('main')->onTrial());
+
+        $sub->cancel();
         return redirect('profile/subscription');
     }
 
@@ -64,6 +67,19 @@ class EmployerController extends Controller
         $user = Auth::user();
         $user->employer->subscription('main')->resume();
         return redirect('profile/subscription');
+    }
+
+    public function swap() {
+        return 'Broken ATM';
+        $user = Auth::user();
+        $sub = $user->employer->subscription('main');
+
+        if ($sub->stripe_plan == 'monthly')
+            $sub->swap('yearly');
+        else if ($sub->stripe_plan == 'yearly')
+            $sub->swap('monthly');
+
+        // return redirect('profile/subscription');
     }
 
 }

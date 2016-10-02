@@ -9,6 +9,7 @@
         <th>Name </th>
         <th>Email </th>
         <th>Type </th>
+        <th>Created At </th>
     </tr>
 
 
@@ -28,6 +29,7 @@
                 Error.
             @endif
         </td>
+        <td> {{ date('F d, Y', strtotime($user->created_at)) }} </td>
     </tr>
     @endforeach
 
