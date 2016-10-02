@@ -56,6 +56,7 @@
                     @elseif (Auth::user()->admin_id != null)
 
                         <li><a href="/admin/user">Users</a></li>
+                        <li><a href="/staff">Employees</a></li>
                         <li><a href="/admin/comments">Comments</a></li>
                         <li><a href="/admin/promocode">PromoCodes</a></li>
                         <li><a href="/admin/settings">Settings</a></li>
@@ -69,7 +70,7 @@
                     @elseif (Auth::user()->employer_id != null)
 
                         <li><a href="/jobs">Jobs</a></li>
-                        <li><a href="/admin/user">Search</a></li>
+                        <li><a href="/staff">Search</a></li>
                         <li><a href="/reviews">Reviews</a></li>
 
                     @else

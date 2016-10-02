@@ -24,7 +24,7 @@
 
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <a href="/admin/user/{{ $user->id }}" >
+                                <a href="/staff/{{ $user->id }}" >
                                     <h3 class="panel-title" style="color:#fff;">{{$user->first_name}} {{$user->last_name}}</h3>
                                 </a>
                             </div>

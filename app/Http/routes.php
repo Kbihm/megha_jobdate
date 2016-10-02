@@ -56,7 +56,8 @@ Route::get('/admin/comments/approved', 'CommentsController@approved');
 Route::resource('/admin/comments', 'CommentsController');
 Route::resource('/admin/promocode', 'PromocodeController');
 Route::resource('/admin/settings', 'SettingsController');
-Route::resource('/admin/user', 'ProfileController');
+Route::resource('/staff', 'ProfileController');
+Route::resource('/admin/user', 'AdminUserController');
 Route::resource('/email', 'EmailsController');
 
 //Profile
