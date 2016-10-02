@@ -17,7 +17,13 @@ class Employer
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->employer_id != null || $user->admin_id == null) {
+
+        if($user->admin_id != null) {
+
+            return $next($request);
+        
+        }
+        elseif ($user->employer_id != null) {
 
             if ($user->employer->subscribed('main')) {
                 return $next($request);
