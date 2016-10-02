@@ -20,12 +20,12 @@
                 </div>
 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default col-md-12">
+                    <a href="/reviews/create/{{$user->employee->id}}"  class="btn btn-default col-md-12">
                         <div class="col-md-10">
                             Review {{ $user->first_name }}
                         </div>
                         <span class="badge pull-right">{{ sizeof(App\Comment::where('employee_id', $user->employee_id)->where('approved', true)->get()) }}</span>
-                    </button>
+                    </a>
 
                     <button type="button" class="btn btn-default dropdown-toggle col-md-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="col-md-10 pull-left"> 

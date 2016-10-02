@@ -10,14 +10,14 @@ class Comment extends Model
     protected $fillable = [
         'comment',
         'rating',
-        'user_id',
+        'employee_id',
         'prefilled_number'
     ];
 
     public static $rules = [
         'comment' => 'required',
         'rating' => 'required',
-        'user_id' => 'required'
+        'employee_id' => 'required'
     ];
     
     /**

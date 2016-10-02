@@ -48,6 +48,7 @@ Route::resource('/offers', 'EmployeeJobofferController');
 
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
+Route::get('/reviews/create/{id}', 'EmployerCommentsController@create');
 Route::resource('/jobs', 'JobofferController');
 Route::resource('/invite', 'InvitesController');
 

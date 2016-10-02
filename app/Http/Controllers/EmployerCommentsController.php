@@ -25,5 +25,29 @@ class EmployerCommentsController extends Controller
         return view('employer-comments.index', compact('comments'));
     }
 
+    public function store(Request $request)
+    {   
+
+        $this->validate($request, Comment::$rules);
+        $comment = new Comment($request->all());
+        $comment->employer_id = Auth::user()->employer->id;
+        $comment->save();
+        return redirect('/reviews');
+    }
+
+    public function destroy($id)
+    {
+        $comment = Comment::find($id);
+        $comment->delete();
+        return redirect('/reviews');
+    }
+
+        public function create($id)
+    {
+
+        $user = Employee::find($id);     
+        return view('comments.create', compact('user'));
+    }
+
 
 }

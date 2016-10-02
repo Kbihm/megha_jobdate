@@ -18,7 +18,7 @@ class JobofferSeeder extends Seeder
         $joboffer->description = "This exciting bartender role is meant for cocktail experts!";
         $joboffer->time = "Afternoon";
         $joboffer->hours = "5";
-        $joboffer->employer_id = 4;
+        $joboffer->employer_id = 1;
         $joboffer->save();
     }
 }
