@@ -28,6 +28,13 @@ class Employer extends Model
         'establishment_name' => 'required'
     ];
 
+    public static $update_rules = [
+        'abn' => 'required',
+        'address' => 'required',
+        'phone' => 'required',
+        'establishment_name' => 'required'
+    ];
+
     /**
      * Request an employee for a certain set of dates
      * 

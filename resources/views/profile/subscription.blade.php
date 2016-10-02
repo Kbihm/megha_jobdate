@@ -36,6 +36,9 @@
 
                 <h4> You're currently on a monthly subscription. </h4>
                 <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}. Your Subscription expires on the {{ $user->employer->subscription('main')->ends_at }}</p>
+                <hr>
+                <a href="#" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
+                <a href="#" class="btn btn-primary"> Change Card Details </a> &nbsp;
 
                 @if ($user->employer->subscription('main')->cancelled())
 

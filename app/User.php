@@ -32,6 +32,11 @@ class User extends Authenticatable
         'password_confirmation' => 'required|same:password'
     ];
 
+    public static $update_rules = [
+        'first_name' => 'required', 
+        'last_name' => 'required',
+    ];
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);

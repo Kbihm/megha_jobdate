@@ -68,5 +68,41 @@ class UserController extends Controller
         return view('profile.security', compact('user', 'pw_update'));
     }
 
+    public function UpdateEmployer(Request $request)
+    {
+
+        $this->validate($request, User::$update_rules);
+        $this->validate($request, Employer::$update_rules);
+
+        $user = Auth::user();
+        $employer = $user->employer;
+
+        $user->update($request->all());
+        $employer->update($request->all());
+
+        $employer->save();
+        $user->save();
+
+        return redirect('/profile');
+    }
+
+    public function UpdateEmployee(Request $request)
+    {
+
+        $this->validate($request, User::$update_rules);
+        $this->validate($request, Employee::$rules);
+
+        $user = Auth::user();
+        $employee = $user->employee;
+
+        $user->update($request->all());
+        $employee->update($request->all());
+
+        $employee->save();
+        $user->save();
+
+        return redirect('/profile');
+    }
+
 
 }
