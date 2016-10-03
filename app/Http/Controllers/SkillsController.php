@@ -49,9 +49,10 @@ class SkillsController extends Controller
     public function store(Request $request)
     {
         // $this->validate($request, Skills::$rules);
+        $user = Auth::User();
         $skill = new Skill($request->all());
         $skill->save();
-        return redirect()->back();
+        return view('profile.skills', compact('user'));
     }
 
     /**

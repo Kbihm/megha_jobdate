@@ -44,7 +44,7 @@
                 @else
                  <h3> You don't currently have any skills saved. Try adding one! </h3>
                 @endif
-                <a href="skills/create" class="btn btn-primary"> Add Skills </a>
+
                            
             </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="panel-body">
 
                 <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/skills/">
+                <form class="form-horizontal" role="form" method="POST" action="/skills/" >
                         {{ csrf_field() }}
                 <br>
                     
@@ -65,11 +65,11 @@
                             <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
                         </div>
                     </div> 
-                    <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
+                    <input name="employee_id" class="form-control" type="hidden" value="{{$user->employee->id}}">   
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
-                                    Submit
+                                    Add Skill
                                 </button>
                             </div>
                         </div>  
