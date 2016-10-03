@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Employee;
 use App\Http\Requests;
 use App\Comment;
 use Auth;
@@ -21,7 +21,7 @@ class EmployerCommentsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $comments = Comment::where('employer_id', $user->employer_id)->get();
+        $comments = Comment::where('employer_id', $user->employer->id)->get();
         return view('employer-comments.index', compact('comments'));
     }
 
@@ -32,6 +32,7 @@ class EmployerCommentsController extends Controller
         $comment = new Comment($request->all());
         $comment->employer_id = Auth::user()->employer->id;
         $comment->save();
+
         return redirect('/reviews');
     }
 

@@ -91,7 +91,7 @@
                             @endif
                                 <div class="col-sm-4 form-group">
                                     <button class="btn btn-success form-control" type="submit" >
-                                        Create
+                                        Edit
                                     </button>
                                 </div>
                             </div>

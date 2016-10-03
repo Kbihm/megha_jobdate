@@ -22,6 +22,8 @@
                 </tr>
 
                 @foreach($comments as $comment)
+                <h1> Note there are no #relations </h1> 
+                <?php dd($comment); ?>
                 <tr> 
                     <td>{{ $comment->employer->establishment_name }}  ({{ $comment->employer->user->first_name }})</td>
                     <td><a href="/admin/user/{{ $comment->employee->user->id }}">{{ $comment->employee->user->first_name }} {{ $comment->employee->user->last_name }}</a></td>
