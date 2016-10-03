@@ -40,7 +40,7 @@
                     <form method="POST" action="/invite" role="form">
                     {{ csrf_field() }}
                     <input type="hidden" name="joboffer_id" value="{{$job->id}}">
-                    <input type="hidden" name="employee_id" value="{{$user->employee_id}}">
+                    <input type="hidden" name="employee_id" value="{{$user->employee->id}}">
                     <li><button type="submit">{{$job->date}}, {{$job->time}}</button></li>
                     </form>
                      @endforeach

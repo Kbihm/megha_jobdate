@@ -28,7 +28,7 @@ class InvitesController extends Controller
 
     public function store(Request $request)
     {   
-
+        
         $this->validate($request, Invite::$rules);
         $invite = new Invite($request->all());
         $invite->save();

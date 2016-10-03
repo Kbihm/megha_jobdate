@@ -88,3 +88,8 @@ Route::get('comments/approve/{id}', 'CommentsController@approve');
 Route::get('comments/disapprove/{id}', 'CommentsController@disapprove');
 
 Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
+
+//Job Offer Response
+
+Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobOffer');
+Route::get('/offers/declineJobOffer/{id}', 'EmployeeJobofferController@declineJobOffer');

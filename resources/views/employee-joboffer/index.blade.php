@@ -11,7 +11,7 @@
 
                 <div class="panel panel-primary">    
                     <div class="panel-heading">
-                        {{ $joboffer->role }} at {{ $joboffer->employer['establishment_name'] }}
+                        {{ $joboffer->role }} at {{ $joboffer->employer['establishment_name'] }} <h4> @if(isset($joboffer->status)) {{$joboffer->status}} @endif </h4>
                     </div>
  
                     <div  class="panel-body">
@@ -34,8 +34,15 @@
                         <hr>
                           @if (Auth::user()->employer_id != null)
                         <a href="/offers/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
-                          @elseif (Auth::user()->employee_id != null)
-                            <a href="/offers/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
+                          @elseif (Auth::user()->employee_id != null && $joboffer->status != 'accepted')
+                          <form action="/offers/{{$joboffer->id}}" method="POST" class="form-horizontal" role="form">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            
+                            <button type="submit" class="btn btn-danger col-md-3"> Decline Job Offer </button>
+
+                          </form>
+                            <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success col-md-3"> Accept Job Offer </a>
                           @endif
                     </div>
                 </div>
