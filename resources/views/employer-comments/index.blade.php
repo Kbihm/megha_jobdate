@@ -26,7 +26,7 @@
                                     <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }} </small>
 
                                     @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
-                                        <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
+                                        <form class="form-horizontal" role="form" method="POST" action="/reviews/{{ $comment->id }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type-"submit" class="btn btn-danger btn-xs"> Delete </button>
