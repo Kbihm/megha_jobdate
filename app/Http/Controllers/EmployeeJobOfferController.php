@@ -44,12 +44,6 @@ class EmployeeJobOfferController extends Controller
         return redirect('/offers');
     }
 
-    public function declineJobOffer($id)
-    {
-
-        return redirect('/offers');
-    }
-
     public function destroy($id)
     {
         $user = Auth::user();

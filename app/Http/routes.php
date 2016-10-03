@@ -92,4 +92,3 @@ Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
 //Job Offer Response
 
 Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobOffer');
-Route::get('/offers/declineJobOffer/{id}', 'EmployeeJobofferController@declineJobOffer');
