@@ -49,7 +49,7 @@
                     </div>
                 </div>   
                         <div class="form-group">
-                        <input type="hidden" name="employee_id" value="{{$user->id}}">
+                    <input type="hidden" name="employee_id" value="{{$user->id}}">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
                                     Leave Review
