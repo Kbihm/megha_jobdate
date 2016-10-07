@@ -7,6 +7,8 @@ use App\Joboffer;
 use App\Http\Requests;
 use App\User;
 use Auth;
+use App\Employee;
+
 class ProfileController extends Controller
 {
 
@@ -26,7 +28,7 @@ class ProfileController extends Controller
     {
     //Please confirm if this is efficient. Otherwise change  //
         $self_user = Auth::user();
-        $user = User::find($id);
+        $user = Employee::where('user_id', $id)->first();
         if($self_user->employer_id != null){
             $jobs = Joboffer::where('employer_id', $self_user->employer_id)->get();
             return view('user.show', compact('user', 'jobs'));

@@ -46,6 +46,7 @@ Route::resource('/skills', 'SkillsController');
 Route::resource('/experience', 'ExperienceController');
 Route::resource('/offers', 'EmployeeJobofferController');
 
+
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::get('/reviews/create/{id}', 'EmployerCommentsController@create');
@@ -92,3 +93,8 @@ Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
 //Job Offer Response
 
 Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobOffer');
+
+
+//Partially Tseting Routes
+Route::get('images/{filename}', 'ImageController@readImage');
+Route::post('/img/store', 'ImageController@store');

@@ -171,6 +171,16 @@
                         </div>
                     </form>
 
+
+                    <form  method="POST" action="img/store" files="true" role="form" enctype="multipart/form-data">
+                                                {{ csrf_field() }}
+                        <input  type="file" id="image" name="image">
+                        <button type="submit" class="btn btn-primary form-group">
+
+                                     Upload
+                        </button>
+                    </form>
+
             @elseif ($user->employer_id != null)
                     <form class="form-horizontal" role="form" method="POST" action="profile/update/employer">
                         {{ csrf_field() }}
