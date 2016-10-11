@@ -51,7 +51,7 @@
 
                     @if (Auth::guest())
 
-                        <li><a href="/search">Search</a></li>
+                        <!-- <li><a href="/staff">Search</a></li> -->
 
                     @elseif (Auth::user()->admin_id != null)
 
