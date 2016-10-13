@@ -23,7 +23,7 @@ class ImageController extends Controller
         $user = Auth::user();
         $file = $request->file('image');
         $destinationPath = public_path().'/profilePics/';
-        $filename = $user->first_name . '_' .$user->employee->id . '.' . $file->getClientOriginalextension();
+        $filename = $user->employee->id . '.' . $file->getClientOriginalextension();
         $uploadSucess = $file->move($destinationPath, $filename);
 
         return redirect('/profile');

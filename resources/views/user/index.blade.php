@@ -30,7 +30,7 @@
                             </div>
                             <div class="panel-body">
                                    <div class="col-md-3">
-                                        <img src="http://placehold.it/125x150"></img>
+                                         <img src="/profilePics/{{ $user->employee_id }}.jpg" class="img-responsive"  alt="{{ $user->first_name }}">
                                         <hr style="margin-top:10px; margin-bottom:10px;">
                                         Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% 
                                    </div>   

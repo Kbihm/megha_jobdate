@@ -2,12 +2,35 @@
     @section('content')
         <!--  <small>Employee Profile</small> -->
 
+        <?php
+
+            $availability = [
+                
+                [
+                'date' => '2016-01-22',
+                'morning' => 'false',
+                'day' => 'true',
+                'night' => 'false'
+                ],
+                [
+                'date' => '2016-01-23',
+                'morning' => 'true',
+                'day' => 'true',
+                'night' => 'false'
+                ],
+
+            ];
+
+            // dd($availability);
+
+        ?>
+
             <div class="row">
 
             <div class="col-md-3">
-                <h3 class="page-title"> {{ $user->user->first_name }} </h3>
-                <img src="{{ URL::to('/images/$user->user->first_name._1'.'.jpg') }}" >
-
+                <h3 class="page-title"> {{ $user->first_name }} </h3>
+                <img src="/profilePics/{{ $user->user->employee_id }}.jpg" class="img-responsive"  alt="{{ $user->first_name }}">
+                
                 <hr>
 
                 <div class="progress">
@@ -77,7 +100,7 @@
                     <h3 class="panel-title">{{$user->user->first_name}}'s Availability</h3>
                 </div>
                 <div class="panel-body">
-                    <h4>Feature in later version.</h4>
+                    <h4></h4>
                 </div>
             </div>
 
