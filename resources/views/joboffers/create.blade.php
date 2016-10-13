@@ -24,11 +24,6 @@
                             </div>
                         </div> 
                         
-                        <?php
-                        use App\Settings;
-                        $roles = Settings::$roles;
-                        ?>
-
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Role</label>
                             <div class="col-sm-10">

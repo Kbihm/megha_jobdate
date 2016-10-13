@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Joboffer;
 use Auth;
+use App\Settings;
+
 
 class JobofferController extends Controller
 {
@@ -19,7 +21,7 @@ class JobofferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::where('employer_id', $user->employer_id)->get();
+        $joboffers = Joboffer::where('employer_id', $user->employer->id)->get();
         return view('joboffers.index', compact('joboffers'));
     }
 
@@ -34,7 +36,7 @@ class JobofferController extends Controller
         $this->validate($request, Joboffer::$rules);
         
         $joboffer = new Joboffer($request->all());
-        $joboffer->employer_id = $user->employer_id;
+        $joboffer->employer_id = $user->employer->id;
         $joboffer->save();
         return redirect('/jobs');
     }
@@ -48,7 +50,8 @@ class JobofferController extends Controller
 
     public function create()
     {
-        return view('joboffers.create');
+        $roles = Settings::$roles;
+        return view('joboffers.create', compact('roles'));
     }
 
     public function edit($id){
