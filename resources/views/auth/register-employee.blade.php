@@ -75,16 +75,13 @@
                             <label for="role" class="col-md-4 control-label">Role</label>
                             
                             <div class="col-md-6">
-
-
                                 <select id="role" class="form-control" name="role" value="{{ old('role')}}">
-                                    <option value="waiter"> Waiter/Waitress </option>
-                                    <option value="bartender"> Bartender </option>
-                                    <option value="chef"> Chef </option>
-                                    <option value="kichenhand"> Kitchenhand </option>
-                                    <option value="musician"> Musician </option>
-                                    <option value="barista"> Barista </option>
-                                </select> 
+                                @foreach($roles as $role)
+                                <option value="{{$role}}">{{$role}}</option>
+                                @endforeach
+                                </select>                      
+                            
+                                
 
                                 @if ($errors->has('role'))
                                     <span class="help-block">

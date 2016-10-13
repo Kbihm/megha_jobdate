@@ -70,7 +70,19 @@
                                 @endif
                             </div>
                         </div>
-                        
+
+                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Role:</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="role" >
+                                    @foreach($roles as $role)
+                                    <option value="{{ $role }}">
+                                        {{ $role }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>    
                                                 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-mail:</label>
@@ -212,7 +224,7 @@
                             </div>
                         </div>
                         
-                                                
+                    
                         <!-- <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-mail:</label>
 

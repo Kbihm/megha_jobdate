@@ -11,6 +11,7 @@ use App\Admin;
 use Auth;
 use App\User;
 use Hash;
+use App\Settings;
 
 class CreateAccController extends Controller
 {
@@ -68,7 +69,8 @@ class CreateAccController extends Controller
 
     public function EmployeeRegisterForm()
     {
-        return view('auth.register-employee');
+        $roles = Settings::$roles;
+        return view('auth.register-employee', compact('roles'));
     }
 
     public function EmployerRegisterForm()

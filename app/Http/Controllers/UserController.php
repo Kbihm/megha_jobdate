@@ -11,6 +11,7 @@ use App\Comment;
 use Auth;
 use App\Employee;
 use App\Employer;
+use App\Settings;
 
 class UserController extends Controller
 {
@@ -28,6 +29,11 @@ class UserController extends Controller
     public function profile()
     {
             $user = Auth::user();
+            if($user->employee_id != null)
+            {                     
+            $roles = Settings::$roles;
+            return view('profile.index', compact('user', 'roles'));
+            }
             return view('profile.index', compact('user'));
     }
 
