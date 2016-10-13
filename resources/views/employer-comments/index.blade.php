@@ -6,7 +6,7 @@
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Reviews you've left for JobDate Staff.</h3>
+                    <h3 class="panel-title">Approved Reviews you've left for JobDate Staff.</h3>
                 </div>
                 <div class="panel-body">
                     @if (sizeof($comments) > 0)
