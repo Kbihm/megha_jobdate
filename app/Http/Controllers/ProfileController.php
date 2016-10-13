@@ -28,9 +28,10 @@ class ProfileController extends Controller
     {
     //Please confirm if this is efficient. Otherwise change  //
         $self_user = Auth::user();
-        $user = Employee::where('user_id', $id)->first();
+        $user = Employee::where('id', $id)->first();
         if($self_user->employer_id != null){
-            $jobs = Joboffer::where('employer_id', $self_user->employer_id)->get();
+            $jobs = Joboffer::where('employer_id', $self_user->employer->id)->get();
+
             return view('user.show', compact('user', 'jobs'));
         }
         return view('user.show', compact('user'));

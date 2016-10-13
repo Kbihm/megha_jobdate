@@ -25,7 +25,7 @@ class EmployeeJobOfferController extends Controller
         $joboffers = [];
 
         // This could be done better.
-        for ($i = 1; $i < sizeOf($user->employee->invites); $i++) {
+        for ($i = 0; $i < sizeOf($user->employee->invites); $i++) {
             array_push($joboffers, $user->employee->invites[$i]->joboffer);
         }
 
