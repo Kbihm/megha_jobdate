@@ -65,7 +65,7 @@
                             <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
                         </div>
                     </div> 
-                    <input name="employee_id" class="form-control" type="hidden" value="{{$user->employee->user_id}}">   
+                    <input name="employee_id" class="form-control" type="hidden" value="{{$user->employee->id}}">   
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
