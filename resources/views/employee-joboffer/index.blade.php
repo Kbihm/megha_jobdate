@@ -6,7 +6,7 @@
             <h2> Job Listings </h2>
             <p class="text-muted"> These are the Jobs you've been invited to.</p>
             <hr>
-
+          {{  dd($user->employee->id); }}
             @foreach($joboffers as $joboffer)
 
                 <div class="panel panel-primary">    

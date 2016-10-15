@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Config\Image;
 use App\Http\Requests;
-use Response;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ImageController extends Controller
 {
@@ -22,17 +24,17 @@ class ImageController extends Controller
         // $this->validate($request, Image::$rules);
         $user = Auth::user();
         $file = $request->file('image');
-        $destinationPath = public_path().'/profilePics/';
-        $filename = $user->employee->id . '.' . $file->getClientOriginalextension();
-        $uploadSucess = $file->move($destinationPath, $filename);
-
+        $filename = $user->employee->id . '.jpg';
+        if ($file) {
+            Storage::disk('local')->put($filename, File::get($file));
+        }
         return redirect('/profile');
     }
-    public function readImage($filename)
-    {   
-            $path = public_path().'/profilePics/' . $filename;
 
-            return $path;
+        public function readImage($filename)
+    {   
+            $file = Storage::disk('local')->get($filename);
+            return new Response($file, 200);
     }
 }
 

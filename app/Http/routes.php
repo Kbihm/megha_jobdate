@@ -96,5 +96,9 @@ Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobO
 
 
 //Partially Tseting Routes
-Route::get('images/{filename}', 'ImageController@readImage');
+Route::get('images/{filename}', [
+    'uses' => 'ImageController@readImage',
+    'as' => 'image'
+]);
+
 Route::post('/img/store', 'ImageController@store');

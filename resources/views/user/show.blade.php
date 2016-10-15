@@ -26,11 +26,13 @@
         ?>
 
             <div class="row">
-
             <div class="col-md-3">
-                <h3 class="page-title"> {{ $user->first_name }} </h3>
-                <img src="/profilePics/{{ $user->user->employee_id }}.jpg" class="img-responsive"  alt="{{ $user->first_name }}">
-                
+                <h3 class="page-title"> {{ $user->user->first_name }} </h3>
+                @if (Storage::disk('local')->has($user->id . '.jpg'))
+                <div style="background-image: url({{route('image', ['filename' => $user->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; border: 1px solid black; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
+
+
+                @endif
                 <hr>
 
                 <div class="progress">
