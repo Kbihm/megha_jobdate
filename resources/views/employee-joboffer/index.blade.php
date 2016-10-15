@@ -6,7 +6,7 @@
             <h2> Job Listings </h2>
             <p class="text-muted"> These are the Jobs you've been invited to.</p>
             <hr>
-          {{  dd($user->employee->id); }}
+
             @foreach($joboffers as $joboffer)
 
                 <div class="panel panel-primary">    
@@ -38,11 +38,12 @@
                           <form action="/offers/{{$joboffer->id}}" method="POST" class="form-horizontal" role="form">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            
-                            <button type="submit" class="btn btn-danger col-md-3"> Decline Job Offer </button>
+                            <row>
+                            <button type="submit" class="btn btn-danger col-md-3"> Decline Offer </button>
 
                           </form>
-                            <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success col-md-3"> Accept Job Offer </a>
+                            <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success col-md-3"> Accept Offer </a>
+                            </row>
                           @endif
                     </div>
                 </div>
