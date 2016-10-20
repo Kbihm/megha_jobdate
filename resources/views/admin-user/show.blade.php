@@ -34,7 +34,63 @@
 
 
     @if ($user->employer_id != null)
-        {{ $user->employer }}
+
+        <div class="row">
+        
+        <div class="col-md-6">
+        <h4>Employer Info </h4>
+        <table class="table">
+            <tr>
+                <th>User ID</th>
+                <td>{{ $user->employer->user_id }}</td>
+            </tr>
+            <tr>
+                <th>Account Created At</th>
+                <td>{{ $user->employer->created_at }}</td>
+            </tr>
+            <tr>
+                <th>Updated At</th>
+                <td>{{ $user->employer->updated_at }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ $user->employer->phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ $user->employer->address }}</td>
+            </tr>
+            <tr>
+                <th>ABN</th>
+                <td>{{ $user->employer->abn }}</td>
+            </tr>
+            <tr>
+                <th>Establishment Name</th>
+                <td>{{ $user->employer->establishment_name }}</td>
+            </tr>
+            <tr>
+                <th>Email Confirmed</th>
+                <td>{{ $user->employer->email_confirmed }}</td>
+            </tr>
+            <tr>
+                <th>Stripe ID</th>
+                <td>{{ $user->employer->stripe_id }}</td>
+            </tr>
+            <tr>
+                <th>Card Brand</th>
+                <td>{{ $user->employer->card_brand }}</td>
+            </tr>
+            <tr>
+                <th>Card Last Four</th>
+                <td>{{ $user->employer->card_last_four }}</td>
+            </tr>
+            <tr>
+                <th>Trial Ends At</th>
+                <td>{{ $user->employer->trial_ends_at }}</td>
+            </tr>
+        </table>
+        </div>
+        </div>
     @elseif ($user->employee_id != null)
         <div class="row">
         
