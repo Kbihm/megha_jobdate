@@ -84,7 +84,7 @@ class EmployerController extends Controller
 
     public function invoice($invoiceId) {
     return Auth::user()->employer->downloadInvoice($invoiceId, [
-        'vendor'  => 'Job Date ABN: XXX',
+        'vendor'  => 'Job Date ABN: 806 134 637 82',
         'product' => 'Job Date Subscription',
     ]);
 }
