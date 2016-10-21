@@ -44,7 +44,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/my-reviews', 'EmployeeCommentsController');
 Route::resource('/skills', 'SkillsController');
 Route::resource('/experience', 'ExperienceController');
-Route::resource('/offers', 'EmployeeJobofferController');
+Route::resource('/offers', 'EmployeeJobOfferController');
 
 
 //Employer
@@ -56,7 +56,7 @@ Route::resource('/invite', 'InvitesController');
 //Admin
 Route::get('/admin/comments/approved', 'CommentsController@approved');
 Route::resource('/admin/comments', 'CommentsController');
-Route::resource('/admin/promocode', 'PromocodeController');
+Route::resource('/admin/promocode', 'PromoCodeController');
 Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/staff', 'ProfileController');
 Route::resource('/admin/user', 'AdminUserController');
