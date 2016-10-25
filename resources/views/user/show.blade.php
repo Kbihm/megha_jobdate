@@ -1,19 +1,60 @@
 @extends('layouts.app')
     @section('content')
         <!--  <small>Employee Profile</small> -->
-
+        <style>
+                @charset "utf-8";
+                .calendar {
+                width: 600px;
+                }
+                .calendar div {
+                float: left;
+                height: 80px;
+                width: 80px;
+                border: 1px solid #333333;
+                }
+                .calendar .monheader {
+                font-weight: bold;
+                color: #FFFFFF;
+                text-align: center;
+                height: 20px;
+                width: 560px;   
+                background-color: #333333;
+                }
+                .calendar .dayheader {
+                font-weight: bold;
+                color: #FFFFFF;
+                text-align: center;
+                height: 20px;
+                background-color: #000000;
+                }
+                .calendar .day {
+                background-color: #FFFFCC;
+                }
+                .calendar .today {
+                background-color: #FFCC00;
+                border-color: #CC0000;
+                }
+                .calendar .inactive {
+                background-color: #666666;
+                }
+                #row{
+                    clear: left;
+                    float: left;
+                    height: 25%;
+                }
+        </style>
         <?php
 
             $availability = [
                 
                 [
-                'date' => '2016-01-22',
+                'date' => '2016-10-27',
                 'morning' => 'false',
                 'day' => 'true',
                 'night' => 'false'
                 ],
                 [
-                'date' => '2016-01-23',
+                'date' => '2016-10-29',
                 'morning' => 'true',
                 'day' => 'true',
                 'night' => 'false'
@@ -102,7 +143,132 @@
                     <h3 class="panel-title">{{$user->user->first_name}}'s Availability</h3>
                 </div>
                 <div class="panel-body">
-                    <h4></h4>
+                        <?php
+
+                        $today = getdate();
+
+                        $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
+                        
+                        $first = getdate($start);
+                        //set end date to 2 weeks from when the calendar starts
+                        $end = mktime(0,0,0,$first['mon']+1,$today['mday']+14,$first['year']);
+                        $last = getdate($end);
+
+                        ?>
+                        <div class="calendar">
+                        <div class="monheader"><?php echo $first['month'] . ' - ' . $first['year']; ?></div>
+                        <div class="dayheader">Sun</div>
+                        <div class="dayheader">Mon</div>
+                        <div class="dayheader">Tue</div>
+                        <div class="dayheader">Wed</div>
+                        <div class="dayheader">Thu</div>
+                        <div class="dayheader">Fri</div>
+                        <div class="dayheader">Sat</div>
+                        
+                        <?php
+                         
+                        //pad number of days into month//
+                        for($i = 0; $i < $first['wday']; $i++){
+                             
+                          
+                            
+                        echo '  <div class="inactive"></div>' . "\n";
+                        }
+                        //separate number of total days to display and numebr of days in the rollover month
+                        if($first['mon'] = ($last['mon']-1)){
+                        $y = $last['mday'] + date("t");
+                        $first['mon'] -= 1;
+
+
+                        
+                      }
+                        //start days at the current day in the month
+                        for($i = $first['mday']; $i <= date("t"); $i++){
+                            if($i == $first['mday']){
+                                $style = 'today';
+                                
+                            }
+                            else{
+                                $style = 'day';
+                                                        
+                            }
+
+                            ?>
+                    
+                         
+                            <div class="{{$style}}"> 
+                            <row id="row"> {{$i}} </row> 
+                            <?php
+
+                                $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date'));
+                                if($key !== false){
+                                   if($availability[$key]['morning'] != 'false'){
+                                     echo' <row id="row" class="btn btn-danger col-md-12"></row> ';
+                                   }    
+                                   else{
+                                      echo' <row id="row" class="btn btn-default col-md-12"></row> ';
+                                   }
+
+                                   if($availability[$key]['day'] != 'false'){
+                                                                          
+                                       echo' <row id="row" class="btn btn-danger col-md-12"></row> ';
+                                   }
+                                   else{
+                                     echo'  <row id="row" class="btn btn-default col-md-12"></row> ';
+                                   }
+
+                                   if($availability[$key]['night'] != 'false'){
+                                       echo' <row id="row" class="btn btn-danger col-md-12"></row> ';
+                                   }
+                                   else{
+                                      echo' <row id="row" class="btn btn-default col-md-12"></row>  ';
+                                   }
+                                }
+
+                            ?>
+                            </div>
+
+                            
+                            
+                            <?php
+
+                        }   
+
+                        if($y > 0){
+                        for($i = 1; $i <= $last['mday']; $i++){
+
+                            if($i == $today['mday'] && $first['mon'] == $today['mon'] && $first['year'] == $today['year']){
+                                $style = 'today';
+                            }
+                            else{
+                                $style = 'day';
+                            }
+                                                        ?>
+                    
+
+                            <div class="{{$style}}"> 
+                            <row id="row"> {{$i}} </row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            </div> 
+
+                            <?php
+
+                            
+                        }
+
+                        }
+
+                        ?>
+                        </div>
+
+
+
+
+
+
+
                 </div>
             </div>
 
