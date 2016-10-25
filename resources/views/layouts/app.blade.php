@@ -58,7 +58,7 @@
                         <li><a href="/admin/user">Users</a></li>
                         <li><a href="/staff">Employees</a></li>
                         <li><a href="/admin/comments">Comments</a></li>
-                        <li><a href="/admin/promocode">PromoCodes</a></li>
+                        <!-- <li><a href="/admin/promocode">PromoCodes</a></li> -->
                         <li><a href="/admin/settings">Settings</a></li>
 
                     @elseif (Auth::user()->employee_id != null)
