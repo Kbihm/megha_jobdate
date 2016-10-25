@@ -1,19 +1,62 @@
 @extends('layouts.app')
     @section('content')
         <!--  <small>Employee Profile</small> -->
+        <style>
+                @charset "utf-8";
+                .calendar {
+                width: 600px;
+                }
+                .calendar div {
+                float: left;
+                height: 80px;
+                width: 80px;
+                border: 1px solid #00506b;
+                }
+                .calendar .monheader {
+                font-weight: bold;
+                color: #FFFFFF;
+                text-align: center;
+                height: 20px;
+                width: 560px;   
+                background-color: #008cba;
+                }
+                .calendar .dayheader {
+                font-weight: bold;
+                color: #FFFFFF;
+                text-align: center;
+                height: 20px;
+                background-color: #008cba;
+                }
+                .calendar .day {
+                background-color: #5ab4dd;
+                }
+                .calendar .today {
+                background-color: #5ab4dd;
+                border-color: #5ad6dd;
+                }
+                .calendar .inactive {
+                background-color: #839595;
+                }
+                #row{
+                    clear: left;
+                    float: left;
+                    height: 25%;
+                    width: 100%;
 
+                }
+        </style>
         <?php
 
             $availability = [
                 
                 [
-                'date' => '2016-01-22',
+                'date' => '2016-10-27',
                 'morning' => 'false',
                 'day' => 'true',
                 'night' => 'false'
                 ],
                 [
-                'date' => '2016-01-23',
+                'date' => '2016-10-29',
                 'morning' => 'true',
                 'day' => 'true',
                 'night' => 'false'
@@ -57,15 +100,14 @@
                         </div> 
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu col-md-12">
                     @if (isset($jobs))
                      @foreach($jobs as $job)
-                    <li role="separator" class="divider"></li>
                     <form method="POST" action="/invite" role="form">
                     {{ csrf_field() }}
                     <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                     <input type="hidden" name="employee_id" value="{{$user->id}}">
-                    <li><button type="submit">{{$job->date}}, {{$job->time}}</button></li>
+                    <li><button class="col-md-12" type="submit">{{$job->date}}, {{$job->time}}</button></li>
                     </form>
                      @endforeach
                     @elseif (!isset($jobs))
@@ -102,9 +144,62 @@
                     <h3 class="panel-title">{{$user->user->first_name}}'s Availability</h3>
                 </div>
                 <div class="panel-body">
-                    <h4></h4>
+                        <div class="calendar">
+                        <div class="monheader">{{$first['month'] . ' ' . $first['year']}}</div>
+                        <div class="dayheader">Sun</div>
+                        <div class="dayheader">Mon</div>
+                        <div class="dayheader">Tue</div>
+                        <div class="dayheader">Wed</div>
+                        <div class="dayheader">Thu</div>
+                        <div class="dayheader">Fri</div>
+                        <div class="dayheader">Sat</div>
+
+                        @for($i = 0; $i < $first['wday']; $i++)
+                        <div class="inactive"></div>
+                        @endfor
+                        
+                        
+                        @for($i = $first['mday']; $i <= date("t"); $i++)
+                            <div class="day"> 
+                            <row id="row"> {{$i}} </row> 
+                            
+                            <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
+                                @if($key !== false)
+
+                                   @if($availability[$key]['morning'] != 'false')
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif  
+
+                                   @if($availability[$key]['day'] != 'false')                                   
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif
+
+                                   @if($availability[$key]['night'] != 'false')
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif
+
+                                @endif
+                            </div>
+                        @endfor   
+                        @if($first['mon'] == $last['mon']-1)
+                            @for($i = 1; $i <= $last['mday']; $i++)
+                            <div class="day"> 
+                            <row id="row"> {{$i}} </row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            <row id="row" class="btn btn-default col-md-12"></row> 
+                            </div> 
+                            @endfor
+                        @endif
                 </div>
             </div>
+        </div>
 
         <div class="panel panel-primary">
             <div class="panel-heading">
