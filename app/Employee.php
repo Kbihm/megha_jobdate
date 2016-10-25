@@ -56,4 +56,9 @@ class Employee extends Model
         return $this->hasMany(Invite::class);
     }
 
+    public function availability()
+    {
+        return $this->hasMany(Availability::class);
+    }
+
 }
