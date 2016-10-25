@@ -100,15 +100,14 @@
                         </div> 
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu col-md-12">
                     @if (isset($jobs))
                      @foreach($jobs as $job)
-                    <li role="separator" class="divider"></li>
                     <form method="POST" action="/invite" role="form">
                     {{ csrf_field() }}
                     <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                     <input type="hidden" name="employee_id" value="{{$user->id}}">
-                    <li><button type="submit">{{$job->date}}, {{$job->time}}</button></li>
+                    <li><button class="col-md-12" type="submit">{{$job->date}}, {{$job->time}}</button></li>
                     </form>
                      @endforeach
                     @elseif (!isset($jobs))
