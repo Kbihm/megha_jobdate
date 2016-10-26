@@ -50,13 +50,13 @@
             $availability = [
                 
                 [
-                'date' => '2016-10-27',
+                'date' => '2016-11-5',
                 'morning' => 'false',
                 'day' => 'true',
                 'night' => 'false'
                 ],
                 [
-                'date' => '2016-10-29',
+                'date' => '2016-11-11',
                 'morning' => 'true',
                 'day' => 'true',
                 'night' => 'false'
@@ -64,7 +64,6 @@
 
             ];
 
-            // dd($availability);
 
         ?>
 
@@ -142,7 +141,7 @@
                 <div class="panel-body">
                     <p>{{$user->about}}</p>
                 </div>
-            </div>
+            </div> 
 
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -162,9 +161,9 @@
                         @for($i = 0; $i < $first['wday']; $i++)
                         <div class="inactive"></div>
                         @endfor
-                        
-                        
-                        @for($i = $first['mday']; $i <= date("t"); $i++)
+                  
+                        @for($i = $first['mday']; $i <= min($last['mday']); $i++)
+
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
                             
