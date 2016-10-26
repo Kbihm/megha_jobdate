@@ -10,7 +10,7 @@
 
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#" >Predefined Reviews</a></li>
-                <li><a href="/reviews/custom/create/{{$user->id}}" >Write a Custom Reviews</a></li>
+                <li><a href="/reviews/custom/create/{{$user->id}}" >Write a custom review</a></li>
             </ul>
 
                             <div class="col-md-12">
