@@ -13,6 +13,15 @@
             <li>Profile Active (Done in background always true) </li>
         </ul>
 
+        <form class="form">
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="text" id="datepicker" class="form-control">
+        </div>
+
+
+        </form>
 
     </div>
 
@@ -42,7 +51,7 @@
                                         <li> <strong> Availability </strong> </li>
                                         </ul>
 
-                                        <a class="btn" href="/offers/{{$user->id}}"> Send Job Offer </a>
+                                        <!-- <a class="btn" href="/offers/{{$user->id}}"> Send Job Offer </a> -->
                                    </div>
                             </div>
                             </div>
