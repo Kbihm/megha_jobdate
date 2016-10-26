@@ -3,25 +3,56 @@
 
     <div class="col-md-3">
 
-        <h4>Search Filters Go Here </h4>
+        <div class="well">
 
-        <ul>
-            <li>Date </li>
-            <li>Time of Day (Morning / Day / Night) </li>
-            <li>Role </li>
-            <li>Looking for fulltime Work </li>
-            <li>Profile Active (Done in background always true) </li>
-        </ul>
+        <h4>Narrow your Search </h4>
 
         <form class="form">
+
+        <div class="form-group">
+            <label>Region</label>
+            <select id="role" class="form-control" name="region" value="">
+                <option value="tba">Coming Soon.</option>
+            </select>
+        </div>
 
         <div class="form-group">
             <label>Date</label>
             <input type="text" id="datepicker" class="form-control">
         </div>
 
+        <div class="form-group">
+            <label>Time of Day</label>
+            <select class="form-control">
+                <option>Any</option>
+                <option>Morning</option>
+                <option>Day</option>
+                <option>Night</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+            <select id="role" class="form-control" name="role" value="">
+                <option value="Any">Any</option>
+                <option value="Waiter/Waitress">Waiter/Waitress</option>
+                <option value="Bartender">Bartender</option>
+                <option value="Chef">Chef</option>
+                <option value="Musician">Musician</option>
+                <option value="Kitchen Hand">Kitchen Hand</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Looking for Fulltime Work</label> <br/>
+            <input type="checkbox" class="">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Search</button>
 
         </form>
+        </div>
 
     </div>
 
