@@ -86,6 +86,11 @@
                     <div class="col-md-4" style="color:black; text-align: center;"> Average Rating:  <?php $rating = $user->average_rating; echo $rating*10; ?>% </div>
                 </div>
 
+                <p> 
+                    <b>Role:</b> {{ $user->role }} <br/>
+                    <b>Hourly Rate: </b> ${{ $user->hourly_rate }} 
+                </p>
+
                 <div class="btn-group">
                     <a href="/reviews/create/{{$user->id}}"  class="btn btn-default col-md-12">
                         <div class="col-md-10">
