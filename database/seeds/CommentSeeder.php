@@ -12,10 +12,16 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
+
+        // Rating 
+        // 1 = Negative
+        // 2 = Neutral
+        // 3 = Positive
+
         $comment = new Comment;
         $comment->employee_id = 1;
         $comment->employer_id = 1;
-        $comment->comment = 'Well Um Ahh';
+        $comment->comment = 'Poor performance all around, terrible work ethic.';
         $comment->rating = 2;
         $comment->approved = true;
         $comment->save();
@@ -23,7 +29,7 @@ class CommentSeeder extends Seeder
         $comment = new Comment;
         $comment->employee_id = 1;
         $comment->employer_id = 1;
-        $comment->comment = 'Well Um Ahh';
+        $comment->comment = 'Medicore at Best.';
         $comment->rating = 2;
         $comment->save();
 
@@ -37,6 +43,14 @@ class CommentSeeder extends Seeder
 
         $comment = new Comment;
         $comment->employee_id = 1;
+        $comment->employer_id = 1;
+        $comment->comment = 'Awesome Performance!';
+        $comment->rating = 3;
+        $comment->approved = true;
+        $comment->save();
+
+        $comment = new Comment;
+        $comment->employee_id = 2;
         $comment->employer_id = 1;
         $comment->comment = 'Awesome Performance!';
         $comment->rating = 3;

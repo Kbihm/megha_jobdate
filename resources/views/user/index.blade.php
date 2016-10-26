@@ -6,7 +6,6 @@
         <div class="well">
 
         <h4>Narrow your Search </h4>
-
         <form class="form">
 
         <div class="form-group">
@@ -17,7 +16,7 @@
         </div>
 
         <div class="form-group">
-            <label>Date</label>
+            <label>Available on the</label>
             <input type="text" id="datepicker" class="form-control">
         </div>
 
@@ -45,7 +44,11 @@
 
         <div class="form-group">
             <label>Looking for Fulltime Work</label> <br/>
-            <input type="checkbox" class="">
+            <select class="form-control">
+                <option>Any</option>
+                <option>Yes</option>
+                <option>No</option>
+            </select>
         </div>
 
 
