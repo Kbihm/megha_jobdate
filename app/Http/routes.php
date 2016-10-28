@@ -50,6 +50,8 @@ Route::resource('/offers', 'EmployeeJobOfferController');
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');
 Route::get('/reviews/create/{id}', 'EmployerCommentsController@create');
+Route::get('/reviews/custom/create/{id}', 'EmployerCommentsController@customCreate');
+Route::post('reviews/custom/', 'EmployerCommentsController@customStore');
 Route::resource('/jobs', 'JobofferController');
 Route::resource('/invite', 'InvitesController');
 

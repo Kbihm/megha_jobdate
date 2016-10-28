@@ -23,41 +23,41 @@
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                            <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was punctual and was able to complete tasks as per their profile and work history, I would recommend this employee to other employers in the future." checked="">
                                             <span class="text-success">Positive</span> – {{$user->user->first_name}} was punctual and was able to complete tasks as per their profile and work history, I would recommend this employee to other employers in the future.
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} did not turn up punctually but completed all tasks at a high level.">
                                             <span class="text-muted">Neutral</span> – {{$user->user->first_name}} did not turn up punctually but completed all tasks at a high level.
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was a good worker but the job itself was not suited to the employer.">
                                             <span class="text-muted">Neutral</span> – {{$user->user->first_name}} was a good worker but the job itself was not suited to the employer.
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was not able to complete the tasks as per their profile and work history.">
                                             <span class="text-danger">Negative</span> – {{$user->user->first_name}} was not able to complete the tasks as per their profile and work history.
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                            <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} never showed up for the job.">
                                             <span class="text-danger">Negative</span> – {{$user->user->first_name}} never showed up for the job.
                                         </label>
                                     </div>
 
                                 </div>
-
+                                  <input type="hidden" name="employee_id" value="{{$user->id}}">
                             </div>
 
                             <div class="text-center">
