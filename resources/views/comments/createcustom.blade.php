@@ -51,10 +51,37 @@
                                   <input type="hidden" name="employee_id" value="{{$user->id}}">
                             </div>
 
+
+
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                     Leave Review
-                                </button>
+                                </button>   
+                                         
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel">Custom Comments</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h6> Hi there! Custom comments need to be approved by an administrator before they will show up in your comment history or an employee's user profile. </h6>
+                                            <button type="submit" class="btn btn-primary">
+                                                Submit Review
+                                            </button>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>         
+                                         
+                                         
+
                             </div>
 
                             

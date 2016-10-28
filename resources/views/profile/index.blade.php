@@ -2,9 +2,12 @@
 @section('content')
 
     <div class="row">
-
         <div class="col-md-3">
-
+                @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
+                <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; border: 1px solid black; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
+                @else
+                <div style="height: 250px; width:250px; background-color: grey; border: 1px solid black;"> <h4 class="text-center"> You have no profile image set. </h4> </div>
+                @endif
         <h4> Manage your account </h4>
         <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="/profile">Your Information</a></li>
@@ -184,14 +187,35 @@
                     </form>
 
 
-                    <form  method="POST" action="img/store" files="true" role="form" enctype="multipart/form-data">
-                                                {{ csrf_field() }}
-                        <input  type="file" id="image" name="image">
-                        <button type="submit" class="btn btn-primary form-group">
+                    <button type="button" class="btn btn-primary btn-lg col-md-offset-4" data-toggle="modal" data-target="#myModal">
+                    Upload a profile picture
+                    </button>
 
-                                     Upload
-                        </button>
-                    </form>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">Upload a Profile Image</h4>
+                            </div>
+                            <div class="modal-body">
+                                <h4> Note that your profile picture MUST be in '.jpg' format! We recommend a 250x250 image. </h4>
+                                    <form  method="POST" action="img/store" files="true" role="form" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <input  type="file" id="image" name="image">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Upload Picture</button>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
 
             @elseif ($user->employer_id != null)
                     <form class="form-horizontal" role="form" method="POST" action="profile/update/employer">
