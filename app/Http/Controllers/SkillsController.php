@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+
 use App\Skill;
 use Auth;
 
@@ -24,9 +25,8 @@ class SkillsController extends Controller
      */
     public function index()
     {
-        $id = Auth::user()->id;
-        $skills = Skill::where('employee_id', '=', $id)->get();
-        return view('employee.skills.index', compact('skills'));
+        $user = Auth::user();
+        return view('profile.skills', compact('user'));
     }
 
     /**
@@ -37,7 +37,7 @@ class SkillsController extends Controller
     public function create()
     {
         $user = Auth::user()->id;
-        return view('employee.skills.create', compact('user'));
+        return view('profile.skills', compact('user'));
     }
 
     /**
@@ -48,7 +48,7 @@ class SkillsController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, Skills::$rules);
+        $this->validate($request, Skill::$rules);
         $user = Auth::User();
         $skill = new Skill($request->all());
         $skill->save();
@@ -97,8 +97,9 @@ class SkillsController extends Controller
      */
     public function destroy($id)
     {
+        $user = Auth::User();
         $skill = Skill::find($id);
         $skill->delete();
-        return redirect('/skills');
+        return view('/profile.skills', compact('user'));
     }
 }

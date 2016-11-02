@@ -3,11 +3,14 @@
 
     <div class="row">
         <div class="col-md-3">
+        
+            @if($user->employee_id != null)
                 @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
                 <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; border: 1px solid black; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
                 @else
                 <div style="height: 250px; width:250px; background-color: grey; border: 1px solid black;"> <h4 class="text-center"> You have no profile image set. </h4> </div>
                 @endif
+            @endif
         <h4> Manage your account </h4>
         <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="/profile">Your Information</a></li>
@@ -186,6 +189,7 @@
                         </div>
                     </form>
 
+                    @if($user->employee_id != null)
 
                     <button type="button" class="btn btn-primary btn-lg col-md-offset-4" data-toggle="modal" data-target="#myModal">
                     Upload a profile picture
@@ -214,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                    @endif
 
 
             @elseif ($user->employer_id != null)

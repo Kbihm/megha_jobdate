@@ -32,7 +32,7 @@ class InvitesController extends Controller
         $this->validate($request, Invite::$rules);
         $invite = new Invite($request->all());
         $invite->save();
-        return redirect('/jobs');
+        return redirect('email/sendJobRequest/'.$invite->id);
     }
 
 

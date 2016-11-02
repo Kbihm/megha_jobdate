@@ -154,6 +154,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <h4> If you are under the age of legal consent, you must consult a parent or guardian prior to signing up.
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>

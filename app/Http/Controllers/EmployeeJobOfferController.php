@@ -41,7 +41,7 @@ class EmployeeJobOfferController extends Controller
         $joboffer->save();
         //remove from invites table//
         //Also when do we remove the job offer //
-        return redirect('/offers');
+        return redirect('/email/acceptJob/'.$id);
     }
 
     public function destroy($id)

@@ -62,7 +62,7 @@ Route::resource('/admin/promocode', 'PromoCodeController');
 Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/staff', 'ProfileController');
 Route::resource('/admin/user', 'AdminUserController');
-Route::resource('/email', 'EmailsController');
+
 
 //Profile
 Route::get('profile', 'UserController@profile');
@@ -104,3 +104,10 @@ Route::get('images/{filename}', [
 ]);
 
 Route::post('/img/store', 'ImageController@store');
+
+//E-mail Routes
+Route::resource('/email', 'EmailsController');
+Route::get('/email/renewSub/{id}', 'EmailsController@renewSub');
+Route::get('/email/signUp/{id}', 'EmailsController@signUp');
+Route::get('/email/acceptJob/{id}', 'EmailsController@acceptJob');
+Route::get('/email/sendJobRequest/{id}', 'EmailsController@sendJobRequest');
