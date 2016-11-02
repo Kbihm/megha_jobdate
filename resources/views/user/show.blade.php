@@ -87,7 +87,8 @@
 
                 <p> 
                     <b>Role:</b> {{ $user->role }} <br/>
-                    <b>Hourly Rate: </b> ${{ $user->hourly_rate }} 
+                    <b>Hourly Rate: </b> ${{ $user->hourly_rate }}  <br/>
+                    <b>Last Active</b> - {{ date('F d, Y', strtotime($user->last_login)) }}
                 </p>
 
                 <div class="btn-group">

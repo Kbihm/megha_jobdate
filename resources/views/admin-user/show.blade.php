@@ -4,6 +4,8 @@
     <a href="/admin/user"> Back to all </a>
     <hr>
 
+    <b>Last Active</b> - {{ date('F d, Y', strtotime($user->last_login)) }}
+
     <table class="table table-striped table-hover">
 
     <tr>

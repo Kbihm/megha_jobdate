@@ -2,6 +2,12 @@
 
 @section('content')
                         
+ <?php
+
+ Auth::user()->last_login = new Datetime;
+ Auth::user()->save();
+
+ ?>                       
 
                         
 <div class="container-fluid">
