@@ -42,7 +42,7 @@
 
                 <h4> You're currently on a {{ $user->employer->subscription('main')->stripe_plan }} subscription. </h4>
                 <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}.</p>
-                <p> Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br />
+                <p> <!-- Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br /> -->
                     Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }}<br /></p>
                 <hr>
                 
@@ -75,10 +75,9 @@
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
-                    data-amount="3000"
+                    data-amount="3500"
                     data-name="Job Date"
                     data-description="Monthly Subscription"
-                    data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
                     data-locale="auto"
                     data-currency="aud"
                     data-email="{{ Auth::user()->email}}"
@@ -95,10 +94,9 @@
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
-                    data-amount="30000"
+                    data-amount="33000"
                     data-name="Job Date"
                     data-description="Yearly Subscription"
-                    data-image="https://s3.amazonaws.com/stripe-uploads/acct_156KIhIRGcBZPWlXmerchant-icon-1417779552694-1962856_296529483873563_7910790945420469738_n.png"
                     data-locale="auto"
                     data-currency="aud"
                     data-email="{{ Auth::user()->email}}"

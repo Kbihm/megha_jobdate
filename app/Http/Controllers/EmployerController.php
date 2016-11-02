@@ -59,6 +59,8 @@ class EmployerController extends Controller
 
         // dd($user->employer->subscription('main')->onTrial());
 
+        // dd($sub);
+
         $sub->cancel();
         return redirect('profile/subscription');
     }
