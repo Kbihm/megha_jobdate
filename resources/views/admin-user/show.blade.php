@@ -100,7 +100,7 @@
     @elseif ($user->employee_id != null)
         <div class="row">
         
-        <div class="col-md-6">
+        <div class="col-md-8">
         <h4>Employee Info </h4>
         <table class="table">
             <tr>
@@ -143,7 +143,13 @@
             </tr>
             <tr>
                 <th>Looking Fulltime</th>
-                <td>{{ $user->employee->fulltime }}</td>
+                <td>
+                    @if ($user->employee->fulltime == 1)
+                        Yes
+                    @elseif ($user->employee->fulltime == 0)
+                        No
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>Hourly Rate</th>
