@@ -65,7 +65,6 @@ class Employee extends Model
     public function calc_rating()
     {
         $comments = Comment::where('employee_id', $this->id)->where('approved', true)->get();
-        // dd($comments);
 
         $sum = 0.0;
 

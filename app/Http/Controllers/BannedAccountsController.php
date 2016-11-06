@@ -25,7 +25,7 @@ class BannedAccountsController extends Controller
 
     public function unban($id) {
         $banned = Banned::where('user_id', $id)->first();
-        if (sizeOf($banned))
+        if (sizeOf($banned) == 0)
             return back();
 
         $banned->delete();

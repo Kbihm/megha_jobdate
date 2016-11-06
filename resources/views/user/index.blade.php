@@ -73,14 +73,19 @@
                             </div>
                             <div class="panel-body">
                                    <div class="col-md-3">
-                                         <img src="/profilePics/{{ $user->employee_id }}.jpg" class="img-responsive"  alt="{{ $user->first_name }}">
+                                            @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
+                                                <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; border: 1px solid black; height: 150px; width:150px; background-size: contain; background-color: grey;"></div>
+                                            @else
+                                                <div style="height: 150px; width:150px; background-color: grey; border: 1px solid black;"> <h4 class="text-center" style="margin-top:60px"> No Image</h4> </div>
+                                            @endif
                                         <hr style="margin-top:10px; margin-bottom:10px;">
                                         Average Rating:  {{ number_format($user->employee->average_rating / 3 * 100, 2) }}%
                                    </div>
                                    <div class="col-md-9">
                                         <p>About {{$user->first_name}} </p>
                                         <ul>
-                                        <li> <strong>Hourly Rate: {{$user->employee->hourly_rate}}</strong> </li>
+                                        <li> <strong>Hourly Rate</strong> ${{ number_format($user->employee->hourly_rate, 2) }} </li>
+                                        <li> <strong>Role</strong> {{ $user->employee->role }} </li>
                                         <li> <strong>Bio:</strong> {{ str_limit($user->employee->about, $limit = 100, $end = '...') }} </li>
                                         <li> <strong> Availability </strong> </li>
                                         </ul>
