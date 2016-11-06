@@ -75,8 +75,8 @@
                                    <div class="col-md-3">
                                          <img src="/profilePics/{{ $user->employee_id }}.jpg" class="img-responsive"  alt="{{ $user->first_name }}">
                                         <hr style="margin-top:10px; margin-bottom:10px;">
-                                        Average Rating:  <?php $rating = $user->employee->average_rating; echo $rating*10; ?>% 
-                                   </div>   
+                                        Average Rating:  {{ number_format($user->employee->average_rating / 3 * 100, 2) }}%
+                                   </div>
                                    <div class="col-md-9">
                                         <p>About {{$user->first_name}} </p>
                                         <ul>

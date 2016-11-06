@@ -121,8 +121,6 @@
                     @endif
                     </ul>
 
-                    
-                        
 
                     @if (Auth::user()->admin_id != null)
                     <button type="button" href="#" class="btn btn-default">

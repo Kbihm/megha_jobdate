@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests;
 use App\Comment;
+use App\Employee;
 
 class CommentsController extends Controller
 {
@@ -101,6 +102,9 @@ class CommentsController extends Controller
 
         $comment = Comment::find($id);
         $comment->approved = true;
+        $employee = Employee::find($comment->employee_id);
+        $employee->calc_rating();
+
         $comment->save();
 
         return redirect('/admin/comments');
@@ -114,6 +118,8 @@ class CommentsController extends Controller
 
         $comment = Comment::find($id);
         $comment->approved = false;
+        $employee = Employee::find($comment->employee_id);
+        $employee->calc_rating();
         $comment->save();
 
         return redirect('/admin/comments');

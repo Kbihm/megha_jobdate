@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Comment;
 
 class Employee extends Model
 {
@@ -59,6 +60,23 @@ class Employee extends Model
     public function availability()
     {
         return $this->hasMany(Availability::class);
+    }
+
+    public function calc_rating()
+    {
+        $comments = Comment::where('employee_id', $this->id)->where('approved', true)->get();
+        // dd($comments);
+
+        $sum = 0.0;
+
+        foreach ($comments as $comment)
+            $sum += $comment->rating;
+
+        $avg = $sum / sizeof($comments);
+
+        $this->average_rating = $avg;
+        $this->save();
+
     }
 
 }
