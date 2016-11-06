@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Banned;
 
 class BannedAccountsController extends Controller
 {
@@ -17,13 +18,16 @@ class BannedAccountsController extends Controller
 
     public function ban($id) {
         $banned = new Banned;
-        $banned->id = $id;
+        $banned->user_id = $id;
         $banned->save();
         return redirect('/admin/user/'.$id);
     }
 
     public function unban($id) {
-        $banned = Banned::find($id);
+        $banned = Banned::where('user_id', $id)->first();
+        if (sizeOf($banned))
+            return back();
+
         $banned->delete();
         return redirect('/admin/user/'.$id);
     }

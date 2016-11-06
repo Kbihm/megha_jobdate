@@ -90,6 +90,10 @@
                 <th>Trial Ends At</th>
                 <td>{{ $user->employer->trial_ends_at }}</td>
             </tr>
+            <tr>
+                <th>Banned</th>
+                <td>@if(sizeof($user->banned == 1)) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
+            </tr>
         </table>
         </div>
         </div>
@@ -138,6 +142,10 @@
             <tr>
                 <th>Hourly Rate</th>
                 <td>${{ $user->employee->hourly_rate }}</td>
+            </tr>
+            <tr>
+                <th>Banned</th>
+                <td>@if(sizeof($user->banned == 1)) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
             </tr>
 
         </table>

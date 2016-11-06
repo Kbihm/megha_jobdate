@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banned extends Model
 {
-    //
+     protected $table = 'banned';
 }
