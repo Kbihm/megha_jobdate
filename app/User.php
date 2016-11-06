@@ -51,5 +51,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Admin::class);
     }
+
+    public function banned()
+    {
+        return $this->belongsTo(Banned::class);
+    }
     
 }

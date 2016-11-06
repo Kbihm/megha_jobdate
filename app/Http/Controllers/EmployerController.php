@@ -58,7 +58,6 @@ class EmployerController extends Controller
         $sub = $user->employer->subscription('main');
 
         // dd($user->employer->subscription('main')->onTrial());
-
         // dd($sub);
 
         $sub->cancel();

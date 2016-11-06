@@ -89,6 +89,8 @@ Route::post('profile/update/employer', 'UserController@UpdateEmployer');
 
 Route::get('comments/approve/{id}', 'CommentsController@approve');
 Route::get('comments/disapprove/{id}', 'CommentsController@disapprove');
+Route::get('ban/{id}', 'BannedAccountsController@ban');
+Route::get('unban/{id}', 'BannedAccountsController@unban');
 
 Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
 
