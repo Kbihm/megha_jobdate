@@ -121,7 +121,7 @@
             </tr>
             <tr>
                 <th>Average Rating</th>
-                <td>{{ $user->employee->average_rating }}</td>
+                <td>{{ number_format($user->employee->average_rating / 3 * 100, 2) }}%</td>
             </tr>
             <tr>
                 <th>Role</th>
@@ -132,8 +132,14 @@
                 <td>{{ $user->employee->about }}</td>
             </tr>
             <tr>
-                <th>Gender (0 = M, 1 = F)</th>
-                <td>{{ $user->employee->gender }}</td>
+                <th>Gender</th>
+                <td>
+                    @if ($user->employee->gender == 0)
+                        Male
+                    @elseif ($user->employee->gender == 1)
+                        Female
+                    @endif 
+                </td>
             </tr>
             <tr>
                 <th>Looking Fulltime</th>
@@ -141,7 +147,7 @@
             </tr>
             <tr>
                 <th>Hourly Rate</th>
-                <td>${{ $user->employee->hourly_rate }}</td>
+                <td>${{ number_format($user->employee->hourly_rate, 2) }}</td>
             </tr>
             <tr>
                 <th>Banned</th>

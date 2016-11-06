@@ -78,16 +78,16 @@
                 <hr>
 
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{ $user->average_rating * 10 }}%;"
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{ number_format($user->average_rating / 3 * 100, 0) }}%;"
                     aria-valuemin="0" aria-valuemax="100">
                         
                     </div>
-                    <div class="col-md-4" style="color:black; text-align: center;"> Average Rating:  <?php $rating = $user->average_rating; echo $rating*10; ?>% </div>
+                    <div class="col-md-4" style="color:black; text-align: center;"> Average Rating: {{ number_format($user->average_rating / 3 * 100, 2) }}% </div>
                 </div>
 
                 <p> 
                     <b>Role:</b> {{ $user->role }} <br/>
-                    <b>Hourly Rate: </b> ${{ $user->hourly_rate }}  <br/>
+                    <b>Hourly Rate: </b> ${{ number_format($user->hourly_rate, 2) }}  <br/>
                     <b>Last Active</b> - {{ date('F d, Y', strtotime($user->last_login)) }}
                 </p>
 
