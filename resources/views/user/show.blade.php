@@ -148,7 +148,7 @@
                 </div>
                 <div class="panel-body">
                         <div class="calendar">
-                        <div class="monheader">{{$first['month'] . ' ' . $first['year']}}</div>
+                        <div class="monheader">sd</div>
                         <div class="dayheader">Sun</div>
                         <div class="dayheader">Mon</div>
                         <div class="dayheader">Tue</div>
@@ -160,11 +160,9 @@
                         @for($i = 0; $i < $first['wday']; $i++)
                         <div class="inactive"></div>
                         @endfor
-                            @if($first['mon']+1 == $last['mon'])
+
                                 @for($i = $first['mday']; $i <= $daytarget; $i++)
-                            @else
-                                @for($i = $first['mday']; $i <= $last['mday']; $i++)
-                            @endif
+
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
                             
@@ -193,7 +191,7 @@
                             </div>
                         @endfor   
                         @if($first['mon'] == $last['mon']-1)
-                            @for($i = 1; $i <= $last['mday']; $i++)
+                            @for($i = 1; $i <= $last['mday']-1; $i++)
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
                             

@@ -31,10 +31,15 @@ class ProfileController extends Controller
         $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
         $first = getdate($start);
     //set end date to 2 weeks from when the calendar starts
-        $end = mktime(0,0,0,$first['mon'],$today['mday']+14,$first['year']);
+        $end = mktime(0,0,0,$first['mon'],$today['mday']+13,$first['year']);
         $last = getdate($end);
-        $daytarget = $this->days_in_month($last['mon'], $last['year']);
 
+        if($first['mon']+1 == $last['mon']){
+            $daytarget = $this->days_in_month($last['mon'], $last['year']);
+        }
+        else{
+            $daytarget = $last['mday'];
+        }
 
     //Please confirm if this is efficient. Otherwise change  //
         $self_user = Auth::user();
