@@ -161,7 +161,7 @@
                         <div class="inactive"></div>
                         @endfor
                   
-                        @for($i = $first['mday']; $i <= min($last['mday']); $i++)
+                            @for($i = $first['mday']; $i <= $last['mday']; $i++)
 
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
