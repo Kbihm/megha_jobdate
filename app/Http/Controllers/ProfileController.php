@@ -33,17 +33,26 @@ class ProfileController extends Controller
     //set end date to 2 weeks from when the calendar starts
         $end = mktime(0,0,0,$first['mon'],$today['mday']+14,$first['year']);
         $last = getdate($end);
+        $daytarget = $this->days_in_month($last['mon'], $last['year']);
+
+
     //Please confirm if this is efficient. Otherwise change  //
         $self_user = Auth::user();
         $user = Employee::where('id', $id)->first();
         if($self_user->employer_id != null){
             $jobs = Joboffer::where('employer_id', $self_user->employer->id)->get();
 
-            return view('user.show', compact('user', 'jobs', 'first', 'last'));
+            return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
         }
 
 
-        return view('user.show', compact('user', 'first', 'last'));
+        return view('user.show', compact('user', 'first', 'last', 'daytarget'));
     }
+
+    function days_in_month($month, $year) 
+    { 
+    // calculate number of days in a month 
+    return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31); 
+    } 
 
 }

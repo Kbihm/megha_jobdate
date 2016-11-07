@@ -160,9 +160,11 @@
                         @for($i = 0; $i < $first['wday']; $i++)
                         <div class="inactive"></div>
                         @endfor
-                  
-                            @for($i = $first['mday']; $i <= $last['mday']; $i++)
-
+                            @if($first['mon']+1 == $last['mon'])
+                                @for($i = $first['mday']; $i <= $daytarget; $i++)
+                            @else
+                                @for($i = $first['mday']; $i <= $last['mday']; $i++)
+                            @endif
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
                             
@@ -194,10 +196,30 @@
                             @for($i = 1; $i <= $last['mday']; $i++)
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
-                            <row id="row" class="btn btn-default col-md-12"></row> 
-                            <row id="row" class="btn btn-default col-md-12"></row> 
-                            <row id="row" class="btn btn-default col-md-12"></row> 
-                            </div> 
+                            
+                            <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
+                                @if($key !== false)
+
+                                   @if($availability[$key]['morning'] != 'false')
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif  
+
+                                   @if($availability[$key]['day'] != 'false')                                   
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif
+
+                                   @if($availability[$key]['night'] != 'false')
+                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                   @else
+                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                   @endif
+
+                                @endif
+                            </div>
                             @endfor
                         @endif
                 </div>
