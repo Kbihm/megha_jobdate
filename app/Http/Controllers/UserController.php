@@ -67,7 +67,7 @@ class UserController extends Controller
         $last = getdate($end);
 
         if($first['mon']+1 == $last['mon']){
-            $daytarget = $this->days_in_month($last['mon'], $last['year']);
+            $daytarget = $this->days_in_month($first['mon'], $first['year']);
         }
         else{
             $daytarget = $last['mday'];

@@ -40,36 +40,23 @@
                             <th class="text-center">Morning</th>
                             <th class="text-center">Day</th>
                             <th class="text-center">Night</th>
-                            <th>&nbsp; </th>
                         </tr>
-
-                        @for($i = 0; $i < $first['mday']; $i++)
-                               <!-- #padding -->
-                        @endfor
-
 
                         @for($i = $first['mday']; $i <= $daytarget; $i++)
 
-                        <tr>
-                            <form class="avail" action="" type="post"> 
-
-                            <input type="text" name="date" value="{{ $first['year'] }}-{{ $first['mon'] }}-{{ $i }}" hidden="hidden">
+                        <tr class="data-row">
+                            <input type="hidden" name="date" id="date" value="{{ $first['year'] }}-{{ $first['mon'] }}-{{ $i }}">
 
                             <td>{{ $i }}/{{ $first['mon'] }}/{{ $first['year'] }}</td>
                             <td class="text-center">
-                                <input type="checkbox" name="morning">
+                                <input type="checkbox" name="morning" id="morning">
                             </td>
                             <td class="text-center">
-                                <input type="checkbox" name="day">
+                                <input type="checkbox" name="day" id="day">
                             </td>
                             <td class="text-center">
-                                <input type="checkbox" name="night">
+                                <input type="checkbox" name="night" id="night">
                             </td>
-                            <td>
-                                <button class="btn btn-sm btn-success" type="submit" >Save</button>
-                            </td>
-
-                            </form>
                         </tr>
 
                         @endfor   
@@ -78,38 +65,57 @@
                         @if($first['mon'] == $last['mon']-1)
                         @for($i = 1; $i <= $last['mday']-1; $i++)
 
-                        <tr>
+                        <tr class="data-row">
+                            <input type="hidden" id="date" name="date" value="{{ $last['year'] }}-{{ $last['mon'] }}-{{ $i }}" >
+
                             <td>{{ $i }}/{{ $last['mon'] }}/{{ $last['year'] }}</td>
                             <td class="text-center">
-                                <input type="checkbox">
+                                <input type="checkbox" name="morning" id="morning">
                             </td>
                             <td class="text-center">
-                                <input type="checkbox">
+                                <input type="checkbox" name="day" id="day">
                             </td>
                             <td class="text-center">
-                                <input type="checkbox">
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-success">Save</button>
+                                <input type="checkbox" name="night" id="night">
                             </td>
                         </tr>
-
                         
                         @endfor
                         @endif
 
                     </table>
 
+                    <div class="text-center">
+                        <button type="submit" id="submit" class="btn btn-success">Save</button> 
+                    </div>
 
                 </div>
             </div>
 
             <script type="text/javascript">
 
+            $("#submit").click(function() {
 
-            $("#avail").submit(function(e) {
-                e.preventDefault();
-                console.log("submit fired");
+                availability = [];
+                $(".data-row").each(function(index) {
+
+                    var row = {
+                        "date": $(this).find("#date").val(),
+                        "morning": $(this).find("#morning").prop('checked'),
+                        "day": $(this).find("#day").prop('checked'),
+                        "night": $(this).find("#night").prop('checked')
+                    }
+
+                    // console.log("Date: " + $(this).find("#date").val());
+                    // console.log("Morning: " + $(this).find("#morning").prop('checked'));
+                    // console.log("Day: " + $(this).find("#day").prop('checked'));
+                    // console.log("Night: " + $(this).find("#night").prop('checked'));
+                    availability.push(row);
+
+                });
+
+                // console.log(availability);
+
             });
 
 
