@@ -86,9 +86,16 @@
                 </div>
 
                 <p> 
-                    <b>Role:</b> {{ $user->role }} <br/>
-                    <b>Hourly Rate: </b> ${{ number_format($user->hourly_rate, 2) }}  <br/>
-                    <b>Last Active</b> - {{ date('F d, Y', strtotime($user->last_login)) }}
+                    <b>Role</b> {{ $user->role }} <br/>
+                    <b>Gender</b>
+                    @if ($user->gender == 0)
+                        Male
+                    @elseif ($user->gender == 1)
+                        Female
+                    @endif  
+                    <br/>
+                    <b>Hourly Rate</b> ${{ number_format($user->hourly_rate, 2) }}  <br/>
+                    <b>Last Active</b> {{ date('F d, Y', strtotime($user->user->last_login)) }}
                 </p>
 
                 <div class="btn-group">
@@ -121,12 +128,6 @@
                     @endif
                     </ul>
 
-
-                    @if (Auth::user()->admin_id != null)
-                    <button type="button" href="#" class="btn btn-default">
-                        Delete {{ $user->first_name }}'s Account
-                    </a>      
-                    @endif
                 </div>
 
             </div>

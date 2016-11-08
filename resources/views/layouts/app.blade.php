@@ -120,6 +120,7 @@
                     <a href="/tos">Terms</a> &nbsp; | &nbsp;
                     <a href="/privacy">Privacy</a>
                 </ul>
+                <br/>
             </div>
         </div>
     </div>
