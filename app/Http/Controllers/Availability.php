@@ -12,6 +12,8 @@ class Availability extends Controller
 
     public function store(Request $request)
     {
+
+        return '{"status":"true"}';
         $availability = new Availability;
 
         $availability->date = $request->date; 
