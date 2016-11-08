@@ -46,24 +46,20 @@
                 }
         </style>
         <?php
+ 
+            $availability = [];
 
-            $availability = [
-                
-                [
-                'date' => '2016-11-5',
-                'morning' => 'false',
-                'day' => 'true',
-                'night' => 'false'
-                ],
-                [
-                'date' => '2016-11-11',
-                'morning' => 'true',
-                'day' => 'true',
-                'night' => 'false'
-                ],
+            foreach ($user->availability as $avl) {
 
-            ];
+                $tmp = [
+                'date' => $avl->date,
+                'morning' => $avl->morning,
+                'day' => $avl->day,
+                'night' => $avl->night
+                ];
 
+                array_push($availability, $tmp);
+            }
 
         ?>
 
@@ -170,19 +166,19 @@
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)
 
-                                   @if($availability[$key]['morning'] != 'false')
+                                   @if($availability[$key]['morning'] == 'false')
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif  
 
-                                   @if($availability[$key]['day'] != 'false')                                   
+                                   @if($availability[$key]['day'] == 'false')                                   
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif
 
-                                   @if($availability[$key]['night'] != 'false')
+                                   @if($availability[$key]['night'] == 'false')
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
