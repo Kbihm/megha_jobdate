@@ -158,7 +158,7 @@
                         <div class="inactive"></div>
                         @endfor
 
-                                @for($i = $first['mday']; $i <= $daytarget; $i++)
+                            @for($i = $first['mday']; $i <= $daytarget; $i++)
 
                             <div class="day"> 
                             <row id="row"> {{$i}} </row> 
@@ -166,19 +166,19 @@
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)
 
-                                   @if($availability[$key]['morning'] == 'false')
+                                   @if($availability[$key]['morning'] == false)
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif  
 
-                                   @if($availability[$key]['day'] == 'false')                                   
+                                   @if($availability[$key]['day'] == false)                                   
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif
 
-                                   @if($availability[$key]['night'] == 'false')
+                                   @if($availability[$key]['night'] == false)
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
@@ -195,19 +195,19 @@
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)
 
-                                   @if($availability[$key]['morning'] != 'false')
+                                   @if($availability[$key]['morning'] != false)
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif  
 
-                                   @if($availability[$key]['day'] != 'false')                                   
+                                   @if($availability[$key]['day'] != false)                                   
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
                                    @endif
 
-                                   @if($availability[$key]['night'] != 'false')
+                                   @if($availability[$key]['night'] != false)
                                         <row id="row" class="btn btn-danger col-md-12"></row>
                                    @else
                                         <row id="row" class="btn btn-default col-md-12"></row>
