@@ -83,7 +83,7 @@ class EmployeeSeeder extends Seeder
         $employee = new Employee;
         $employee->phone = '0400000000';
         $employee->average_rating = '2.4';
-        $employee->about = "I'm John Smith, a hardworking individual who gets the job done!";
+        $employee->about = "I'm Jill Smith, a hardworking individual who gets the job done!";
         $employee->gender = 1;
         $employee->fulltime = true;
         $employee->role = "Waiter/Waitress";

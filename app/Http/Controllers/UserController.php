@@ -55,6 +55,30 @@ class UserController extends Controller
             return view('profile.experience', compact('user'));
     }
 
+    public function availability()
+    {
+
+        //Relevant for availability calendar
+        $today = getdate();
+        $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
+        $first = getdate($start);
+        //set end date to 2 weeks from when the calendar starts
+        $end = mktime(0,0,0,$first['mon'],$today['mday']+29,$first['year']);
+        $last = getdate($end);
+
+        if($first['mon']+1 == $last['mon']){
+            $daytarget = $this->days_in_month($last['mon'], $last['year']);
+        }
+        else{
+            $daytarget = $last['mday'];
+        }
+        
+        // dd($first);
+
+        $user = Auth::user();
+        return view('profile.availability', compact('user', 'first', 'daytarget', 'last'));
+    }
+
     public function security()
     {
             $user = Auth::user();
@@ -109,6 +133,13 @@ class UserController extends Controller
 
         return redirect('/profile');
     }
+
+    function days_in_month($month, $year) 
+    { 
+    // calculate number of days in a month 
+    return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31); 
+    } 
+
 
 
 }

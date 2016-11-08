@@ -148,7 +148,7 @@
                 </div>
                 <div class="panel-body">
                         <div class="calendar">
-                        <div class="monheader">sd</div>
+                        <div class="monheader">Next 14 Days</div>
                         <div class="dayheader">Sun</div>
                         <div class="dayheader">Mon</div>
                         <div class="dayheader">Tue</div>

@@ -17,6 +17,7 @@
             @if ($user->employee_id != null)
             <li class=""><a href="/profile/skills" >Skills</a></li>
             <li class=""><a href="/profile/experience">Experience</a></li>
+            <li class=""><a href="/profile/availability">Availability</a></li>
             @endif
             @if ($user->employer_id != null)
             <li class=""><a href="/profile/subscription" >Subscription</a></li>
