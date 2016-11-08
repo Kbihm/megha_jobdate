@@ -114,16 +114,20 @@
 
                 });
 
+                dataavl = {
+                    "avl": availability
+                    };
+
                $.ajax({
                     url: "/avl",
                     type: "post",
-                    data: availability,
+                    data: dataavl,
                     processData: false,
                     dataType: "json",
                     contentType: "application/json"
                 }).done(function(data) {
                     console.log(data);
-                    window.reload();
+                    // window.reload();
                 });
 
                 // console.log(availability);
