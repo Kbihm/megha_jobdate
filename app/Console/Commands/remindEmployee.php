@@ -45,13 +45,28 @@ class remindEmployee extends Command
      */
     public function handle()
     {
-        $data = [''];
-        Mail::send('emails.welcome', $data, function ($message) {
+        $date = date("Y-m-d", strtotime(date("Y-m-d", strtotime("-7 day"))));
 
-            $message->from('team@jobdate.com', 'JobDate');
+        $joboffer = Joboffer::all();
+        $joboffer = Joboffer::whereNull('status')->get();
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Sent Job Request');
+        
+            /**
+            * note this is a proposed change that it be 7 days from when the offer is sent ( if it is not replied to ) as opposed to 
+            * from when the user logs in
+            */
+                foreach($joboffer as $joboffer){
+                    if($joboffer->created_at < $date ){
+                        $data = array(
+                            'joboffer' => $joboffer,
+                            );
+                Mail::send('emails.remindEmployee', $data, function ($message) {
 
-        });
+                $message->from('team@jobdate.com', 'JobDate');
+
+                $message->to('liam.a.southwell@gmail.com')->subject('JobDate - You have a new job offer');
+                 });
+            }
+        }
     }
 }

@@ -12,7 +12,8 @@ class Joboffer extends Model
         'hours',
         'description',
         'time',
-        'date'
+        'date',
+        'status'
     ];
 
     public static $rules = [
