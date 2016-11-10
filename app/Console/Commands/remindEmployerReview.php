@@ -43,7 +43,8 @@ class remindEmployerReview extends Command
         $date = date("Y-m-d");
         $joboffer = Joboffer::where('status', '=', 'accepted')->get();
         foreach($joboffer as $job){
-            if($job->date < $date){
+
+            if($job->date < $date && $job->reminded_employer != 1){
                 $employee = Employee::where('id', '=', $job->employee_id)->get();
                         $data = array(
                                 'joboffer' => $job,
@@ -56,9 +57,9 @@ class remindEmployerReview extends Command
 
                 $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Dont forget to leave a review!');
                         });
+                $job->reminded_employer = 1;
+                $job->save();
                 }
-
-                //WILL CONTINUE SENDING EVERY DAY UNTIL JOBOFFER IS DELETED //
         }
     }
 }
