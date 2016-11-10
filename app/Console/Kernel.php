@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\remindEmployee::class,
+        Commands\remindEmployerReview::class,
     ];
 
     /**
@@ -25,6 +26,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('sms:remindEmployee')
-            ->everyDay();
+            ->everyMinute();
+
+        $schedule->command('sms:remindEmployerReview')
+            ->everyMinute();
+
+        $schedule->command('sms:remindEmployee')
+            ->everyMinute();
+
     }
 }

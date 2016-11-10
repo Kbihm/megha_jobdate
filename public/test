@@ -5,3 +5,13 @@ operable program or batch file.
 operable program or batch file.
 [32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
 [32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployerReview > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployerReview > "NUL" 2>&1 &
+[32mRunning scheduled command:[39m "C:\Program Files (x86)\iis express\PHP\v5.6\php.exe" "artisan" sms:remindEmployee > "NUL" 2>&1 &
