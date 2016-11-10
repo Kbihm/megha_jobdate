@@ -26,23 +26,21 @@
                         <h2>My Account</h2>
 
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">2</span>
-                                Job Offers
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">14</span>
+                            <a class="list-group-item" href="/profile/skills" >
+                                Offers
+                            </a>
+                            <a class="list-group-item" href="/my-reviews" >
                                 My Reviews
-                            </li>
-                            <li class="list-group-item">
+                            </a>
+                            <a class="list-group-item" href="/profile/skills" >
                                 Add a Skill
-                            </li>
-                            <li class="list-group-item">
+                            </a>
+                            <a class="list-group-item" href="/profile/experience" >
                                 Add Experience
-                            </li>
-                            <li class="list-group-item">
+                            </a>
+                            <a class="list-group-item" href="/profile" >
                                 Update my details
-                            </li>
+                            </a>
                         </ul>
                     </div>
 
@@ -60,16 +58,18 @@
                         <h2>My Account</h2>
 
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">14</span>
-                                Reviews
-                            </li>
-                            <li class="list-group-item">
+                            <a class="list-group-item" href="/jobs" >
                                 My Job Listings
-                            </li>
-                            <li class="list-group-item">
+                            </a>
+                            <a class="list-group-item" href="/search" >
                                 Find Staff
-                            </li>
+                            </a>
+                            <a class="list-group-item" href="/reviews" >
+                                Reviews I've Left
+                            </a>
+                            <a class="list-group-item" href="/profile/subscription" >
+                                My Subscription
+                            </a>
                         </ul>
                     </div>
 
