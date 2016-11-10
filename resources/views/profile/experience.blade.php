@@ -68,31 +68,53 @@
                 <form class="form-horizontal" role="form" method="POST" action="/experience/">
                         {{ csrf_field() }}
                 <br>
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                         <label class="col-sm-2 control-label">Position Title:</label>
                         <div class="col-sm-10">
                             <input type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
+                                @if ($errors->has('title'))
+                                    <span class="help-block pull-left">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
                         </div>
+
                     </div> 
 
-                     <div class="form-group">
+                     <div class="form-group {{ $errors->has('establishment_name') ? ' has-error' : '' }}">
                         <label class="col-sm-2 control-label">Name of Establishment:</label>
                         <div class="col-sm-10">
                             <input type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
+                                @if ($errors->has('establishment_name'))
+                                    <span class="help-block pull-left">
+                                        <strong>{{ $errors->first('establishment_name') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div> 
 
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('employment_length') ? ' has-error' : '' }}">
                         <label class="col-sm-2 control-label">Employment Length:</label>
                         <div class="col-sm-10">
                             <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
+                                @if ($errors->has('employment_length'))
+                                    <span class="help-block pull-left">
+                                        <strong>{{ $errors->first('employment_length') }}</strong>
+                                    </span>
+                                @endif
                         </div>
+
                     </div> 
 
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
                         <label class="col-sm-2 control-label">Describe your roles:</label>
                         <div class="col-sm-10">
                             <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
+                                @if ($errors->has('description'))
+                                    <span class="help-block pull-left">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                     </div> 
                      <input name="employee_id" class="form-control" type="hidden" value="{{$user->id}}">   

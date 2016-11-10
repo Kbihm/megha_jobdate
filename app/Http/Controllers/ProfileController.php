@@ -35,7 +35,7 @@ class ProfileController extends Controller
         $last = getdate($end);
 
         if($first['mon']+1 == $last['mon']){
-            $daytarget = $this->days_in_month($last['mon'], $last['year']);
+            $daytarget = $this->days_in_month($first['mon'], $first['year']);
         }
         else{
             $daytarget = $last['mday'];
@@ -49,7 +49,6 @@ class ProfileController extends Controller
 
             return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
         }
-
 
         return view('user.show', compact('user', 'first', 'last', 'daytarget'));
     }
