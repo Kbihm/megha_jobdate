@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
-                                <input type="text" name="date" class="form-control" @if (count($errors)) value="{{ old('date') }}" @endif>
+                                <input type="text" name="date" id="datepicker" class="form-control" @if (count($errors)) value="{{ old('date') }}" @endif>
                                 @if ($errors->has('date'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('date') }}</strong>
@@ -23,7 +23,7 @@
                                 @endif
                             </div>
                         </div> 
-                        
+
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Role</label>
                             <div class="col-sm-10">

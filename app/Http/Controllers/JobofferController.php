@@ -34,8 +34,13 @@ class JobofferController extends Controller
     {
         $user = Auth::user();
         $this->validate($request, Joboffer::$rules);
-        
+
         $joboffer = new Joboffer($request->all());
+        //want dd/mm/yyyy, have , mm/dd/yyyy
+        //test[0] = month, [1] = date, [2] = year
+        $dates = explode('/', $joboffer->date);
+        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        $joboffer->date = $realdate;
         $joboffer->employer_id = $user->employer->id;
         $joboffer->save();
         return redirect('/jobs');
