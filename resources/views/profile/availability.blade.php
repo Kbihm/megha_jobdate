@@ -128,6 +128,8 @@
                 }).done(function(data) {
                     console.log(data);
                     // window.reload();
+                }).error(function(data){
+                    console.log(data)
                 });
 
                 // console.log(availability);

@@ -164,7 +164,7 @@
         </div>
         </div>
         <hr>
-        <a href="/staff/{{ $user->id }}" class="btn btn-primary">View Employee Profile</a>
+        <a href="/staff/{{ $user->employee_id }}" class="btn btn-primary">View Employee Profile</a>
     @elseif($user->admin_id != null)
         {{ $user->admin }}
     @else

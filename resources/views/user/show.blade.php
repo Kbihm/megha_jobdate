@@ -4,38 +4,35 @@
         <style>
                 @charset "utf-8";
                 .calendar {
-                width: 600px;
+                width: 100%;
                 }
                 .calendar div {
                 float: left;
                 height: 80px;
-                width: 80px;
-                border: 1px solid #00506b;
+                width: 14.285714%;
                 }
                 .calendar .monheader {
-                font-weight: bold;
                 color: #FFFFFF;
                 text-align: center;
                 height: 20px;
-                width: 560px;   
-                background-color: #008cba;
+                width: 100%;   
+                background-color: #2fa4e7;
                 }
                 .calendar .dayheader {
-                font-weight: bold;
                 color: #FFFFFF;
                 text-align: center;
                 height: 20px;
-                background-color: #008cba;
+                background-color: #2fa4e7;
                 }
                 .calendar .day {
-                background-color: #5ab4dd;
+                background-color: #fafafa;;
                 }
                 .calendar .today {
                 background-color: #5ab4dd;
                 border-color: #5ad6dd;
                 }
                 .calendar .inactive {
-                background-color: #839595;
+                background-color: #dedede;
                 }
                 #row{
                     clear: left;
@@ -43,6 +40,10 @@
                     height: 25%;
                     width: 100%;
 
+                }
+                .calendar .day,
+                .calendar .inactive {
+                    border: 1px solid #828282;
                 }
         </style>
         <?php
@@ -74,14 +75,19 @@
                 <hr>
 
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{ number_format($user->average_rating / 3 * 100, 0) }}%;"
-                    aria-valuemin="0" aria-valuemax="100">
-                        
-                    </div>
-                    <div class="col-md-4" style="color:black; text-align: center;"> Average Rating: {{ number_format($user->average_rating / 3 * 100, 2) }}% </div>
+                    <div class="progress-bar" style="width: {{ number_format($user->average_rating / 3 * 100, 2) }}%;"></div>
                 </div>
 
                 <p> 
+
+                    <h4>About {{ $user->user->first_name }} </h4>
+
+                    <ul class="breadcrumb">
+                        <li>{{ $user->state }}</li>
+                        <li> {{ $user->region }}</li>
+                        <li class="active">{{ $user->locale }}</li>
+                    </ul>
+
                     <b>Role</b> {{ $user->role }} <br/>
                     <b>Gender</b>
                     @if ($user->gender == 0)
@@ -94,14 +100,13 @@
                     <b>Last Active</b> {{ date('F d, Y', strtotime($user->user->last_login)) }}
                 </p>
 
-                <div class="btn-group">
-                    <a href="/reviews/create/{{$user->id}}"  class="btn btn-default col-md-12">
-                        <div class="col-md-10">
-                            Review {{ $user->user->first_name }}
-                        </div>
-                        <span class="badge pull-right">{{ sizeof(App\Comment::where('employee_id', $user->id)->where('approved', true)->get()) }}</span>
+                <hr>
+
+                    <a href="/reviews/create/{{$user->id}}"  class="btn btn-default btn-block">
+                        Review {{ $user->user->first_name }}
                     </a>
 
+                    @if (isset($jobs))
                     <button type="button" class="btn btn-default dropdown-toggle col-md-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="col-md-10 pull-left"> 
                             Invite {{ $user->user->first_name }} to a Job 
@@ -109,24 +114,25 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu col-md-12">
-                    @if (isset($jobs))
-                     @foreach($jobs as $job)
-                    <form method="POST" action="/invite" role="form">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="joboffer_id" value="{{$job->id}}">
-                    <input type="hidden" name="employee_id" value="{{$user->id}}">
-                    <li><button class="col-md-12" type="submit">{{$job->date}}, {{$job->time}}</button></li>
-                    </form>
-                     @endforeach
-                    @elseif (!isset($jobs))
-                    <li role="seperator" class="divider"> </li>
-                    <li><a href="joboffer/create" class="btn btn-default">You don't have any job listings.</a></li>
-                    @endif
+                        
+                        @foreach($jobs as $job)
+                        <form method="POST" action="/invite" role="form">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="joboffer_id" value="{{$job->id}}">
+                        <input type="hidden" name="employee_id" value="{{$user->id}}">
+                        <li><button class="col-md-12" type="submit">{{$job->date}}, {{$job->time}}</button></li>
+                        </form>
+                        @endforeach
                     </ul>
+                    @else
 
-                </div>
+                    <hr>
+                    <h5>Create a Job listing to invite {{ $user->user->first_name }}.</h5>
 
-            </div>
+                    @endif 
+
+
+            </div> <!-- end sidebar --> 
 
             <div class="col-md-9">
 
@@ -161,27 +167,27 @@
                             @for($i = $first['mday']; $i <= $daytarget; $i++)
 
                             <div class="day"> 
-                            <row id="row"> {{$i}} </row> 
+                            <row id="row" style="padding-left: 10px;"> {{$i}} </row> 
                             
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)
 
                                    @if($availability[$key]['morning'] == false)
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif  
 
                                    @if($availability[$key]['day'] == false)                                   
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif
 
                                    @if($availability[$key]['night'] == false)
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif
 
                                 @endif
@@ -196,27 +202,32 @@
                                 @if($key !== false)
 
                                    @if($availability[$key]['morning'] != false)
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif  
 
                                    @if($availability[$key]['day'] != false)                                   
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif
 
                                    @if($availability[$key]['night'] != false)
-                                        <row id="row" class="btn btn-danger col-md-12"></row>
+                                        <row id="row" style="background-color:#F44336;"></row>
                                    @else
-                                        <row id="row" class="btn btn-default col-md-12"></row>
+                                        <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif
 
                                 @endif
                             </div>
                             @endfor
                         @endif
+
+                        @for($i = 0; $i < 7 - $first['wday']; $i++)
+                            <div class="inactive"></div>
+                        @endfor
+
                 </div>
             </div>
         </div>
