@@ -288,7 +288,7 @@
                                     @endif
                                     </div>
                                     <p>{{$comment->comment}}<p>
-                                    <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }} </small>
+                                    <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }}  ({{ date('F, Y', strtotime($comment->created_at)) }}) </small>
 
                                     @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
                                         <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
