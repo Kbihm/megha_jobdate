@@ -11,9 +11,12 @@
                 <div class="panel-body">
                     @if (sizeof($comments) > 0)
                     @foreach($comments as $comment)
-                        @if ($comment-> approved != 0)
+                        
                                 <blockquote>
                                     <div class="pull-right">
+                                    @if ($comment-> approved != 0)
+                                        <span class="label label-default">Pending Admin Approval</span>
+                                    @endif
                                     @if ($comment->rating == 1)
                                         <span class="label label-danger">Negative</span>
                                     @elseif ($comment->rating == 2)
@@ -34,9 +37,6 @@
                                     @endif
                                 </blockquote>                             
                                     
-                                    
-    
-                        @endif
                     @endforeach
                     @else
                      Looks like you haven't left any reviews just yet.
