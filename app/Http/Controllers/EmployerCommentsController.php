@@ -7,6 +7,7 @@ use App\Employee;
 use App\Http\Requests;
 use App\Comment;
 use Auth;
+use App\Joboffer;
 
 
 class EmployerCommentsController extends Controller
@@ -52,6 +53,11 @@ class EmployerCommentsController extends Controller
         $comment->approved = true;
         $comment->employer_id = Auth::user()->employer->id;
         $comment->save();
+        $joboffers = $this->fetchJobs($comment->employee_id);
+        foreach($joboffers as $joboffer){
+            $joboffer->review_left = 1;
+            $joboffer->save();
+        }
         return redirect('/reviews');
     }
 
@@ -61,7 +67,12 @@ class EmployerCommentsController extends Controller
         $comment = new Comment($request->all());
         $comment->employer_id = Auth::user()->employer->id;
         $comment->save();
-
+        //sets the jobs that the employer is leave a review for to 'reviewed'.
+        $joboffers = $this->fetchJobs($comment->employee_id);
+        foreach($joboffers as $joboffer){
+            $joboffer->review_left = 1;
+            $joboffer->save();
+        }
         return redirect('/reviews');
     }
 
@@ -71,18 +82,40 @@ class EmployerCommentsController extends Controller
         $comment->delete();
         return redirect('/reviews');
     }
+    
 
         public function create($id)
     {
-
+        $currid = Auth::user()->employer->id;
         $user = Employee::find($id);     
-        return view('comments.create', compact('user'));
+        $today = date("Y-m-d");
+
+        $joboffers = $this->fetchJobs($user->id);
+        if(count($joboffers) > 0){
+            return view('comments.create', compact('user'));
+        }
+        else return redirect()->back()->with('error', 'You must have employed the staff member  to leave a review.');
     }
+
+
         public function customCreate($id) 
     {
         $user = Employee::find($id);     
         return view('comments.createcustom', compact('user'));
     }
+
+        private function fetchJobs($employee_id){
+        //there must be at least one joboffer where the user viewing is the owner, the status is accepted, the date is past today, the employee's id matches up and the review_left field is false//
+        $today = date("Y-m-d");
+        $joboffers = Joboffer::where([
+            ['status', '=', 'accepted'],
+            ['employee_id', '=', $employee_id],
+            ['employer_id', '=', Auth::user()->employer->id],
+            ['date', '>', $today],
+            ['review_left', '=', 0]
+        ])->get();
+        return $joboffers;
+        }
 
 
 }

@@ -1,5 +1,10 @@
 @extends('layouts.app')
     @section('content')
+
+
+    @if(null !== (session('error')))
+        <div class="alert alert-danger"><strong>Be aware! </strong>{{session('error')}}</div>
+    @endif
         <!--  <small>Employee Profile</small> -->
         <style>
                 @charset "utf-8";
