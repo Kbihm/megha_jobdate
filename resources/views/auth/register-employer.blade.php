@@ -4,9 +4,9 @@
  
 <div class="container">
 
-<div class="col-md-6">
+<div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register (Employer)</div>
+                <div class="panel-heading">Register as an Employer</div>
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employer') }}">

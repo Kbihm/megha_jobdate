@@ -5,7 +5,7 @@
 <div class="container">
 
         <div class="col-md-6 text-center">
-            <h4>Employee's </h4>
+            <h4>Employees </h4>
             <p>Job Date allows you to set your availability to work when you're available. </p>
             <ul style="list-style-type:none;">
                 <li>Get Job Offers</li>

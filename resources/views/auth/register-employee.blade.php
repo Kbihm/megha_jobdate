@@ -4,9 +4,9 @@
  
 <div class="container">
 
-<div class="col-md-6">
+<div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register (Employer)</div>
+                <div class="panel-heading">Register as an Employee</div>
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employee') }}">
@@ -154,7 +154,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <h4> If you are under the age of legal consent, you must consult a parent or guardian prior to signing up.
+                                <p> If you are under the age of 18, you must consult a parent or guardian prior to signing up. </p>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>
