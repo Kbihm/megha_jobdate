@@ -107,8 +107,7 @@
                                         <ul>
                                         <li> <strong>Hourly Rate</strong> ${{ number_format($user->employee->hourly_rate, 2) }} </li>
                                         <li> <strong>Role</strong> {{ $user->employee->role }} </li>
-                                        <li> <strong>Bio:</strong> {{ str_limit($user->employee->about, $limit = 100, $end = '...') }} </li>
-                                        <li> <strong> Availability </strong> </li>
+                                        <li> <strong>Bio</strong> {{ str_limit($user->employee->about, $limit = 100, $end = '...') }} </li>
                                         </ul>
 
                                         <!-- <a class="btn" href="/offers/{{$user->id}}"> Send Job Offer </a> -->
