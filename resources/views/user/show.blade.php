@@ -120,7 +120,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                         <input type="hidden" name="employee_id" value="{{$user->id}}">
-                        <li><button class="col-md-12" type="submit">{{$job->date}}, {{$job->time}}</button></li>
+                        <li><button class="col-md-12" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}}</button></li>
                         </form>
                         @endforeach
                     </ul>

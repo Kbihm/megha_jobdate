@@ -9,7 +9,28 @@
         <form class="form">
 
         <div class="form-group">
+            <label>State</label>
+            <select id="role" class="form-control" name="region" value="">
+                <option value="tba">Coming Soon.</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label>Region</label>
+            <select id="role" class="form-control" name="region" value="">
+                <option value="tba">Coming Soon.</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Area</label>
+            <select id="role" class="form-control" name="region" value="">
+                <option value="tba">Coming Soon.</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Suburb</label>
             <select id="role" class="form-control" name="region" value="">
                 <option value="tba">Coming Soon.</option>
             </select>
