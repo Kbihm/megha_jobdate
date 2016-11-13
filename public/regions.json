@@ -1,20 +1,46 @@
 {
 	"states": [{
-		"state": "qld",
-		"areas": [{
-			"area": "Gold Coast",
-			"suburbs": ["Biggera Waters", "Molendinar"]
-		},{
-			"area": "Brisbane",
-			"suburbs": ["Brisbane City", "Logan"]
+		"state": "QLD",
+		"regions": [{
+			"region": "Gold Coast",
+			"areas": [{
+				"area": "Gold Coast North",
+				"suburbs": ["Biggera Waters", "Molendinar"]
+			}, {
+				"area": "Gold Coast South",
+				"suburbs": ["Burleigh Heads", "Logan"]
+			}]
+		}, {
+			"region": "Brisbane",
+			"areas": [{
+				"area": "Brisbane City",
+				"suburbs": ["Val", "Val"]
+			}, {
+				"area": "Brisbane Suburb",
+				"suburbs": ["Val", "Val"]
+			}]
 		}]
 	},
     {
-        "state": "nsw",
-		"areas": [{
-			"area": "Byron Bay",
-			"suburbs": ["Some Suburb", "Other Suburb"]
+		"state": "NSW",
+		"regions": [{
+			"region": "Byron Bay",
+			"areas": [{
+				"area": "Gold Coast North",
+				"suburbs": ["Biggera Waters", "Molendinar"]
+			}, {
+				"area": "Gold Coast South",
+				"suburbs": ["Burleigh Heads", "Logan"]
+			}]
+		}, {
+			"region": "Tweed Heads",
+			"areas": [{
+				"area": "Brisbane City",
+				"suburbs": ["Val", "Val"]
+			}, {
+				"area": "Brisbane Suburb",
+				"suburbs": ["Val", "Val"]
+			}]
 		}]
-	}
-    ]
+	}]
 }
