@@ -1,20 +1,20 @@
 {
-    "states": [
-
-
-        "QLD": {
-            "regions": [
-                {
-                "Gold Coast": {
-                        "locales": [
-
-                        ]
-                    }
-                }
-            ]
-
-        },
-
-
+	"states": [{
+		"state": "qld",
+		"areas": [{
+			"area": "Gold Coast",
+			"suburbs": ["Biggera Waters", "Molendinar"]
+		},{
+			"area": "Brisbane",
+			"suburbs": ["Brisbane City", "Logan"]
+		}]
+	},
+    {
+        "state": "nsw",
+		"areas": [{
+			"area": "Byron Bay",
+			"suburbs": ["Some Suburb", "Other Suburb"]
+		}]
+	}
     ]
 }
