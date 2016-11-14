@@ -17,8 +17,6 @@
 
                     @if (Auth::user()->admin_id != null)
 
-                        Admin
-
                     @elseif (Auth::user()->employee_id != null)
 
                     <div class="col-md-3">
@@ -82,8 +80,6 @@
 
 
                     @else
-                        
-                        No role set.
 
                     @endif
 

@@ -2,7 +2,7 @@
     @section('content')
 
     @if(null !== (session('error')))
-        <div class="alert alert-danger"><strong>Be aware! </strong>{{session('error')}}</div>
+        <div class="alert alert-danger"><strong>Oops! </strong>{{session('error')}}</div>
     @endif
         <!--  <small>Employee Profile</small> -->
         <style>

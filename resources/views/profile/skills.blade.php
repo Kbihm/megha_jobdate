@@ -29,23 +29,23 @@
         <!--
             SKILLS
         -->
-        <div class="tab-pane fade active in" id="skills">
-                        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Skills</h3>
-            </div>
-            <div class="panel-body">
+        <h3 class="title">Skills</h3>
+
+        <div class="card">
+            <div class="content">
+                
+
                 @if (sizeof($user->employee->skill) > 0)
                 <ul class="list-group">
                     @foreach ($user->employee->skill as $skill)
                     
                     <li class="list-group-item"> 
                     <div class="container-fluid">
-                             <p class="col-xs-1"> {{ $skill->skill }} </p>
-                            <form class="col-xs-11"  role="form" method="POST" action="/skills/{{ $skill->id }}">
+                             <p class="col-md-10"> {{ $skill->skill }} </p>
+                            <form class="col-md-2"  role="form" method="POST" action="/skills/{{ $skill->id }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type-"submit" class="pull-right btn-sm btn-danger"> Delete </button>
+                                <button type-"submit" class="pull-right btn-sm btn-danger btn-fill"> Delete </button>
                             </form>
                     </div>
                     </li>

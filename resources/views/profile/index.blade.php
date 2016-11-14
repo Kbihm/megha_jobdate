@@ -6,7 +6,7 @@
         
             @if($user->employee_id != null)
                 @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
-                <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; border: 1px solid black; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
+                <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
                 @else
                 <div style="height: 250px; width:250px; background-color: grey; border: 1px solid black;"> <h4 class="text-center"> You have no profile image set. </h4> </div>
                 @endif
