@@ -9,42 +9,41 @@
 
             @foreach($joboffers as $joboffer)
 
-                <div class="panel panel-primary">    
-                    <div class="panel-heading">
-                        {{ $joboffer->role }} at {{ $joboffer->employer['establishment_name'] }} <h4> @if(isset($joboffer->status)) {{$joboffer->status}} @endif </h4>
-                    </div>
- 
-                    <div  class="panel-body">
+                <div class="card">    
+                    <div class="content">
+
+                        <h4 class="title"> {{ $joboffer->role }} at {{ $joboffer->employer['establishment_name'] }} @if(isset($joboffer->status)) {{$joboffer->status}} @endif </h4>
                         
                         <div class="row">
-                            <div class="col-md-6">
-                                <h4>Time: {{ $joboffer->time }}</h4>
-                                <h4>Role: {{ $joboffer->role }}</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <h4>Date: {{ $joboffer->date }}</h4>
-                                <h4>Hours: {{ $joboffer->hours }}</h4>
-                            </div>
+                            <div class="col-md-3"> <i class="fa fa-clock-o"></i> {{ $joboffer->time }}</div>
+                            <div class="col-md-3"> <i class="fa fa-briefcase"></i> {{ $joboffer->role }}</div>
+                            <div class="col-md-3"> <i class="fa fa-calendar"></i> {{ date('F d, Y', strtotime($joboffer->date)) }}</div>
+                            <div class="col-md-3"> <i class="fa fa-calendar-times-o"></i> {{ $joboffer->hours }} hours</div>
                         </div>
 
-                        <hr>
                         <h4>Description </h4>
-                        {{ $joboffer->description }}
-                        <br>
+                        <p class="description">{{ $joboffer->description }} </p>
+
                         <hr>
+
+                        <div class="row">
+                            <div class="col-md-12">
                           @if (Auth::user()->employer_id != null)
-                        <a href="/offers/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
+                                <a href="/offers/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
                           @elseif (Auth::user()->employee_id != null && $joboffer->status != 'accepted')
                           <form action="/offers/{{$joboffer->id}}" method="POST" class="form-horizontal" role="form">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <row>
-                            <button type="submit" class="btn btn-danger col-md-3"> Decline Offer </button>
 
-                          </form>
-                            <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success col-md-3"> Accept Offer </a>
-                            </row>
+                            <button type="submit" class="btn btn-danger btn-fill col-md-3 pull-left"> Decline Offer </button>
+
+                            </form>
+                            &nbsp;
+                            <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success btn-fill col-md-3 pull-right"> Accept Offer </a>
+  
                           @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
                 

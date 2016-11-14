@@ -4,11 +4,13 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Reviews about you from other JobDate Employers</h3>
-                </div>
-                <div class="panel-body">
+            <h2 class="">Reviews about you</h2>
+            <p class="text-muted">Here's what people are saying about you. </p>
+            <hr>
+
+            <div class="card">
+                <div class="content">
+
                     @if (sizeof($comments) > 0)
                     @foreach($comments as $comment)
                         @if ($comment-> approved != 0)
