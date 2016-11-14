@@ -10,9 +10,9 @@
 
         <div class="header">
             <h4 class="title">Refine
-                <button class="btn btn-default btn-xs btn pull-right btn-simple" rel="tooltip" title="" data-original-title="Reset Filter">
+                <!--<button class="btn btn-default btn-xs btn pull-right btn-simple" rel="tooltip" title="" data-original-title="Reset Filter">
                     <i class="fa fa-refresh"></i>
-                </button>
+                </button>-->
             </h4>
         </div>
 
@@ -176,7 +176,7 @@
 
                                      <div class="content">
 
-                                        @if( $user->employee->average_rating > 1.9)
+                                        @if( $user->employee->average_rating > 1.9 && sizeOf($user->employee->comments) > 2 )
                                        <p class="category text-info">
                                             <i class="fa fa-trophy"></i> Best of JobDate
                                         </p>
@@ -203,7 +203,7 @@
                                             </div>
                                             <div class="stats">
                                                <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ number_format($user->employee->average_rating / 2 * 100, 2) }}%)
+                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ number_format($user->employee->average_rating / 2 * 100, 0) }}%)
                                                </a>
                                             </div>
                                             <div class="stats">

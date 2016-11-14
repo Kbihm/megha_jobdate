@@ -73,7 +73,7 @@ class ProfileController extends Controller
         // return $request->all();
         
 
-        $employees = Employee::where('state', 'QLD')
+        $employees = Employee::where('state', $request->state)
                               ->where('region', $request->region)
                               ->where('area', $request->area)
                               ->where('suburb', $request->suburb)
