@@ -41,11 +41,13 @@
                 /*background-color: #dedede;*/
                 }
                 #row{
-                    clear: left;
-                    float: left;
-                    height: 25%;
-                    width: 100%;
-
+                    clear:left;
+                    float:left;
+                    height: 22%;
+                    width: 96%;
+                    margin-left: 2%;
+                    margin-right: 2%;
+                    margin-bottom: 2%;
                 }
                 .calendar .day,
                 .calendar .inactive {
