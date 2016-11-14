@@ -59,4 +59,17 @@ class ProfileController extends Controller
     return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31); 
     } 
 
+    public function search(Request $request)
+    {
+        dd($request);
+        //want dd/mm/yyyy, have , mm/dd/yyyy
+        //test[0] = month, [1] = date, [2] = year
+        $dates = explode('/', $request->date);
+        $datetouse = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        //dd($datetouse);
+        return view('user.index', compact('results'));
+    }
+
 }
+
+

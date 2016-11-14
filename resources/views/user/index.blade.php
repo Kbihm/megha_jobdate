@@ -19,7 +19,8 @@
         <div class="content">
 
                         <div class="panel-group" id="accordion">
-                            <form class="form">
+                            <form class="form" role="form" method="POST" action="/search">
+                                                    {{ csrf_field() }} 
                                   <div class="panel panel-default">
                                     <div class="panel-heading">
                                       <h6 class="panel-title">
@@ -34,28 +35,28 @@
                                          
                                                      <div class="form-group">
                                                         <label>State</label>
-                                                        <select id="role" class="form-control" name="region" value="">
+                                                        <select id="state" class="form-control" name="state" value="">
                                                             <option value="tba">Coming Soon.</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Region</label>
-                                                        <select id="role" class="form-control" name="region" value="">
+                                                        <select id="region" class="form-control" name="region" value="">
                                                             <option value="tba">Coming Soon.</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Area</label>
-                                                        <select id="role" class="form-control" name="region" value="">
+                                                        <select id="area" class="form-control" name="area" value="">
                                                             <option value="tba">Coming Soon.</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Suburb</label>
-                                                        <select id="role" class="form-control" name="region" value="">
+                                                        <select id="suburb" class="form-control" name="suburb" value="">
                                                             <option value="tba">Coming Soon.</option>
                                                         </select>
                                                     </div>
@@ -78,16 +79,16 @@
                                                                         
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input type="text" id="datepicker" class="form-control">
+                                                <input name="date" type="text" id="datepicker" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Time of Day</label>
-                                                <select class="form-control">
-                                                    <option>Any</option>
-                                                    <option>Morning</option>
-                                                    <option>Day</option>
-                                                    <option>Night</option>
+                                                <select name="time" class="form-control">
+                                                    <option value="">Any</option>
+                                                    <option value="morning">Morning</option>
+                                                    <option value="day">Day</option>
+                                                    <option value="night">Night</option>
                                                 </select>
                                             </div>
 
@@ -121,12 +122,15 @@
 
                                             <div class="form-group">
                                                 <label>Looking for Fulltime Work</label> <br/>
-                                                <select class="form-control">
-                                                    <option>Any</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
+                                                <select name="fulltime" id="fulltime" class="form-control">
+                                                    <option value="">Any</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="0">No</option>
                                                 </select>
                                             </div>
+                <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
+                    <i class="fa fa-refresh"></i>
+                </button>
                                       </div>
                                     </div>
                                   </div><!-- end panel -->

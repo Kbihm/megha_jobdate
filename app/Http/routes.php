@@ -46,6 +46,7 @@ Route::resource('/my-reviews', 'EmployeeCommentsController');
 Route::resource('/skills', 'SkillsController');
 Route::resource('/experience', 'ExperienceController');
 Route::resource('/offers', 'EmployeeJobOfferController');
+Route::resource('/search', 'ProfileController@search');
 
 
 //Employer
