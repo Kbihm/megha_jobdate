@@ -31,7 +31,7 @@
         -->
         <div class="tab-pane fade active in" id="security">
            
-          <div class="col-md-10">
+          <div class="col-md-12">
 
           @if ($pw_update == true)
           <div class="alert alert-dismissible alert-success">

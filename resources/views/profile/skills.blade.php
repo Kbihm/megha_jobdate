@@ -54,7 +54,7 @@
                     @endforeach
                 </ul>
                 @else
-                 <h3> You don't currently have any skills saved. Try adding one! </h3>
+                 <h4> You don't currently have any skills saved. Try adding one! </h4>
                 @endif
 
                            

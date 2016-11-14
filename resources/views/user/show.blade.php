@@ -90,7 +90,8 @@
                     <ul class="breadcrumb">
                         <li>{{ $user->state }}</li>
                         <li> {{ $user->region }}</li>
-                        <li class="active">{{ $user->locale }}</li>
+                        <li>{{ $user->area }}</li>
+                        <li class="active">{{ $user->suburb }}</li>
                     </ul>
 
                     <b>Role</b> {{ $user->role }} <br/>
