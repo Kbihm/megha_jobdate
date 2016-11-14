@@ -105,6 +105,7 @@
                 </script>
                 </form>
             </div>
+
             </div>
 
             @endif
@@ -211,7 +212,8 @@
                     </form>
         </div>
     @endif
-        </div>
 
-        </div>
-        @endsection
+
+    </div>
+
+@endsection

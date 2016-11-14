@@ -7,16 +7,16 @@
 
     <title>JobDate</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/gsdk.css" rel="stylesheet"/>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link href="/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
 
-    <style>
+    <!--<style>
         body {
             font-family: 'Lato';
         }
@@ -24,7 +24,7 @@
         .fa-btn {
             margin-right: 6px;
         }
-    </style>
+    </style>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
 </head>
 <body id="app-layout">
@@ -107,23 +107,160 @@
         </div>
     </nav>
 
+<div class="section section-gray">
     <div class="container">
-        @yield('content')
-    </div>
 
-    <div class="container text-center">
-    <hr>
-        <div class="row">
-            <div class="col-lg-12">
-                    <h4><a href="/">©{{ date('Y') }} JobDate</a></h4>
-                    <br>
-                    <a href="/tos">Terms</a> &nbsp; | &nbsp;
-                    <a href="/privacy">Privacy</a>
-                </ul>
-                <br/>
-            </div>
-        </div>
+        @yield('content')
+                
     </div>
+</div>
+
+<footer class="footer footer-big">
+            <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+<h5 class="title">Company</h5>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       Find offers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Discover
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Portfolio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       Our news
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       About Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1">
+                        <h5 class="title">Company</h5>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       Find offers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Discover
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Portfolio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       Our news
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       About Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="title"> Help and Support</h5>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                       Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       How it works
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Terms &amp; Conditions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Company Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                       Money Back
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="title">Follow us on</h5>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" class="btn btn-social btn-facebook btn-simple">
+                                        <i class="fa fa-facebook-square"></i> Facebook
+                                    </a>
+                                </li>
+                                 <li>
+                                     <a href="#" class="btn btn-social btn-dribbble btn-simple">
+                                        <i class="fa fa-dribbble"></i> Dribbble
+                                    </a>
+                                </li>
+                                <li>
+                                   <a href="#" class="btn btn-social btn-twitter btn-simple">
+                                        <i class="fa fa-twitter"></i> Twitter
+                                    </a>
+                                </li>
+                                <li>
+                                     <a href="#" class="btn btn-social btn-reddit btn-simple">
+                                        <i class="fa fa-google-plus-square"></i> Google+
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <hr>
+                <div class="copyright">
+                    © {{ date("Y") }} JobDate
+                </div>
+            </div>
+        </footer>
 
     <!-- JavaScripts -->
 
@@ -135,5 +272,7 @@
         $( "#datepicker" ).datepicker();
     } );
     </script>
+    
+	<script src="assets/js/get-shit-done.js"></script>
 </body>
 </html>
