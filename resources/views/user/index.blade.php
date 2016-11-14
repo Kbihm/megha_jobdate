@@ -36,28 +36,28 @@
                                                      <div class="form-group">
                                                         <label>State</label>
                                                         <select id="state" class="form-control" name="state" value="">
-                                                            <option value="tba">Coming Soon.</option>
+                                                            <option value="QLD">QLD</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Region</label>
                                                         <select id="region" class="form-control" name="region" value="">
-                                                            <option value="tba">Coming Soon.</option>
+                                                            <option value="Gold Coast">Gold Coast</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Area</label>
                                                         <select id="area" class="form-control" name="area" value="">
-                                                            <option value="tba">Coming Soon.</option>
+                                                            <option value="Gold Coast South">Gold Coast South</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Suburb</label>
                                                         <select id="suburb" class="form-control" name="suburb" value="">
-                                                            <option value="tba">Coming Soon.</option>
+                                                            <option value="Burleigh Heads">Burleigh Heads</option>
                                                         </select>
                                                     </div>
                                          
@@ -79,13 +79,13 @@
                                                                         
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input name="date" type="text" id="datepicker" class="form-control">
+                                                <input name="date" type="text" required id="datepicker" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Time of Day</label>
                                                 <select name="time" class="form-control">
-                                                    <option value="">Any</option>
+                                                    <option value="any">Any</option>
                                                     <option value="morning">Morning</option>
                                                     <option value="day">Day</option>
                                                     <option value="night">Night</option>
@@ -111,7 +111,7 @@
                                                 <div class="form-group">
                                                 <label>Role</label>
                                                 <select id="role" class="form-control" name="role" value="">
-                                                    <option value="Any">Any</option>
+                                                    <option value="any">Any</option>
                                                     <option value="Waiter/Waitress">Waiter/Waitress</option>
                                                     <option value="Bartender">Bartender</option>
                                                     <option value="Chef">Chef</option>
@@ -123,13 +123,13 @@
                                             <div class="form-group">
                                                 <label>Looking for Fulltime Work</label> <br/>
                                                 <select name="fulltime" id="fulltime" class="form-control">
-                                                    <option value="">Any</option>
+                                                    <option value="any">Any</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>
                                                 </select>
                                             </div>
                 <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
-                    <i class="fa fa-refresh"></i>
+                    Search <i class="fa fa-search"></i>
                 </button>
                                       </div>
                                     </div>

@@ -138,8 +138,8 @@
 
                             <div class="col-md-6">
                                  <select class="form-control" name="fulltime" id="fulltime">
-                                <option <?php if ($user->employee->fulltime == TRUE ) echo 'selected' ; ?> value="TRUE">Yes</option>
-                                <option <?php if ($user->employee->fulltime == FALSE ) echo 'selected' ; ?> value="FALSE">No</option>
+                                <option <?php if ($user->employee->fulltime == TRUE ) echo 'selected' ; ?> value="1">Yes</option>
+                                <option <?php if ($user->employee->fulltime == FALSE ) echo 'selected' ; ?> value="0">No</option>
                                 </select> 
                                 @if ($errors->has('fulltime'))
                                     <span class="help-block">
