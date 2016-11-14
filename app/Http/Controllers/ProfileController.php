@@ -77,9 +77,11 @@ class ProfileController extends Controller
                               ->where('region', $request->region)
                               ->where('area', $request->area)
                               ->where('suburb', $request->suburb)
-                              ->paginate(15);
+                              ->orderBy('average_rating', 'desc')
+                              ->get();
 
         $users = [];
+        $unfavourable_users = [];
 
         foreach ($employees as $employee)
         {
@@ -97,15 +99,23 @@ class ProfileController extends Controller
                 continue;
 
             if ($request->time == 'any') {}
-            elseif ($request->time == 'morning' && $emp_avl[0]->morning == false)
+            elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
+                array_push($unfavourable_users, $employee->user);
                 continue;
-            elseif ($request->time == 'day' && $emp_avl[0]->day == false)
+            }
+            elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
+                array_push($unfavourable_users, $employee->user);
                 continue;
-            elseif ($request->time == 'night' && $emp_avl[0]->night == false)
+            }
+            elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
+                array_push($unfavourable_users, $employee->user);
                 continue;
+            }
 
             array_push($users, $employee->user);
         }
+
+        $users = array_merge($users, $unfavourable_users);
 
         return view('user.index', compact('users'));
     }

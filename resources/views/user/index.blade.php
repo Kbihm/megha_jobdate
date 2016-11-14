@@ -79,7 +79,7 @@
                                                                         
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input name="date" type="text" required id="datepicker" class="form-control">
+                                                <input name="date" type="text" required class="datepicker form-control">
                                             </div>
 
                                             <div class="form-group">
@@ -203,7 +203,7 @@
                                             </div>
                                             <div class="stats">
                                                <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews
+                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ $user->employee->average_rating }} )
                                                </a>
                                             </div>
                                             <div class="stats">
@@ -221,6 +221,8 @@
 
                         @endif
                     @endforeach
+
+                    {{-- $users->links() --}}
 
 
 </div>
