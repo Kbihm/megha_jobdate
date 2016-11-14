@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\User;
 use Auth;
 use App\Employee;
+use App\Availability;
 
 class ProfileController extends Controller
 {
@@ -63,13 +64,50 @@ class ProfileController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        // dd($request);
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
         $dates = explode('/', $request->date);
         $datetouse = $dates[2].'-'.$dates[0].'-'.$dates[1];
-        //dd($datetouse);
-        return view('user.index', compact('results'));
+
+        // return $request->all();
+        
+
+        $employees = Employee::where('state', 'QLD')
+                              ->where('region', $request->region)
+                              ->where('area', $request->area)
+                              ->where('suburb', $request->suburb)
+                              ->paginate(15);
+
+        $users = [];
+
+        foreach ($employees as $employee)
+        {
+            if ($request->role != 'any' && $request->role != $employee->role)
+                continue;
+
+            if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
+                continue;
+            
+            $emp_avl = Availability::where('employee_id', $employee->id)
+                                    ->where('date', $datetouse)
+                                    ->get();
+
+            if (sizeOf($emp_avl) == 0)
+                continue;
+
+            if ($request->time == 'any') {}
+            elseif ($request->time == 'morning' && $emp_avl[0]->morning == false)
+                continue;
+            elseif ($request->time == 'day' && $emp_avl[0]->day == false)
+                continue;
+            elseif ($request->time == 'night' && $emp_avl[0]->night == false)
+                continue;
+
+            array_push($users, $employee->user);
+        }
+
+        return view('user.index', compact('users'));
     }
 
 }
