@@ -89,9 +89,9 @@
                         <h4 class="title">{{ $user->user->first_name }} {{ $user->user->last_name }}</h4>
                         
                         <br>
-                        <span> {{ sizeOf($user->comments )}} Reviews - {{ number_format($user->average_rating / 4 * 100, 2) }}% Rating </span>
+                        <span> {{ sizeOf($user->comments )}} Reviews - {{ number_format($user->average_rating / 2 * 100, 2) }}% Rating </span>
                         <div class="progress">
-                            <div class="progress-bar" style="width: {{ number_format($user->average_rating / 4 * 100, 2) }}%;"></div>
+                            <div class="progress-bar" style="width: {{ number_format($user->average_rating / 2 * 100, 2) }}%;"></div>
                         </div>
 
 

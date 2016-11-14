@@ -73,6 +73,7 @@ class Employee extends Model
         foreach ($comments as $comment)
             $sum += $comment->rating;
 
+        $sum -= sizeof($comments);
         $avg = $sum / sizeof($comments);
         $this->average_rating = $avg;
         $this->save();
