@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Banned;
 use App\Http\Requests;
 use App\User;
 
@@ -25,7 +25,8 @@ class AdminUserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin-user.show', compact('user'));
+        $banned = Banned::where('user_id', $id)->first();   
+        return view('admin-user.show', compact('user', 'banned'));
     }
 
 }
