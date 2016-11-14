@@ -3,11 +3,19 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-         @if (Auth::user()->employer_id != null)
-           <a href="{{ URL::to('jobs/create') }} " class ="btn btn-success"> New Job Listing </a>            
-         @endif
-            <h2> Job Listings </h2>
-            <hr>
+        
+
+        <div class="row">
+
+            <div class="col-md-6">
+            <h2 style="margin-top:0;"> Job Listings </h2>
+            </div>
+            <div class="col-md-6">
+            <a href="{{ URL::to('jobs/create') }} " class="btn btn-success pull-right"> New Job Listing </a>            
+            </div>
+        </div>
+
+        
          @if(isset($joboffers))
             @foreach($joboffers as $joboffer)
 
