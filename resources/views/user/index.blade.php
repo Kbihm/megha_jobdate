@@ -176,7 +176,7 @@
 
                                      <div class="content">
 
-                                        @if( $user->average_rating > 2.5)
+                                        @if( $user->employee->average_rating > 1.9)
                                        <p class="category text-info">
                                             <i class="fa fa-trophy"></i> Best of JobDate
                                         </p>
@@ -203,7 +203,7 @@
                                             </div>
                                             <div class="stats">
                                                <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ $user->employee->average_rating }} )
+                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ number_format($user->employee->average_rating / 2 * 100, 2) }}%)
                                                </a>
                                             </div>
                                             <div class="stats">
