@@ -158,7 +158,7 @@
             <tr>
                 <th>Banned</th>
 
-                <td>@if(sizeof($user->banned == 1)) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
+                <td>@if($banned) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
             </tr>
 
         </table>
