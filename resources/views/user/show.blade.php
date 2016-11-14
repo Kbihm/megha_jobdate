@@ -16,27 +16,29 @@
                 width: 14.285714%;
                 }
                 .calendar .monheader {
-                color: #FFFFFF;
-                text-align: center;
-                height: 20px;
-                width: 100%;   
-                background-color: #2fa4e7;
+                    text-align: center;
+                    height: 30px;
+                    width: 100%;   
+                    font-weight:200;
+                    background-color: #f7f7f7;
+                    font-size: 20px;
                 }
                 .calendar .dayheader {
-                color: #FFFFFF;
-                text-align: center;
-                height: 20px;
-                background-color: #2fa4e7;
+                    text-align: center;
+                    height: 25px;
+                    font-weight:200;
+                    background-color: #f7f7f7;
+                    font-size:18px;
                 }
                 .calendar .day {
-                background-color: #fafafa;;
+
                 }
                 .calendar .today {
                 background-color: #5ab4dd;
                 border-color: #5ad6dd;
                 }
                 .calendar .inactive {
-                background-color: #dedede;
+                /*background-color: #dedede;*/
                 }
                 #row{
                     clear: left;
@@ -47,7 +49,8 @@
                 }
                 .calendar .day,
                 .calendar .inactive {
-                    border: 1px solid #828282;
+                    border: 1px solid #e5e5e5;
+                    border-width: 1px 0 0 1px;
                 }
         </style>
         <?php
@@ -205,7 +208,7 @@
                 
                         <div class="calendar">
 
-                        <div class="monheader">Next 14 Days</div>
+                        <div class="monheader">{{ date('F') }} </div>
                         <div class="dayheader">Sun</div>
                         <div class="dayheader">Mon</div>
                         <div class="dayheader">Tue</div>
@@ -221,7 +224,7 @@
                             @for($i = $first['mday']; $i <= $daytarget; $i++)
 
                             <div class="day"> 
-                            <row id="row" style="padding-left: 10px;"> {{$i}} </row> 
+                            <row id="row" style="text-align: right; padding-right: 10px;"> {{$i}} </row> 
                             
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)

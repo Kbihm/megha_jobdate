@@ -26,12 +26,6 @@
         <div class="col-md-9">
         
         
-        <!--
-            EXPERIENCE
-        -->
-        <div class="" id="experience">
-             
-
             <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Experience</h3>
@@ -127,8 +121,9 @@
                         </div>
                     </form>
                     
+                        </div>
+                    </div>
                 </div>
-            </div>
         </div>
 
 
