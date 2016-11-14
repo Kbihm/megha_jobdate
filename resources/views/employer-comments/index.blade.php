@@ -4,11 +4,15 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Approved Reviews you've left for JobDate Staff.</h3>
-                </div>
-                <div class="panel-body">
+        <h3 class="title"> Reviews you've left for JobDate Staff</h3>
+
+            <hr>
+
+            <div class="card">
+                <div class="content">
+                    
+
+
                     @if (sizeof($comments) > 0)
                     @foreach($comments as $comment)
                         
@@ -43,6 +47,8 @@
                     @endif
                 </div>
             </div>
+
+            {{ $comments->links() }}
 
     </div>
 
