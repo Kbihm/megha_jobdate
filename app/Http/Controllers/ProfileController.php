@@ -27,6 +27,7 @@ class ProfileController extends Controller
 
     public function show($id) 
     {
+
     //Relevant for availability calendar
         $today = getdate();
         $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
@@ -45,6 +46,7 @@ class ProfileController extends Controller
     //Please confirm if this is efficient. Otherwise change  //
         $self_user = Auth::user();
         $user = Employee::where('id', $id)->first();
+        $user->calc_rating();
         if($self_user->employer_id != null){
             $jobs = Joboffer::where('employer_id', $self_user->employer->id)->get();
 

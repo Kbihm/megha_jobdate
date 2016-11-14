@@ -65,6 +65,8 @@ class Employee extends Model
     public function calc_rating()
     {
         $comments = Comment::where('employee_id', $this->id)->where('approved', true)->get();
+        
+        if(sizeof($comments) != 0){
 
         $sum = 0;
 
@@ -72,9 +74,15 @@ class Employee extends Model
             $sum += $comment->rating;
 
         $avg = $sum / sizeof($comments);
-        $avg = $avg/3;
         $this->average_rating = $avg;
         $this->save();
+        }
+
+        else{
+        $avg = 0;
+        $this->average_rating = $avg;
+        $this->save();
+        }
 
     }
 
