@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
+use App\Banned;
 class Authenticate
 {
     /**
@@ -21,8 +21,9 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             }
-
-            return redirect()->guest('login');
+        }
+        if (count(Banned::where('user_id', '=', Auth::user()->id)->first()) != 0){
+            return response('Unauthorized.', 401);
         }
 
         return $next($request);
