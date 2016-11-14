@@ -24,7 +24,6 @@
 
 
         <div class="col-md-9">
-        <div id="myTabContent" class="tab-content">
         
 
         <!--

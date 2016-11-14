@@ -180,25 +180,25 @@
                                             <p> &nbsp; </p>
                                         @endif
 
-                                        <a class="card-link" href="#">
+                                        <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                             <h4 class="title">{{$user->first_name}} {{$user->last_name}} </h4>
                                         </a>
-                                        <a class="card-link" href="#">
+                                        <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                             <p class="description">{{ str_limit($user->employee->about, $limit = 200, $end = '...') }}</p>
                                         </a>
                                          <div class="footer">
                                             <div class="stats">
-                                                <a class="card-link" href="#">
+                                                <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                                    <i class="fa fa-usd"></i> {{ number_format($user->employee->hourly_rate, 2) }}
                                                 </a>
                                             </div>
                                             <div class="stats">
-                                              <a class="card-link" href="#">
+                                              <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                                 <i class="fa fa-briefcase"></i> {{ $user->employee->role }} 
                                               </a>
                                             </div>
                                             <div class="stats">
-                                               <a class="card-link" href="#">
+                                               <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                                 <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews
                                                </a>
                                             </div>

@@ -24,7 +24,6 @@
 
 
         <div class="col-md-9">
-        <div id="myTabContent" class="tab-content">
 
         <!--
             SECURITY
@@ -40,10 +39,14 @@
             </div>
           @endif
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Change Password</div>
-                <div class="panel-body">
+
+          <h4> Change Password </h4>
+
+            <div class="card">
+                <div class="content">
                 
+                    <br>
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/updatepass') }}">
                         {{ csrf_field() }}
                                                 

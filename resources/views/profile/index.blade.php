@@ -35,13 +35,11 @@
         <!--
             USER
         -->
-        <div class="tab-pane fade  active in" id="user">
 
-            <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{ $user->first_name }} {{ $user->last_name }}</h3>
-            </div>
-            <div class="panel-body">
+        <h4 class="title">Your Account Information</h4>
+
+            <div class="card">
+            <div class="content">
 
             @if ($user->admin_id != null)
                 <h4> You're an admin, you don't have any custom attributes. </h4>

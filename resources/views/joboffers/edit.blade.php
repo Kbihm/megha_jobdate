@@ -6,7 +6,7 @@
 
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Create a New Job Listing</div>
+                <div class="panel-heading">Edit a Job Listing</div>
                 <div class="panel-body">
 
 
