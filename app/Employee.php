@@ -66,13 +66,13 @@ class Employee extends Model
     {
         $comments = Comment::where('employee_id', $this->id)->where('approved', true)->get();
 
-        $sum = 0.0;
+        $sum = 0;
 
         foreach ($comments as $comment)
             $sum += $comment->rating;
 
         $avg = $sum / sizeof($comments);
-
+        $avg = $avg/3;
         $this->average_rating = $avg;
         $this->save();
 

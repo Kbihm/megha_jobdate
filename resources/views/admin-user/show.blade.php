@@ -92,8 +92,8 @@
             </tr>
             <tr>
                 <th>Banned</th>
-                <td>@if(sizeof($user->banned == 1)) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
-            </tr>
+                <td>@if($banned) <a href="/unban/{{ $user->id }}">Yes</a> @else <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
+            </tr>              
         </table>
         </div>
         </div>
@@ -157,12 +157,13 @@
             </tr>
             <tr>
                 <th>Banned</th>
+
                 <td>@if(sizeof($user->banned == 1)) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
             </tr>
 
         </table>
         </div>
-        </div>
+        </div> 
         <hr>
         <a href="/staff/{{ $user->employee_id }}" class="btn btn-primary">View Employee Profile</a>
     @elseif($user->admin_id != null)

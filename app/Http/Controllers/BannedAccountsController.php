@@ -20,6 +20,7 @@ class BannedAccountsController extends Controller
         $banned = new Banned;
         $banned->user_id = $id;
         $banned->save();
+
         return redirect('/admin/user/'.$id);
     }
 
@@ -27,8 +28,8 @@ class BannedAccountsController extends Controller
         $banned = Banned::where('user_id', $id)->first();
         if (sizeOf($banned) == 0)
             return back();
-
         $banned->delete();
+
         return redirect('/admin/user/'.$id);
     }
 
