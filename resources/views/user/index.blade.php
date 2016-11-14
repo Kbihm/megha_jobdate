@@ -206,6 +206,13 @@
                                                 <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews
                                                </a>
                                             </div>
+                                            <div class="stats">
+                                                @if ($user->employee->gender == 0)
+                                                    <i class="fa fa-male"></i> 
+                                                @elseif ($user->employee->gender == 1)
+                                                    <i class="fa fa-female"></i> 
+                                                @endif  
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

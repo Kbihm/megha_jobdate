@@ -41,6 +41,8 @@
                 /*background-color: #dedede;*/
                 }
                 #row{
+                    clear:left;
+                    float:left;
                     height: 22%;
                     width: 96%;
                     margin-left: 2%;
