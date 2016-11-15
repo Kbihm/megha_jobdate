@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Comment;
+use App\Employee;
 
 class CommentSeeder extends Seeder
 {
@@ -49,6 +50,9 @@ class CommentSeeder extends Seeder
         $comment->approved = true;
         $comment->save();
 
+        // $employee = Employee::find(1);
+        // $employee->calc_rating();
+
         $comment = new Comment;
         $comment->employee_id = 2;
         $comment->employer_id = 1;
@@ -56,6 +60,9 @@ class CommentSeeder extends Seeder
         $comment->rating = 3;
         $comment->approved = true;
         $comment->save();
+
+        // $employee = Employee::find($comment->employee_id);
+        // $employee->calc_rating();
 
     }
 }

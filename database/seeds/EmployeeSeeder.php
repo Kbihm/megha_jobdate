@@ -19,7 +19,7 @@ class EmployeeSeeder extends Seeder
          */
         $employee = new Employee;
         $employee->phone = '0400000000';
-        $employee->average_rating = '2.2';
+        $employee->average_rating = '0';
         $employee->about = 'This is an awesome about feature for details!';
         $employee->gender = '0';
         $employee->fulltime = true;
@@ -40,7 +40,7 @@ class EmployeeSeeder extends Seeder
 
         $employee = new Employee;
         $employee->phone = '0400020000';
-        $employee->average_rating = '2.2';
+        $employee->average_rating = '0';
         $employee->about = 'This is an awesome about feature for details!';
         $employee->gender = '1';
         $employee->fulltime = true;
@@ -61,7 +61,7 @@ class EmployeeSeeder extends Seeder
 
         $employee = new Employee;
         $employee->phone = '0400000000';
-        $employee->average_rating = '2.4';
+        $employee->average_rating = '0';
         $employee->about = "I'm John Smith, a hardworking individual who gets the job done!";
         $employee->gender = '0';
         $employee->fulltime = true;
@@ -82,12 +82,12 @@ class EmployeeSeeder extends Seeder
 
         $employee = new Employee;
         $employee->phone = '0400000000';
-        $employee->average_rating = '2.4';
+        $employee->average_rating = '0';
         $employee->about = "I'm Jill Smith, a hardworking individual who gets the job done!";
         $employee->gender = 1;
         $employee->fulltime = true;
         $employee->role = "Waiter/Waitress";
-        $employee->hourly_rate = 25;
+        $employee->hourly_rate = 28;
         $employee->save();
 
         $user = new User;

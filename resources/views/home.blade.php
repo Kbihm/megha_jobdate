@@ -17,6 +17,68 @@
 
                     @if (Auth::user()->admin_id != null)
 
+
+                    <?php 
+                    
+                        $admin_count = sizeOf(App\Admin::all());
+                        $employee_count = sizeOf(App\Employee::all());
+                        $employer_count = sizeOf(App\Employer::all());
+                        $user_count = sizeOf(App\User::all());
+                    
+                    ?>
+
+                        <!-- graphic area in html -->
+    <div class="col-md-6">
+    <div class="card">
+        <div class="content">
+
+    <h4 class="title">JobDate Users</h4>
+
+    <div class="row margin-top">
+
+     <div class="col-md-10 col-md-offset-1">
+
+         <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+     </div>
+
+    </div>
+
+    <div class="row">
+
+     <div class="col-md-10 col-md-offset-1">
+
+         <h6>Legend</h6>
+
+         <i class="fa fa-circle text-info"></i> Admins
+         <i class="fa fa-circle text-success"></i> Employees
+         <i class="fa fa-circle text-warning"></i> Employers
+
+     </div>
+
+    </div>
+
+
+
+    <!-- javascript -->
+    <script type="text/javascript">
+    Chartist.Pie('#chartPreferences', {
+
+      labels: ['{{ $admin_count }} ({{ number_format($admin_count / $user_count * 100,2) }}%)',
+                '{{ $employee_count }} ({{ number_format($employee_count / $user_count * 100,2) }}%)',
+                '{{ $employer_count }} ({{ number_format($employer_count / $user_count * 100,2) }}%)'],
+      series: [{{ number_format($admin_count / $user_count * 100,2) }}, {{ number_format($employee_count / $user_count * 100,2) }}, {{ number_format($employer_count / $user_count * 100,0) }}]
+
+    });
+    </script>
+
+    <p> &nbsp; </p>
+
+</div>
+    </div>
+
+    </div>
+
                     @elseif (Auth::user()->employee_id != null)
 
                     <div class="col-md-3">

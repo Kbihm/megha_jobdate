@@ -39,9 +39,22 @@
                 @endif
 
                 <h4 class="title"> You're currently on a {{ $user->employer->subscription('main')->stripe_plan }} subscription. </h4>
-                <p> Using your {{ $user->employer->card_brand}} ending in {{ $user->employer->card_last_four}}.</p>
+                
+                <p>Payment Information </p>
+                <p>
+                    @if ($user->employer->card_brand == 'Visa')
+                        <i class="fa fa-cc-visa"></i> 
+                    @elseif ($user->employer->card_brand == 'Mastercard')
+                        <i class="fa fa-cc-mastercard"></i> 
+                    @elseif ($user->employer->card_brand == 'American Express')
+                        <i class="fa fa-cc-amex"></i> 
+                    @else
+                        {{ $user->employer->card_brand }}
+                    @endif
+                    &nbsp;
+                    **** **** **** {{ $user->employer->card_last_four}} </p>
                 <p> <!-- Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br /> -->
-                    Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }}<br /></p>
+                    <small> Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }} </small></p>
                 <hr>
                 
                 <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
