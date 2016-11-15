@@ -12,7 +12,7 @@ class StripeFields extends Migration
      */
     public function up()
     {
-        Schema::table('employers', function ($table) {
+        Schema::table('users', function ($table) {
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();

@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use App\Employer;
 
 class EmployerController extends Controller
 {
     
-
     public function __construct() 
     {
         $this->middleware('auth');
@@ -25,9 +25,7 @@ class EmployerController extends Controller
 
         $creditCardToken = $request->stripeToken;
 
-        
-        $employer = $user->employer;
-        $employer->newSubscription('main', 'monthly')->create($creditCardToken, [
+        $user->newSubscription('main', 'monthly')->create($creditCardToken, [
             'email' => $user->email,
         ]);
 
@@ -44,8 +42,7 @@ class EmployerController extends Controller
 
         $creditCardToken = $request->stripeToken;
         
-        $employer = $user->employer;
-        $employer->newSubscription('main', 'yearly')->create($creditCardToken, [
+        $user->newSubscription('main', 'yearly')->create($creditCardToken, [
             'email' => $user->email,
         ]);
 
@@ -55,36 +52,31 @@ class EmployerController extends Controller
 
     public function cancel() {
         $user = Auth::user();
-        $sub = $user->employer->subscription('main');
-
-        // dd($user->employer->subscription('main')->onTrial());
-        // dd($sub);
-
-        $sub->cancel();
+        $user->subscription('main')->cancel();
         return redirect('profile/subscription');
     }
 
     public function resume() {
         $user = Auth::user();
-        $user->employer->subscription('main')->resume();
+        $user->subscription('main')->resume();
         return redirect('profile/subscription');
     }
 
     public function swap() {
-        return 'Broken ATM';
+        // return 'Broken ATM';
         $user = Auth::user();
-        $sub = $user->employer->subscription('main');
+        $sub = $user->subscription('main');
 
         if ($sub->stripe_plan == 'monthly')
             $sub->swap('yearly');
         else if ($sub->stripe_plan == 'yearly')
             $sub->swap('monthly');
 
-        // return redirect('profile/subscription');
+        return redirect('profile/subscription');
     }
 
     public function invoice($invoiceId) {
-    return Auth::user()->employer->downloadInvoice($invoiceId, [
+    return Auth::user()->downloadInvoice($invoiceId, [
         'vendor'  => 'Job Date ABN: 806 134 637 82',
         'product' => 'Job Date Subscription',
     ]);
