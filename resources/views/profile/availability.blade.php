@@ -25,12 +25,20 @@
 
         <div class="col-md-9">
         
+        <h4>Availability</h4>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Availability</div>
-                <div class="panel-body">
+            <div class="card">
+                
+                <div class="content">
 
-                    <h4>Set your availability for the next 30 days </h4>
+                <div class="pull-left">
+                    <h4 class="title">Set your availability for the next 30 days </h4>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-primary" id="toggle">Check All</button>
+                    <button class="btn btn-primary" id="untoggle">Uncheck All</button>
+                </div>
+                <div class="clearfix"></div>
                     <hr>
  
                     <table class="table table-striped">
@@ -46,8 +54,10 @@
 
                         <tr class="data-row">
                             <input type="hidden" name="date" id="date" value="{{ $first['year'] }}-{{ $first['mon'] }}-{{ $i }}">
+                            
+                            <?php $thisdate = strtotime($first['year'].'-'.$first['mon'].'-'.$i); ?>
 
-                            <td>{{ $i }}/{{ $first['mon'] }}/{{ $first['year'] }}</td>
+                            <td>{{ date('d F Y (l)', $thisdate) }} </td>
                             <td class="text-center">
                                 <input type="checkbox" name="morning" id="morning">
                             </td>
@@ -68,7 +78,9 @@
                         <tr class="data-row">
                             <input type="hidden" id="date" name="date" value="{{ $last['year'] }}-{{ $last['mon'] }}-{{ $i }}" >
 
-                            <td>{{ $i }}/{{ $last['mon'] }}/{{ $last['year'] }}</td>
+                            <?php $thisdate = strtotime($last['year'].'-'.$last['mon'].'-'.$i); ?>
+
+                            <td>{{ date('d F Y (l)', $thisdate) }} </td>
                             <td class="text-center">
                                 <input type="checkbox" name="morning" id="morning">
                             </td>
@@ -86,7 +98,7 @@
                     </table>
 
                     <div class="text-center">
-                        <button type="submit" id="submit" class="btn btn-success">Save</button> 
+                        <button type="submit" id="submit" class="btn btn-success btn-fill">Save</button> 
                     </div>
 
                 </div>
@@ -137,8 +149,20 @@
             });
 
 
+            $("#toggle").on('click', function() {
+
+                $("input[type='checkbox']").prop("checked", true);
+
+            });
+
+            $("#untoggle").on('click', function() {
+
+                $("input[type='checkbox']").prop("checked", false);
+            
+            });
+
             </script>
 
-
+            </div>
         @endsection           
 

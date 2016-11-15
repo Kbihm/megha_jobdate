@@ -121,7 +121,7 @@ class CommentsController extends Controller
         $employee = Employee::find($comment->employee_id);
         $comment->save();
         $employee->calc_rating();
-        return redirect('/admin/comments');
+        return redirect('/admin/comments/approved');
     }
 
 }

@@ -4,13 +4,12 @@
 
     <div class="col-md-8 col-md-offset-2">
 
+        <h2>JobDate Settings</h2>
+
                     @if ($settings != null)
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                        JobDate Settings
-                        </div>
-                                   
-                        <div  class="panel-body">  
+                    <div class="card">
+                        <div class="content">
+                        
                             
                             <form class="form" action="/admin/settings/1" method="POST">
                                 {{ csrf_field() }}

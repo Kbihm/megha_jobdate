@@ -121,7 +121,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
 <h5 class="title">Company</h5>
                         <nav>
                             <ul>
@@ -130,7 +130,7 @@
                                         Home
                                     </a>
                                 </li>
-                                <li>
+                            <li>
                                     <a href="#">
                                        Find offers
                                     </a>
@@ -158,7 +158,7 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-md-3 col-md-offset-1">
+                    <div class="col-md-3">
                         <h5 class="title">Company</h5>
                         <nav>
                             <ul>
@@ -234,11 +234,6 @@
                                 <li>
                                     <a href="#" class="btn btn-social btn-facebook btn-simple">
                                         <i class="fa fa-facebook-square"></i> Facebook
-                                    </a>
-                                </li>
-                                 <li>
-                                     <a href="#" class="btn btn-social btn-dribbble btn-simple">
-                                        <i class="fa fa-dribbble"></i> Dribbble
                                     </a>
                                 </li>
                                 <li>
