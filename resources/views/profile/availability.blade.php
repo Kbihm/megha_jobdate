@@ -5,19 +5,48 @@
 
         <div class="col-md-3">
 
-        <h4> Manage your account </h4>
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="/profile">Your Information</a></li>
+        <div class="card">
+           
+        
             @if ($user->employee_id != null)
-            <li class=""><a href="/profile/skills" >Skills</a></li>
-            <li class=""><a href="/profile/experience">Experience</a></li>
-            <li class="active"><a href="/profile/availability">Availability</a></li>
+
+                @if (Storage::disk('local')->has($user->employee_id . '.jpg'))
+                    <div class="image">
+                        <a href="#">
+                            <img src="{{route('image', ['filename' => $user->employee_id.'.jpg'])}}" alt="...">
+                        </a>
+                    </div>
+                @endif
+
             @endif
-            @if ($user->employer_id != null)
-            <li class=""><a href="/profile/subscription" >Subscription</a></li>
-            @endif
-            <li class=""><a href="/profile/security">Security</a></li>
-        </ul>
+        <div class="content">
+        <h4 class="title"> Manage your account </h4>
+
+                <ul class="list-group">
+                    <a class="list-group-item" href="/profile">Your Information</a>
+                    @if ($user->employee_id != null)
+                    <a class="list-group-item" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item" href="/profile/experience">Experience</a>
+                    <a class="list-group-item active" href="/profile/availability">Availability</a>
+                    @endif
+                    @if ($user->employer_id != null)
+                    <a class="list-group-item" href="/profile/subscription" >Subscription</a>
+                    
+                    @endif
+                    <a class="list-group-item" href="/profile/security">Security</a>
+                </ul>
+
+        <hr>
+
+        <div class="footer">
+
+        @if ($user->employee_id != null)
+                    <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
+        @endif
+        </div>
+
+        </div>
+        </div>
 
 
         </div>
@@ -163,6 +192,7 @@
 
             </script>
 
+            </div>
             </div>
         @endsection           
 

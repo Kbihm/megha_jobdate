@@ -5,19 +5,48 @@
 
         <div class="col-md-3">
 
-        <h4> Manage your account </h4>
-        <ul class="nav nav-pills nav-stacked">
-            <li><a href="/profile">Your Information</a></li>
+        <div class="card">
+           
+        
             @if ($user->employee_id != null)
-            <li class=""><a href="/profile/skills" >Skills</a></li>
-            <li class="active"><a href="/profile/experience">Experience</a></li>
-            <li class=""><a href="/profile/availability">Availability</a></li>
+
+                @if (Storage::disk('local')->has($user->employee_id . '.jpg'))
+                    <div class="image">
+                        <a href="#">
+                            <img src="{{route('image', ['filename' => $user->employee_id.'.jpg'])}}" alt="...">
+                        </a>
+                    </div>
+                @endif
+
             @endif
-            @if ($user->employer_id != null)
-            <li class=""><a href="/profile/subscription" >Subscription</a></li>
-            @endif
-            <li class=""><a href="/profile/security">Security</a></li>
-        </ul>
+        <div class="content">
+        <h4 class="title"> Manage your account </h4>
+
+                <ul class="list-group">
+                    <a class="list-group-item" href="/profile">Your Information</a>
+                    @if ($user->employee_id != null)
+                    <a class="list-group-item" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item active" href="/profile/experience">Experience</a>
+                    <a class="list-group-item" href="/profile/availability">Availability</a>
+                    @endif
+                    @if ($user->employer_id != null)
+                    <a class="list-group-item" href="/profile/subscription" >Subscription</a>
+                    
+                    @endif
+                    <a class="list-group-item" href="/profile/security">Security</a>
+                </ul>
+
+        <hr>
+
+        <div class="footer">
+
+        @if ($user->employee_id != null)
+                    <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
+        @endif
+        </div>
+
+        </div>
+        </div>
 
 
         </div>
@@ -25,12 +54,11 @@
 
         <div class="col-md-9">
         
-        
-            <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Experience</h3>
-            </div>
-            <div class="panel-body">
+            <h4 >Experience</h4>
+
+            <div class="card">
+            <div class="content">
+                
             @if (sizeof($user->employee->experience) > 0)
                     @foreach ($user->employee->experience as $experience)
                     <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
@@ -63,8 +91,8 @@
                         {{ csrf_field() }}
                 <br>
                     <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
-                        <label class="col-sm-2 control-label">Position Title:</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-4 control-label">Position Title:</label>
+                        <div class="col-sm-8">
                             <input type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
                                 @if ($errors->has('title'))
                                     <span class="help-block pull-left">
@@ -76,8 +104,8 @@
                     </div> 
 
                      <div class="form-group {{ $errors->has('establishment_name') ? ' has-error' : '' }}">
-                        <label class="col-sm-2 control-label">Name of Establishment:</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-4 control-label">Name of Establishment:</label>
+                        <div class="col-sm-8">
                             <input type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
                                 @if ($errors->has('establishment_name'))
                                     <span class="help-block pull-left">
@@ -88,8 +116,8 @@
                     </div> 
 
                     <div class="form-group {{ $errors->has('employment_length') ? ' has-error' : '' }}">
-                        <label class="col-sm-2 control-label">Employment Length:</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-4 control-label">Employment Length:</label>
+                        <div class="col-sm-8">
                             <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
                                 @if ($errors->has('employment_length'))
                                     <span class="help-block pull-left">
@@ -101,8 +129,8 @@
                     </div> 
 
                     <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
-                        <label class="col-sm-2 control-label">Describe your roles:</label>
-                        <div class="col-sm-10">
+                        <label class="col-sm-4 control-label">Describe your roles:</label>
+                        <div class="col-sm-8">
                             <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
                                 @if ($errors->has('description'))
                                     <span class="help-block pull-left">

@@ -3,27 +3,52 @@
 
     <div class="row">
         <div class="col-md-3">
+
+        <div class="card">
+           
         
-            @if($user->employee_id != null)
-                @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
-                <div style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center; background-repeat: no-repeat; height: 250px; width:250px; background-size: contain; background-color: grey;"></div>
-                @else
-                <div style="height: 250px; width:250px; background-color: grey; border: 1px solid black;"> <h4 class="text-center"> You have no profile image set. </h4> </div>
-                @endif
-            @endif
-        <h4> Manage your account </h4>
-        <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="/profile">Your Information</a></li>
             @if ($user->employee_id != null)
-            <li class=""><a href="/profile/skills" >Skills</a></li>
-            <li class=""><a href="/profile/experience">Experience</a></li>
-            <li class=""><a href="/profile/availability">Availability</a></li>
+
+                @if (Storage::disk('local')->has($user->employee_id . '.jpg'))
+                    <div class="image">
+                        <a href="#">
+                            <img src="{{route('image', ['filename' => $user->employee_id.'.jpg'])}}" alt="...">
+                        </a>
+                    </div>
+                @endif
+
             @endif
-            @if ($user->employer_id != null)
-            <li class=""><a href="/profile/subscription" >Subscription</a></li>
-            @endif
-            <li class=""><a href="/profile/security">Security</a></li>
-        </ul>
+        <div class="content">
+        <h4 class="title"> Manage your account </h4>
+
+                <ul class="list-group">
+                    <a class="list-group-item active" href="/profile">Your Information</a>
+                    @if ($user->employee_id != null)
+                    <a class="list-group-item" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item" href="/profile/experience">Experience</a>
+                    <a class="list-group-item" href="/profile/availability">Availability</a>
+                    @endif
+                    @if ($user->employer_id != null)
+                    <a class="list-group-item" href="/profile/subscription" >Subscription</a>
+                    
+                    @endif
+                    <a class="list-group-item" href="/profile/security">Security</a>
+                </ul>
+
+        <hr>
+
+        <div class="footer">
+
+        @if ($user->employee_id != null)
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
+                    Upload/Change profile picture
+                    </button>
+                    <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
+        @endif
+        </div>
+
+        </div>
+        </div>
 
 
         </div>
@@ -190,9 +215,7 @@
 
                     @if($user->employee_id != null)
 
-                    <button type="button" class="btn btn-primary btn-lg col-md-offset-4" data-toggle="modal" data-target="#myModal">
-                    Upload a profile picture
-                    </button>
+
 
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -204,7 +227,9 @@
                                 <h4 class="modal-title" id="myModalLabel">Upload a Profile Image</h4>
                             </div>
                             <div class="modal-body">
-                                <h4> Note that your profile picture MUST be in '.jpg' format! We recommend a 250x250 image. </h4>
+                                <p class="text-danger">Note that your profile picture MUST be in '.jpg' format!</p>
+                                <p>We recommend an image larger than 500x500 and square. </p>
+                                <hr>
                                     <form  method="POST" action="img/store" files="true" role="form" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <input  type="file" id="image" name="image">
@@ -339,159 +364,7 @@
             </div>
             </div>
 
-        <!--
-            SKILLS
-        -->
-        @if ($user->employee_id != null)
-        <div class="tab-pane fade" id="skills">
-                        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Skills</h3>
-            </div>
-            <div class="panel-body">
-                @if (sizeof($user->employee->skill) > 0)
-                <ul>
-                    @foreach ($user->employee->skill as $skill)
-                    <li> {{ $skill->skill }} </li>
-                    @endforeach
-                </ul>
-                @else
-                 <h3> You don't currently have any skills saved. Try adding one! </h3>
-                @endif
-                <a href="skills/create" class="btn btn-primary"> Add Skills </a>
-                           
-            </div>
-            </div>
-            
-            <div class="panel panel-default">
-                <div class="panel-heading">Add a New Skill</div>
-                <div class="panel-body">
-
-                <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/skills/">
-                        {{ csrf_field() }}
-                <br>
-                    
-                        
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Skill</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
-                        </div>
-                    </div> 
-                    <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
-                        <div class="form-group">
-                            <div class="text-center" >
-                                <button type="submit" class="btn btn-primary">
-                                    Submit
-                                </button>
-                            </div>
-                        </div>  
-                    </form>
-                </div>
-                </div>
-            </div>
-        </div>
-        @endif
-
-        <!--
-            EXPERIENCE
-        -->
-        @if ($user->employee_id != null)
-        <div class="tab-pane fade" id="experience">
-             
-
-            <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Experience</h3>
-            </div>
-            <div class="panel-body">
-                @if (sizeof($user->employee->experience) > 0)
-                    @foreach ($user->employee->experience as $experience)
-                    <h4>{{ $experience->title }}  <span class="text-muted"> ({{ $experience->establishment_name}})</span> </h4>
-                    <h6> {{ $experience->employment_length }} </h6>
-                    <p> {{ $experience->description }} </p>
-                    <hr>
-                    @endforeach
-                @else
-                    <h3> You haven't got any experiences saved. Add one now! </h3>
-                @endif
-                <a href="experience/create" class="btn btn-primary"> Add Experiences </a>
-            </div>
-            </div>
-
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Add Past Work Experience</div>
-                <div class="panel-body">
-
-                <div class="text-center">
-                <form class="form-horizontal" role="form" method="POST" action="/experience/">
-                        {{ csrf_field() }}
-                <br>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Position Title:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
-                        </div>
-                    </div> 
-
-                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Name of Establishment:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
-                        </div>
-                    </div> 
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Employment Length:</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
-                        </div>
-                    </div> 
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Describe your roles:</label>
-                        <div class="col-sm-10">
-                            <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
-                        </div>
-                    </div> 
-                     <input name="employee_id" class="form-control" type="hidden" value="{{$user}}">   
-                        <div class="form-group">
-                            <div class="text-center" >
-                                <button type="submit" class="btn btn-primary">
-                                    Submit Experience
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        </div>
-        @endif
         
-        <!--
-            Subscription
-        -->
-        @if ($user->employer_id != null)
-        <div class="tab-pane fade" id="subscription">
-           
-            <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Subscription</h3>
-            </div>
-            <div class="panel-body">
-                Coming Soon!
-
-                <h2 class="text-danger text-center"> Subscription Ends: {{ $user->employer->subscription_end }} </h2>
-            </div>
-        </div>
-
-        </div>
-        @endif
             
         </div>
         </div>

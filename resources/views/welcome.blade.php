@@ -17,9 +17,10 @@
 
         <div class="col-md-4">
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
+            <div class="card">
+                <div class="content">
+                <h4 class="title">Login</h4>
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -53,9 +54,10 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
+                                <div class="">
+                                    <label class="checkbox checked" for="checkbox2">
+                                        <span class="icons"><span class="first-icon fa fa-square-o"></span><span class="second-icon fa fa-check-square-o"></span></span><input type="checkbox" name="remember" value="" id="checkbox2" data-toggle="checkbox" checked="">
+                                        Remember Me
                                     </label>
                                 </div>
                             </div>

@@ -69,6 +69,7 @@
                         <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/offers">Job Offers</a></li>
                         <li><a href="/my-reviews">Reviews</a></li>
+                        <li><a href="/staff">Employer Search</a></li> 
 
                     @elseif (Auth::user()->employer_id != null)
                         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -276,5 +277,6 @@
     <script src="/assets/js/bootstrap-datepicker.js"></script>
 	<script src="/assets/js/get-shit-done.js"></script>
     <script src="/assets/js/chartist.min.js"></script>
+    <script src="/assets/js/gsdk-checkbox.js"></script>
 </body>
 </html>
