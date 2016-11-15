@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
 
+        <?php
+ 
+            $availability = [];
+
+            foreach ($user->employee->availability as $avl) {
+
+                $tmp = [
+                'date' => $avl->date,
+                'morning' => $avl->morning,
+                'day' => $avl->day,
+                'night' => $avl->night
+                ];
+
+                array_push($availability, $tmp);
+            }
+
+        ?>
+
     <div class="row">
 
         <div class="col-md-3">
@@ -87,16 +105,44 @@
                             <?php $thisdate = strtotime($first['year'].'-'.$first['mon'].'-'.$i); ?>
 
                             <td>{{ date('d F Y (l)', $thisdate) }} </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="morning" id="morning">
-                            </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="day" id="day">
-                            </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="night" id="night">
-                            </td>
+
+                            <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
+                                @if($key !== false)
+
+                                @if($availability[$key]['morning'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning" checked="checked">
+                                </td>
+                                @endif
+
+                                @if($availability[$key]['day'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day" checked="checked">
+                                </td>
+                                @endif
+
+                                @if($availability[$key]['night'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night" checked="checked">
+                                </td>
+                                @endif
+                                
+
                         </tr>
+
+                            @endif
 
                         @endfor   
 
@@ -110,16 +156,44 @@
                             <?php $thisdate = strtotime($last['year'].'-'.$last['mon'].'-'.$i); ?>
 
                             <td>{{ date('d F Y (l)', $thisdate) }} </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="morning" id="morning">
-                            </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="day" id="day">
-                            </td>
-                            <td class="text-center">
-                                <input type="checkbox" name="night" id="night">
-                            </td>
+
+                            <?php $key = array_search($last['year'].'-'.$last['mon'].'-'.$i, array_column($availability, 'date')); ?>
+                                @if($key !== false)
+
+                                @if($availability[$key]['morning'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning" checked="checked">
+                                </td>
+                                @endif
+
+                                @if($availability[$key]['day'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day" checked="checked">
+                                </td>
+                                @endif
+
+                                @if($availability[$key]['night'] == false)
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night">
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night" checked="checked">
+                                </td>
+                                @endif
+                                
+
                         </tr>
+
+                            @endif
                         
                         @endfor
                         @endif
@@ -159,18 +233,21 @@
                     "avl": availability
                     };
 
+                console.log(JSON.stringify(dataavl));
+
                $.ajax({
                     url: "/avl",
                     type: "post",
-                    data: dataavl,
+                    data: JSON.stringify(dataavl),
                     processData: false,
                     dataType: "json",
-                    contentType: "application/json"
-                }).done(function(data) {
-                    console.log(data);
-                    // window.reload();
-                }).error(function(data){
-                    console.log(data)
+                    contentType: "application/json",
+                    success:function(data) {
+                        location.reload();
+                    } 
+                }).error(function(response){
+                    console.log("Error: " + response.data)
+                    alert('Could not save');
                 });
 
                 // console.log(availability);

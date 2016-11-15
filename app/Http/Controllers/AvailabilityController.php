@@ -6,32 +6,41 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Availability;
+use Auth;
 
 class AvailabilityController extends Controller
 {
     
+    public function __construct()
+    {
+        // $this->middleware('employee');
+    }
 
     public function store(Request $request)
     {
 
         // Availabilities needs to be the data passed in.
-        $availabilities = $request->input('avl');
+        $availabilities = $request->json('avl');
 
-        return $request;
+        foreach ($availabilities as $availability) {
 
-        // foreach ($availabilities as $availability) {
+            $try_find = Availability::where('employee_id', Auth::user()->employee_id)->where('date', $availability['date'])->first();
+            // $try_find = Availability::where('employee_id', 1)->where('date', $availability['date'])->first();
 
-            // This will need to be updated to check if
-            // it exists already and update if it does.
+            if ($try_find != null)
+                $avl = $try_find;
+            else
+                $avl = new Availability;
 
-        //     $avl = new Availability;
-        //     $avl->date = $availability->date; 
-        //     $avl->morning = $availability->morning;
-        //     $avl->day = $availability->day;
-        //     $avl->night = $availability->night;
-        //     $avl->employee_id = Auth::user()->employee_id;
-        //     $avl->save();
-        // }
+
+            $avl->date = $availability['date']; 
+            $avl->morning = $availability['morning'];
+            $avl->day = $availability['day'];
+            $avl->night = $availability['night'];
+            $avl->employee_id = Auth::user()->employee_id;
+            // $avl->employee_id = 1;
+            $avl->save();
+        }
 
         return '{"status":"true"}';
     }
