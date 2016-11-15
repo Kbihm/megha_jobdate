@@ -9,6 +9,7 @@
             <div class="jumbotron">
                 <h1>Welcome to JobDate! </h1>
                 <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <a href="/staff" class="btn btn-success btn-fill">Start Finding Staff</a>
             </div>
 
         </div>
@@ -78,4 +79,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

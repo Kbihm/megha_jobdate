@@ -28,32 +28,36 @@ class ProfileController extends Controller
     public function show($id) 
     {
 
-    //Relevant for availability calendar
+        // Start Calendar Parts
         $today = getdate();
         $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
         $first = getdate($start);
-    //set end date to 2 weeks from when the calendar starts
+        //set end date to 2 weeks from when the calendar starts
         $end = mktime(0,0,0,$first['mon'],$today['mday']+13,$first['year']);
         $last = getdate($end);
 
-        if($first['mon']+1 == $last['mon']){
+        if($first['mon']+1 == $last['mon'])
             $daytarget = $this->days_in_month($first['mon'], $first['year']);
-        }
-        else{
+        else
             $daytarget = $last['mday'];
-        }
 
-    //Please confirm if this is efficient. Otherwise change  //
-        $self_user = Auth::user();
+        // End Calendar Parts
+
         $user = Employee::where('id', $id)->first();
-        $user->calc_rating();
-        if($self_user->employer_id != null){
-            $jobs = Joboffer::where('employer_id', $self_user->employer->id)->get();
 
-            return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
+        // $employee = Employee::find($id);
+        // $user = $employee->user;
+
+        if(Auth::check()){
+            $self_user = Auth::user();
+            if ($self_user->employer_id != null) {
+                $jobs = Joboffer::where('employer_id', $self_user->employer_id)->get();
+                return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
+            }
         }
-
-        return view('user.show', compact('user', 'first', 'last', 'daytarget'));
+            
+        $jobs = [];
+        return view('user.show', compact('user', 'first', 'last', 'daytarget', 'jobs'));
     }
 
     function days_in_month($month, $year) 

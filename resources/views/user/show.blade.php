@@ -160,11 +160,13 @@
                 </div>
 
 
+                @if (Auth::check() && Auth::user()->employer_id != null)
                     <a href="/reviews/create/{{$user->id}}"  class="btn btn-default btn-block">
                         Review {{ $user->user->first_name }}
                     </a>
+                @endif
 
-                    @if (isset($jobs))
+                    @if (sizeOf($jobs) > 0)
                     <button type="button" class="btn btn-default dropdown-toggle col-md-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="col-md-10 pull-left"> 
                             Invite {{ $user->user->first_name }} to a Job 
@@ -182,6 +184,19 @@
                         </form>
                         @endforeach
                     </ul>
+                    @elseif(Auth::guest())
+
+                        <div class="card">
+                            <div class="content">
+                                Login or Create a Job Date Account to invite Employees like {{ $user->user->first_name }}
+                                <hr>
+                                <div class="footer">
+                                    <a href="/register" class="btn btn-primary btn-block btn-fill">Register</a>
+                                     <a href="/" class="btn btn-primary btn-block">Login</a>
+                                </div>
+                            </div>
+                        </div>
+
                     @else
 
                     <hr>
@@ -349,7 +364,7 @@
                                     <p>{{$comment->comment}}<p>
                                     <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }}  ({{ date('F, Y', strtotime($comment->created_at)) }}) </small>
 
-                                    @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
+                                    @if (Auth::check() && (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id))
                                         <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
