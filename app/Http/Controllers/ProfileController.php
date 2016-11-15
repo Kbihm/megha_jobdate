@@ -16,7 +16,7 @@ class ProfileController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('employer');
+        // $this->middleware('employer');
     }
 
     public function index() 

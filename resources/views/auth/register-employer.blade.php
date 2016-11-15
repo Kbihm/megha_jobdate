@@ -5,8 +5,12 @@
 <div class="container">
 
 <div class="col-md-8 col-md-offset-2">
+
+    <h2>Register as an Employer</h2>
+    <hr>
+
             <div class="panel panel-default">
-                <div class="panel-heading">Register as an Employer</div>
+                
                 <div class="panel-body">
  
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employer') }}">
@@ -140,9 +144,9 @@
                             </div>
                         </div>
 
-                        <hr>
+                         <!--<hr>
 
-                        <div class="form-group{{ $errors->has('promo_code') ? ' has-error' : '' }}">
+                       <div class="form-group{{ $errors->has('promo_code') ? ' has-error' : '' }}">
                             <label for="promo_code" class="col-md-4 control-label">Promo Code</label>
 
                             <div class="col-md-6">
@@ -154,10 +158,12 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>-->
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <p><small class="text-muted">You will be prompted to choose your payment schedule and can apply a coupon code next. </small></p>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>

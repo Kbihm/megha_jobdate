@@ -5,9 +5,12 @@
 <div class="container">
 
 <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register as an Employee</div>
-                <div class="panel-body">
+
+    <h2>Register as an Employee</h2>
+    <hr>
+
+            <div class="card">
+                <div class="content">
  
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employee') }}">
                         {{ csrf_field() }}
@@ -154,7 +157,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <p> If you are under the age of 18, you must consult a parent or guardian prior to signing up. </p>
+                                <p><small class="text-muted"> If you are under the age of 18, you must consult a parent or guardian prior to signing up. </small></p>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>

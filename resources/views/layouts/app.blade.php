@@ -50,14 +50,14 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
 
                     @if (Auth::guest())
 
-                        <!-- <li><a href="/staff">Search</a></li> -->
+                         <li><a href="/staff">Search</a></li> 
 
                     @elseif (Auth::user()->admin_id != null)
 
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/admin/user">Users</a></li>
                         <li><a href="/staff">Employees</a></li>
                         <li><a href="/admin/comments">Comments</a></li>
@@ -66,12 +66,12 @@
 
                     @elseif (Auth::user()->employee_id != null)
 
-                        <!-- update to show for employees only --> 
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/offers">Job Offers</a></li>
                         <li><a href="/my-reviews">Reviews</a></li>
 
                     @elseif (Auth::user()->employer_id != null)
-
+                        <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/jobs">Jobs</a></li>
                         <li><a href="/staff">Search</a></li>
                         <li><a href="/reviews">Reviews</a></li>
