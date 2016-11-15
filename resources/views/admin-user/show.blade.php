@@ -121,7 +121,7 @@
             </tr>
             <tr>
                 <th>Average Rating</th>
-                <td>{{ number_format($user->employee->average_rating / 3 * 100, 2) }}%</td>
+                <td>{{ number_format($user->employee->average_rating / 2 * 100, 2) }}%</td>
             </tr>
             <tr>
                 <th>Role</th>

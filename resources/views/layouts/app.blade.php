@@ -42,8 +42,10 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    JobDate
+                <a class="" href="{{ url('/') }}">
+                <img src="/logo-jobdate.png" alt="JobDate Logo" style="max-height: 50px;
+                        margin-top: 13px;
+                        margin-left: 10px;">
                 </a>
             </div>
 
@@ -123,41 +125,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-<h5 class="title">Company</h5>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        Home
-                                    </a>
-                                </li>
-                            <li>
-                                    <a href="#">
-                                       Find offers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Discover
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       Our news
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       About Us
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <h5 class="title">Company</h5>
+                        <p>&nbsp; </p>
+                        <img src="/logo-jobdate.png" alt="JobDate Logo" class="img-responsive">
                     </div>
                     <div class="col-md-3">
                         <h5 class="title">Company</h5>
@@ -248,8 +218,11 @@
                                     </a>
                                 </li>
 
+                                
+
                             </ul>
                         </nav>
+                                        
                     </div>
                 </div>
                 <hr>
