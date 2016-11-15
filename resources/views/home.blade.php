@@ -55,29 +55,25 @@
          <i class="fa fa-circle text-warning"></i> Employers
 
      </div>
-
     </div>
 
+                <!-- javascript -->
+                <script type="text/javascript">
+                Chartist.Pie('#chartPreferences', {
 
+                labels: ['{{ $admin_count }} ({{ number_format($admin_count / $user_count * 100,2) }}%)',
+                            '{{ $employee_count }} ({{ number_format($employee_count / $user_count * 100,2) }}%)',
+                            '{{ $employer_count }} ({{ number_format($employer_count / $user_count * 100,2) }}%)'],
+                series: [{{ number_format($admin_count / $user_count * 100,2) }}, {{ number_format($employee_count / $user_count * 100,2) }}, {{ number_format($employer_count / $user_count * 100,0) }}]
 
-    <!-- javascript -->
-    <script type="text/javascript">
-    Chartist.Pie('#chartPreferences', {
+                });
+                </script>
 
-      labels: ['{{ $admin_count }} ({{ number_format($admin_count / $user_count * 100,2) }}%)',
-                '{{ $employee_count }} ({{ number_format($employee_count / $user_count * 100,2) }}%)',
-                '{{ $employer_count }} ({{ number_format($employer_count / $user_count * 100,2) }}%)'],
-      series: [{{ number_format($admin_count / $user_count * 100,2) }}, {{ number_format($employee_count / $user_count * 100,2) }}, {{ number_format($employer_count / $user_count * 100,0) }}]
+                <p> &nbsp; </p>
 
-    });
-    </script>
-
-    <p> &nbsp; </p>
-
-</div>
-    </div>
-
-    </div>
+                        </div>
+                    </div>
+                </div>
 
                     @elseif (Auth::user()->employee_id != null)
 

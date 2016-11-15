@@ -22,9 +22,10 @@ class Authenticate
                 return response('Unauthorized.', 401);
             }
         }
-        if (count(Banned::where('user_id', '=', Auth::user()->id)->first()) != 0){
-            return response('Unauthorized.', 401);
-        }
+        
+        // if (count(Banned::where('user_id', '=', Auth::user()->id)->first()) != 0){
+        //     return response('Unauthorized.', 401);
+        // }
 
         return $next($request);
     }
