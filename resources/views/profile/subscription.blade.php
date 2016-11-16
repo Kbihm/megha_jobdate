@@ -58,42 +58,44 @@
             <div class="card">
             <div class="content">
 
-            @if (Auth::user()->employer->subscribed('main'))
+            @if (Auth::user()->subscribed('main'))
 
-                @if (Auth::user()->employer->subscription('main')->onTrial())
+                @if (Auth::user()->subscription('main')->onTrial())
 
                 <h4> You're still on your free trial!</h4>
 
                 @endif
 
-                <h4 class="title"> You're currently on a {{ $user->employer->subscription('main')->stripe_plan }} subscription. </h4>
+                <h4 class="title"> You're currently on a {{ $user->subscription('main')->stripe_plan }} subscription. </h4>
                 
                 <p>Payment Information </p>
                 <p>
-                    @if ($user->employer->card_brand == 'Visa')
+                    @if ($user->card_brand == 'Visa')
                         <i class="fa fa-cc-visa"></i> 
-                    @elseif ($user->employer->card_brand == 'Mastercard')
+                    @elseif ($user->card_brand == 'Mastercard')
                         <i class="fa fa-cc-mastercard"></i> 
-                    @elseif ($user->employer->card_brand == 'American Express')
+                    @elseif ($user->card_brand == 'American Express')
                         <i class="fa fa-cc-amex"></i> 
                     @else
-                        {{ $user->employer->card_brand }}
+                        {{ $user->card_brand }}
                     @endif
                     &nbsp;
-                    **** **** **** {{ $user->employer->card_last_four}} </p>
-                <p> <!-- Created on: {{ date('F d, Y', strtotime($user->employer->created_at)) }} <br /> -->
-                    <small> Last modified: {{ date('F d, Y', strtotime($user->employer->updated_at)) }} </small></p>
+                    **** **** **** {{ $user->card_last_four}} </p>
+                    <small> Last modified: {{ date('F d, Y', strtotime($user->updated_at)) }} </small></p>
                 <hr>
                 
                 <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
                 <a href="#" class="btn btn-primary"> Change Card Details </a> &nbsp;
 
-                @if ($user->employer->subscription('main')->cancelled())
+                <hr>
+
+                @if ($user->subscription('main')->cancelled())
                     You've cancelled your subscription.
                 @endif
 
-                @if ($user->employer->subscription('main')->onGracePeriod())
-                    On Grace Period
+                @if ($user->subscription('main')->onGracePeriod())
+                    You can resume your subscription before it runs out.
+                    <hr>
                     <a href="/subscription/resume" class="btn btn-success"> Resume </a>
                 @else 
                     <a href="/subscription/cancel" class="btn btn-danger"> Cancel </a>
@@ -154,13 +156,13 @@
             @if($user->employer_id != null)
 
 
-            @if(Auth::user()->employer->subscribed('main'))
+            @if(Auth::user()->subscribed('main'))
             <div class="panel panel-default">
                 <div class="panel-heading">Invoices</div>
                 <div class="panel-body">
 
                 <table class="table">
-                    @foreach ($user->employer->invoices() as $invoice)
+                    @foreach ($user->invoices() as $invoice)
                     
                         <tr>
                             <td>{{ $invoice->date()->toFormattedDateString() }}</td>

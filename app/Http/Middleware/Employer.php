@@ -25,7 +25,7 @@ class Employer
         }
         elseif ($user->employer_id != null) {
 
-            if ($user->employer->subscribed('main')) {
+            if ($user->subscribed('main')) {
                 return $next($request);
             }
             else {
