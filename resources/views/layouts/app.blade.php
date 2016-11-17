@@ -207,22 +207,27 @@
                                         <i class="fa fa-facebook-square"></i> Facebook
                                     </a>
                                 </li>
-                                <li>
+                                <!--<li>
                                    <a href="#" class="btn btn-social btn-twitter btn-simple">
                                         <i class="fa fa-twitter"></i> Twitter
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
                                      <a href="#" class="btn btn-social btn-reddit btn-simple">
                                         <i class="fa fa-google-plus-square"></i> Google+
                                     </a>
                                 </li>
 
-                                
-
                             </ul>
                         </nav>
-                                        
+
+                        <h5 class="title">We Accept</h5>
+                        <span style="font-size:30px">
+                        <i class="fa fa-cc-visa"></i> &nbsp;
+                        <i class="fa fa-cc-mastercard"></i>  &nbsp;
+                        <i class="fa fa-cc-amex"></i> &nbsp;
+                        </span>
+
                     </div>
                 </div>
                 <hr>
