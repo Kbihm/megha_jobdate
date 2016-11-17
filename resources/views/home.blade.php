@@ -11,6 +11,7 @@
 <div class="container-fluid">
     <div class="row">
             <div class="jumbotron">
+                    <a href="/email/dispute/{{Auth::user()->id}}" class="btn btn-small">DISPUTE </a>
                 <h1>Welcome, {{ Auth::user()->first_name }} </h1>
 
                         @if (Auth::user()->admin_id == null)

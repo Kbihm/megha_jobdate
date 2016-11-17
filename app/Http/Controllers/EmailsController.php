@@ -37,6 +37,18 @@ class EmailsController extends Controller
     public function dispute() 
     {
 
+        $data = array(
+            'user' => Auth::user(),
+            );
+
+        Mail::send('emails.sendDispute', $data, function ($message) {
+
+            $message->from('team@jobdate.com', 'JobDate');
+
+            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Dispute');
+
+        });
+        return back();
     }
         //When a new user signs signs Up
     public function signUp($id) 

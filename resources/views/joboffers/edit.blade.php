@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
-                                <input type="text" name="date" class="form-control" @if (count($errors)) value="{{ old('date') }}" @else value="{{ $joboffer->date }}" @endif>
+                                <input type="text" name="date" id="datepicker" class="form-control" @if (count($errors)) value="{{$joboffer->date}}" @endif>
                                 @if ($errors->has('date'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('date') }}</strong>
@@ -81,7 +81,7 @@
                                 <input name="time" type="radio" autocomplete="off" value="evening" @if($joboffer->time == 'evening') checked="checked" @endif> Evening
                             </label>
                         </div>
-
+ 
 
                         <div class="col-sm-offset-5">
                             @if ($errors->has('time'))
