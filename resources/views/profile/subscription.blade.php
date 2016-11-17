@@ -80,8 +80,8 @@
                         {{ $user->card_brand }}
                     @endif
                     &nbsp;
-                    **** **** **** {{ $user->card_last_four}} </p>
-                    <small> Last modified: {{ date('F d, Y', strtotime($user->updated_at)) }} </small></p>
+                    @if ($user->card_brand != 'American Express')*@endif*** **** **** {{ $user->card_last_four}} </p>
+                    <small> Last modified: {{ date('F d, Y', strtotime($user->subscription('main')->updated_at)) }} </small></p>
                 <hr>
                 
                 <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
@@ -161,7 +161,13 @@
                 <div class="panel-heading">Invoices</div>
                 <div class="panel-body">
 
-                <table class="table">
+                <table class="table table-striped">
+                        <tr>
+                            <th>Date</td>
+                            <th>Amount</td>
+                            <th>&nbsp;</th>
+                        </tr>
+
                     @foreach ($user->invoices() as $invoice)
                     
                         <tr>
