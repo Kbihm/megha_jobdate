@@ -12,7 +12,16 @@
     <div class="row">
             <div class="jumbotron">
                 <h1>Welcome, {{ Auth::user()->first_name }} </h1>
+
+                        @if (Auth::user()->admin_id == null)
+
                         <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+
+                        @else
+
+                        <p> Here's some information about Job Date. </p>
+
+                        @endif
             </div>
 
                     @if (Auth::user()->admin_id != null)
@@ -28,6 +37,7 @@
                     ?>
 
                         <!-- graphic area in html -->
+
     <div class="col-md-6">
     <div class="card">
         <div class="content">
@@ -50,9 +60,9 @@
 
          <h6>Legend</h6>
 
-         <i class="fa fa-circle text-info"></i> Admins
-         <i class="fa fa-circle text-success"></i> Employees
-         <i class="fa fa-circle text-warning"></i> Employers
+         <i class="fa fa-circle text-info"></i> Admins ({{ $admin_count }})
+         <i class="fa fa-circle text-success"></i> Employees ({{ $employee_count }})
+         <i class="fa fa-circle text-warning"></i> Employers ({{ $employer_count }})
 
      </div>
     </div>
@@ -74,6 +84,80 @@
                         </div>
                     </div>
                 </div>
+
+                    <div class="col-md-6">
+
+                        <div class="card">
+                            <div class="content">
+
+                                <h4 class="title">Comments</h4>
+                                <?php $comments_to_approve = App\Comment::where('approved', false)->get(); ?>
+
+                                <p> {{ sizeOf($comments_to_approve) }} Comments need approval.</p>
+                                <a href="/comments" class="btn btn-primary" > See Comments </a>
+
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="content">
+
+                                <h4 class="title">Job Offers</h4>
+                                <?php $joboffer_count = App\Joboffer::all(); ?>
+                                <p> {{ sizeOf($joboffer_count) }} Job Offers sent.</p>
+                               
+                                <?php $joboffer_approved_count = App\Joboffer::where('status', 'approved'); ?>
+                                <p> {{ sizeOf($joboffer_approved_count) }} Job Offers approved.</p>
+
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="content">
+
+                                <h4 class="title">Employee Information</h4>
+
+                                <?php $male_count = sizeOf(App\Employee::where('gender', '0')->get()); ?>
+                                <?php $female_count = sizeOf(App\Employee::where('gender', '1')->get()); ?>
+
+                                <p> {{ $employee_count }} employees. ({{ $male_count }} male, {{ $female_count }} female) </p>
+                                <?php $skill_count = App\Skill::all(); ?>
+                                <p> {{ sizeOf($skill_count) }} skills added.</p>
+                               
+                                <?php $experience_count = App\Experience::all(); ?>
+                                <p> {{ sizeOf($experience_count) }} experience listings added.</p>
+
+                                <?php $avg_hourly = number_format(App\Employee::all()->avg('hourly_rate'), 2);
+                                 ?>
+
+                                <p> Average Hourly Rate ${{ $avg_hourly }} </p>
+
+                                <hr>
+
+                                <?php 
+                                
+                                    $bartender_count = sizeOf(App\Employee::where('role', 'Bartender')->get());  
+                                    $chef_count = sizeOf(App\Employee::where('role', 'Chef')->get());  
+                                    $waiter_count = sizeOf(App\Employee::where('role', 'Waiter/Waitress')->get());
+                                    $musician_count = sizeOf(App\Employee::where('role', 'Musician')->get());
+                                    $kitchenhand_count = sizeOf(App\Employee::where('role', 'Chef')->get());
+                                ?>
+
+                                <ul>
+                                    <li>{{ $waiter_count }} Waiters and Waitresses</li>
+                                    <li>{{ $chef_count}} Chefs </li>
+                                    <li>{{ $bartender_count }} Bartenders </li>
+                                    <li>{{ $musician_count }} Musicians</li>
+                                    <li>{{ $kitchenhand_count }} Kitchen Hands </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
 
                     @elseif (Auth::user()->employee_id != null)
 

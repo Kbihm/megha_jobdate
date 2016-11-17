@@ -76,19 +76,27 @@
             </tr>
             <tr>
                 <th>Stripe ID</th>
-                <td>{{ $user->employer->stripe_id }}</td>
+                <td>{{ $user->stripe_id }}</td>
             </tr>
             <tr>
                 <th>Card Brand</th>
-                <td>{{ $user->employer->card_brand }}</td>
+                <td>{{ $user->card_brand }}</td>
             </tr>
             <tr>
                 <th>Card Last Four</th>
-                <td>{{ $user->employer->card_last_four }}</td>
+                <td>{{ $user->card_last_four }}</td>
             </tr>
             <tr>
-                <th>Trial Ends At</th>
-                <td>{{ $user->employer->trial_ends_at }}</td>
+                <th>Subscription Ends At</th>
+                <td>{{ date('F d, Y', strtotime($user->subscription('main')->ends_at)) }}</td>
+            </tr>
+            <tr>
+                <th>Stripe Plan</th>
+                <td>{{ $user->subscription('main')->stripe_plan }}</td>
+            </tr>
+            <tr>
+                <th>Subscription</th>
+                <td>{{ $user->subscription('main') }}</td>
             </tr>
             <tr>
                 <th>Banned</th>
