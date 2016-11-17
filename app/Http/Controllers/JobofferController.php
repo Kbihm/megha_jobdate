@@ -61,14 +61,21 @@ class JobofferController extends Controller
 
     public function edit($id){
         $joboffer = Joboffer::find($id);
-        return view('joboffers.edit', compact('joboffer'));
+        //want mm/dd/yyyy, have , dd/mm/yyyy
+        $dates = explode('-', $joboffer->date);
+        $date = $dates[1].'/'.$dates[2].'/'.$dates[0];
+        return view('joboffers.edit', compact('joboffer', 'date'));
     }
 
     public function update(Request $request, $id)
     { 
         $joboffer = Joboffer::find($id);
-
+        $dates = explode('/', $request->date);
+        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];
         $this->validate($request, Joboffer::$rules);
+        //want dd/mm/yyyy, have , mm/dd/yyyy
+        //test[0] = month, [1] = date, [2] = year
+
         $joboffer->update($request->all());
         $joboffer->save();
         return redirect('/jobs');

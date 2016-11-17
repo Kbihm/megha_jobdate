@@ -16,7 +16,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
-                                <input type="text" name="date" id="datepicker" class="form-control" @if (count($errors)) value="{{$joboffer->date}}" @endif>
+                                <input name="date" type="text" required class="datepicker form-control" value="{{$date}}">
                                 @if ($errors->has('date'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('date') }}</strong>
