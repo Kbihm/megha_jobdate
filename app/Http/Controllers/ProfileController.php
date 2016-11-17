@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Input;
 use App\Joboffer;
 use App\Http\Requests;
 use App\User;
@@ -21,7 +24,7 @@ class ProfileController extends Controller
 
     public function index() 
     {
-        $users = User::all();
+        $users = User::where('employee_id', '!=', 'null')->orderBy('average_rating')->paginate(15);
         return view('user.index', compact('users'));
     }
 
@@ -120,6 +123,10 @@ class ProfileController extends Controller
         }
 
         $users = array_merge($users, $unfavourable_users);
+        $user_count = sizeOf($users);
+
+        $paginated = new Paginator($users, $user_count, 15);
+        $users = $paginated;
 
         return view('user.index', compact('users'));
     }

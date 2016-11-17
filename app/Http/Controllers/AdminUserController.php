@@ -18,7 +18,7 @@ class AdminUserController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(30);
         return view('admin-user.index', compact('users'));
     }
 

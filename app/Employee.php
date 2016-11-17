@@ -27,11 +27,6 @@ class Employee extends Model
         'hourly_rate' => 'required|digits_between:0,150'
     ];
 
-    // public function accept_request($request_id)
-    // {
-
-    // }
-
     public function experience()
     {
         return $this->hasMany(Experience::class);
@@ -44,7 +39,8 @@ class Employee extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        $comments = $this->hasMany(Comment::class);
+        return $comments->where('approved', true);
     }
 
     public function user()

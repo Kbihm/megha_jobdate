@@ -32,8 +32,9 @@
         <td> {{ date('F d, Y', strtotime($user->created_at)) }} </td>
     </tr>
     @endforeach
-
     </table>
+
+        {{ $users->links() }}
 
 
 @endsection           

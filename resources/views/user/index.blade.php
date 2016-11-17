@@ -222,7 +222,7 @@
                         @endif
                     @endforeach
 
-                    {{-- $users->links() --}}
+                    {{ $users->links() }}
 
 
 </div>
