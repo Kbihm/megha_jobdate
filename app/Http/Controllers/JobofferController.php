@@ -71,7 +71,7 @@ class JobofferController extends Controller
     { 
         $joboffer = Joboffer::find($id);
         $dates = explode('/', $request->date);
-        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];  
         $this->validate($request, Joboffer::$rules);
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
