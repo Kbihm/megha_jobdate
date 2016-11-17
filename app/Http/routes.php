@@ -117,3 +117,4 @@ Route::get('/email/renewSub/{id}', 'EmailsController@renewSub');
 Route::get('/email/signUp/{id}', 'EmailsController@signUp');
 Route::get('/email/acceptJob/{id}', 'EmailsController@acceptJob');
 Route::get('/email/sendJobRequest/{id}', 'EmailsController@sendJobRequest');
+Route::get('/email/dispute/{id}', 'EmailsController@dispute');
