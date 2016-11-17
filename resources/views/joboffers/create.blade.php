@@ -69,10 +69,10 @@
                                 <input name="time" type="checkbox" autocomplete="off" value="morning"> Morning
                             </label>
                             <label class="btn btn-danger col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="lunch"> Lunch
+                                <input name="time" type="checkbox" autocomplete="off" value="day"> Lunch
                             </label>
                             <label class="btn btn-primary col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="evening"> Evening
+                                <input name="time" type="checkbox" autocomplete="off" value="night"> Evening
                             </label>
 
                         </div>

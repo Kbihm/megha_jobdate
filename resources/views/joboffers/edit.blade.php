@@ -74,11 +74,11 @@
                             <label class="btn btn-warning col-sm-3 @if($joboffer->time == 'morning') active @endif">
                                 <input name="time" type="radio" autocomplete="off" value="morning" @if($joboffer->time == 'morning') checked="checked" @endif> Morning
                             </label>
-                            <label class="btn btn-danger col-sm-3 @if($joboffer->time == 'lunch') active @endif">
-                                <input name="time" type="radio" autocomplete="off" value="lunch" @if($joboffer->time == 'lunch') checked="checked"" @endif > Lunch
+                            <label class="btn btn-danger col-sm-3 @if($joboffer->time == 'day') active @endif">
+                                <input name="time" type="radio" autocomplete="off" value="day" @if($joboffer->time == 'lunch') checked="checked"" @endif > Lunch
                             </label>
-                            <label class="btn btn-primary col-sm-3 @if($joboffer->time == 'evening') active @endif">
-                                <input name="time" type="radio" autocomplete="off" value="evening" @if($joboffer->time == 'evening') checked="checked" @endif> Evening
+                            <label class="btn btn-primary col-sm-3 @if($joboffer->time == 'night') active @endif">
+                                <input name="time" type="radio" autocomplete="off" value="night" @if($joboffer->time == 'evening') checked="checked" @endif> Evening
                             </label>
                         </div>
  
