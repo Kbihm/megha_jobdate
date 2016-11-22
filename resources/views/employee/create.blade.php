@@ -161,7 +161,7 @@
                             <label for="hourly_rate" class="col-md-4 control-label">What is your desired hourly rate? </label>
 
                             <div class="col-md-6">
-                                <input id="hourly_rate" type="number" class="form-control" name="hourly_rate" value="{{ old('hourly_rate') }}">
+                                <input id="hourly_rate" type="number" step="0.01" class="form-control" name="hourly_rate" value="{{ old('hourly_rate') }}">
 
                                 @if ($errors->has('hourly_rate'))
                                     <span class="help-block">

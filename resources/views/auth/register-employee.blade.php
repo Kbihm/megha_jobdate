@@ -112,12 +112,29 @@
                                 @endif
                             </div>
                         </div>
+                                                
+                        <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
+                            <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
+
+                            <div class="col-md-6">
+                                 <select class="form-control" name="fulltime" id="fulltime">
+                                <option value="TRUE">Yes</option>
+                                <option value="FALSE">No</option>
+                                </select> 
+                                @if ($errors->has('fulltime'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fulltime') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group{{ $errors->has('hourly_rate') ? ' has-error' : '' }}">
                             <label for="hourly_rate" class="col-md-4 control-label">Desired Hourly Rate</label>
 
                             <div class="col-md-6">
-                                <input id="hourly_rate" type="text" class="form-control" name="hourly_rate" value="{{ old('hourly_rate') }}">
+                                <input id="hourly_rate" type="number" step="0.01" class="form-control" name="hourly_rate" value="{{ old('hourly_rate') }}">
 
                                 @if ($errors->has('hourly_rate'))
                                     <span class="help-block">
@@ -126,7 +143,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

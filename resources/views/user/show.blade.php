@@ -167,8 +167,8 @@
                 @endif
 
                     @if (sizeOf($jobs) > 0)
-                    <button type="button" class="btn btn-default dropdown-toggle col-md-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="col-md-10 pull-left"> 
+                    <button type="button" class="btn btn-default btn-block dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="col-md-12"> 
                             Invite {{ $user->user->first_name }} to a Job 
                         </div> 
                         <span class="caret"></span>
@@ -180,7 +180,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                         <input type="hidden" name="employee_id" value="{{$user->id}}">
-                        <li><button class="col-md-12" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}}</button></li>
+                        <li><button class="btn btn-default btn-block" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}}</button></li>
                         </form>
                         @endforeach
                     </ul>

@@ -68,7 +68,7 @@
                                             <h4 class="modal-title" id="myModalLabel">Custom Comments</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <h6> Hi there! Custom comments need to be approved by an administrator before they will show up in your comment history or an employee's user profile. </h6>
+                                            <h5> Hi there! Custom comments need to be approved by an administrator before they will show up on the employee's profile. </h6>
                                             <button type="submit" class="btn btn-primary">
                                                 Submit Review
                                             </button>

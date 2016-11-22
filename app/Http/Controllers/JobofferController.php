@@ -75,8 +75,8 @@ class JobofferController extends Controller
         $this->validate($request, Joboffer::$rules);
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
-
         $joboffer->update($request->all());
+        $joboffer->date = $realdate;
         $joboffer->save();
         return redirect('/jobs');
     }

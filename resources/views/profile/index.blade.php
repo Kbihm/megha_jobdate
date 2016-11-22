@@ -193,7 +193,7 @@
                             <label for="hourly_rate" class="col-md-4 control-label">What is your desired hourly rate? </label>
 
                             <div class="col-md-6">
-                                <input id="hourly_rate" type="number" class="form-control" name="hourly_rate" value="{{ $user->employee->hourly_rate }}">
+                                <input id="hourly_rate" step="0.01" type="number" class="form-control" name="hourly_rate" value="{{ $user->employee->hourly_rate }}">
 
                                 @if ($errors->has('hourly_rate'))
                                     <span class="help-block">
@@ -203,6 +203,21 @@
                             </div>
                         </div>
                         
+                        <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
+                            <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
+
+                            <div class="col-md-6">
+                                 <select class="form=-control" name="fulltime" id="fulltime">
+                                <option value="TRUE">Yes</option>
+                                <option value="FALSE">No</option>
+                                </select> 
+                                @if ($errors->has('fulltime'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fulltime') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

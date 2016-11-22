@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Date</label>
                             <div class="col-sm-10">
-                                <input type="text" name="date" id="datepicker" class="form-control" @if (count($errors)) value="{{ old('date') }}" @endif>
+                            <input name="date" type="text" required class="datepicker form-control"  @if (count($errors)) value="{{ old('date') }}" @endif>
                                 @if ($errors->has('date'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('date') }}</strong>
@@ -61,7 +61,6 @@
                                 @endif
                             </div>
                         </div>
-                        
                         <div class="form-group">
                             <label for="time" class="col-sm-2 control-label">Time:</label>
                             <div class="btn-group col-sm-10" data-toggle="buttons">
@@ -69,14 +68,12 @@
                                 <input name="time" type="checkbox" autocomplete="off" value="morning"> Morning
                             </label>
                             <label class="btn btn-danger col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="day"> Lunch
+                                <input name="time" type="checkbox" autocomplete="off" value="day"> Day
                             </label>
                             <label class="btn btn-primary col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="night"> Evening
+                                <input name="time" type="checkbox" autocomplete="off" value="night"> Night
                             </label>
-
                         </div>
-
 
                         <div class="col-sm-offset-5">
                             @if ($errors->has('time'))
@@ -96,4 +93,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

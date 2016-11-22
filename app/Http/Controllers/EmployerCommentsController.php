@@ -111,7 +111,7 @@ class EmployerCommentsController extends Controller
             ['status', '=', 'accepted'],
             ['employee_id', '=', $employee_id],
             ['employer_id', '=', Auth::user()->employer->id],
-            ['date', '>', $today],
+            ['date', '<', $today],
             ['review_left', '=', 0]
         ])->get();
         return $joboffers;
