@@ -16,7 +16,11 @@ class Employee extends Model
         'role',
         'gender',
         'fulltime',
-        'hourly_rate'
+        'hourly_rate',
+        'region',
+        'area',
+        'suburb',
+        'state'
     ];
 
     public static $rules = [

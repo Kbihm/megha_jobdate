@@ -202,12 +202,12 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
                             <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
 
                             <div class="col-md-6">
-                                 <select class="form=-control" name="fulltime" id="fulltime">
+                                 <select class="form-control" name="fulltime" id="fulltime">
                                 <option value="TRUE">Yes</option>
                                 <option value="FALSE">No</option>
                                 </select> 
@@ -218,6 +218,48 @@
                                 @endif
                             </div>
                         </div>
+
+                        <hr>
+
+                        <h5 class="text-center"> Your preferred working location </h5>
+
+                    <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">State</label>
+                                     <div class="col-md-6">
+                                    <select id="state" class="form-control" name="state" value="">
+                                        <option value="{{ $user->employee->state }}" id="">{{ $user->employee->state }}</option>
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Region</label>
+                                    <div class="col-md-6">
+                                    <select id="region" class="form-control" name="region" value="{{ $user->employee->region }}">
+                                        {{ $user->employee->region }}
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('area') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Area</label>
+
+                                    <div class="col-md-6">
+                                    <select id="area" class="form-control" name="area" value="">
+                                        <option value="{{ $user->employee->area }}">{{ $user->employee->area }}</option>
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('suburb') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Suburb</label>
+                                    <div class="col-md-6">
+                                    <select id="suburb" class="form-control" name="suburb" value="">
+                                        <option value="{{ $user->employee->suburb }}">{{ $user->employee->suburb }}</option>
+                                    </select>
+                                    </div>
+                                </div>
+                    
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -390,5 +432,7 @@
         
         </div>
     </div>
+
+<script type="text/javascript" src="/region-script.js"></script>
 
 @endsection           

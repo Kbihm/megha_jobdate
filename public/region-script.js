@@ -16,9 +16,6 @@ $.getJSON("/regions.json", function(data) {
 
     $("#state").change(function() {
         var state = $("#state").val();
-        $("#area").val('Any').text('Any');
-        $("#suburb").val('Any');
-        $("#region").val('Any');
 
         for (var i = 0; i < data.states.length; i++)
             if (state == data.states[i].state)
