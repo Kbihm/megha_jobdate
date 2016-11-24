@@ -36,28 +36,28 @@
                                                      <div class="form-group">
                                                         <label>State</label>
                                                         <select id="state" class="form-control" name="state" value="">
-                                                            <option value="QLD">QLD</option>
+                                                            <option value="Loading" id="state-loading">Loading</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Region</label>
                                                         <select id="region" class="form-control" name="region" value="">
-                                                            <option value="Gold Coast">Gold Coast</option>
+                                                            
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Area</label>
                                                         <select id="area" class="form-control" name="area" value="">
-                                                            <option value="Gold Coast South">Gold Coast South</option>
+                                                            <option value="Gold Coast South">Any</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Suburb</label>
                                                         <select id="suburb" class="form-control" name="suburb" value="">
-                                                            <option value="Burleigh Heads">Burleigh Heads</option>
+                                                            <option value="Any">Any</option>
                                                         </select>
                                                     </div>
                                          
@@ -226,6 +226,8 @@
 
 
 </div>
+
+<script type="text/javascript" src="/region-script.js"></script>
 
 @endsection           
 

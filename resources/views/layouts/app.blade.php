@@ -245,12 +245,12 @@
     // $( function() {
     //     $( "#datepicker" ).datepicker();
     // } );
-    $('.datepicker').datepicker({
 
-             weekStart:1,
-             color: '{color}'
+    // $('.datepicker').datepicker({
+    //          weekStart:1,
+    //          color: '{color}'
+    // });
 
-    });
     </script>
     <script src="/assets/js/bootstrap-datepicker.js"></script>
 	<script src="/assets/js/get-shit-done.js"></script>
