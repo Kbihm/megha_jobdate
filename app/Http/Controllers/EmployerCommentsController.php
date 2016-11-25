@@ -65,6 +65,7 @@ class EmployerCommentsController extends Controller
     {   
         $this->validate($request, Comment::$rules);
         $comment = new Comment($request->all());
+        $comment->approved = 0;
         $comment->employer_id = Auth::user()->employer->id;
         $comment->save();
         //sets the jobs that the employer is leave a review for to 'reviewed'.

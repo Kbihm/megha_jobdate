@@ -18,7 +18,7 @@
                         
                                 <blockquote>
                                     <div class="pull-right">
-                                    @if ($comment-> approved != 0)
+                                    @if ($comment-> approved == 0)
                                         <span class="label label-default">Pending Admin Approval</span>
                                     @endif
                                     @if ($comment->rating == 1)
