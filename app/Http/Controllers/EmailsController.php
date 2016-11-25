@@ -11,6 +11,7 @@ use Auth;
 use App\Joboffer;
 use App\Invite;
 use App\Employee;
+use App\Comment;
 
 class EmailsController extends Controller
 {
@@ -34,11 +35,12 @@ class EmailsController extends Controller
     }
         
         //Any time a dispute is filed through the dispute system
-    public function dispute() 
+    public function dispute($id, $cid) 
     {
 
         $data = array(
             'user' => Auth::user(),
+            'comment' => Comment::find($cid),
             );
 
         Mail::send('emails.sendDispute', $data, function ($message) {

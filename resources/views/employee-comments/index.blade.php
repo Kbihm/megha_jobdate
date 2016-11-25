@@ -26,7 +26,7 @@
                                     </div>
                                     <p>{{$comment->comment}}<p>
                                     <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }} </small>
-
+                                    <a href="/email/dispute/{{Auth::user()->id}}/{{$comment->id}}" class="btn btn-sm btn-danger pull-left">DISPUTE </a>
                                     @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
                                         <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
                                             {{ csrf_field() }}

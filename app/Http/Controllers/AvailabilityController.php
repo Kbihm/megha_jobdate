@@ -45,4 +45,27 @@ class AvailabilityController extends Controller
         return '{"status":"true"}';
     }
 
+        public function set()
+    {
+
+        // Availabilities needs to be the data passed in.
+        $availabilities = $request->json('avl');
+
+        foreach ($availabilities as $availability) {
+
+                $avl = new Availability;
+
+
+            $avl->date = $availability['date']; 
+            $avl->morning = $availability['morning'];
+            $avl->day = $availability['day'];
+            $avl->night = $availability['night'];
+            $avl->employee_id = Auth::user()->employee_id;
+            // $avl->employee_id = 1;
+            $avl->save();
+        }
+
+        return redirect()->back;
+    }
+
 }
