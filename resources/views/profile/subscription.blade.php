@@ -41,7 +41,7 @@
         <div class="footer">
 
         @if ($user->employee_id != null)
-                    <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
+                <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
         @endif
         </div>
 
@@ -81,7 +81,7 @@
                     @endif
                     &nbsp;
                     @if ($user->card_brand != 'American Express')*@endif*** **** **** {{ $user->card_last_four}} </p>
-                    <small> Last modified: {{ date('F d, Y', strtotime($user->subscription('main')->updated_at)) }} </small></p>
+                    <small> Subscription Updated: {{ date('F d, Y', strtotime($user->subscription('main')->updated_at)) }} </small></p>
                 <hr>
                 
                 <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
@@ -132,6 +132,10 @@
             <h4> Subscribe Yearly </h4>
 
                 <form action="/subscribe/yearly" method="POST">
+                                <div class="col-md-12 form-group">
+                <label>Coupon Code </label>
+                <input type="text" name="coupon_code" class="form-control">
+                </div>
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
@@ -143,6 +147,7 @@
                     data-email="{{ Auth::user()->email}}"
                     >
                 </script>
+
                 </form>
             </div>
 
@@ -160,6 +165,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Invoices</div>
                 <div class="panel-body">
+
+                <p> GST is Included in all prices. </p>
 
                 <table class="table table-striped">
                         <tr>

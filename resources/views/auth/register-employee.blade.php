@@ -144,6 +144,46 @@
                             </div>
                         </div>
                         
+                        <hr>
+                        <h5 class="text-center"> Where you want to work </h5>
+
+<div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">State</label>
+                                     <div class="col-md-6">
+                                    <select id="state" class="form-control" name="state" value="">
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Region</label>
+                                    <div class="col-md-6">
+                                    <select id="region" class="form-control" name="region" >
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('area') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Area</label>
+
+                                    <div class="col-md-6">
+                                    <select id="area" class="form-control" name="area" value="">
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group{{ $errors->has('suburb') ? ' has-error' : '' }}">
+                                    <label class="col-md-4 control-label">Suburb</label>
+                                    <div class="col-md-6">
+                                    <select id="suburb" class="form-control" name="suburb" value="">
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -186,4 +226,6 @@
     </div>
 
     </div>
+    <script type="text/javascript" src="/region-script.js"></script>
+    
 @endsection

@@ -11,9 +11,15 @@
 
                 @if (Storage::disk('local')->has($user->employee_id . '.jpg'))
                     <div class="image">
+                                        
                         <a href="#">
                             <img src="{{route('image', ['filename' => $user->employee_id.'.jpg'])}}" alt="...">
                         </a>
+                        <div class="filter filter-azure">
+                            <a type="button" class="btn btn-neutral btn-round" data-toggle="modal" data-target="#myModal">
+                                <i class="fa fa-camera"></i> Change Picture
+                            </a>
+                        </div>
                     </div>
                 @endif
 

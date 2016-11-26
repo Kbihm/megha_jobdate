@@ -25,9 +25,23 @@ class EmployerController extends Controller
 
         $creditCardToken = $request->stripeToken;
 
-        $user->newSubscription('main', 'monthly')->create($creditCardToken, [
-            'email' => $user->email,
-        ]);
+        if ($request->has('coupon_code')) {
+
+            try {
+                $user->newSubscription('main', 'monthly')
+                ->withCoupon($request->coupon_code)
+                ->create($creditCardToken, [
+                    'email' => $user->email,
+                ]);
+            } catch (Exception $e) {
+                return back()->withError($e->getMessage());
+            }
+
+        } else {
+            $user->newSubscription('main', 'monthly')->create($creditCardToken, [
+                'email' => $user->email,
+            ]);
+        }
 
         return redirect('profile/subscription');
 
@@ -42,9 +56,23 @@ class EmployerController extends Controller
 
         $creditCardToken = $request->stripeToken;
         
-        $user->newSubscription('main', 'yearly')->create($creditCardToken, [
-            'email' => $user->email,
-        ]);
+        if ($request->has('coupon_code')) {
+
+            try {
+                $user->newSubscription('main', 'yearly')
+                ->withCoupon($request->coupon_code)
+                ->create($creditCardToken, [
+                    'email' => $user->email,
+                ]);
+            } catch (Exception $e) {
+                return back()->withError($e->getMessage());
+            }
+
+        } else {
+            $user->newSubscription('main', 'yearly')->create($creditCardToken, [
+                'email' => $user->email,
+            ]);
+        }
 
         return redirect('profile/subscription');
 
@@ -77,7 +105,7 @@ class EmployerController extends Controller
 
     public function invoice($invoiceId) {
     return Auth::user()->downloadInvoice($invoiceId, [
-        'vendor'  => 'Job Date ABN: 806 134 637 82',
+        'vendor'  => 'Job Date ABN: 806 134 637 82 \n Price Includes GST.',
         'product' => 'Job Date Subscription',
     ]);
 }
