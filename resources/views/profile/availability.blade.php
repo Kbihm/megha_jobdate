@@ -102,13 +102,13 @@
                         <tr class="data-row">
                             <input type="hidden" name="date" id="date" value="{{ $first['year'] }}-{{ $first['mon'] }}-{{ $i }}">
                             
-                            <?php $thisdate = strtotime($first['year'].'-'.$first['mon'].'-'.$i); ?>
+                            <?php $thisdate = strtotime($first['year'].'-'.$first['mon'].'-'.$i);   ?>
 
                             <td>{{ date('d F Y (l)', $thisdate) }} </td>
 
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
-                                @if($key !== false)
-
+                            @if($key !== false)
+                                
                                 @if($availability[$key]['morning'] == false)
                                 <td class="text-center">
                                     <input type="checkbox" name="morning" id="morning">
@@ -138,12 +138,26 @@
                                     <input type="checkbox" name="night" id="night" checked="checked">
                                 </td>
                                 @endif
-                                
+                        </tr>
+
+                        @endif
+                        @if($key == false && $key !== 0)
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning">
+                                </td>
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day">
+                                </td>
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night">
+                                </td>
 
                         </tr>
 
-                            @endif
-
+                        @endif
                         @endfor   
 
 
@@ -193,6 +207,21 @@
 
                         </tr>
 
+                            @endif
+                            @if( $key == false && $key !== 0 )
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="morning" id="morning">
+                                </td>
+
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="day" id="day">
+
+                                <td class="text-center">
+                                    <input type="checkbox" name="night" id="night">
+                                </td>
+                        </tr>
                             @endif
                         
                         @endfor
