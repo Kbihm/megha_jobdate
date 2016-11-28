@@ -18,7 +18,11 @@ class AdminUserController extends Controller
 
     public function index()
     {
-        $users = User::paginate(30);
+
+        if(!isset($users)){
+             $users = User::paginate(30);
+        }
+
         return view('admin-user.index', compact('users'));
     }
 
@@ -28,5 +32,12 @@ class AdminUserController extends Controller
         $banned = Banned::where('user_id', $id)->first();   
         return view('admin-user.show', compact('user', 'banned'));
     }
+
+        function searchByEmail(Request $request) 
+    { 
+        $users = User::where('email', 'LIKE', "%$request->search%")
+                    ->paginate(30);
+        return view('admin-user.index', compact('users'));
+    } 
 
 }

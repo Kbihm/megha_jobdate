@@ -19,6 +19,7 @@
                     <th>Rating</th>
                     <th>Description</th>
                     <th>Approved</th>
+                    <th>Delete </th>
                 </tr>
 
                 @foreach($comments as $comment)
@@ -38,6 +39,13 @@
                           <a href="/comments/disapprove/{{ $comment->id }}">Yes</a>
                         @endif
                     </td>
+                    <td> 
+                    <form class="form-horizontal" role="form" method="POST" action="comments/{{ $comment->id }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                    <button  class="btn btn-sm btn-danger"> Delete </button>
+                     </form>
+                    </td>
                 </tr>
                 @endforeach
 
@@ -46,6 +54,6 @@
             {{ $comments->links() }}
 
     </div>
-
+                   
 @endsection           
 

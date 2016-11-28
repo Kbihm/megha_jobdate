@@ -64,6 +64,7 @@ Route::resource('/admin/promocode', 'PromoCodeController');
 Route::resource('/admin/settings', 'SettingsController');
 Route::resource('/staff', 'ProfileController');
 Route::resource('/admin/user', 'AdminUserController');
+Route::post('/admin/user/search', 'AdminUserController@searchByEmail');
 
 
 //Profile

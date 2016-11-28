@@ -80,6 +80,7 @@ class CommentsController extends Controller
     public function destroy($id)
     {
         $comment = Comment::find($id);
+        $comment->delete();
         $logged_in_user = Auth::user();
         if ($logged_in_user->id == $comment->comment_owner_id || $logged_in_user->admin_id != null) {
             $comment->delete();

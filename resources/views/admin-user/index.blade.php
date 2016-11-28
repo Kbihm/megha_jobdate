@@ -11,8 +11,17 @@
         <th>Type </th>
         <th>Created At </th>
     </tr>
-
-
+        <form class="form-horizontal" role="form" method="POST" action="/admin/user/search">
+                        {{ csrf_field() }}
+                        <label class="col-sm-2 control-label">Search Via E-mail:</label>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="text" name="search" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-sm"> Search </button>
+        </form>
+        
     @foreach ($users as $user)
     <tr>
         <td> {{ $user->id }}</td>
