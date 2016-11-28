@@ -98,6 +98,7 @@ class ProfileController extends Controller
             if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
                 continue;
             
+            if ($request->any_date != true) {
             $emp_avl = Availability::where('employee_id', $employee->id)
                                     ->where('date', $datetouse)
                                     ->get();
@@ -117,6 +118,8 @@ class ProfileController extends Controller
             elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
                 array_push($unfavourable_users, $employee->user);
                 continue;
+            }
+
             }
 
             array_push($users, $employee->user);

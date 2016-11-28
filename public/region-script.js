@@ -5,7 +5,7 @@ $.getJSON("/regions.json", function(data) {
     var regions;
     var areas;
     var suburbs;
-
+ 
     // Populate States
     for (var i = 0; i < data.states.length; i++) {
         var dd = '<option value="' +  data.states[i].state + '">' +  data.states[i].state + '</option> ';
@@ -16,7 +16,7 @@ $.getJSON("/regions.json", function(data) {
 
     $("#state").change(function() {
         var state = $("#state").val();
-
+        $("#region").append('<option value="">Select a Region</option>');
         for (var i = 0; i < data.states.length; i++)
             if (state == data.states[i].state)
                 regions = data.states[i].regions;

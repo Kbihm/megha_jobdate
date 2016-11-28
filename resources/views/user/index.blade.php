@@ -36,7 +36,7 @@
                                                      <div class="form-group">
                                                         <label>State</label>
                                                         <select id="state" class="form-control" name="state" value="">
-                                                            <option value="Loading" id="state-loading">Loading</option>
+                                                            <option value="any" id="">Select a State</option>
                                                         </select>
                                                     </div>
 
