@@ -15,7 +15,6 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-
                                     <form class="form-horizontal" role="form" method="POST" action="/reviews/custom">
                                     {{ csrf_field() }}
 
@@ -23,21 +22,22 @@
                                         <label class="control-label">Use a predefined review</label>
                                     </div>
 
-                                    <div class="radio col-md-4">
+                                    <div style="float: left; width:33%;" class="col-md-3">
                                         <label>
-                                            <input type="radio" name="rating" id="Positive" value="2" checked="">
+                                            <input type="radio" name="rating" data-toggle="radio" id="Positive" value="2">
                                             <span class="text-success">Positive</span>
                                         </label>
                                     </div>
 
-                                    <div class="radio col-md-4">
+
+                                    <div style="float: left; width:33%;" class="col-md-3">
                                         <label>
                                             <input type="radio" name="rating" id="Neutral" value="1">
                                             <span class="text-muted">Neutral</span>
                                         </label>
                                     </div>
 
-                                    <div class="radio col-md-4">
+                                    <div style="float: left; width:33%;" class="col-md-3">
                                         <label>
                                             <input type="radio" name="rating" id="Negative" value="0">
                                             <span class="text-danger">Negative</span>

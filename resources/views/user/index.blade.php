@@ -76,9 +76,13 @@
                                     </div>
                                     <div id="refineClothing" class="panel-collapse collapse in">
                                       <div class="panel-body">
-                                                                        
                                             <div class="form-group">
-                                                <label>Date</label>
+                                            <label class="checkbox" for="any_date">Any Date
+                                             <input type="checkbox" value="any_date" id="any_date" data-toggle="checkbox" checked>
+                                             </label>
+
+                                            </div>                    
+                                            <div class="form-group">
                                                 <input name="date" type="text" required class="datepicker form-control">
                                             </div>
 

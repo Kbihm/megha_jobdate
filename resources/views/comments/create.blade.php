@@ -21,38 +21,38 @@
 
                                     <label class="control-label">Use a predefined review</label>
 
-                                    <div class="radio">
+                                    <div >
                                         <label>
                                             <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was punctual and was able to complete tasks as per their profile and work history, I would recommend this employee to other employers in the future." checked="">
-                                            <span class="text-success">Positive</span> – {{$user->user->first_name}} was punctual and was able to complete tasks as per their profile and work history, I would recommend this employee to other employers in the future.
+                                            <span class="text-success">Positive</span> – <small>  {{$user->user->first_name}} was punctual and was able to complete tasks as per their profile and work history, I would recommend this employee to other employers in the future. </small> 
                                         </label>
                                     </div>
-
-                                    <div class="radio">
+                                    <br/>
+                                    <div >
                                         <label>
                                             <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} did not turn up punctually but completed all tasks at a high level.">
-                                            <span class="text-muted">Neutral</span> – {{$user->user->first_name}} did not turn up punctually but completed all tasks at a high level.
+                                            <span class="text-muted">Neutral</span> – <small>  {{$user->user->first_name}} did not turn up punctually but completed all tasks at a high level. </small> 
                                         </label>
                                     </div>
-
-                                    <div class="radio">
+                                    <br/>
+                                    <div >
                                         <label>
                                             <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was a good worker but the job itself was not suited to the employer.">
-                                            <span class="text-muted">Neutral</span> – {{$user->user->first_name}} was a good worker but the job itself was not suited to the employer.
+                                            <span class="text-muted">Neutral</span> – <small>  {{$user->user->first_name}} was a good worker but the job itself was not suited to the employer. </small> 
                                         </label>
                                     </div>
-
-                                    <div class="radio">
+                                    <br/>
+                                    <div >
                                         <label>
                                             <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} was not able to complete the tasks as per their profile and work history.">
-                                            <span class="text-danger">Negative</span> – {{$user->user->first_name}} was not able to complete the tasks as per their profile and work history.
+                                            <span class="text-danger">Negative</span> – <small> {{$user->user->first_name}} was not able to complete the tasks as per their profile and work history. </small>
                                         </label>
                                     </div>
-
-                                    <div class="radio">
+                                    <br/>
+                                    <div >
                                         <label>
                                             <input type="radio" name="comment" id="comment" value="{{$user->user->first_name}} never showed up for the job.">
-                                            <span class="text-danger">Negative</span> – {{$user->user->first_name}} never showed up for the job.
+                                            <span class="text-danger">Negative</span> – <small>  {{$user->user->first_name}} never showed up for the job. </small>
                                         </label>
                                     </div>
 
