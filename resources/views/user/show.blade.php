@@ -109,6 +109,16 @@
                             </span>
                             </br>
 
+                            <span class="price">Looking Fulltime</span>
+                            <span class="pull-right">
+                                @if($user->fulltime == true)
+                                 Yes
+                                @else
+                                 No
+                                @endif
+                            </span>
+                            </br>
+
                             <span class="price">Gender</span>
                             <span class="pull-right">
                                 @if ($user->gender == 0)

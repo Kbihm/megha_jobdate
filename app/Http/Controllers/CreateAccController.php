@@ -31,7 +31,7 @@ class CreateAccController extends Controller
         $user->save();
 
         $employee->user_id = $user->id;
-        $user->save();
+        $employee->save();
 
 
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {

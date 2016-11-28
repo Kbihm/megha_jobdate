@@ -83,7 +83,7 @@
 
                                             </div>                    
                                             <div class="form-group">
-                                                <input name="date" type="text" required class="datepicker form-control">
+                                                <input name="date" type="text" id="date" required class="datepicker form-control">
                                             </div>
 
                                             <div class="form-group">
@@ -232,6 +232,17 @@
 </div>
 
 <script type="text/javascript" src="/region-script.js"></script>
+
+
+<script type="text/javascript" >
+
+    // $("#any_date").click(function () {
+
+    //     $("#date").attr('disabled', true);
+
+    // });
+
+</script>
 
 @endsection           
 
