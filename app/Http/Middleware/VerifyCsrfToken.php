@@ -14,7 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'subscribe',
-        'subscribe/yearly',
-        'avl'
+        'subscribe/*',
+        'avl',
+        'stripe/*',
     ];
 }

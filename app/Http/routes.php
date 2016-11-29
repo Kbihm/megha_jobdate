@@ -86,6 +86,7 @@ Route::post('register/employer', 'CreateAccController@CreateEmployer');
 Route::post('updatepass', 'UserController@updatepassword');
 Route::post('subscribe', 'EmployerController@subscribe');
 Route::post('subscribe/yearly', 'EmployerController@SubscribeYearly');
+Route::post('/subscribe/updatecard', 'EmployerController@UpdateCard');
 Route::get('subscription/cancel', 'EmployerController@cancel');
 Route::get('subscription/swap', 'EmployerController@swap');
 
@@ -119,3 +120,8 @@ Route::get('/email/signUp/{id}', 'EmailsController@signUp');
 Route::get('/email/acceptJob/{id}', 'EmailsController@acceptJob');
 Route::get('/email/sendJobRequest/{id}', 'EmailsController@sendJobRequest');
 Route::get('/email/dispute/{id}/{cid}', 'EmailsController@dispute');
+
+Route::post(
+    'stripe/webhook',
+    '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
+);

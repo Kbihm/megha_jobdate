@@ -280,7 +280,7 @@
                         @if($first['mon'] == $last['mon']-1)
                             @for($i = 1; $i <= $last['mday']-1; $i++)
                             <div class="day"> 
-                            <row id="row"> {{$i}} </row> 
+                            <row id="row" style="text-align: right; padding-right: 10px;"> {{$i}} </row> 
                             
                             <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)

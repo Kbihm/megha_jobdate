@@ -104,10 +104,26 @@ class EmployerController extends Controller
     }
 
     public function invoice($invoiceId) {
-    return Auth::user()->downloadInvoice($invoiceId, [
-        'vendor'  => 'Job Date ABN: 806 134 637 82 \n Price Includes GST.',
-        'product' => 'Job Date Subscription',
-    ]);
-}
+        return Auth::user()->downloadInvoice($invoiceId, [
+            'vendor'  => 'Job Date ABN: 806 134 637 82 Prices include GST.',
+            'product' => 'Job Date Subscription',
+        ]);
+    }
+
+    public function UpdateCard(Request $request) {
+
+        $user = Auth::user();
+
+        if ($user->employer_id == null)
+            return back();
+
+        $creditCardToken = $request->stripeToken;
+
+        $user->updateCard($creditCardToken);
+
+        return back()->with('success', ['Card Details Updated']);;
+
+        }
+
 
 }
