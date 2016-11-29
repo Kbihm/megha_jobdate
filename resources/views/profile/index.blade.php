@@ -209,22 +209,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
-                            <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
-
-                            <div class="col-md-6">
-                                 <select class="form-control" name="fulltime" id="fulltime">
-                                <option value="TRUE">Yes</option>
-                                <option value="FALSE">No</option>
-                                </select> 
-                                @if ($errors->has('fulltime'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('fulltime') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <hr>
 
                         <h5 class="text-center"> Your preferred working location </h5>

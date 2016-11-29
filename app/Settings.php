@@ -26,10 +26,14 @@ class Settings extends Model
     public static $roles = [
         'Waiter/Waitress',
         'Bartender',
+        'Barista',
+        'Kitchenhand',
+        'Cook',
         'Chef',
         'Musician',
-        'Kitchen Hand',
-        'etc..'
+        'Cleaner',
+        'Delivery Driver',
+        'Fast Food Attendant'
     ];
 
 }

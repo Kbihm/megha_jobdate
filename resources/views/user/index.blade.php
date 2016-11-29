@@ -82,7 +82,9 @@
                                              </label>
 
                                             </div>                    
+                                            
                                             <div class="form-group">
+                                                <label>Specific Date</label>
                                                 <input name="date" type="text" id="date" required class="datepicker form-control">
                                             </div>
 
@@ -116,11 +118,9 @@
                                                 <label>Role</label>
                                                 <select id="role" class="form-control" name="role" value="">
                                                     <option value="any">Any</option>
-                                                    <option value="Waiter/Waitress">Waiter/Waitress</option>
-                                                    <option value="Bartender">Bartender</option>
-                                                    <option value="Chef">Chef</option>
-                                                    <option value="Musician">Musician</option>
-                                                    <option value="Kitchen Hand">Kitchen Hand</option>
+                                                    @foreach ( App\Settings::$roles as $role)
+                                                    <option value="{{ $role }}">{{ $role }} </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
 
