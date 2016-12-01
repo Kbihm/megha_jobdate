@@ -36,4 +36,12 @@ class Settings extends Model
         'Fast Food Attendant'
     ];
 
+    public static $search_rules = [
+        'state' => 'required',
+        'region' => 'required',
+        'time' => 'required',
+        'role' => 'required',
+        'fulltime' => 'required'
+    ];
+
 }

@@ -36,28 +36,40 @@
                                                      <div class="form-group">
                                                         <label>State</label>
                                                         <select id="state" class="form-control" name="state" value="">
-                                                            <option value="any" id="">Select a State</option>
+                                                            @if (isset($_POST['state']))
+                                                                <option value="{{ $_POST['state'] }}" id="">{{ $_POST['state'] }}</option>
+                                                            @endif
+                                                            <option value="" id="">Select a State</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Region</label>
                                                         <select id="region" class="form-control" name="region" value="">
-                                                            
+                                                            @if (isset($_POST['region']))
+                                                                <option value="{{ $_POST['region'] }}" id="">{{ $_POST['region'] }}</option>
+                                                            @endif
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Area</label>
                                                         <select id="area" class="form-control" name="area" value="">
-                                                            <option value="Gold Coast South">Any</option>
+                                                            @if (isset($_POST['area']))
+                                                                <option value="{{ $_POST['area'] }}" id="">{{ $_POST['area'] }}</option>
+                                                            @endif
+                                                            <option value="any">Any</option>
+                                                            
                                                         </select>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label>Suburb</label>
                                                         <select id="suburb" class="form-control" name="suburb" value="">
-                                                            <option value="Any">Any</option>
+                                                            @if (isset($_POST['suburb']))
+                                                                <option value="{{ $_POST['suburb'] }}" id="">{{ $_POST['suburb'] }}</option>
+                                                            @endif
+                                                            <option value="any">Any</option>
                                                         </select>
                                                     </div>
                                          
@@ -76,21 +88,28 @@
                                     </div>
                                     <div id="refineClothing" class="panel-collapse collapse in">
                                       <div class="panel-body">
-                                            <div class="form-group">
+                                            <!--<div class="form-group">
                                             <label class="checkbox" for="any_date">Any Date
                                              <input type="checkbox" value="any_date" id="any_date" data-toggle="checkbox" checked>
                                              </label>
 
-                                            </div>                    
+                                            </div>                    -->
                                             
                                             <div class="form-group">
-                                                <label>Specific Date</label>
-                                                <input name="date" type="text" id="date" required class="datepicker form-control">
+                                                <label>Date (Optional)</label>
+                                                <input name="date" type="text" id="date"  class="datepicker form-control"
+                                                @if (isset($_POST['date']))
+                                                    value="{{ $_POST['date'] }}"
+                                                @endif
+                                                >
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Time of Day</label>
                                                 <select name="time" class="form-control">
+                                                    @if (isset($_POST['time']))
+                                                        <option value="{{ $_POST['time'] }}" id="">{{ $_POST['time'] }}</option>
+                                                    @endif
                                                     <option value="any">Any</option>
                                                     <option value="morning">Morning</option>
                                                     <option value="day">Day</option>
@@ -117,6 +136,9 @@
                                                 <div class="form-group">
                                                 <label>Role</label>
                                                 <select id="role" class="form-control" name="role" value="">
+                                                    @if (isset($_POST['role']))
+                                                        <option value="{{ $_POST['role'] }}" id="">{{ $_POST['role'] }}</option>
+                                                    @endif
                                                     <option value="any">Any</option>
                                                     @foreach ( App\Settings::$roles as $role)
                                                     <option value="{{ $role }}">{{ $role }} </option>
@@ -127,6 +149,9 @@
                                             <div class="form-group">
                                                 <label>Looking for Fulltime Work</label> <br/>
                                                 <select name="fulltime" id="fulltime" class="form-control">
+                                                    @if (isset($_POST['fulltime']))
+                                                        <option value="{{ $_POST['fulltime'] }}" id="">{{ $_POST['fulltime'] }}</option>
+                                                    @endif
                                                     <option value="any">Any</option>
                                                     <option value="1">Yes</option>
                                                     <option value="0">No</option>

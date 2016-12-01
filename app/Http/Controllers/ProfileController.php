@@ -12,6 +12,7 @@ use App\User;
 use Auth;
 use App\Employee;
 use App\Availability;
+use App\Settings;
 
 class ProfileController extends Controller
 {
@@ -71,11 +72,15 @@ class ProfileController extends Controller
 
     public function search(Request $request)
     {
+
+        $this->validate($request, Settings::$search_rules);
         // dd($request);
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
-        $dates = explode('/', $request->date);
-        $datetouse = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        if ($request->date != null || $request->date != '') {
+            $dates = explode('/', $request->date);
+            $datetouse = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        }
 
         // return $request->all();
         
@@ -98,7 +103,7 @@ class ProfileController extends Controller
             if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
                 continue;
             
-            if ($request->any_date != true) {
+            if ($request->date != null || $request->date != '') {
             $emp_avl = Availability::where('employee_id', $employee->id)
                                     ->where('date', $datetouse)
                                     ->get();
