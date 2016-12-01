@@ -14,36 +14,7 @@ $.getJSON("/regions.json", function(data) {
 
     $("#state-loading").remove();
 
-    $("#state").change(function() {
-        var state = $("#state").val();
-        $("#region").append('<option value="">Select a Region</option>');
-        for (var i = 0; i < data.states.length; i++)
-            if (state == data.states[i].state)
-                regions = data.states[i].regions;
-        
-        for (var n = 0; n < regions.length; n++) {
-            var dd = '<option value="' +  regions[n].region + '">' +  regions[n].region + '</option> ';
-            $("#region").append(dd);  
-        }
-
-    });
-
-    $("#region").change(function () {
-
-        var region = $("#region").val();
-
-        for (var i = 0; i < regions.length; i++)
-            if (region == regions[i].region)
-                areas = regions[i].areas;
-
-        for (var n = 0; n < areas.length; n++) {
-            var dd = '<option value="' +  areas[n].area + '">' +  areas[n].area + '</option> ';
-            $("#area").append(dd);  
-        }
-
-    });
-
-    $("#area").change(function () {
+    function areaSelected() {
 
         var area = $("#area").val();
         for (var i = 0; i < areas.length; i++)
@@ -56,7 +27,68 @@ $.getJSON("/regions.json", function(data) {
             $("#suburb").append(dd);  
         }
 
+    }
+
+    function regionSelected() {
+        var region = $("#region").val();
+        $("#area").append('<option value="none">Select a Area</option>');
+        for (var i = 0; i < regions.length; i++)
+            if (region == regions[i].region)
+                areas = regions[i].areas;
+
+        for (var n = 0; n < areas.length; n++) {
+            var dd = '<option value="' +  areas[n].area + '">' +  areas[n].area + '</option> ';
+            $("#area").append(dd);  
+        }
+    }
+
+    function stateSelected() {
+        var state = $("#state").val();
+        $("#region").append('<option value="none">Select a Region</option>');
+        for (var i = 0; i < data.states.length; i++)
+            if (state == data.states[i].state)
+                regions = data.states[i].regions;
+        
+        for (var n = 0; n < regions.length; n++) {
+            var dd = '<option value="' +  regions[n].region + '">' +  regions[n].region + '</option> ';
+            $("#region").append(dd);  
+        }
+    }
+
+    function clearDropdowns(select) {
+        select
+        .find('option')
+        .remove()
+    }
+
+    $("#state").change(function() {
+        clearDropdowns($("#region"));
+        clearDropdowns($("#area"));
+        clearDropdowns($("#suburb"));
+        stateSelected();
     });
 
+    $("#region").change(function () {
+        clearDropdowns($("#area"));
+        clearDropdowns($("#suburb"));
+        regionSelected();
+    });
+
+    $("#area").change(function () {
+        clearDropdowns($("#suburb"));
+        areaSelected();
+    });
+
+    if ($("#state").val() != 'none') {
+        stateSelected();
+    }
+
+    if ($("#region").val() != 'none') {
+        regionSelected();
+    }
+
+    if ($("#area").val() != 'none') {
+        areaSelected();
+    }
 
 });

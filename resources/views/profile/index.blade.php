@@ -225,8 +225,8 @@
                                 <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
                                     <label class="col-md-4 control-label">Region</label>
                                     <div class="col-md-6">
-                                    <select id="region" class="form-control" name="region" value="{{ $user->employee->region }}">
-                                        {{ $user->employee->region }}
+                                    <select id="region" class="form-control" name="region" >
+                                        <option value="{{ $user->employee->region }}" id="">{{ $user->employee->region }}</option>
                                     </select>
                                     </div>
                                 </div>

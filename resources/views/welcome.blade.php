@@ -8,8 +8,10 @@
 
             <div class="jumbotron">
                 <h1>Welcome to JobDate! </h1>
-                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <a href="/staff" class="btn btn-success btn-fill">Start Finding Staff</a>
+                <p>Jobdate aims to bridge a gap in the Hospitality Industry, making it simpler to find staff and gain employment through a new age hiring process. </p>
+                <p>Register now to start finding staff or to seek employment.</p>
+                <a href="/register/employer" class="btn btn-success btn-fill">Start Finding Staff</a>
+                <a href="/register/employee" class="btn btn-success btn-fill">Seek Employment</a>
             </div>
 
         </div>

@@ -11,11 +11,15 @@
 <div class="container-fluid">
     <div class="row">
             <div class="jumbotron">
-                <h1>Welcome, {{ Auth::user()->first_name }} </h1>
+                <h1>Hi {{ Auth::user()->first_name }}, Welcome to JobDate </h1>
 
-                        @if (Auth::user()->admin_id == null)
+                        @if (Auth::user()->employer_id != null)
 
-                        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        <p>From here you have access to update your account settings and ability to search for staff. </p>
+
+                        @elseif(Auth::user()->employee_id != null)
+
+                        <p> From here you have access to update your profile settings. </p>
 
                         @else
 
@@ -186,8 +190,19 @@
 
                     <div class="col-md-9">
 
+                    <div class="card"> <div class="content">
+
                     <h2> JobDate Profile Tips</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a mattis eros. Sed interdum nec arcu eu placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi mollis scelerisque enim posuere volutpat. Duis laoreet iaculis nisi in suscipit. Etiam in est felis. Aenean augue tellus, vulputate sit amet ligula cursus, sodales volutpat elit. Donec sit amet tristique risus, sed imperdiet lorem. Curabitur ipsum enim, lacinia vitae imperdiet ac, pellentesque at diam.</p>
+                    
+                    <p>Within this section you are able to navigate throughout your profile and update as needed.</p>
+                    <p>Add a profile picture to your profile page to become more visible and stand out to potential Employers as this is the first thing that an employer sees when they search.</p>
+                    <p>Regularly update you calendar availability as to not miss out on potential employment opportunities.</p>
+                    <p>Add your relevant Skills to your profile, these can be things such as an RSA certificate or completed qualifications, this will allow employers to have a better understanding of you and make a better informed decision to hire you.</p>
+                    <p>Ensure you keep your past experience up to date so an employer can see what work you have done in the past, this will allow them to see the type of fit you may have for a role and could help them make a decision to hire you.</p>
+                    <p>When you complete the about me section, as this is one of the first things an employer will see when searching, keep this short and sharp, but outline your reasons for wanting the work you have put down on your profile, an employer can then see what motivates you and why they should hire you.</p>
+                    <p>We hope you enjoy your Jobdate experience and you find employment in a suitable position.</p>
+
+                    </div> </div>
 
                     </div>
 
@@ -215,10 +230,22 @@
 
                     <div class="col-md-9">
 
-                    <h2> JobDate Text</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a mattis eros. Sed interdum nec arcu eu placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi mollis scelerisque enim posuere volutpat. Duis laoreet iaculis nisi in suscipit. Etiam in est felis. Aenean augue tellus, vulputate sit amet ligula cursus, sodales volutpat elit. Donec sit amet tristique risus, sed imperdiet lorem. Curabitur ipsum enim, lacinia vitae imperdiet ac, pellentesque at diam.</p>
+                    <div class="card"> <div class="content">
 
+                    <h2> Employer Access</h2>
+                                        <p>
+                        Within this section you are able to navigate throughout your account and you can control your hiring experience. </p> 
+                    <p>
+                        You can search for staff, leave a review for a previous employee, update your subscription, update your company details and view previous job listings. </p> 
+                    <p>
+                        We hope you enjoy your Jobdate experience and find the process simple and effective to solve your staffing needs.
+                    </p>
+                    
+                    </div> </div>
+                    
                     </div>
+
+                    
 
 
                     @else

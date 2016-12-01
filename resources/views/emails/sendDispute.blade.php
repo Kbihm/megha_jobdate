@@ -3,6 +3,6 @@
 @section('content')
 
 {{ $user->email }} has filed a dispute about the comment with the text: {{ $comment->description }}
- <a href="dev.jobdate.com.au/staff/{{$user->employee->id}}"> Click here to view profile. </a>
+ <a href="http://app.jobdate.com.au/staff/{{$user->employee->id}}"> Click here to view profile. </a>
                 
 @endsection
