@@ -68,6 +68,16 @@
          <i class="fa fa-circle text-success"></i> Employees ({{ $employee_count }})
          <i class="fa fa-circle text-warning"></i> Employers ({{ $employer_count }})
 
+         <?php 
+         
+            $yesterday = Carbon\Carbon::now()->subDay();
+
+            $actv = App\User::where('last_login', '>', $yesterday)->get();
+            $active_users = sizeOf($actv);
+         
+         ?>
+         <hr>
+         <p> {{ $active_users }} users active in past 24 hours. </p>
      </div>
     </div>
 
@@ -75,9 +85,9 @@
                 <script type="text/javascript">
                 Chartist.Pie('#chartPreferences', {
 
-                labels: ['{{ $admin_count }} ({{ number_format($admin_count / $user_count * 100,2) }}%)',
-                            '{{ $employee_count }} ({{ number_format($employee_count / $user_count * 100,2) }}%)',
-                            '{{ $employer_count }} ({{ number_format($employer_count / $user_count * 100,2) }}%)'],
+                labels: ['{{ number_format($admin_count / $user_count * 100,0) }}%',
+                            '{{ number_format($employee_count / $user_count * 100,0) }}%',
+                            '{{ number_format($employer_count / $user_count * 100,0) }}%'],
                 series: [{{ number_format($admin_count / $user_count * 100,2) }}, {{ number_format($employee_count / $user_count * 100,2) }}, {{ number_format($employer_count / $user_count * 100,0) }}]
 
                 });
@@ -138,21 +148,13 @@
 
                                 <hr>
 
-                                <?php 
-                                
-                                    $bartender_count = sizeOf(App\Employee::where('role', 'Bartender')->get());  
-                                    $chef_count = sizeOf(App\Employee::where('role', 'Chef')->get());  
-                                    $waiter_count = sizeOf(App\Employee::where('role', 'Waiter/Waitress')->get());
-                                    $musician_count = sizeOf(App\Employee::where('role', 'Musician')->get());
-                                    $kitchenhand_count = sizeOf(App\Employee::where('role', 'Chef')->get());
-                                ?>
-
                                 <ul>
-                                    <li>{{ $waiter_count }} Waiters and Waitresses</li>
-                                    <li>{{ $chef_count}} Chefs </li>
-                                    <li>{{ $bartender_count }} Bartenders </li>
-                                    <li>{{ $musician_count }} Musicians</li>
-                                    <li>{{ $kitchenhand_count }} Kitchen Hands </li>
+                                    @foreach (App\Settings::$roles as $role)
+
+                                        <?php $count = sizeOf(App\Employee::where('role', $role)->get()); ?>
+                                        <li> {{ $count }} {{ $role }} </li>
+
+                                    @endforeach
                                 </ul>
 
 

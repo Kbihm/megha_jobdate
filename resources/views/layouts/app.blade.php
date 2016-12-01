@@ -126,11 +126,6 @@
                 <div class="row">
                     <div class="col-md-3">
                         <h5 class="title">Company</h5>
-                        <p>&nbsp; </p>
-                        <img src="/logo-jobdate.png" alt="JobDate Logo" class="img-responsive">
-                    </div>
-                    <div class="col-md-3">
-                        <h5 class="title">Company</h5>
                         <nav>
                             <ul>
                                 <li>
@@ -140,27 +135,17 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                       Find offers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Discover
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Portfolio
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       Our news
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
                                        About Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        News Feed
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Pricing
                                     </a>
                                 </li>
                             </ul>
@@ -187,12 +172,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        Company Policy
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                       Money Back
+                                        Frequently Asked Questions
                                     </a>
                                 </li>
                             </ul>
@@ -217,17 +197,32 @@
                                         <i class="fa fa-google-plus-square"></i> Google+
                                     </a>
                                 </li>
-
+                                <li>
+                                     <a href="#" class="btn btn-social btn-twitter btn-simple">
+                                        <i class="fa fa-twitter"></i> Twitter
+                                    </a>
+                                </li>
+                                                                <li>
+                                     <a href="#" class="btn btn-social btn-tumblr btn-simple">
+                                        <i class="fa fa-instagram"></i> Instagram
+                                    </a>
+                                </li>
+                                                                <li>
+                                     <a href="#" class="btn btn-social btn-linkedin btn-simple">
+                                        <i class="fa fa-linkedin"></i> LinkedIn
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
 
+                    </div>
+                                        <div class="col-md-3">
                         <h5 class="title">We Accept</h5>
                         <span style="font-size:30px">
                         <i class="fa fa-cc-visa"></i> &nbsp;
                         <i class="fa fa-cc-mastercard"></i>  &nbsp;
                         <i class="fa fa-cc-amex"></i> &nbsp;
                         </span>
-
                     </div>
                 </div>
                 <hr>
