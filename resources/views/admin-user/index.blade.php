@@ -2,6 +2,23 @@
 @section('content')
 
     
+        <form class="form-horizontal" role="form" method="POST" action="/admin/user/search">
+                        {{ csrf_field() }}
+                        <div class="input-group">
+
+                        <input type="text" class="form-control" name="search" placeholder="Search via email"
+                        @if (isset($_POST['search']))
+                          value="{{ $_POST['search'] }}"
+                        >
+                        @endif
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-fill" type="submit">Search</button>
+                        </span>
+                        </div>
+        </form>
+
+        <hr>
+
     <table class="table table-striped table-hover">
 
     <tr>
@@ -11,16 +28,6 @@
         <th>Type </th>
         <th>Created At </th>
     </tr>
-        <form class="form-horizontal" role="form" method="POST" action="/admin/user/search">
-                        {{ csrf_field() }}
-                        <label class="col-sm-2 control-label">Search Via E-mail:</label>
-                        <div class="form-group">
-                            <div class="col-sm-10">
-                                <input type="text" name="search" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-sm"> Search </button>
-        </form>
         
     @foreach ($users as $user)
     <tr>
