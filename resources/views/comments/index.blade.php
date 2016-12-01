@@ -11,6 +11,8 @@
             <br/>
             <hr>
 
+            <div class="card"> <div class="content">
+
             <table class="table table-striped table-hover">
 
                 <tr> 
@@ -51,6 +53,8 @@
 
             </table>    
         
+            </div> </div>
+
             {{ $comments->links() }}
 
     </div>

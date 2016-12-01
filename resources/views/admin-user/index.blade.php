@@ -20,6 +20,8 @@
 
         <hr>
 
+    <div class="card"> <div class="content">
+
     <table class="table table-striped table-hover">
 
     <tr>
@@ -50,7 +52,7 @@
     </tr>
     @endforeach
     </table>
-
+    </div> </div>
         {{ $users->links() }}
 
 
