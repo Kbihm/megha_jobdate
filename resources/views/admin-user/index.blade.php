@@ -9,8 +9,9 @@
                         <input type="text" class="form-control" name="search" placeholder="Search via email"
                         @if (isset($_POST['search']))
                           value="{{ $_POST['search'] }}"
-                        >
+                        
                         @endif
+                        >
                         <span class="input-group-btn">
                             <button class="btn btn-primary btn-fill" type="submit">Search</button>
                         </span>
