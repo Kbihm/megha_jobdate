@@ -42,6 +42,11 @@
                             <a href="/offers/acceptJobOffer/{{$joboffer->id}}" class="btn btn-success btn-fill col-md-3 pull-right"> Accept Offer </a>
   
                           @endif
+                          @if($joboffer->status == "accepted")
+                           <a class="btn btn-success"> Accepted </a>
+                          @if($joboffer->status == "declined")
+                           <a class="btn btn-danger"> Declined </a>
+                          @endif
                             </div>
                         </div>
                     </div>

@@ -71,14 +71,14 @@
                         <div class="form-group">
                             <label for="time" class="col-sm-2 control-label">Time:</label>
                             <div class="btn-group col-sm-10" data-toggle="buttons">
-                            <label class="btn btn-warning col-sm-3 @if($joboffer->time == 'morning') active @endif">
-                                <input name="time" type="radio" autocomplete="off" value="morning" @if($joboffer->time == 'morning') checked="checked" @endif> Morning
+                            <label class="btn btn-warning col-sm-3 @if($joboffer->time == 'Morning') active @endif">
+                                <input name="time" type="radio" autocomplete="off" value="Morning" @if($joboffer->time == 'Morning') checked="checked" @endif> Morning
                             </label>
-                            <label class="btn btn-danger col-sm-3 @if($joboffer->time == 'day') active @endif">
-                                <input name="time" type="radio" autocomplete="off" value="day" @if($joboffer->time == 'day') checked="checked"" @endif > Day
+                            <label class="btn btn-danger col-sm-3 @if($joboffer->time == 'Day') active @endif">
+                                <input name="time" type="radio" autocomplete="off" value="Day" @if($joboffer->time == 'Day') checked="checked"" @endif > Day
                             </label>
-                            <label class="btn btn-primary col-sm-3 @if($joboffer->time == 'night') active @endif">
-                                <input name="time" type="radio" autocomplete="off" value="night" @if($joboffer->time == 'night') checked="checked" @endif> Night
+                            <label class="btn btn-primary col-sm-3 @if($joboffer->time == 'Night') active @endif">
+                                <input name="time" type="radio" autocomplete="off" value="Night" @if($joboffer->time == 'Night') checked="checked" @endif> Night
                             </label>
                         </div>
  

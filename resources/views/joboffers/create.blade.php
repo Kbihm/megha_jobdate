@@ -65,13 +65,13 @@
                             <label for="time" class="col-sm-2 control-label">Time:</label>
                             <div class="btn-group col-sm-10" data-toggle="buttons">
                             <label class="btn btn-warning col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="morning"> Morning
+                                <input name="time" type="checkbox" autocomplete="off" value="Morning"> Morning
                             </label>
                             <label class="btn btn-danger col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="day"> Day
+                                <input name="time" type="checkbox" autocomplete="off" value="Day"> Day
                             </label>
                             <label class="btn btn-primary col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="night"> Night
+                                <input name="time" type="checkbox" autocomplete="off" value="Night"> Night
                             </label>
                         </div>
 
