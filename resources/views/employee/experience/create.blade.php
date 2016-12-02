@@ -27,9 +27,22 @@
                     </div> 
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Employment Length:</label>
+                        <label class="col-sm-2 control-label">Start of Employment:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
+                            <input type="text" name="employment_start" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
+                        </div>
+                    </div> 
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">End of Employment:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="employment_finish" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Are you currently employed at this establishment?:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="employment_finish" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
                         </div>
                     </div> 
 

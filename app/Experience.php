@@ -18,7 +18,7 @@ class Experience extends Model
     public static $rules = [
         'title' => 'required',
         'description' => 'required',
-        'employment_length' => 'required',
+        'employment_start' => 'required',
         'establishment_name' => 'required',
         'employee_id' => 'required'
     ];

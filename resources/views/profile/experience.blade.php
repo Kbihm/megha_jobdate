@@ -93,7 +93,7 @@
                     <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                         <label class="col-sm-4 control-label">Position Title:</label>
                         <div class="col-sm-8">
-                            <input type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
+                            <input required type="text" name="title" class="form-control" @if (count($errors)) value="{{ old('title') }}" @endif>
                                 @if ($errors->has('title'))
                                     <span class="help-block pull-left">
                                         <strong>{{ $errors->first('title') }}</strong>
@@ -106,7 +106,7 @@
                      <div class="form-group {{ $errors->has('establishment_name') ? ' has-error' : '' }}">
                         <label class="col-sm-4 control-label">Name of Establishment:</label>
                         <div class="col-sm-8">
-                            <input type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
+                            <input required type="text" name="establishment_name" class="form-control" @if (count($errors)) value="{{ old('establishment_name') }}" @endif>
                                 @if ($errors->has('establishment_name'))
                                     <span class="help-block pull-left">
                                         <strong>{{ $errors->first('establishment_name') }}</strong>
@@ -115,23 +115,36 @@
                         </div>
                     </div> 
 
-                    <div class="form-group {{ $errors->has('employment_length') ? ' has-error' : '' }}">
-                        <label class="col-sm-4 control-label">Employment Length:</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="employment_length" class="form-control" @if (count($errors)) value="{{ old('employment_length') }}" @endif>
-                                @if ($errors->has('employment_length'))
-                                    <span class="help-block pull-left">
-                                        <strong>{{ $errors->first('employment_length') }}</strong>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Start of Employment:</label>
+                            <div class="col-sm-8">
+                            <input required  name="employment_start" type="text" required readonly  class="datepicker form-control">
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">End of Employment:</label>
+                            <div class="col-sm-3">
+                            <input name="employment_end" type="text" readonly class="datepicker form-control">
+
+                            </div>
+                            <label class="col-sm-3  pull-left">Currently employed here?</label>
+                                                    <div class="col-sm-2" >
+                            <input type="checkbox" name="currently_employed" class="form-control" style="height:20px;">
+                        </div>
+                                @if ($errors->any())
+                                    <span class="help-block col-md-10 pull-right">
+                                        <strong>{{ $errors->first() }}</strong>
                                     </span>
                                 @endif
-                        </div>
+                        </div> 
+
 
                     </div> 
 
                     <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
                         <label class="col-sm-4 control-label">Describe your roles:</label>
                         <div class="col-sm-8">
-                            <input type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
+                            <input required type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
                                 @if ($errors->has('description'))
                                     <span class="help-block pull-left">
                                         <strong>{{ $errors->first('description') }}</strong>

@@ -23,7 +23,16 @@ class EmployerCommentsController extends Controller
     {
         $user = Auth::user();
         $comments = Comment::where('employer_id', $user->employer->id)->paginate(10);
-        return view('employer-comments.index', compact('comments'));
+                
+        $today = date("Y-m-d");
+        $joboffers = Joboffer::where([
+            ['status', '=', 'accepted'],
+            ['employer_id', '=', Auth::user()->employer->id],
+            ['date', '<', $today],
+            ['review_left', '=', 0]
+        ])->get();
+        
+        return view('employer-comments.index', compact('comments', 'joboffers'));
     }
 
     public function store(Request $request)

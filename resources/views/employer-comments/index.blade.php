@@ -2,6 +2,34 @@
  @extends('layouts.app')
 @section('content')
 
+  <div class="col-md-8 col-md-offset-2">
+
+        <h3 class="title"> Reviews you've got to leave for Jobdate Staff</h3>
+
+            <hr>
+
+            <div class="card">
+                <div class="content">
+
+        @if(sizeof($joboffers) > 0)
+                    @foreach($joboffers as $joboffer)
+                                <blockquote>    
+                                   <div class="pull-right">
+                                    <strong>{{ $joboffer->time }} - {{$joboffer->date}}</strong>
+                                    </div>
+                                    <p>{{ $joboffer->role}} at {{ $joboffer->employer->establishment_name }}<p>
+                                   <a class="btn btn-primary btn-xs" href="/reviews/create/{{$joboffer->employee_id}}"> Review </a>
+                                </blockquote>                             
+                    @endforeach
+        @else
+                    <h3> There doesn't seem to be any reviews for you to leave. </h3>
+                    @endif
+
+            </div>
+            </div>
+            </hr>
+            </div>
+
     <div class="col-md-8 col-md-offset-2">
 
         <h3 class="title"> Reviews you've left for JobDate Staff</h3>
@@ -11,7 +39,7 @@
             <div class="card">
                 <div class="content">
                     
-
+                    
 
                     @if (sizeof($comments) > 0)
                     @foreach($comments as $comment)

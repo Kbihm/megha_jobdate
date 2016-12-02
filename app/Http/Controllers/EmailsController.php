@@ -35,12 +35,13 @@ class EmailsController extends Controller
     }
         
         //Any time a dispute is filed through the dispute system
-    public function dispute($id, $cid) 
+    public function dispute(Request $request, $id, $cid) 
     {
-
+        $input = $request->all();
         $data = array(
             'user' => Auth::user(),
             'comment' => Comment::find($cid),
+            'dispute' => $input['dispute'],
             );
 
         Mail::send('emails.sendDispute', $data, function ($message) {
@@ -50,7 +51,10 @@ class EmailsController extends Controller
             $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Dispute');
 
         });
-        return back();
+        $dispute_submitted = TRUE;
+        $user = Auth::user();
+        $comments = Comment::where('employee_id', $user->employee_id)->get();
+        return view('employee-comments.index', compact('comments', 'dispute_submitted'));
     }
         //When a new user signs signs Up
     public function signUp($id) 
@@ -141,7 +145,7 @@ class EmailsController extends Controller
 
         });
 
-        return "Your rewnewal has been sent successfully";
+        return back();
 
     }
         // Reminding and employer to review and employee

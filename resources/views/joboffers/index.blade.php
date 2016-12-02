@@ -36,10 +36,13 @@
                         <br>
 
                         <hr>
-                          @if (Auth::user()->employer_id != null)
+                          @if (Auth::user()->employer_id != null && $joboffer->status != "accepted")
                         <a href="/jobs/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
-                          @elseif (Auth::user()->employee_id != null)
+                          @elseif (Auth::user()->employee_id != null && $joboffer->status != "accepted")
                             <a href="/jobs/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
+                          @endif
+                          @if ($joboffer->status == "accepted")
+                            <button class="btn btn-success right"> Accepted </button>
                           @endif
                     </div>
                 </div>

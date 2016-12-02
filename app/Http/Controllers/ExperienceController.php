@@ -49,9 +49,32 @@ class ExperienceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Experience::$rules);
-        $experience = new Experience($request->all());
-        $experience->employee_id = Auth::user()->employee_id;
-        $experience->save();
+
+        $employment_start = explode('/', $request->employment_start);
+        $employment_start = $employment_start[2].'-'.$employment_start[0].'-'.$employment_start[1];
+
+        if($request->currently_employed == null && $request->employment_end == ""){
+        return redirect()->back()->withErrors(['Either select a date or check the checkbox to continue.']);
+        }
+        else if($request->currently_employed == "on"){
+
+           $employment_length = $employment_start . ' to current';
+            $experience = new Experience($request->all());
+            $experience->employee_id = Auth::user()->employee_id;
+            $experience->employment_length = $employment_length;
+            $experience->save();
+        }
+        else if($request->currently_employed == null){
+            $employment_end = explode('/', $request->employment_end);
+            $employment_end = $employment_end[2].'-'.$employment_end[0].'-'.$employment_end[1];
+            $employment_length = $employment_start . ' to ' . $employment_end . ' (' . $this->dateDifference($employment_start, $employment_end) . ')';
+
+            $experience = new Experience($request->all());
+            $experience->employee_id = Auth::user()->employee_id;
+            $experience->employment_length = $employment_length;
+            $experience->save();
+        }
+
         return redirect()->back();
     }
 
@@ -100,5 +123,16 @@ class ExperienceController extends Controller
         $skill = Experience::find($id);
         $skill->delete();
         return redirect(('/profile/experience'));
+    }
+
+    function dateDifference($date_1 , $date_2 , $differenceFormat = '%y Years %m Months' )
+    {
+    $datetime1 = date_create($date_1);
+    $datetime2 = date_create($date_2);
+    
+    $interval = date_diff($datetime1, $datetime2);
+    
+    return $interval->format($differenceFormat);
+    
     }
 }
