@@ -183,7 +183,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="#" class="btn btn-social btn-facebook btn-simple">
+                                    <a href="https://www.facebook.com/JobDateAU/"  target="_blank" class="btn btn-social btn-facebook btn-simple">
                                         <i class="fa fa-facebook-square"></i> Facebook
                                     </a>
                                 </li>
@@ -193,22 +193,22 @@
                                     </a>
                                 </li>-->
                                 <li>
-                                     <a href="#" class="btn btn-social btn-reddit btn-simple">
+                                     <a href="#" target="_blank" class="btn btn-social btn-reddit btn-simple">
                                         <i class="fa fa-google-plus-square"></i> Google+
                                     </a>
                                 </li>
                                 <li>
-                                     <a href="#" class="btn btn-social btn-twitter btn-simple">
+                                     <a href="https://twitter.com/JobdateAU" target="_blank" class="btn btn-social btn-twitter btn-simple">
                                         <i class="fa fa-twitter"></i> Twitter
                                     </a>
                                 </li>
                                                                 <li>
-                                     <a href="#" class="btn btn-social btn-tumblr btn-simple">
+                                     <a href="https://www.instagram.com/jobdateau/"  target="_blank" class="btn btn-social btn-tumblr btn-simple">
                                         <i class="fa fa-instagram"></i> Instagram
                                     </a>
                                 </li>
                                                                 <li>
-                                     <a href="#" class="btn btn-social btn-linkedin btn-simple">
+                                     <a href="#"  target="_blank" class="btn btn-social btn-linkedin btn-simple">
                                         <i class="fa fa-linkedin"></i> LinkedIn
                                     </a>
                                 </li>

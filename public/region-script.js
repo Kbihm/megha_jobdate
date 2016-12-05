@@ -17,6 +17,7 @@ $.getJSON("/regions.json", function(data) {
     function areaSelected() {
 
         var area = $("#area").val();
+        $("#suburb").append('<option value="any">Any Suburb</option>');
         for (var i = 0; i < areas.length; i++)
             if (area == areas[i].area)
                 suburbs = areas[i].suburbs;
@@ -31,7 +32,7 @@ $.getJSON("/regions.json", function(data) {
 
     function regionSelected() {
         var region = $("#region").val();
-        $("#area").append('<option value="none">Select a Area</option>');
+        $("#area").append('<option value="any">Any Area</option>');
         for (var i = 0; i < regions.length; i++)
             if (region == regions[i].region)
                 areas = regions[i].areas;
