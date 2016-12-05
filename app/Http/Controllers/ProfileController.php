@@ -84,6 +84,22 @@ class ProfileController extends Controller
 
         // return $request->all();
         
+        if ($request->area == 'any') {
+
+            $employees = Employee::where('state', $request->state)
+                            ->where('region', $request->region)
+                            ->orderBy('average_rating', 'desc')
+                            ->get();
+
+        } else if ($request->suburb == 'any') {
+
+            $employees = Employee::where('state', $request->state)
+                                ->where('region', $request->region)
+                                ->where('area', $request->area)
+                                ->orderBy('average_rating', 'desc')
+                                ->get();
+
+        } else {
 
         $employees = Employee::where('state', $request->state)
                               ->where('region', $request->region)
@@ -91,6 +107,8 @@ class ProfileController extends Controller
                               ->where('suburb', $request->suburb)
                               ->orderBy('average_rating', 'desc')
                               ->get();
+
+        }
 
         $users = [];
         $unfavourable_users = [];
