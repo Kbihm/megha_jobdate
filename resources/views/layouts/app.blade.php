@@ -129,22 +129,22 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/">
                                         Home
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/about-us">
                                        About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/news-feed/">
                                         News Feed
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/pricing/">
                                         Pricing
                                     </a>
                                 </li>
@@ -156,22 +156,22 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/contact-us/">
                                        Contact Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/how-it-works/">
                                        How it works
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/terms-and-conditions/">
                                         Terms &amp; Conditions
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="http://jobdate.com.au/frequently-asked-questions/">
                                         Frequently Asked Questions
                                     </a>
                                 </li>
@@ -192,11 +192,11 @@
                                         <i class="fa fa-twitter"></i> Twitter
                                     </a>
                                 </li>-->
-                                <li>
+                                <!--<li>
                                      <a href="#" target="_blank" class="btn btn-social btn-reddit btn-simple">
                                         <i class="fa fa-google-plus-square"></i> Google+
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
                                      <a href="https://twitter.com/JobdateAU" target="_blank" class="btn btn-social btn-twitter btn-simple">
                                         <i class="fa fa-twitter"></i> Twitter
@@ -207,11 +207,11 @@
                                         <i class="fa fa-instagram"></i> Instagram
                                     </a>
                                 </li>
-                                                                <li>
+                                <!--<li>
                                      <a href="#"  target="_blank" class="btn btn-social btn-linkedin btn-simple">
                                         <i class="fa fa-linkedin"></i> LinkedIn
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </nav>
 
