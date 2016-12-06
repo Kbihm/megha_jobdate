@@ -86,7 +86,6 @@
                 <div class="panel-heading">Add Past Work Experience</div>
                 <div class="panel-body">
 
-                <div class="text-center">
                 <form class="form-horizontal" role="form" method="POST" action="/experience/">
                         {{ csrf_field() }}
                 <br>
@@ -118,13 +117,13 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Start of Employment:</label>
                             <div class="col-sm-8">
-                            <input required  name="employment_start" type="text" required readonly  class="datepicker form-control">
+                            <input required  name="employment_start" type="text" required  class="datepicker form-control">
                             </div>
                         </div> 
                         <div class="form-group">
                             <label class="col-sm-4 control-label">End of Employment:</label>
                             <div class="col-sm-3">
-                            <input name="employment_end" type="text" readonly class="datepicker form-control">
+                            <input name="employment_end" type="text" class="datepicker form-control">
 
                             </div>
                             <label class="col-sm-3  pull-left">Currently employed here?</label>
@@ -142,9 +141,9 @@
                     </div> 
 
                     <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
-                        <label class="col-sm-4 control-label">Describe your roles:</label>
+                        <label class="col-sm-4 control-label text-right">Describe your roles:</label>
                         <div class="col-sm-8">
-                            <input required type="textarea" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif>
+                            <textarea required type="textarea" name="description" class="form-control" >@if (count($errors)) {{ old('description') }} @endif</textarea>
                                 @if ($errors->has('description'))
                                     <span class="help-block pull-left">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -152,7 +151,12 @@
                                 @endif
                         </div>
                     </div> 
+                    
                      <input name="employee_id" class="form-control" type="hidden" value="{{$user->id}}">   
+
+                     <br>
+                     <hr>
+
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">

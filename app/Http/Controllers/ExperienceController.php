@@ -58,7 +58,7 @@ class ExperienceController extends Controller
         }
         else if($request->currently_employed == "on"){
 
-           $employment_length = $employment_start . ' to current';
+           $employment_length = date('M Y', strtotime($employment_start)) . ' to current';
             $experience = new Experience($request->all());
             $experience->employee_id = Auth::user()->employee_id;
             $experience->employment_length = $employment_length;
@@ -67,8 +67,8 @@ class ExperienceController extends Controller
         else if($request->currently_employed == null){
             $employment_end = explode('/', $request->employment_end);
             $employment_end = $employment_end[2].'-'.$employment_end[0].'-'.$employment_end[1];
-            $employment_length = $employment_start . ' to ' . $employment_end . ' (' . $this->dateDifference($employment_start, $employment_end) . ')';
-
+            $employment_length = date('M Y', strtotime($employment_start)) . ' to ' . date('M Y', strtotime($employment_end)) . ' (' . $this->dateDifference($employment_start, $employment_end) . ')';
+ 
             $experience = new Experience($request->all());
             $experience->employee_id = Auth::user()->employee_id;
             $experience->employment_length = $employment_length;

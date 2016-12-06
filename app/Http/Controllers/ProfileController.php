@@ -87,26 +87,26 @@ class ProfileController extends Controller
         if ($request->area == 'any') {
 
             $employees = Employee::where('state', $request->state)
-                            ->where('region', $request->region)
-                            ->orderBy('average_rating', 'desc')
-                            ->get();
+                                 ->where('region', $request->region)
+                                 ->orderBy('average_rating', 'desc')
+                                 ->get();
 
         } else if ($request->suburb == 'any') {
 
             $employees = Employee::where('state', $request->state)
-                                ->where('region', $request->region)
-                                ->where('area', $request->area)
-                                ->orderBy('average_rating', 'desc')
-                                ->get();
+                                 ->where('region', $request->region)
+                                 ->where('area', $request->area)
+                                 ->orderBy('average_rating', 'desc')
+                                 ->get();
 
         } else {
 
-        $employees = Employee::where('state', $request->state)
-                              ->where('region', $request->region)
-                              ->where('area', $request->area)
-                              ->where('suburb', $request->suburb)
-                              ->orderBy('average_rating', 'desc')
-                              ->get();
+            $employees = Employee::where('state', $request->state)
+                                 ->where('region', $request->region)
+                                 ->where('area', $request->area)
+                                 ->where('suburb', $request->suburb)
+                                 ->orderBy('average_rating', 'desc')
+                                 ->get();
 
         }
 
