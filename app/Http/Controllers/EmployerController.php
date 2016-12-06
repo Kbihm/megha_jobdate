@@ -33,7 +33,7 @@ class EmployerController extends Controller
                 ->create($creditCardToken, [
                     'email' => $user->email,
                 ]);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 return back()->withError($e->getMessage());
             }
 
@@ -64,7 +64,7 @@ class EmployerController extends Controller
                 ->create($creditCardToken, [
                     'email' => $user->email,
                 ]);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 return back()->withError($e->getMessage());
             }
 
