@@ -81,13 +81,13 @@ class EmployerController extends Controller
     public function cancel() {
         $user = Auth::user();
         $user->subscription('main')->cancel();
-        return redirect('profile/subscription');
+        return redirect('profile/subscription')->withError('Subscription Cancelled.');
     }
 
     public function resume() {
         $user = Auth::user();
         $user->subscription('main')->resume();
-        return redirect('profile/subscription');
+        return redirect('profile/subscription')->with('success', 'Your Subscription has been resumed.');
     }
 
     public function swap() {
@@ -100,7 +100,7 @@ class EmployerController extends Controller
         else if ($sub->stripe_plan == 'yearly')
             $sub->swap('monthly');
 
-        return redirect('profile/subscription');
+        return redirect('profile/subscription')->with('success', 'Subscription Billing Period Changed.');
     }
 
     public function invoice($invoiceId) {
@@ -121,7 +121,7 @@ class EmployerController extends Controller
 
         $user->updateCard($creditCardToken);
 
-        return back()->with('success', ['Card Details Updated']);;
+        return back()->with('success', 'Card Details Updated');
 
         }
 

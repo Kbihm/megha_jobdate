@@ -189,6 +189,7 @@ class EmailsController extends Controller
             $message->to('liam.a.southwell@gmail.com')->subject('JobDate - New Job Request!');
 
         });
-         return redirect('jobs');
+        return back()->with('success', 'Successfully invited to a job.');
+        // return back()->withError('Successfully invited to a Job');
     }
 }
