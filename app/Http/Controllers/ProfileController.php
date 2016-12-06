@@ -32,6 +32,12 @@ class ProfileController extends Controller
     public function show($id) 
     {
 
+        if (Auth::guest()) {
+            return redirect('/register/employer');
+        } elseif (Auth::user()->employee_id != null && Auth::user()->employee_id != $id) {
+            return back()->withError('You cannot view other employee profiles.');
+        }
+
         // Start Calendar Parts
         $today = getdate();
         $start = mktime(0,0,0,$today['mon'],$today['mday'],$today['year']);
