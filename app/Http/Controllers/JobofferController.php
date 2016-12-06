@@ -25,11 +25,6 @@ class JobofferController extends Controller
         return view('joboffers.index', compact('joboffers'));
     }
 
-    public function show($id)
-    { 
-        
-    }
-
     public function store(Request $request)
     {
         $user = Auth::user();

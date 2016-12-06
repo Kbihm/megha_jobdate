@@ -44,7 +44,7 @@
                           @endif
                           @if($joboffer->status == "accepted")
                            <a class="btn btn-success"> Accepted </a>
-                          @if($joboffer->status == "declined")
+                          @elseif($joboffer->status == "declined")
                            <a class="btn btn-danger"> Declined </a>
                           @endif
                             </div>
