@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 use App\Joboffer;
 use App\Employee;
+use App\Employer;
 use Illuminate\Console\Command;
 use App\Email;
 use Mail;
@@ -45,17 +46,18 @@ class remindEmployerReview extends Command
         foreach($joboffer as $job){
 
             if($job->date < $date && $job->reminded_employer != 1){
-                $employee = Employee::where('id', '=', $job->employee_id)->get();
+                $employer = Employer::where('id', '=', $job->employer_id)->first();
+                $employee = Employee::where('id', '=', $job->employee_id)->first();
                         $data = array(
                                 'joboffer' => $job,
-                                'employee' => $employee[0],
+                                'employee' => $employee,
+                                'employer' => $employer,
 
                                 );
-                Mail::send('emails.remindEmployerReview', $data, function ($message) {
+                Mail::send('emails.remindEmployerReview', $data, function ($message) use ($employer) {
 
                 $message->from('team@jobdate.com', 'JobDate');
-
-                $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Dont forget to leave a review!');
+                $message->to($employer->user->email)->subject('JobDate - Dont forget to leave a review!');
                         });
                 $job->reminded_employer = 1;
                 $job->save();

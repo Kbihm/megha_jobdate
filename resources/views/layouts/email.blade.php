@@ -229,7 +229,7 @@
                 <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
 
                     <!-- START CENTERED WHITE CONTAINER -->
-                    <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">This is preheader text. Some clients will show this text as a preview.</span>
+                    <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;"></span>
                     <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #fff; border-radius: 3px;" width="100%">
                     @yield('content')
             <!-- START FOOTER -->
@@ -238,7 +238,7 @@
                 <tr>
                   <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-top: 10px; padding-bottom: 10px; font-size: 12px; color: #999999; text-align: center;" valign="top" align="center">
                     <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">JobDate, JobbyDate, Burliegh, BURL, 4213</span>
-                    <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Unsubscribe</a>.
+                    <br><p style="color: #999999; font-size: 12px; text-align: center;">This email, including any attachments, may contain information that is confidential, commercially sensitive and may be subject to legal privilege. If you are not the intended recipient you must not read, use, disseminate, distribute or copy any part of this email, disclose its contents to any other party, or take any action in reliance on it. If you have received this email in error, please contact the sender immediately and delete this email. Jobdate does not warrant that this email or any attachments are free from viruses or other defects. Please ensure that you check for viruses and defects prior to opening any attachments. </p>
                   </td>
                 </tr>
                 <tr>
@@ -250,7 +250,7 @@
             
 <!-- END CENTERED WHITE CONTAINER --></div>
         </td>
-        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">&nbsp;</td>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">&nbsp;</td><p> 
       </tr>
     </table>
   </body>

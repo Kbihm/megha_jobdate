@@ -15,24 +15,6 @@ use App\Comment;
 
 class EmailsController extends Controller
 {
-    
-    
-    public function index() 
-    {
-         $data = array(
-        'name' => "Learning Laravel",
-    );
-
-    Mail::send('emails.welcome', $data, function ($message) {
-
-        $message->from('team@jobdate.com', 'Learning Laravel');
-
-        $message->to('liam.a.southwell@gmail.com')->subject('Learning Laravel test email');
-
-    });
-
-    return "Your email has been sent successfully";
-    }
         
         //Any time a dispute is filed through the dispute system
     public function dispute(Request $request, $id, $cid) 
@@ -48,7 +30,7 @@ class EmailsController extends Controller
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Dispute');
+            $message->to('admin@jobdate.com')->subject('JobDate - Dispute');
 
         });
         $dispute_submitted = TRUE;
@@ -62,14 +44,24 @@ class EmailsController extends Controller
         $data = array(
             'user' => User::find($id),
             );
-
-        Mail::send('emails.signUp', $data, function ($message) {
+        if($user->employee_id != null){
+        Mail::send('emails.signUp', $data, function ($message) use ($user) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Sign Up');
+            $message->to($user->email)->subject('JobDate - Sign Up');
 
         });
+        }
+        if($user->employer_id != null){
+        Mail::send('emails.welcome', $data, function ($message) use ($user) {
+
+            $message->from('team@jobdate.com', 'JobDate');
+
+            $message->to($user->email)->subject('JobDate - Sign Up');
+
+        });
+        }
         return redirect('home');
     }
         // When a user hasn't logged in for 7 days after a job request
@@ -86,16 +78,18 @@ class EmailsController extends Controller
         public function acceptJob($id) 
     {
         $joboffer = Joboffer::find($id);
+        $employer = Employer::where('id', '=', $joboffer->employer_id)->first();
         $data = array(
             'user' => Auth::user(),
             'joboffer' => $joboffer,
+            'employer' => $employer,
             );
 
         Mail::send('emails.acceptJob', $data, function ($message) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Accepted A Job');
+            $message->to(Auth::user()->email)->subject('JobDate - Accepted A Job');
 
         });
 
@@ -122,11 +116,10 @@ class EmailsController extends Controller
             'employee' => $employee,
             );
 
-        Mail::send('emails.confirmJob', $data, function ($message) {
-
+        Mail::send('emails.confirmJob', $data, function ($message) use ($user) {
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Job has been accepted');
+            $message->to($user->user->email)->subject('JobDate - Job has been accepted');
 
         });
     }
@@ -137,11 +130,11 @@ class EmailsController extends Controller
             'user' => User::find($id),
             );
 
-        Mail::send('emails.renewSub', $data, function ($message) {
+        Mail::send('emails.renewSub', $data, function ($message) use ($user) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Subscription Renewal');
+            $message->to($user->email)->subject('JobDate - Subscription Renewal');
 
         });
 
@@ -168,11 +161,11 @@ class EmailsController extends Controller
             'employee' => $employee,
             );
 
-        Mail::send('emails.sendJobRequestemployer', $data, function ($message) {
+        Mail::send('emails.sendJobRequestemployer', $data, function ($message) use ($user) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - Sent Job Request');
+            $message->to($user->email)->subject('JobDate - Sent Job Request');
 
         });
 
@@ -182,11 +175,11 @@ class EmailsController extends Controller
             'employee' => $employee,
             );
 
-        Mail::send('emails.sendJobRequestemployee', $data, function ($message) {
+        Mail::send('emails.sendJobRequestemployee', $data, function ($message) use ($employee) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('liam.a.southwell@gmail.com')->subject('JobDate - New Job Request!');
+            $message->to($employee->email)->subject('JobDate - New Job Request');
 
         });
         return back()->with('success', 'Successfully invited to a job.');

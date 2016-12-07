@@ -45,8 +45,30 @@ class remindEmployerSubscription extends Command
      */
     public function handle()
     {
-        $date = date("Y-m-d");
+                $date = date("Y-M-D");
         $employers = Employer::all();
+        foreach($employers as $employer){
+            $sub_end = explode('-', $employer->subscription_end);
+            $sub_end = $sub_end[0] . '-' . $sub_end[2] . '-' . $sub_end[1];
+            $sub_end = strtotime($sub_end);
+            $diff = $sub_end - strtotime($date);
+            $diff = $diff/60/60/24;
+            if($diff < 32){
+               
+                        $data = array(
+                            'user' => Auth::user(),
+                            );
+
+                        Mail::send('emails.remindSub', $data, function ($message) {
+
+                            $message->from('team@jobdate.com', 'JobDate');
+
+                            $message->to($employer->user->email)->subject('JobDate - Subscription Renewal Soon');
+
+                        });
+                            }
+
+        }
         //be sure to handle this. check employer subscription date
     }
 }

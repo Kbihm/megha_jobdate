@@ -49,7 +49,7 @@ class remindEmployee extends Command
 
         $joboffer = Joboffer::all();
         $joboffer = Joboffer::whereNull('status')->get();
-
+        $employee = Employee::where('id', '=', $joobffer->employee_id)->first();
         
             /**
             * note this is a proposed change that it be 7 days from when the offer is sent ( if it is not replied to ) as opposed to 
@@ -60,11 +60,11 @@ class remindEmployee extends Command
                         $data = array(
                             'joboffer' => $joboffer,
                             );
-                Mail::send('emails.remindEmployee', $data, function ($message) {
+                Mail::send('emails.remindEmployee', $data, function ($message) use ($employee) {
 
                 $message->from('team@jobdate.com', 'JobDate');
 
-                $message->to('liam.a.southwell@gmail.com')->subject('JobDate - You have a new job offer');
+                $message->to($employee->user->email)->subject('JobDate - You have a new job offer');
                  });
             }
         }
