@@ -96,7 +96,9 @@
                             <th class="text-center">Day</th>
                             <th class="text-center">Night</th>
                         </tr>
+<?php
 
+ ?>
                         @for($i = $first['mday']; $i <= $daytarget; $i++)
 
                         <tr class="data-row">
@@ -161,7 +163,7 @@
                         @endfor   
 
 
-                        @if($first['mon'] == $last['mon']-1)
+                        @if($first['mon'] != $last['mon'])
                         @for($i = 1; $i <= $last['mday']-1; $i++)
 
                         <tr class="data-row">
