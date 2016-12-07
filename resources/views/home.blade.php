@@ -191,7 +191,34 @@
                     </div>
 
                     <div class="col-md-9">
+                                         <div class="card">
+                        <div class="content">
+        <h2 > Latest review left for you</h2>
 
+
+            <div class="card">
+                <div class="content">
+
+        @if(sizeof($review) > 0)
+                                <blockquote>    
+                                   <div class="pull-right">
+                                   @if ($review->rating == 1)
+                                        <span class="label label-danger">Negative</span>
+                                    @elseif ($review->rating == 2)
+                                        <span class="label label-default">Neutral</span>
+                                    @elseif ($review->rating == 3)
+                                        <span class="label label-success">Positive</span>
+                                    @endif
+                                    </div>
+                                    <p>{{$review->comment}}<p>
+                                </blockquote>                             
+        @else
+                    <h3> There doesn't seem to be any reviews that have been left for you. </h3>
+                    @endif
+                    </div>
+                    </div>
+                    </div>
+             </div>
                     <div class="card"> <div class="content">
 
                     <h2> JobDate Profile Tips</h2>
@@ -231,7 +258,32 @@
                     </div>
 
                     <div class="col-md-9">
+                     <div class="card">
+                        <div class="content">
+        <h2 > Reviews you've got to leave for Jobdate Staff</h2>
 
+
+            <div class="card">
+                <div class="content">
+
+        @if(sizeof($joboffers) > 0)
+                    @foreach($joboffers as $joboffer)
+                                <blockquote>    
+                                   <div class="pull-right">
+                                    <strong>{{ $joboffer->time }} - {{$joboffer->date}}</strong>
+                                    </div>
+                                    <p>{{ $joboffer->role}} at {{ $joboffer->employer->establishment_name }}<p>
+                                   <a class="btn btn-primary btn-xs" href="/reviews/create/{{$joboffer->employee_id}}"> Review </a>
+                                </blockquote>                             
+                    @endforeach
+        @else
+                    <h3> There doesn't seem to be any reviews for you to leave. </h3>
+                    @endif
+                    </div>
+             </div>
+            </div>
+            </hr>
+            </div>
                     <div class="card"> <div class="content">
 
                     <h2> Employer Access</h2>
