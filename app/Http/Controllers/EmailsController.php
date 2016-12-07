@@ -41,6 +41,7 @@ class EmailsController extends Controller
         //When a new user signs signs Up
     public function signUp($id) 
     {
+        $user = Auth::user();
         $data = array(
             'user' => User::find($id),
             );

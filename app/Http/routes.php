@@ -125,3 +125,7 @@ Route::post(
     'stripe/webhook',
     '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook'
 );
+
+Route::get('verify/set/{id}', 'VerificationController@store');
+
+Route::get('verify/{hash}', 'VerificationController@destroy');

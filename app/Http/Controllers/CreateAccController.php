@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Controllers\VerificationController;
 use App\Http\Requests;
 use App\Employee;
 use App\Employer;
@@ -33,9 +33,8 @@ class CreateAccController extends Controller
         $employee->user_id = $user->id;
         $employee->save();
 
-
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
-            return redirect('email/signUp/'.$user->id);
+            return redirect('verify/set/'.$user->id);
         } else {
             return redirect('/register/employee');
         }
