@@ -16,7 +16,7 @@ class Employee
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->employee_id != null || Auth::user()->admin_id == null)
+        if (Auth::user()->employee_id != null || Auth::user()->admin_id == null || Auth::user()->email_verified == TRUE)
             return $next($request);
         else
             return 'Not Authorized to complete this action.';

@@ -54,7 +54,7 @@ class CreateAccController extends Controller
         $employer->save();
         $user->employer_id = $employer->id;
         $user->save();
-
+        $employer->email_verified = TRUE;
         $employer->user_id = $user->id;
         $user->save();
         
