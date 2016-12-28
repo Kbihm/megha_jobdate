@@ -172,7 +172,7 @@
                         <h2>My Account</h2>
 
                         <ul class="list-group">
-                            <a class="list-group-item" href="/profile/skills" >
+                            <a class="list-group-item" href="/offers" >
                                 Offers
                             </a>
                             <a class="list-group-item" href="/my-reviews" >
