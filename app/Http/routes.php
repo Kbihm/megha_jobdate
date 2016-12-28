@@ -102,7 +102,7 @@ Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
 
 //Job Offer Response
 
-Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobOffer');
+Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobOfferController@acceptJobOffer');
 
 
 //Partially Tseting Routes
