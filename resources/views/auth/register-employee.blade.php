@@ -215,6 +215,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <p><small class="text-muted"> If you are under the age of 18, you must consult a parent or guardian prior to signing up. </small></p>
+                                <p><small class="text-muted"> By creating an account you are agreeing to the <a href="http://jobdate.com.au/tos">Terms and Conditions.</a>  </small></p>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>
