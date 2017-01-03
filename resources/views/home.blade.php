@@ -245,7 +245,7 @@
                             <a class="list-group-item" href="/jobs" >
                                 My Job Listings
                             </a>
-                            <a class="list-group-item" href="/search" >
+                            <a class="list-group-item" href="/staff" >
                                 Find Staff
                             </a>
                             <a class="list-group-item" href="/reviews" >
@@ -270,7 +270,7 @@
                     @foreach($joboffers as $joboffer)
                                 <blockquote>    
                                    <div class="pull-right">
-                                    <strong>{{ $joboffer->time }} - {{$joboffer->date}}</strong>
+                                    <i>{{ $joboffer->time }} - {{ date('M d, Y', strtotime($joboffer->date)) }}</i>
                                     </div>
                                     <p>{{ $joboffer->role}} at {{ $joboffer->employer->establishment_name }}<p>
                                    <a class="btn btn-primary btn-xs" href="/reviews/create/{{$joboffer->employee_id}}"> Review </a>

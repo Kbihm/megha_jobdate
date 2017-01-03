@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('jobs-archived', 'JobofferController@archived_index');
 
  /*  Routes to be removed after testing: */
 Route::get('/jobs', function () {

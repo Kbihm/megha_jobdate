@@ -61,7 +61,7 @@ class ProfileController extends Controller
         if(Auth::check()){
             $self_user = Auth::user();
             if ($self_user->employer_id != null) {
-                $jobs = Joboffer::where('employer_id', $self_user->employer_id)->get();
+                $jobs = Joboffer::where('status', '!=', 'accepted')->where('employer_id', $self_user->employer_id)->get();
                 return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
             }
         }
@@ -127,27 +127,28 @@ class ProfileController extends Controller
             if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
                 continue;
             
-            if ($request->date != null || $request->date != '') {
-            $emp_avl = Availability::where('employee_id', $employee->id)
-                                    ->where('date', $datetouse)
-                                    ->get();
+                if ($request->date != null || $request->date != '') {
+                    $emp_avl = Availability::where('employee_id', $employee->id)
+                                        ->where('date', $datetouse)
+                                        ->get();
 
-            if (sizeOf($emp_avl) == 0)
-                continue;
+                if (sizeOf($emp_avl) == 0)
+                    continue;
 
-            if ($request->time == 'any') {}
-            elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
-            elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
-            elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
+                if ($request->time == 'any') {
+
+                } elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
+                elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
+                elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
 
             }
 

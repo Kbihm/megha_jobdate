@@ -21,7 +21,14 @@ class JobofferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::where('employer_id', $user->employer->id)->get();
+        $joboffers = Joboffer::where('employer_id', $user->employer->id)->where('status', '!=', 'accepted')->get();
+        return view('joboffers.index', compact('joboffers'));
+    }
+
+    public function archived_index()
+    {
+        $user = Auth::user();
+        $joboffers = Joboffer::where('employer_id', $user->employer->id)->where('status', 'accepted')->get();
         return view('joboffers.index', compact('joboffers'));
     }
 

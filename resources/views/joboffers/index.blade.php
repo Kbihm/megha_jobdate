@@ -8,10 +8,19 @@
         <div class="row">
 
             <div class="col-md-6">
+            @if(! Request::is('jobs-archived'))
             <h2 style="margin-top:0;"> Job Listings </h2>
+            @else
+            <h2 style="margin-top:0;"> Archived Job Listings </h2>
+            @endif
+            
             </div>
-            <div class="col-md-6">
-            <a href="{{ URL::to('jobs/create') }} " class="btn btn-success pull-right"> New Job Listing </a>            
+            <div class="col-md-6 pull-right text-right">
+            @if(! Request::is('jobs-archived'))
+            <a href="{{ URL::to('jobs-archived') }} " class="text-muted"> Accepted Jobs </a>    
+            &nbsp;
+            @endif
+            <a href="{{ URL::to('jobs/create') }} " class="btn btn-success "> New Job Listing </a>            
             </div>
         </div>
 
