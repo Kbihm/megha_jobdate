@@ -14,6 +14,7 @@ class Employee extends Model
         'average_rating',
         'about',
         'role',
+        'second_role',
         'gender',
         'fulltime',
         'hourly_rate',

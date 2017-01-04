@@ -123,6 +123,7 @@ class UserController extends Controller
         $this->validate($request, Employee::$rules);
 
         $user = Auth::user();
+
         $employee = $user->employee;
 
         $user->update($request->all());

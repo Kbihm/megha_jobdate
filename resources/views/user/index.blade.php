@@ -181,8 +181,6 @@
                     @foreach($users as $user)
                         @if($user->employee_id != null)
 
-
-
                         <div class="card card-horizontal">
                             <div class="row">
                                 @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
@@ -230,6 +228,9 @@
                                             <div class="stats">
                                               <a class="card-link" href="/staff/{{ $user->employee->id }}">
                                                 <i class="fa fa-briefcase"></i> {{ $user->employee->role }} 
+                                                @if($user->employee->second_role !== null)
+                                                 / {{$user->employee->second_role}}
+                                                @endif
                                               </a>
                                             </div>
                                             <div class="stats">

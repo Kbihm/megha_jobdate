@@ -24,6 +24,7 @@ class EmployeeSeeder extends Seeder
         $employee->gender = '0';
         $employee->fulltime = true;
         $employee->role = "Bartender";
+        $employee->second_role = null;
         $employee->hourly_rate = 28.40;
         $employee->save();
 
@@ -45,6 +46,7 @@ class EmployeeSeeder extends Seeder
         $employee->gender = '1';
         $employee->fulltime = true;
         $employee->role = "Bartender";
+        $employee->second_role = null;
         $employee->hourly_rate = 28.40;
         $employee->save();
 
@@ -66,6 +68,7 @@ class EmployeeSeeder extends Seeder
         $employee->gender = '0';
         $employee->fulltime = true;
         $employee->role = "Waiter/Waitress";
+        $employee->second_role = null;
         $employee->hourly_rate = 25;
         $employee->save();
 
@@ -87,6 +90,7 @@ class EmployeeSeeder extends Seeder
         $employee->gender = 1;
         $employee->fulltime = true;
         $employee->role = "Waiter/Waitress";
+        $employee->second_role = null;
         $employee->hourly_rate = 28;
         $employee->save();
 

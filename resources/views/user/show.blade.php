@@ -1,6 +1,6 @@
 @extends('layouts.app')
     @section('content')
-
+    
     @if(session('success'))
         <div class="alert alert-success">
             {{session('success')}}
@@ -108,7 +108,13 @@
                                 {{ $user->role }}
                             </span>
                             </br>
-
+                        @if($user->second_role !== null)
+                            <span class="price">Secondary Role</span>
+                            <span class="pull-right">
+                                {{ $user->second_role }}
+                            </span>
+                            </br>
+                        @endif
                             <span class="price">Hourly Rate</span>
                             <span class="pull-right">
                                 <i class="fa fa-usd"></i>{{ number_format($user->hourly_rate, 2) }}
@@ -174,7 +180,6 @@
 
                     </div>
                 </div>
-
 
                 @if (Auth::check() && Auth::user()->employer_id != null)
                     <a href="/reviews/create/{{$user->id}}"  class="btn btn-default btn-block">
@@ -283,27 +288,29 @@
                                 @endif
                             </div>
                         @endfor   
+
                         @if($first['mon'] != $last['mon'])
+
                             @for($i = 1; $i <= $last['mday']-1; $i++)
                             <div class="day"> 
                             <row id="row" style="text-align: right; padding-right: 10px;"> {{$i}} </row> 
                             
-                            <?php $key = array_search($first['year'].'-'.$first['mon'].'-'.$i, array_column($availability, 'date')); ?>
+                            <?php $key = array_search($last['year'].'-'.$last['mon'].'-'.$i, array_column($availability, 'date')); ?>
                                 @if($key !== false)
 
-                                   @if($availability[$key]['morning'] != false)
+                                   @if($availability[$key]['morning'] == false)
                                         <row id="row" style="background-color:#F44336;"></row>
                                    @else
                                         <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif  
 
-                                   @if($availability[$key]['day'] != false)                                   
+                                   @if($availability[$key]['day'] == false)                                   
                                         <row id="row" style="background-color:#F44336;"></row>
                                    @else
                                         <row id="row" style="background-color:#4CAF50;"></row>
                                    @endif
 
-                                   @if($availability[$key]['night'] != false)
+                                   @if($availability[$key]['night'] == false)
                                         <row id="row" style="background-color:#F44336;"></row>
                                    @else
                                         <row id="row" style="background-color:#4CAF50;"></row>

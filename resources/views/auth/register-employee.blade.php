@@ -94,6 +94,26 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('second_role') ? ' has-error' : '' }}">
+                            <label for="second_role" class="col-md-4 control-label">Secondary Role</label>
+                            
+                            <div class="col-md-6">
+                                <select id="second_role" class="form-control" name="second_role" value="{{ old('second_role')}}">
+                               <option default value=null> None </option>
+                                @foreach($roles as $role)
+                                <option value="{{$role}}">{{$role}}</option>
+                                @endforeach
+                                </select>                       
+                                
+
+                                @if ($errors->has('second_role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('second_role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Gender</label>
                             
@@ -215,6 +235,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <p><small class="text-muted"> If you are under the age of 18, you must consult a parent or guardian prior to signing up. </small></p>
+                                <p><small class="text-muted"> By creating an account you are agreeing to the <a href="http://jobdate.com.au/tos">Terms and Conditions.</a>  </small></p>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i> Register
                                 </button>

@@ -281,7 +281,7 @@
                     alert('Could not save');
                 });
 
-                // console.log(availability);
+                 console.log(availability);
 
             });
 

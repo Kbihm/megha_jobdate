@@ -12,7 +12,7 @@
     <div class="row">
             <div class="jumbotron">
                 <h1>Hi {{ Auth::user()->first_name }}, Welcome to JobDate </h1>
-
+                
                         @if (Auth::user()->employer_id != null)
 
                         <p>From here you have access to update your account settings and ability to search for staff. </p>
@@ -172,7 +172,7 @@
                         <h2>My Account</h2>
 
                         <ul class="list-group">
-                            <a class="list-group-item" href="/profile/skills" >
+                            <a class="list-group-item" href="/offers" >
                                 Offers
                             </a>
                             <a class="list-group-item" href="/my-reviews" >
@@ -245,7 +245,7 @@
                             <a class="list-group-item" href="/jobs" >
                                 My Job Listings
                             </a>
-                            <a class="list-group-item" href="/search" >
+                            <a class="list-group-item" href="/staff" >
                                 Find Staff
                             </a>
                             <a class="list-group-item" href="/reviews" >
@@ -270,7 +270,7 @@
                     @foreach($joboffers as $joboffer)
                                 <blockquote>    
                                    <div class="pull-right">
-                                    <strong>{{ $joboffer->time }} - {{$joboffer->date}}</strong>
+                                    <i>{{ $joboffer->time }} - {{ date('M d, Y', strtotime($joboffer->date)) }}</i>
                                     </div>
                                     <p>{{ $joboffer->role}} at {{ $joboffer->employer->establishment_name }}<p>
                                    <a class="btn btn-primary btn-xs" href="/reviews/create/{{$joboffer->employee_id}}"> Review </a>

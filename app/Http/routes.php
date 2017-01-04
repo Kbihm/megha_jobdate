@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::auth();
 
-
+Route::get('jobs-archived', 'JobofferController@archived_index');
  /*  Routes to be removed after testing: */
 Route::get('/jobs', function () {
     return view('/joboffers/index');
@@ -102,7 +102,7 @@ Route::get('user/invoice/{invoice}', 'EmployerController@invoice');
 
 //Job Offer Response
 
-Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobofferController@acceptJobOffer');
+Route::get('/offers/acceptJobOffer/{id}', 'EmployeeJobOfferController@acceptJobOffer');
 
 
 //Partially Tseting Routes

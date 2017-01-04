@@ -114,7 +114,7 @@
             @else
 
             <h4 class="title">You're not currently subscribed, have a look at our subscriptions.</h4>                
-
+            <p>If you have more than one business you wish to register please contact us for pricing</p>
             <div class="row">
 
             <div class=" col-md-offset-1 col-md-4">

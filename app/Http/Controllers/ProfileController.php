@@ -61,7 +61,7 @@ class ProfileController extends Controller
         if(Auth::check()){
             $self_user = Auth::user();
             if ($self_user->employer_id != null) {
-                $jobs = Joboffer::where('employer_id', $self_user->employer_id)->get();
+                $jobs = Joboffer::where('status', '!=', 'accepted')->where('employer_id', $self_user->employer_id)->get();
                 return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
             }
         }
@@ -85,9 +85,10 @@ class ProfileController extends Controller
         //test[0] = month, [1] = date, [2] = year
         if ($request->date != null || $request->date != '') {
             $dates = explode('/', $request->date);
-            $datetouse = $dates[2].'-'.$dates[0].'-'.$dates[1];
+            $dates[1] = (int)$dates[1];
+            $dates[0] = (int)$dates[0];
+            $datetouse = $dates[2].'-'.$dates[1].'-'.$dates[0];
         }
-
         // return $request->all();
         
         if ($request->area == 'any') {
@@ -121,35 +122,49 @@ class ProfileController extends Controller
 
         foreach ($employees as $employee)
         {
-            if ($request->role != 'any' && $request->role != $employee->role)
+
+                
+                if ($request->role != 'any' && $request->role != $employee->role){
+                if($employee->second_role !== null){
+                    if($request->role !='any' && $request->role !=$employee->second_role){
+                    continue;
+                    }
+                }
+                elseif($employee->second_role == null){
                 continue;
+                }
+
+                }
+            
+
 
             if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
                 continue;
             
-            if ($request->date != null || $request->date != '') {
-            $emp_avl = Availability::where('employee_id', $employee->id)
-                                    ->where('date', $datetouse)
-                                    ->get();
+                if ($request->date != null || $request->date != '') {
+                    $emp_avl = Availability::where('employee_id', $employee->id)
+                                        ->where('date', $datetouse)
+                                        ->get();
 
-            if (sizeOf($emp_avl) == 0)
-                continue;
+                if (sizeOf($emp_avl) == 0)
+                    continue;
 
-            if ($request->time == 'any') {}
-            elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
-            elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
-            elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
-                array_push($unfavourable_users, $employee->user);
-                continue;
-            }
+                if ($request->time == 'any') {
 
-            }
+                } elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
+                elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
+                elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
+                    array_push($unfavourable_users, $employee->user);
+                    continue;
+                }
+  
+              }
 
             array_push($users, $employee->user);
         }

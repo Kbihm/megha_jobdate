@@ -21,7 +21,14 @@ class JobofferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::where('employer_id', $user->employer->id)->get();
+        $joboffers = Joboffer::where('employer_id', $user->employer->id)->where('status', '!=', 'accepted')->orWhereNull('status')->get();
+        return view('joboffers.index', compact('joboffers'));
+    }
+
+    public function archived_index()
+    {
+        $user = Auth::user();
+        $joboffers = Joboffer::where('employer_id', $user->employer->id)->where('status', 'accepted')->get();
         return view('joboffers.index', compact('joboffers'));
     }
 
@@ -34,7 +41,7 @@ class JobofferController extends Controller
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
         $dates = explode('/', $joboffer->date);
-        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];
+        $realdate = $dates[2].'-'.$dates[1].'-'.$dates[0];
         $joboffer->date = $realdate;
         $joboffer->employer_id = $user->employer->id;
         $joboffer->save();
@@ -58,7 +65,7 @@ class JobofferController extends Controller
         $joboffer = Joboffer::find($id);
         //want mm/dd/yyyy, have , dd/mm/yyyy
         $dates = explode('-', $joboffer->date);
-        $date = $dates[1].'/'.$dates[2].'/'.$dates[0];
+        $date = $dates[2].'/'.$dates[1].'/'.$dates[0];
         return view('joboffers.edit', compact('joboffer', 'date'));
     }
 
@@ -66,7 +73,7 @@ class JobofferController extends Controller
     { 
         $joboffer = Joboffer::find($id);
         $dates = explode('/', $request->date);
-        $realdate = $dates[2].'-'.$dates[0].'-'.$dates[1];  
+        $realdate = $dates[2].'-'.$dates[1].'-'.$dates[0];  
         $this->validate($request, Joboffer::$rules);
         //want dd/mm/yyyy, have , mm/dd/yyyy
         //test[0] = month, [1] = date, [2] = year
