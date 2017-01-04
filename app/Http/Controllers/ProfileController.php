@@ -135,12 +135,10 @@ class ProfileController extends Controller
                 }
 
                 }
-            
-
 
             if ($request->fulltime != 'any' && $request->fulltime != $employee->fulltime)
                 continue;
-            
+
                 if ($request->date != null || $request->date != '') {
                     $emp_avl = Availability::where('employee_id', $employee->id)
                                         ->where('date', $datetouse)
@@ -163,8 +161,13 @@ class ProfileController extends Controller
                     array_push($unfavourable_users, $employee->user);
                     continue;
                 }
+
   
               }
+
+
+            }
+
 
             array_push($users, $employee->user);
         }
