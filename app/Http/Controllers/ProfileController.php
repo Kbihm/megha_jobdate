@@ -166,7 +166,7 @@ class ProfileController extends Controller
               }
 
 
-            }
+
 
 
             array_push($users, $employee->user);
