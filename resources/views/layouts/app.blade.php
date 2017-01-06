@@ -71,7 +71,6 @@
                         <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/offers">Job Offers</a></li>
                         <li><a href="/my-reviews">Reviews</a></li>
-                        <li><a href="/staff">Employer Search</a></li> 
 
                     @elseif (Auth::user()->employer_id != null)
                         <li><a href="{{ url('/home') }}">Home</a></li>
