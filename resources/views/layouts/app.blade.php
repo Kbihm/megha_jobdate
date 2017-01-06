@@ -119,7 +119,7 @@
     </div>
 </div>
 
-<footer class="footer footer-big">
+<footer class="footer footer-big footer-transparent" style="background-image: url('/assets/img/alcohol-bar-party-cocktail.jpg');">
             <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
 
             <div class="container">
