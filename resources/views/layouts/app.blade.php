@@ -71,7 +71,6 @@
                         <li><a href="{{ url('/home') }}">Home</a></li>
                         <li><a href="/offers">Job Offers</a></li>
                         <li><a href="/my-reviews">Reviews</a></li>
-                        <li><a href="/staff">Employer Search</a></li> 
 
                     @elseif (Auth::user()->employer_id != null)
                         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -119,7 +118,7 @@
     </div>
 </div>
 
-<footer class="footer footer-big">
+<footer class="footer footer-big footer-transparent" style="background-image: url('/assets/img/alcohol-bar-party-cocktail.jpg');">
             <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
 
             <div class="container">

@@ -334,23 +334,6 @@
 
         <div class="card">
             <div class="content">
-                <h4 class="title">Skills</h4>
-
-                @if (sizeof($user->skill) > 0)
-                <ul>
-                    @foreach ($user->skill as $skill)
-                    <li> {{ $skill->skill }} </li>
-                    @endforeach
-                </ul>
-                @else
-                    <p> {{ $user->user->first_name }} hasn't put in any skills just yet. </p>
-                @endif
-            </div>
-        </div>
-
-        
-        <div class="card">
-            <div class="content">
                 <h4 class="title">Past Experience</h4>
 
                 @if (sizeof($user->experience) > 0)
@@ -366,6 +349,23 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="content">
+                <h4 class="title">Qualifications</h4>
+
+                @if (sizeof($user->skill) > 0)
+                <ul>
+                    @foreach ($user->skill as $skill)
+                    <li> {{ $skill->skill }} </li>
+                    @endforeach
+                </ul>
+                @else
+                    <p> {{ $user->user->first_name }} hasn't put in any qualifications just yet. </p>
+                @endif
+            </div>
+        </div>
+
+    
 
         <div class="card">
                 <div class="content">
