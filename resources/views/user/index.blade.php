@@ -37,7 +37,7 @@
                                          
                                                      <div class="form-group">
                                                         <label>State</label>
-                                                        <select id="state" class="form-control" name="state" value="">
+                                                        <select id="state" class="form-control" required name="state" value="">
                                                             @if (isset($_POST['state']))
                                                                 <option value="{{ $_POST['state'] }}" id="">{{ $_POST['state'] }}</option>
                                                             @endif
@@ -47,9 +47,9 @@
 
                                                     <div class="form-group">
                                                         <label>Region</label>
-                                                        <select id="region" class="form-control" name="region" value="">
+                                                        <select id="region" class="form-control" required name="region" value="">
                                                             @if (isset($_POST['region']))
-                                                                <option value="{{ $_POST['region'] }}" id="">{{ $_POST['region'] }}</option>
+                                                                    <option value="{{ $_POST['region'] }}" id="">{{ $_POST['region'] }}</option>
                                                             @endif
                                                         </select>
                                                     </div>
