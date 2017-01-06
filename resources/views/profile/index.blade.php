@@ -370,7 +370,7 @@
                             <label for="abn" class="col-md-4 control-label">What is your abn? </label>
 
                             <div class="col-md-6">
-                                <input id="abn" type="number" class="form-control" name="abn" value="{{ $user->employer->abn }}">
+                                <input id="abn" type="text" class="form-control" name="abn" value="{{ $user->employer->abn }}">
 
                                 @if ($errors->has('abn'))
                                     <span class="help-block">
