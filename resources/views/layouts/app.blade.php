@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>JobDate</title>
+    <title>JobDate | @yield('title')</title>
 
     <link href="/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/gsdk.css" rel="stylesheet"/>
@@ -112,6 +112,25 @@
 
 <div class="section section-gray">
     <div class="container">
+
+
+    <div class="row">
+        <div class="col-md-12">
+        @if(null !== (session('success')))
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="right:0 !important;"><span aria-hidden="true">&times;</span></button>
+                {{session('success')}}
+            </div>
+        @endif
+
+        @if(null !== (session('error')))
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="right:0 !important;"><span aria-hidden="true">&times;</span></button>
+                {{session('error')}}
+            </div>
+        @endif
+        </div>
+    </div>
 
         @yield('content')
                 

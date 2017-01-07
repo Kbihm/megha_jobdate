@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+Create New Job Listing
+@endsection
 
 @section('content')
 <div class="container">

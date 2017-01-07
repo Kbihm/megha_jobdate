@@ -14,7 +14,7 @@ class AlterEmployeeTable extends Migration
     {
         Schema::table('employees', function ($table) {
             $table->string('state')->default('QLD');
-            $table->string('region')->default('Gold Coast');
+            $table->string('region')->default('Gold Coast Region');
             $table->string('area')->default('Gold Coast South');
             $table->string('suburb')->default('Burleigh Heads');
         });

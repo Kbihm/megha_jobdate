@@ -1,5 +1,9 @@
- 
- @extends('layouts.app')
+@extends('layouts.app')
+
+@section('title')
+    Job Invites
+@endsection
+
 @section('content')
 
     <div class="col-md-12">

@@ -168,6 +168,19 @@
 
                 <td>@if($banned) <a href="/unban/{{ $user->id }}">Yes</a> @else  <a href="/ban/{{ $user->id }}">No</a> @endif {{ $user->banned }}</td>
             </tr>
+                        <tr>
+            <th>Email Verified</th>
+
+                <td>
+                    @if ($user->employee->email_confirmed == 1)
+                        Yes
+                    @elseif ($user->employee->email_confirmed == 0)
+                        No
+                    @else
+                        {{ $user->employee->email_confirmed }}
+                    @endif
+                </td>
+            </tr>
 
         </table>
         </div>

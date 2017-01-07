@@ -42,12 +42,13 @@ class AvailabilityController extends Controller
             $avl->save();
         }
 
+        $request->session()->flash('success', 'Successfully updated.');
         return '{"status":"true"}';
     }
 
         public function set()
     {
-
+        // Not sure if this function is still used for anything. 
         // Availabilities needs to be the data passed in.
         $availabilities = $request->json('avl');
 

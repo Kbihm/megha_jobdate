@@ -108,7 +108,7 @@
                                 <?php $comments_to_approve = App\Comment::where('approved', false)->get(); ?>
 
                                 <p> {{ sizeOf($comments_to_approve) }} Comments need approval.</p>
-                                <a href="/comments" class="btn btn-primary" > See Comments </a>
+                                <a href="/admin/comments" class="btn btn-primary" > See Comments </a>
 
                             </div>
                         </div>
@@ -136,7 +136,7 @@
 
                                 <p> {{ $employee_count }} employees. ({{ $male_count }} male, {{ $female_count }} female) </p>
                                 <?php $skill_count = App\Skill::all(); ?>
-                                <p> {{ sizeOf($skill_count) }} skills added.</p>
+                                <p> {{ sizeOf($skill_count) }} qualifications added.</p>
                                
                                 <?php $experience_count = App\Experience::all(); ?>
                                 <p> {{ sizeOf($experience_count) }} experience listings added.</p>
@@ -179,7 +179,7 @@
                                 My Reviews
                             </a>
                             <a class="list-group-item" href="/profile/skills" >
-                                Add a Skill
+                                Add a Qualification
                             </a>
                             <a class="list-group-item" href="/profile/experience" >
                                 Add Experience
@@ -193,7 +193,7 @@
                     <div class="col-md-9">
                                          <div class="card">
                         <div class="content">
-        <h2 > Latest review left for you</h2>
+        <h3> Latest review left for you</h3>
 
 
             <div class="card">
@@ -221,7 +221,7 @@
              </div>
                     <div class="card"> <div class="content">
 
-                    <h2> JobDate Profile Tips</h2>
+                    <h3> JobDate Profile Tips</h3>
                     
                     <p>Within this section you are able to navigate throughout your profile and update as needed.</p>
                     <p>Add a profile picture to your profile page to become more visible and stand out to potential Employers as this is the first thing that an employer sees when they search.</p>

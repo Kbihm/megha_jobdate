@@ -1,4 +1,9 @@
-  @extends('layouts.app')
+@extends('layouts.app')
+
+@section('title')
+    Job listings
+@endsection
+
 @section('content')
 
     <div class="col-md-8 col-md-offset-2">

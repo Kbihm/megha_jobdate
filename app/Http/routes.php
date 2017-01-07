@@ -89,6 +89,7 @@ Route::post('subscribe/yearly', 'EmployerController@SubscribeYearly');
 Route::post('/subscribe/updatecard', 'EmployerController@UpdateCard');
 Route::get('subscription/cancel', 'EmployerController@cancel');
 Route::get('subscription/swap', 'EmployerController@swap');
+Route::get('subscription/resume', 'EmployerController@resume');
 
 Route::post('profile/update/employee', 'UserController@UpdateEmployee');
 Route::post('profile/update/employer', 'UserController@UpdateEmployer');

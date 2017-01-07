@@ -1,15 +1,6 @@
 @extends('layouts.app')
     @section('content')
     
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{session('success')}}
-        </div>
-    @endif
-
-    @if(null !== (session('error')))
-        <div class="alert alert-danger"><strong>Oops! </strong>{{session('error')}}</div>
-    @endif
         <!--  <small>Employee Profile</small> -->
         <style>
                 @charset "utf-8";
@@ -233,7 +224,7 @@
             <div class="card">
                 <div class="content">
                     <h4 class="title">About {{$user->user->first_name}}</h4>
-                    <p class="description">{{$user->about}}</p>
+                    <pre class="description">{{$user->about}}</pre>
                 </div>
             </div> 
 
@@ -243,6 +234,31 @@
                     <div class="col-md-12">
 
                     <h4 class="title">{{$user->user->first_name}}'s Availability</h4>
+                    <p> 
+                         <span style="background-color:#F44336;
+                                      width:12px; 
+                                      height:12px; 
+                                      display:inline-block; 
+                                      border-radius:1px;
+                                      "></span>
+                         Unavailable &nbsp;  &nbsp; 
+                         <span style="background-color:#4CAF50;
+                                      width:12px; 
+                                      height:12px; 
+                                      display:inline-block; 
+                                      border-radius:1px;
+                                      "></span>
+                         Available &nbsp; &nbsp; 
+
+                          <span style="background-color:#fff;
+                                      width:12px; 
+                                      height:12px; 
+                                      display:inline-block; 
+                                      border-radius:1px;
+                                      border: 1px solid #333;
+                                      "></span>
+                         Availability not set 
+                    </p>
                 
                         <div class="calendar">
 

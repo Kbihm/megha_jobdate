@@ -97,6 +97,7 @@ class ProfileController extends Controller
                                  ->where('region', $request->region)
                                  ->orderBy('average_rating', 'desc')
                                  ->get();
+        
 
         } else if ($request->suburb == 'any') {
 
@@ -114,6 +115,23 @@ class ProfileController extends Controller
                                  ->where('suburb', $request->suburb)
                                  ->orderBy('average_rating', 'desc')
                                  ->get();
+
+            $any_suburb_employees = Employee::where('state', $request->state)
+                                 ->where('region', $request->region)
+                                 ->where('area', 'any')
+                                 ->where('suburb', 'any')
+                                 ->orderBy('average_rating', 'desc')
+                                 ->get();
+            
+            $employees->merge($any_suburb_employees);
+
+            $any_area_employees = Employee::where('state', $request->state)
+                    ->where('region', $request->region)
+                    ->where('area', 'any')
+                    ->orderBy('average_rating', 'desc')
+                    ->get();
+
+            $employees->merge($any_area_employees);
 
         }
 
