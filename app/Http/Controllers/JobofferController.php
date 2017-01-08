@@ -52,7 +52,7 @@ class JobofferController extends Controller
     {
         $joboffer = Joboffer::find($id);
         $joboffer->delete();
-        return redirect('/');
+        return back()->with("success", "Job Offer Deleted");
     }
 
     public function create()
