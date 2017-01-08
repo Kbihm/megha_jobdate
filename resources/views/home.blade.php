@@ -217,7 +217,7 @@ Home
                                     <p>{{$review->comment}}<p>
                                 </blockquote>                             
         @else
-                    <h3> There doesn't seem to be any reviews that have been left for you. </h3>
+                    <p> There doesn't seem to be any reviews that have been left for you. </p>
                     @endif
                     </div>
                     </div>
