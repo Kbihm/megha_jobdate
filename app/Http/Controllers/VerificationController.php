@@ -22,7 +22,8 @@ class VerificationController extends Controller
         $verification->save();
 
                 $data = array(
-            'verification' => $verification
+            'verification' => $verification,
+            'user' => $user
             );
 
         Mail::send('emails.verify', $data, function ($message) use ($user) {
@@ -32,7 +33,7 @@ class VerificationController extends Controller
 
         });
                     
-        return redirect('email/signUp/'.$user->id);
+        return redirect('home');
     }
 
         public function destroy($link)
@@ -43,7 +44,7 @@ class VerificationController extends Controller
         $user->email_verified = TRUE;
         $user->save();
         $verification->delete();
-        return redirect('/profile');
+        return redirect('email/signUp/'.$user->id);
         }
     }
 }

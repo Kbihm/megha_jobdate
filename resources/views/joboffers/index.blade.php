@@ -8,7 +8,7 @@
 
     <div class="col-md-8 col-md-offset-2">
 
-        
+   
 
         <div class="row">
 
@@ -32,7 +32,7 @@
         
          @if(isset($joboffers))
             @foreach($joboffers as $joboffer)
-
+    
                 <div class="card">    
                     <div class="content"> 
                         <h4 class="title"> {{ $joboffer->role }} at {{ $joboffer->employer->establishment_name }} </h4>
@@ -52,6 +52,12 @@
                         <hr>
                           @if (Auth::user()->employer_id != null && $joboffer->status != "accepted")
                         <a href="/jobs/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
+                            <form class="col-md-2"  role="form" method="POST" action="/jobs/{{ $joboffer->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type-"submit" class="pull-right btn btn-danger "> Delete </button>
+                            </form>
+
                           @elseif (Auth::user()->employee_id != null && $joboffer->status != "accepted")
                             <a href="/jobs/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
                           @endif
