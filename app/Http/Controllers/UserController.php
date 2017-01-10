@@ -121,15 +121,14 @@ class UserController extends Controller
 
         $this->validate($request, User::$update_rules);
         $this->validate($request, Employee::$rules);
-        
+
         $user = Auth::user();
 
         $employee = $user->employee;
 
         $user->update($request->all());
         $employee->update($request->all());
-        if($request->second_role == "")
-        $employee->second_role = null;
+
         $employee->save();
         $user->save();
 
