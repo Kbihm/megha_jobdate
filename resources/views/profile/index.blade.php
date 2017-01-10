@@ -129,7 +129,7 @@ My Profile
                             <label class="col-md-4 control-label">Secondary Role:</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="second_role" >
-                                <option value=null @if($user->employee->second_role == null) selected @endif> None </option>
+                                <option default value @if($user->employee->second_role == null) selected @endif> None </option>
                                     @foreach($roles as $role)
                                     <option value="{{ $role }}" @if($user->employee->second_role == $role) selected @endif  >
                                         {{ $role }}
