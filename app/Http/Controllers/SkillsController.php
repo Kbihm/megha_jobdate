@@ -98,8 +98,13 @@ class SkillsController extends Controller
     public function destroy($id)
     {
         $user = Auth::User();
+
         $skill = Skill::find($id);
+        if(Auth::user()->employee->id == $skill->employee_id){
         $skill->delete();
         return view('/profile.skills', compact('user'));
+        }
+        else 
+        return view('home');
     }
 }

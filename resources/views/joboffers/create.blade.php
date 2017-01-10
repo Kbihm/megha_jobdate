@@ -32,7 +32,7 @@ Create New Job Listing
                             <div class="col-sm-10">
                                 <select class="form-control" name="role" >
                                     @foreach($roles as $role)
-                                    <option value="{{ $role }}">
+                                    <option value="{{ $role }}" @if (count($errors) && $role == old('role')) selected  @endif>
                                         {{ $role }}
                                     </option>
                                     @endforeach
@@ -66,15 +66,15 @@ Create New Job Listing
                         </div>
                         <div class="form-group">
                             <label for="time" class="col-sm-2 control-label">Time:</label>
-                            <div class="btn-group col-sm-10" data-toggle="buttons">
+                            <div class="btn-group col-sm-10">
                             <label class="btn btn-warning col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="Morning"> Morning
+                                <input name="time" type="radio" value="Morning" @if (old('description') == "Morning") active @endif> Morning
                             </label>
                             <label class="btn btn-danger col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="Day"> Day
+                                <input name="time" type="radio"value="Day" @if (old('description') == "Day") active @endif> Day
                             </label>
                             <label class="btn btn-primary col-sm-3">
-                                <input name="time" type="checkbox" autocomplete="off" value="Night"> Night
+                                <input name="time" type="radio" value="Night" @if (old('description') == "Night") active @endif> Night
                             </label>
                         </div>
 

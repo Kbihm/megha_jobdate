@@ -120,9 +120,13 @@ class ExperienceController extends Controller
     */
     public function destroy($id)
     {
+        if(Auth::user()->employee->id == $skill->employee_id){
         $skill = Experience::find($id);
         $skill->delete();
         return redirect(('/profile/experience'));
+        }
+        else
+        return view('home');
     }
     
     function dateDifference($date_1 , $date_2 , $differenceFormat = '%y Years %m Months' )

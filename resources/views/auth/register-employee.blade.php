@@ -99,7 +99,7 @@
                             
                             <div class="col-md-6">
                                 <select id="second_role" class="form-control" name="second_role" value="{{ old('second_role')}}">
-                               <option default value=null> None </option>
+                               <option default disabled selected value> None </option>
                                 @foreach($roles as $role)
                                 <option value="{{$role}}">{{$role}}</option>
                                 @endforeach

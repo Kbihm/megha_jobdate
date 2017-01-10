@@ -9,8 +9,8 @@
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there, <strong>{{ $user->establishment_name }}</strong> </p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>{{$employee->first_name}}</strong> has accepted your job request for the <strong>{{$joboffer->date}}</strong> during <strong>{{$joboffer->time}}</strong>, congratulations and thanks for using Jobdate, please see the employees details below if you need to contact them prior to date of employment.
-<br>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>{{$employee->first_name}}</strong> has accepted your job request for the {{$joboffer->date}} during the {{$joboffer->time}},<br> congratulations and thanks for using Jobdate, please see the employees details below if you need to contact them prior to date of employment.
+<br><br>
 Employee Mobile Number: <strong> {{$employee->employee->phone}} </strong> <br>
 Jobdate, it's as simple as that!
 </p>
