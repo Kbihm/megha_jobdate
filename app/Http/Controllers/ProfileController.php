@@ -106,7 +106,15 @@ class ProfileController extends Controller
             ->where('area', $request->area)
             ->orderBy('average_rating', 'desc')
             ->get();
-            
+
+            $any_suburb_employees = Employee::where('state', $request->state)
+            ->where('region', $request->region)
+            ->where('area', 'any')
+            ->orderBy('average_rating', 'desc')
+            ->get();
+
+            $employees = $employees->merge($any_suburb_employees);
+
         } else {
             
             $employees = Employee::where('state', $request->state)
@@ -116,22 +124,24 @@ class ProfileController extends Controller
             ->orderBy('average_rating', 'desc')
             ->get();
             
-            $any_suburb_employees = Employee::where('state', $request->state)
+            $any_suburb_area_employees = Employee::where('state', $request->state)
             ->where('region', $request->region)
             ->where('area', 'any')
             ->where('suburb', 'any')
             ->orderBy('average_rating', 'desc')
             ->get();
             
-            $employees->merge($any_suburb_employees);
-            
-            $any_area_employees = Employee::where('state', $request->state)
+            $employees = $employees->merge($any_suburb_area_employees);
+
+            $any_suburb_employees = Employee::where('state', $request->state)
             ->where('region', $request->region)
-            ->where('area', 'any')
+            ->where('area', $request->area)
+            ->where('suburb', 'any')
             ->orderBy('average_rating', 'desc')
             ->get();
             
-            $employees->merge($any_area_employees);
+            $employees = $employees->merge($any_suburb_employees);
+            
             
         }
         
