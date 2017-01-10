@@ -1,15 +1,12 @@
 @extends('layouts.app')
+
+@section('title')
+Manage my Subscription
+@endsection
+
 @section('content')
 
     <div class="row">
-
-    @if(null !== (session('success')))
-        <div class="alert alert-success">{{session('success')}}</div>
-    @endif
-
-    @if(null !== (session('error')))
-        <div class="alert alert-danger">{{session('error')}}</div>
-    @endif
 
         <div class="col-md-3">
 
@@ -33,7 +30,7 @@
                 <ul class="list-group">
                     <a class="list-group-item" href="/profile">Your Information</a>
                     @if ($user->employee_id != null)
-                    <a class="list-group-item" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item" href="/profile/skills" >Qualifications</a>
                     <a class="list-group-item" href="/profile/experience">Experience</a>
                     <a class="list-group-item" href="/profile/availability">Availability</a>
                     @endif
@@ -92,7 +89,13 @@
                     <small> Subscription Updated: {{ date('F d, Y', strtotime($user->subscription('main')->updated_at)) }} </small></p>
                 <hr>
                 
-                <a href="/subscription/swap" class="btn btn-primary"> Change to Yearly Plan </a> &nbsp;
+                <a href="/subscription/swap" class="btn btn-primary"> Change to
+                @if ($user->subscription('main')->stripe_plan == "monthly") 
+                    Yearly 
+                @else 
+                    Monthly
+                @endif
+                Plan </a> &nbsp;
                 <button class="btn btn-primary"  data-toggle="modal" data-target="#myModal"> Change Card Details </button> &nbsp;
 
                 <hr>

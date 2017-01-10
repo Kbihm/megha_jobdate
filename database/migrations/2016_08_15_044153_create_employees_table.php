@@ -23,6 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('gender'); // 0 = male, 1 = female
             $table->boolean('fulltime')->default(false);
             $table->float('hourly_rate');
+            $table->boolean('email_confirmed')->default(false);
         });
     }
 

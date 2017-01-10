@@ -41,7 +41,6 @@ class UserSeeder extends Seeder
         $employer->phone = '0400000000';
         $employer->establishment_name = 'Alfresco Dining';
         $employer->subscription_end = '2018-02-12';
-        $employer->email_confirmed = true;
         $employer->save();
 
         $user = new User;

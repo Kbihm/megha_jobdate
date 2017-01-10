@@ -57,10 +57,6 @@ return [
 
     'from' => ['address' => 'team@Jobdate.com', 'name' => 'JobDate Team'],
 
-        'to' => [
-        'address' => 'liam.a.southwell@gmail.com',
-        'name' => 'Dev Example'
-    ],
 
     /*
     |--------------------------------------------------------------------------

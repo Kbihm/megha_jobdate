@@ -49,29 +49,38 @@ class JobofferController extends Controller
     }
 
     public function destroy($id)
-    {
+    {   
         $joboffer = Joboffer::find($id);
+        if(Auth::user()->employer->id == $joboffer->employer_id){
         $joboffer->delete();
-        return redirect('/');
+        return back()->with("success", "Job Offer Deleted");
+        }
+        else
+        return ('home');
     }
 
     public function create()
-    {
+    {    
         $roles = Settings::$roles;
         return view('joboffers.create', compact('roles'));
     }
 
     public function edit($id){
         $joboffer = Joboffer::find($id);
+        if(Auth::user()->employer->id == $joboffer->employer_id){
         //want mm/dd/yyyy, have , dd/mm/yyyy
         $dates = explode('-', $joboffer->date);
         $date = $dates[2].'/'.$dates[1].'/'.$dates[0];
         return view('joboffers.edit', compact('joboffer', 'date'));
+        }
+        else
+        return ('home');
     }
 
     public function update(Request $request, $id)
     { 
         $joboffer = Joboffer::find($id);
+        if(Auth::user()->employer->id == $joboffer->employer_id){
         $dates = explode('/', $request->date);
         $realdate = $dates[2].'-'.$dates[1].'-'.$dates[0];  
         $this->validate($request, Joboffer::$rules);
@@ -81,6 +90,8 @@ class JobofferController extends Controller
         $joboffer->date = $realdate;
         $joboffer->save();
         return redirect('/jobs');
+        }
+        else return('home');
     }
 
 }

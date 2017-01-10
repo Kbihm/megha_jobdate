@@ -67,10 +67,14 @@ class CommentsController extends Controller
     {
         $this->validate($request->all(), Comment::$rules);
         $comment = Comment::find($id);
-        $comment->update($request->all());
+         if(Auth::user()->employer->id == $comment->employer_id){
+        $comment->update($request->all()); 
         $comment->update_rating();
         // @TODO Update this route
         return back();
+         }
+         else
+         return view('home');
     }
 
     /**

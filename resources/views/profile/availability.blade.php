@@ -43,7 +43,7 @@
                 <ul class="list-group">
                     <a class="list-group-item" href="/profile">Your Information</a>
                     @if ($user->employee_id != null)
-                    <a class="list-group-item" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item" href="/profile/skills" >Qualifications</a>
                     <a class="list-group-item" href="/profile/experience">Experience</a>
                     <a class="list-group-item active" href="/profile/availability">Availability</a>
                     @endif

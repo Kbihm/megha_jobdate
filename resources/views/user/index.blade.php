@@ -1,10 +1,6 @@
  @extends('layouts.app')
 @section('content')
 
-    @if(null !== (session('error')))
-        <div class="alert alert-danger">{{session('error')}}</div>
-    @endif
-
     <div class="col-md-3">
 
         <div class="card card-refine">
@@ -177,6 +173,13 @@
 
 
     <div class="col-md-9">
+
+                @if (sizeOf($users) == 0)
+                <div class="text-center">
+                    <h2 class="text-muted"> No Results Found </h2>
+                    <p> Try widening your search query. </p>
+                </div>
+                @endif
         
                     @foreach($users as $user)
                         @if($user->employee_id != null)

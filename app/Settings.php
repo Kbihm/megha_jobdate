@@ -19,8 +19,7 @@ class Settings extends Model
         // 'sub_days' => 'required',
         // 'sub_price' => 'required',
         'support_email' => 'required|email',
-        'dispute_email' => 'required|email',
-        'employee_registration_blocked' => 'required'
+        'dispute_email' => 'required|email'
     ];
 
     public static $roles = [

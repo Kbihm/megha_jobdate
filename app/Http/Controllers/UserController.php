@@ -95,7 +95,7 @@ class UserController extends Controller
         $user->save();
 
         $pw_update = true;
-        return view('profile.security', compact('user', 'pw_update'));
+        return view('profile.security', compact('user', 'pw_update')->with("success", "Password Updated."));
     }
 
     public function UpdateEmployer(Request $request)
@@ -113,7 +113,7 @@ class UserController extends Controller
         $employer->save();
         $user->save();
 
-        return redirect('/profile');
+        return redirect('/profile')->with("success", "Profile updated.");
     }
 
     public function UpdateEmployee(Request $request)
@@ -132,7 +132,7 @@ class UserController extends Controller
         $employee->save();
         $user->save();
 
-        return redirect('/profile');
+        return redirect('/profile')->with("success", "Profile updated.");
     }
 
     function days_in_month($month, $year) 

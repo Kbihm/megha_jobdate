@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title')
+Qualifications
+@endsection
+
 @section('content')
 
     <div class="row">
@@ -25,7 +30,7 @@
                 <ul class="list-group">
                     <a class="list-group-item" href="/profile">Your Information</a>
                     @if ($user->employee_id != null)
-                    <a class="list-group-item active" href="/profile/skills" >Skills</a>
+                    <a class="list-group-item active" href="/profile/skills" >Qualifications</a>
                     <a class="list-group-item" href="/profile/experience">Experience</a>
                     <a class="list-group-item" href="/profile/availability">Availability</a>
                     @endif
@@ -58,7 +63,7 @@
         <!--
             SKILLS
         -->
-        <h4 >Skills</h4>
+        <h4 >Qualifications</h4>
 
         <div class="card">
             <div class="content">
@@ -82,7 +87,7 @@
                     @endforeach
                 </ul>
                 @else
-                 <h4 class="title"> You don't currently have any skills saved. Try adding one! </h4>
+                 <h4 class="title"> You don't currently have any qualifications saved. Try adding one! </h4>
                 @endif
 
                            
@@ -90,7 +95,7 @@
             </div>
             
             <div class="panel panel-default">
-                <div class="panel-heading">Add a New Skill</div>
+                <div class="panel-heading">Add a New Qualification</div>
                 <div class="panel-body">
 
                 <div class="text-center">
@@ -100,7 +105,7 @@
                     
                         
                     <div class="form-group{{ $errors->has('skill') ? ' has-error' : '' }}">
-                        <label class="col-sm-2 control-label">Skill</label>
+                        <label class="col-sm-2 control-label">Qualification</label>
                         <div class="col-sm-10">
                             <input type="text" name="skill" class="form-control" @if (count($errors)) value="{{ old('skill') }}" @endif>
                         </div>
@@ -114,7 +119,7 @@
                         <div class="form-group">
                             <div class="text-center" >
                                 <button type="submit" class="btn btn-primary">
-                                    Add Skill
+                                    Add Qualification
                                 </button>
                             </div>
                         </div>  

@@ -29,11 +29,11 @@ class Employer
                 return $next($request);
             }
             else {
-                return redirect('profile/subscription');
+                return redirect('profile/subscription')->with("error", "You need to subscribe before you can view that page.");
             }
         }
         else {
-            return 'Not Authorized to complete this action.';
+            return response('Not Authorized to complete this action.', 401);
         }
     }
 }

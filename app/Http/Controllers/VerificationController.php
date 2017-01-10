@@ -15,14 +15,15 @@ class VerificationController extends Controller
         public function store($id)
     {   
         $user = User::where('id', '=', $id)->first();
-
+         if(Auth::user()->employee->id == $user->employee->id){
         $verification = new Verification();
         $verification->hash = str_random(8);
         $verification->user_id = $id;
         $verification->save();
 
                 $data = array(
-            'verification' => $verification
+            'verification' => $verification,
+            'user' => $user
             );
 
         Mail::send('emails.verify', $data, function ($message) use ($user) {
@@ -31,8 +32,8 @@ class VerificationController extends Controller
             $message->to($user->email)->subject('JobDate - Verify Your Account');
 
         });
-                    
-        return redirect('email/signUp/'.$user->id);
+         }            
+        return redirect('home');
     }
 
         public function destroy($link)
@@ -43,7 +44,7 @@ class VerificationController extends Controller
         $user->email_verified = TRUE;
         $user->save();
         $verification->delete();
-        return redirect('/profile');
+        return redirect('email/signUp/'.$user->id);
         }
     }
 }

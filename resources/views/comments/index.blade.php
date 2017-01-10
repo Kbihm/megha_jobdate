@@ -42,10 +42,10 @@
                         @endif
                     </td>
                     <td> 
-                    <form class="form-horizontal" role="form" method="POST" action="comments/{{ $comment->id }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ $comment->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                    <button  class="btn btn-sm btn-danger"> Delete </button>
+                    <button  class="btn btn-sm btn-danger"> Delete</button>
                      </form>
                     </td>
                 </tr>
