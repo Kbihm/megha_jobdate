@@ -6,16 +6,14 @@
 
 <div class="container">
 
-    <div class="col-md-6">
+    <div class="col-md-12 text-center">
 
-        <div class="hidden-sm hidden-xs">
-            <hr><hr><hr>
-        </div>
+
         <h1>Welcome to JobDate </h1>
 
-        <p> Everyday carry authentic pabst bushwick kinfolk fam typewriter chicharrones occupy paleo, farm-to-table lyft listicle taxidermy waistcoat. Post-ironic next level la croix vinyl. Pour-over ugh cold-pressed, aesthetic distillery fingerstache etsy cronut. Cliche kogi umami church-key, chillwave narwhal authentic gluten-free offal. Keytar asymmetrical sartorial.</p>
-
+        <p> Here are pricing options for employers seeking potential staff. If you're looking for work, it's free! </p>
     </div>
+
 
     <!--<div class="row">
                 <div class="col-md-4">
@@ -53,8 +51,118 @@
                 </div>
             </div>-->
 
+        <div class="">
+                <div class="col-md-3 text-center">
 
-        <div class="col-md-3 text-center">
+                    <div class="card card-price">
+                                    <div class="content">
+                                        <h6 class="category">Employers</h6>
+                                        <h1 class="price">
+                                            <small>$</small>35 <small>/mo</small>
+                                        </h1>
+
+                                        <p class="text-muted text-center">Pay in monthly installments</p>
+
+                                        <ul class="list-unstyled list-lines">
+                                            <li>
+                                                <i class="fa fa-calendar"></i> 14 Day Free Trial
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-money"></i> Pay Monthly
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-clock-o"></i> Find Staff Fast
+                                            </li>
+                                            <li>
+                                                 <i class="fa fa-search"></i> Complex Searching
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer">
+                                    <a href="/register/employee" class="btn btn-info btn-fill btn-block">Start Finding Staff</a>
+                                    </div>
+                                </div>
+
+                    <!--<h4>Employees </h4>
+                    <p>Job Date allows you to set your availability to work when you're available. </p>
+                    <ul style="list-style-type:none;">
+                        <li>Get Job Offers</li>
+                        <li>List your skills &amp; Experience </li>
+                        <li>Completely Free </li>
+                    </ul>
+
+                    <a  class="btn btn-lg btn-primary">Register as an Employee </a>-->
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card card-price">
+                                    <div class="content">
+                                        <h6 class="category">Employers</h6>
+                                        <h1 class="price">
+                                            <small>$</small>330 <small>/yr</small>
+                                        </h1>
+                                        <p class="text-muted text-center">Pay once per year</p>
+
+                                        <ul class="list-unstyled list-lines">
+                                        <li>
+                                                <i class="fa fa-calendar"></i> 30 Days Free Trial
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-money"></i> Pay Annually
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-clock-o"></i> Find Staff Fast
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-search"></i> Complex Searching
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer">
+                                    <a href="/register/employer" class="btn btn-info btn-fill btn-block">Start Finding Staff</a>
+                                    </div>
+                                </div>
+
+                                
+
+                </div>
+
+                <div class="col-md-3 text-center">
+
+                    <div class="card card-price">
+                                    <div class="content">
+                                        <h6 class="category">Multiple Locations</h6>
+                                        <h1 class="price">
+                                            <small>$</small>~ <small>/mo</small>
+                                        </h1>
+
+                                        <p class="text-muted text-center">Multiple Locations</p>
+
+                                        <ul class="list-unstyled list-lines">
+                                            <li>
+                                                <i class="fa fa-clock-o"></i> Find staff fast
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-building"></i> For all locations
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-briefcase"></i> Customised Quote
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-check"></i> Hire more staff
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer">
+                                    <a href="www.jobdate.com.au/contact-us" class="btn btn-info btn-fill btn-block">Contact for a quote</a>
+                                    </div>
+                                </div>
+
+           
+        </div>
+
+         <div class="col-md-3 text-center">
 
             <div class="card card-price">
                             <div class="content">
@@ -97,41 +205,7 @@
 
         </div>
 
-        <div class="col-md-3">
-            <div class="card card-price">
-                            <div class="content">
-                                <h6 class="category">Employers</h6>
-                                <h1 class="price">
-                                    <small>$</small>35 <small>/mo</small>
-                                </h1>
-                                <p class="text-muted text-center"><small>$</small>330 <small>/year</small></p>
-
-                                <ul class="list-unstyled list-lines">
-                                   <li>
-                                        <i class="fa fa-calendar"></i> 30 Days Free Trial
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-money"></i> Pay Monthly or Annually
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-clock-o"></i> When you need them
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-search"></i> Complex Searching
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="footer">
-                               <a href="/register/employer" class="btn btn-info btn-fill btn-block">Start Finding People</a>
-                            </div>
-                        </div>
-
-        </div>
-           
-        </div>
-
-
-
+        <p class="text-center col-md-12"> All subscriptions are charged at the END of your trial and if not satisfied within the trial period you can cancel at any time and you will not be charged. </p>
     
 
 </div>

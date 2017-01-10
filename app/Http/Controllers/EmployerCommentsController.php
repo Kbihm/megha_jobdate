@@ -88,9 +88,14 @@ class EmployerCommentsController extends Controller
 
     public function destroy($id)
     {
+        
         $comment = Comment::find($id);
+        if(Auth::user()->employer->id == $comment->employer_id){
         $comment->delete();
         return redirect('/reviews');
+        }
+        else
+        return view('home');
     }
     
 

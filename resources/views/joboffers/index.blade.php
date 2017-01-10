@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-6 pull-right text-right">
             @if(! Request::is('jobs-archived'))
-            <a href="{{ URL::to('jobs-archived') }} " class="text-muted"> Accepted Jobs </a>    
+            <a href="{{ URL::to('jobs-archived') }} " class="btn btn-primary"> Accepted Jobs </a>    
             &nbsp;
             @endif
             <a href="{{ URL::to('jobs/create') }} " class="btn btn-success "> New Job Listing </a>            

@@ -70,7 +70,7 @@
 
                         <div class="form-group">
                             <label for="time" class="col-sm-2 control-label">Time:</label>
-                            <div class="btn-group col-sm-10" data-toggle="buttons">
+                            <div class="btn-group col-sm-10">
                             <label class="btn btn-warning col-sm-3 @if($joboffer->time == 'Morning') active @endif">
                                 <input name="time" type="radio" autocomplete="off" value="Morning" @if($joboffer->time == 'Morning') checked="checked" @endif> Morning
                             </label>

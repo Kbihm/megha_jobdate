@@ -31,6 +31,7 @@ class BannedAccountsController extends Controller
         $banned->delete();
 
         return redirect('/admin/user/'.$id);
+
     }
 
 

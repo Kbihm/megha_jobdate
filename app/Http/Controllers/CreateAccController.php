@@ -58,7 +58,7 @@ class CreateAccController extends Controller
         $user->save();
         
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
-            return redirect('home');
+            return redirect('/email/signUp/'.$user->id);
         } else {
             return redirect('/register/employee');
         }

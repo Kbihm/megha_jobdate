@@ -15,7 +15,7 @@ class VerificationController extends Controller
         public function store($id)
     {   
         $user = User::where('id', '=', $id)->first();
-
+         if(Auth::user()->employee->id == $user->employee->id){
         $verification = new Verification();
         $verification->hash = str_random(8);
         $verification->user_id = $id;
@@ -32,7 +32,7 @@ class VerificationController extends Controller
             $message->to($user->email)->subject('JobDate - Verify Your Account');
 
         });
-                    
+         }            
         return redirect('home');
     }
 
