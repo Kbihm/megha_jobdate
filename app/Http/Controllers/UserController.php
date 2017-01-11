@@ -148,13 +148,13 @@ class UserController extends Controller
 
             $user = Auth::user();
             if(Auth::user()->id == $id){
-                        
+                if( Auth::user()->employee_id != null){   
                     $filename = $user->employee->id . '.jpg';
                     $imgpath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().$filename;
                     if (File::exists($imgpath)) {
                     File::delete($imgpath);
                     }
-
+                }
                 $user = Auth::user();
                 $user->delete();
             }
