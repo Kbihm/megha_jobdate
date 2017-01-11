@@ -56,6 +56,8 @@ Route::get('/reviews/custom/create/{id}', 'EmployerCommentsController@customCrea
 Route::post('reviews/custom/', 'EmployerCommentsController@customStore');
 Route::resource('/jobs', 'JobofferController');
 Route::resource('/invite', 'InvitesController');
+Route::get('/invite/accept/{id}', 'InvitesController@accept');
+Route::get('/invite/decline/{id}', 'InvitesController@decline');
 
 //Admin
 Route::get('/admin/comments/approved', 'CommentsController@approved');
@@ -69,6 +71,8 @@ Route::post('/admin/user/search', 'AdminUserController@searchByEmail');
 
 //Profile
 Route::get('profile', 'UserController@profile');
+Route::get('profile/delete', 'UserController@delete');
+Route::get('profile/destroy/{id}', 'UserController@destroy');
 Route::get('profile/subscription', 'UserController@subscription');
 Route::get('profile/experience', 'UserController@experience');
 Route::get('profile/skills', 'UserController@skills');

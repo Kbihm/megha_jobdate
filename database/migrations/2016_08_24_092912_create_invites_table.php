@@ -14,7 +14,7 @@ class CreateInvitesTable extends Migration
     {
         Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('joboffer_id')->unsigned();
+            $table->integer('joboffer_id')->unsigned()->nullable();
             $table->integer('employee_id')->unsigned();
             $table->timestamps();
         });

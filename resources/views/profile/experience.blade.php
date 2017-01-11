@@ -39,6 +39,7 @@ Experience
                     
                     @endif
                     <a class="list-group-item" href="/profile/security">Security</a>
+                    <a class="list-group-item" href="/profile/delete">Delete My Account</a>
                 </ul>
 
         <hr>

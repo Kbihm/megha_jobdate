@@ -8,12 +8,14 @@ class Invite extends Model
 {
     protected $fillable = [
         'joboffer_id',
-        'employee_id' 
+        'employee_id',
+        'request_type',
+        'employer_id'
     ];
 
     public static $rules = [
-        'joboffer_id' => 'required',
-        'employee_id' => 'required'
+        'employee_id' => 'required',
+        'employer_id' => 'required'
     ];
 
 
@@ -25,6 +27,11 @@ class Invite extends Model
     public function employee()
     {
         return $this->belongsTo(Employee::class);
+    }
+
+        public function employer()
+    {
+        return $this->belongsTo(Employer::class);
     }
 
 }

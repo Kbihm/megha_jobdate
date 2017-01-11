@@ -41,6 +41,9 @@ class VerificationController extends Controller
         $user = Auth::user();
         $verification = Verification::where('user_id', '=', $user->id)->first();
         if($verification->hash == $link){
+            $employee = $user->employee;
+            $employee->email_confirmed = 1;
+            $employee->save();
         $user->email_verified = TRUE;
         $user->save();
         $verification->delete();

@@ -142,6 +142,23 @@ class UserController extends Controller
     return $month == 2 ? ($year % 4 ? 28 : ($year % 100 ? 29 : ($year % 400 ? 28 : 29))) : (($month - 1) % 7 % 2 ? 30 : 31); 
     } 
 
+     public function destroy($id)
+    {
+
+            $user = Auth::user();
+            if(Auth::user()->id == $id){
+                $user = Auth::user();
+                $user->delete();
+            }
+
+            return redirect('/')->with('error', 'Account Deleted.');
+    }
+
+    public function delete(){
+        $user = Auth::User();
+        return view('profile.delete', compact('user'));
+    }
+
 
 
 }

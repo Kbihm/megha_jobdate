@@ -177,7 +177,20 @@
                         Review {{ $user->user->first_name }}
                     </a>
                 @endif
+                    <form method="POST" action="/invite" role="form">
+                        {{ csrf_field() }}
+                    <input type="hidden" name="request_type" value="details">
+                    <input type="hidden" name="employee_id" value="{{$user->id}}">
+                    <input type="hidden" name="employer_id" value="{{Auth::user()->employer->id}}">
+                    
+                    <button type="submit" class="btn btn-default btn-block">
+                        <div class="col-md-12 pull-left"> 
+                            Request Contact Details 
+                        </div> 
+                    </button>
+                    </form>
 
+                    
                     @if (sizeOf($jobs) > 0)
                     <button type="button" class="btn btn-default btn-block dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="col-md-12"> 
@@ -192,6 +205,7 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                         <input type="hidden" name="employee_id" value="{{$user->id}}">
+                        <input type="hidden" name="employer_id" value="{{Auth::user()->employer->id}}">
                         <li><button class="btn btn-default btn-block" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}}</button></li>
                         </form>
                         @endforeach

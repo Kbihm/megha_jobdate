@@ -38,6 +38,7 @@ Account Security
                     <a class="list-group-item" href="/profile/subscription" >Subscription</a>
                     @endif
                     <a class="list-group-item active" href="/profile/security">Security</a>
+                    <a class="list-group-item" href="/profile/delete">Delete My Account</a>
                 </ul>
 
         <hr>
