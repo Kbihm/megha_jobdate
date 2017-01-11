@@ -32,18 +32,19 @@ class InvitesController extends Controller
     public function store(Request $request)
     {   
         if(Auth::User()->employer_id == $request->employer_id){
-        if($request->request_type == "job"){
-        $joboffer = Joboffer::where('id', '=', $request->joboffer_id)->first();
-        if(Auth::user()->employer->id == $joboffer->employer_id)
-        $this->validate($request, Invite::$rules);
-        $invite = new Invite($request->all());
-        $invite->save();
-        }
-        elseif($request->request_type == "details"){
-        $invite = new Invite($request->all());
-        $invite->save();
-        }
-        return redirect('email/sendJobRequest/'.$invite->id);
+            if($request->request_type != "details"){
+                $joboffer = Joboffer::where('id', '=', $request->joboffer_id)->first();
+                if(Auth::user()->employer->id == $joboffer->employer_id)
+                $this->validate($request, Invite::$rules);
+                $invite = new Invite($request->all());
+                $invite->save();
+                return redirect('email/sendJobRequest/'.$invite->id);
+            }
+                elseif($request->request_type == "details"){
+                $invite = new Invite($request->all());
+                $invite->save();
+                return redirect('email/sendJobRequest/'.$invite->id);
+            }
         }
         else return redirect('home');
     }

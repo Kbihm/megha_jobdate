@@ -136,7 +136,7 @@ Manage my Subscription
                     <br/>
                         <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
+                            data-key="{{ env('STRIPE_KEY') }}"
                             data-amount="3500"
                             data-name="Job Date"
                             data-description="Monthly Subscription"
@@ -168,7 +168,7 @@ Manage my Subscription
                     <br/>
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
+                            data-key="{{ env('STRIPE_KEY') }}"
                             data-amount="33000"
                             data-name="Job Date"
                             data-description="Yearly Subscription"
@@ -243,7 +243,7 @@ Manage my Subscription
         <form action="/subscribe/updatecard" method="POST">
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_VxmN6uGKu6efujyJ4UfxQlYZ"
+                            data-key="{{ env('STRIPE_KEY') }}"
                             data-name="Job Date"
                             data-description="Update Card Details"
                             data-panel-label="Update Card Details"

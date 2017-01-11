@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use File;
+use Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
@@ -100,8 +101,8 @@ class UserController extends Controller
 
     public function UpdateEmployer(Request $request)
     {
-
-        $this->validate($request, User::$update_rules);
+        try {
+        $this->validate($request, User::update_rules());
         $this->validate($request, Employer::$update_rules);
 
         $user = Auth::user();
@@ -114,12 +115,15 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/profile')->with("success", "Profile updated.");
+        } catch (Exception $e) {
+            return back()->withError("An error occured, please check the data your're submitting is correct and try again'");
+        }
     }
 
     public function UpdateEmployee(Request $request)
     {
-
-        $this->validate($request, User::$update_rules);
+        try {
+        $this->validate($request, User::update_rules());
         $this->validate($request, Employee::$rules);
         
         $user = Auth::user();
@@ -134,6 +138,9 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/profile')->with("success", "Profile updated.");
+        } catch (Exception $e) {
+            return back()->withError("An error occured, please check the data your're submitting is correct and try again'");
+        }
     }
 
     function days_in_month($month, $year) 
@@ -147,6 +154,15 @@ class UserController extends Controller
 
             $user = Auth::user();
             if(Auth::user()->id == $id){
+              if(Auth::user()->employee_id != null){
+                    $filename = $user->employee->id . '.jpg';
+                    $imgpath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().$filename;
+                    if (File::exists($imgpath)) {
+                    File::delete($imgpath);
+                    }
+              }
+                
+
                 $user = Auth::user();
                 $user->delete();
             }
