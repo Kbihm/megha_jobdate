@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="content">
 
-                    @if (sizeof($comments) > 0)
+                    @if ($comments != null && sizeof($comments) > 0)
                     @foreach($comments as $comment)
                         @if ($comment-> approved != 0)
                                 <blockquote>
@@ -54,7 +54,7 @@
             </div>
 
     </div>
-
+                 @if ($comments != null && sizeof($comments) > 0)
                     @if(Auth::User()->employee_id != null)
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -82,5 +82,6 @@
                         </div>
                     </div>
                     @endif
+                @endif
 @endsection           
 
