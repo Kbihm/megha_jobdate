@@ -151,6 +151,7 @@ class EmailsController extends Controller
         public function sendJobRequest($id) 
     {
         $invite = Invite::find($id);
+        if($invite->request_type == "job"){
         $joboffer = Joboffer::find($invite->joboffer_id);
         $user = Auth::user();
         $employee = Employee::find($invite->employee_id);
@@ -184,6 +185,23 @@ class EmailsController extends Controller
 
         });
         return back()->with('success', 'Successfully invited to a job.');
+        }
+        elseif($invite->request_type == "details"){
+            $user = Auth::user();
+            $employee = Employee::find($invite->employee_id);
+            $employee = $employee->user;
+                        
+            $data = array(
+                'user' => $user,
+                'employee' => $employee
+            );
+
+        Mail::send('emails.sendDetailRequestemployee', $data, function ($message) use ($employee) {
+            $message->from('team@jobdate.com', 'JobDate');
+            $message->to($employee->email)->subject('Jobdate - Someone has requested your details');
+        });
+        return back()->with('success', 'Successfully requested details.');
+        }
         // return back()->withError('Successfully invited to a Job');
     }
 }

@@ -23,24 +23,37 @@ class EmployeeJobOfferController extends Controller
     {
         $user = Auth::user();
         $joboffers = [];
+        $requests = [];
 
         // This could be done better.
         for ($i = 0; $i < sizeOf($user->employee->invites); $i++) {
+            if($user->employee->invites[$i]->request_type == 'job'){
             array_push($joboffers, $user->employee->invites[$i]->joboffer);
+                   $joboffers = array_reverse($joboffers);
+            }
+            elseif($user->employee->invites[$i]->request_type == 'details'){
+            array_push($requests, $user->employee->invites[$i]);
+            }
         }
 
-        return view('employee-joboffer.index', compact('joboffers'));
+        return view('employee-joboffer.index', compact('joboffers', 'requests'));
     }
 
     public function acceptJobOffer($id)
     {
         $user = Auth::user();
         $joboffer = Joboffer::find($id);
+        $invites = Invite::where('joboffer_id', '=', $joboffer->id)->get();
+        foreach($invites as $invite){
+            if($invite->employee_id != $user->employee->id){
+                $invite->delete();
+            }
+        }
         $joboffer->status = 'accepted';
         $joboffer->employee_id = $user->employee->id;
         $joboffer->save();
         //remove from invites table//
-        //Also when do we remove the job offer //
+
         return redirect('/email/acceptJob/'.$id);
     }
 

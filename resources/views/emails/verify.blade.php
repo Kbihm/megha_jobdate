@@ -7,6 +7,6 @@ We strongly advise that you fully complete your profile, including a profile pic
 Jobdate, it’s as simple as that!<br><br>
 <a href="app.jobdate.com.au/verify/{{$verification->hash}}"> Click here to verify your account </a><br><br>
 If this email was sent to you and you are not the intended recipient please ignore this email and we apologise for any inconvenience.<br><br>
-If the link above does not work, paste this link into your browser's URL bar: app.jobdate.com.au/{{$verification->hash}}
+If the link above does not work, paste this link into your browser's URL bar: app.jobdate.com.au/verify/{{$verification->hash}}
  </p> 
 @endsection

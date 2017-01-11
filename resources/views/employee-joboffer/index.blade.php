@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="col-md-8 col-md-offset-2">
+
+    <div class="col-md-7 ">
+
 
             <h2> Job Listings </h2>
             <p class="text-muted"> These are the Jobs you've been invited to.</p>
@@ -55,6 +57,28 @@
             @endforeach 
             
     </div>
+    <div class="col-md-5 pull-right">
+                    <h2> Detail Requests </h2>
+                <p class="text-muted"> Here are requests for details from employers: <p>
 
+                @foreach($requests as $request)
+                <div class="card">
+                <div class="row col-md-12">
+                     <i class="fa fa-user"></i><strong>From:</strong>&nbsp;&nbsp;       {{ $request->employer->user->first_name}} {{$request->employer->user->last_name}} 
+                </div>
+                <div class="row col-md-12">
+                     <i class="fa fa-building-o"></i><strong>At:</strong>&nbsp;&nbsp;       {{ $request->employer->establishment_name}}
+                </div>
+                    <div class="row">
+                   
+                     <a href="/invite/accept/{{$request->id}}" class="btn btn-success btn-outline btn-sm col-md-3 col-md-offset-1 "> Send Details </a>
+                     <a href="/invite/decline/{{$request->id}}" class="btn btn-danger btn-outline btn-sm col-md-3 col-md-offset-4"> Decline </a>
+                    </div><br>
+                    
+                </div>
+                @endforeach
+                </div> 
+            </div>
+    </div>
 @endsection           
 
