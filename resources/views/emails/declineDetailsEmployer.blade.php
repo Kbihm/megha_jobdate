@@ -9,7 +9,8 @@
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi {{$user->first_name}},<br></p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Unfortunately your request for contact details for {{$employee->user->first_name}} has been declined.
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Unfortunately your request for contact details for {{$employee->first_name}} has been declined.
+
                 <br>        Please contact us if you have any questions or queries admin@jobdate.com.au 
 
 

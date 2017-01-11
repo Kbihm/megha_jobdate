@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use File;
+use Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
@@ -147,6 +148,13 @@ class UserController extends Controller
 
             $user = Auth::user();
             if(Auth::user()->id == $id){
+                        
+                    $filename = $user->employee->id . '.jpg';
+                    $imgpath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().$filename;
+                    if (File::exists($imgpath)) {
+                    File::delete($imgpath);
+                    }
+
                 $user = Auth::user();
                 $user->delete();
             }
