@@ -79,7 +79,7 @@
                                         </ul>
                                     </div>
                                     <div class="footer">
-                                    <a href="/register/employee" class="btn btn-info btn-fill btn-block">Start Finding Staff</a>
+                                    <a href="/register/employer" class="btn btn-info btn-fill btn-block">Start Finding Staff</a>
                                     </div>
                                 </div>
 

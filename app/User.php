@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Cashier\Billable;
 use Laravel\Cashier\Subscription;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -36,10 +37,20 @@ class User extends Authenticatable
     ];
 
     public static $update_rules = [
-        'first_name' => 'required', 
-        'last_name' => 'required',
-        'email' => 'required|unique:users'
-    ];
+                    'email' => 'required|unique:users',
+                    'first_name' => 'required', 
+                    'last_name' => 'required',
+                ];
+
+    public static function update_rules()
+    {
+        $id = Auth::user()->id;
+                return [
+                    'email' => 'required|unique:users,email'.$id,
+                    'first_name' => 'required', 
+                    'last_name' => 'required',
+                ];
+    }
 
     public function employee()
     {
