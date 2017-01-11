@@ -17,5 +17,6 @@ class VerifyCsrfToken extends BaseVerifier
         'subscribe/*',
         'avl',
         'stripe/*',
+        'login'
     ];
 }
