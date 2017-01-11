@@ -38,6 +38,7 @@ class User extends Authenticatable
     public static $update_rules = [
         'first_name' => 'required', 
         'last_name' => 'required',
+        'email' => 'required|unique:users'
     ];
 
     public function employee()
