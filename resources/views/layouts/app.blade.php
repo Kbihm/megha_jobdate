@@ -162,7 +162,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://jobdate.com.au/pricing/">
+                                    <a href="/register">
                                         Pricing
                                     </a>
                                 </li>

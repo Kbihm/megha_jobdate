@@ -53,7 +53,7 @@ My Profile
 
         @if ($user->employee_id != null)
                     <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
-                    Upload/Change profile picture
+                    Profile picture
                     </button>
                     <a class="btn btn-primary btn-block" href="/staff/{{ $user->employee_id }}"> How Employers see me </a>
         @endif
