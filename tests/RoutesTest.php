@@ -17,10 +17,12 @@ class RoutesTest extends TestCase
      */
     public function testPublicRoutes()
     {
+
         $this->visit('/register')->seeStatusCode(200);
         $this->visit('/staff')->seeStatusCode(200);
         $this->visit('/register/employer')->seeStatusCode(200);
         $this->visit('/register/employee')->seeStatusCode(200);
+
     }
 
     public function testAdminRoutes()
@@ -49,6 +51,7 @@ class RoutesTest extends TestCase
         $user = $user[0];
 
         $this->be($user);
+
 
         $this->visit('/offers')->seeStatusCode(200);
         $this->visit('/my-reviews')->seeStatusCode(200);
@@ -81,5 +84,6 @@ class RoutesTest extends TestCase
         $this->visit('/profile/security')->seeStatusCode(200);
         $this->visit('/profile/delete')->seeStatusCode(200);
     }
+
 
 }
