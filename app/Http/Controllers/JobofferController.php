@@ -21,7 +21,15 @@ class JobofferController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $joboffers = Joboffer::where('employer_id', $user->employer->id)->where('status', '!=', 'accepted')->orWhereNull('status')->get();
+        $joboffers = Joboffer::where([
+            ['employer_id', '=', $user->employer->id],
+            ['status', '!=', 'accepted']
+        ])
+        ->orWhere([
+            ['employer_id', '=', $user->employer->id],
+            ['status', '=', 'none']
+
+        ])->get();  
         return view('joboffers.index', compact('joboffers'));
     }
 
@@ -42,6 +50,7 @@ class JobofferController extends Controller
         //test[0] = month, [1] = date, [2] = year
         $dates = explode('/', $joboffer->date);
         $realdate = $dates[2].'-'.$dates[1].'-'.$dates[0];
+        $joboffer->status = 'none';
         $joboffer->date = $realdate;
         $joboffer->employer_id = $user->employer->id;
         $joboffer->save();
