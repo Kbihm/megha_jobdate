@@ -96,7 +96,7 @@ class UserController extends Controller
         $user->save();
 
         $pw_update = true;
-        return view('profile.security', compact('user', 'pw_update')->with("success", "Password Updated."));
+        return view('profile.security', compact('user', 'pw_update'))->with("success", "Password Updated.");
     }
 
     public function UpdateEmployer(Request $request)
