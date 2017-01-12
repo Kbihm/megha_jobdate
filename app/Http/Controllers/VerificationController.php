@@ -42,6 +42,7 @@ class VerificationController extends Controller
 
         public function destroy($link)
     {
+        if(Auth::check()){
         $user = Auth::user();
         $verification = Verification::where('user_id', '=', $user->id)->first();
         if($verification->hash == $link){
@@ -53,5 +54,7 @@ class VerificationController extends Controller
         $verification->delete();
         return redirect('email/signUp/'.$user->id);
         }
+        }
+        else return redirect('/');
     }
 }
