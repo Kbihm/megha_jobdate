@@ -23,6 +23,7 @@ class CreateAccController extends Controller
 
         $user = new User($request->all());
         $employee = new Employee($request->all());
+        $employee->average_rating = 0;
         $user->password = bcrypt($request['password']);
 
         $employee->save();
