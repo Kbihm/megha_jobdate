@@ -176,7 +176,7 @@
                     <a href="/reviews/create/{{$user->id}}"  class="btn btn-default btn-block">
                         Review {{ $user->user->first_name }}
                     </a>
-                @endif
+                
                     <form method="POST" action="/invite" role="form">
                         {{ csrf_field() }}
                     <input type="hidden" name="request_type" value="details">
@@ -189,7 +189,7 @@
                         </div> 
                     </button>
                     </form>
-
+                @endif
                     
                     @if (sizeOf($jobs) > 0)
                     <button type="button" class="btn btn-default btn-block dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
