@@ -15,10 +15,6 @@ class VerificationController extends Controller
         public function store($id)
     {   
         $user = User::where('id', '=', $id)->first();
-        $prevers = Verification::where('user_id', '=', $user->id)->get();
-        foreach($prevers as $pre){
-            $pre->delete();
-        }
          if(Auth::user()->employee->id == $user->employee->id){
         $verification = new Verification();
         $verification->hash = str_random(8);

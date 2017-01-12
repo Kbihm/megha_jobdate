@@ -16,8 +16,7 @@ Home
   <div class="row">
 
             <div class="jumbotron">
-
-                        @if (Auth::user()->employee_id != null && Auth::user()->employee->email_confirmed == false)
+                        @if (Auth::user()->email_validated == null)
                         <a href="/verify/set/{{Auth::user()->id}}"><h3> Click Here for a new verification link </h3></a>
                         @endif  
                 <h1>Hi {{ Auth::user()->first_name }}, Welcome to JobDate </h1>
