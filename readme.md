@@ -1,5 +1,8 @@
 # JobDate Web Platform
 
+
+[![Build Status](https://travis-ci.com/nsg223/jobdate.svg?token=CyQ2sVmqe625Na7jyX72&branch=master)](https://travis-ci.com/nsg223/jobdate)
+
 ## Installation
 
 Clone the Git repository and run the following.
