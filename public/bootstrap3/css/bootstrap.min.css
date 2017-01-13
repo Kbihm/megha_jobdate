@@ -11,9 +11,10 @@
     font-size: 13px;
     line-height: 1.42857143;
     color: #000 !important;
-    word-break: break-all;
     word-wrap: break-word;
     background-color: #fff !important;
     border: none !important;
     border-radius: 4px;
+    white-space: pre-line;
+    word-break: keep-all;
 }
