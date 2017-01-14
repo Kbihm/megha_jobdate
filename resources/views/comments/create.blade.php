@@ -1,4 +1,9 @@
  @extends('layouts.app') 
+
+@section('title')
+Create a Comment
+@endsection
+
  @section('content')
 
 <div class="container">

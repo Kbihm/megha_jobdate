@@ -118,7 +118,7 @@ Manage my Subscription
             @else
 
             <h4 class="title">You're not currently subscribed, have a look at our subscriptions.</h4>                
-            <p>If you have more than one business you wish to register please contact us for pricing</p>
+            <p>If you have more than one business you wish to register, please contact us for pricing</p>
             <div class="row">
 
             <div class=" col-md-offset-1 col-md-4">
@@ -140,6 +140,7 @@ Manage my Subscription
                             data-amount="3500"
                             data-name="Job Date"
                             data-description="Monthly Subscription"
+                            data-panel-label="Subscribe Monthly"
                             data-locale="auto"
                             data-allow-remember-me=false
                             data-currency="aud"
@@ -172,6 +173,7 @@ Manage my Subscription
                             data-amount="33000"
                             data-name="Job Date"
                             data-description="Yearly Subscription"
+                            data-panel-label="Subscribe Yearly"
                             data-locale="auto"
                             data-currency="aud"
                             data-allow-remember-me=false
@@ -182,10 +184,11 @@ Manage my Subscription
 
                     </form>
                 </div>
-
+                
         </div>
 
         </div>
+<p class="text-center">Discounts from coupons will be deducted after checkout. If your coupon code is invalid you'll be able to re-enter it.</p>
 
             @endif
 
