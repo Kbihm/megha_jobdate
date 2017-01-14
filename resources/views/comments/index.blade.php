@@ -1,5 +1,10 @@
  
  @extends('layouts.app')
+
+@section('title')
+Comments
+@endsection
+
 @section('content')
 
     <div class="col-md-12">

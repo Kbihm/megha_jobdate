@@ -1,4 +1,9 @@
  @extends('layouts.app')
+
+@section('title')
+New Skill
+@endsection
+
 @section('content')
 
 <div class="container">

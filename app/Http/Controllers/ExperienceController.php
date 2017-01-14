@@ -51,10 +51,10 @@ class ExperienceController extends Controller
         $this->validate($request, Experience::$rules);
         
         $employment_start = explode('/', $request->employment_start);
-        $employment_start = $employment_start[2].'-'.$employment_start[0].'-'.$employment_start[1];
+        $employment_start = $employment_start[2].'-'.$employment_start[1].'-'.$employment_start[0];
         
         if($request->currently_employed == null && $request->employment_end == ""){
-            return redirect()->back()->withErrors(['Either select a date or check the checkbox to continue.']);
+            return redirect()->back()->withError('Either select a date or check the checkbox to continue.');
         }
         else if($request->currently_employed == "on"){
             
@@ -66,7 +66,7 @@ class ExperienceController extends Controller
         }
         else if($request->currently_employed == null){
             $employment_end = explode('/', $request->employment_end);
-            $employment_end = $employment_end[2].'-'.$employment_end[0].'-'.$employment_end[1];
+            $employment_end = $employment_end[2].'-'.$employment_end[1].'-'.$employment_end[0];
             $employment_length = date('M Y', strtotime($employment_start)) . ' to ' . date('M Y', strtotime($employment_end)) . ' (' . $this->dateDifference($employment_start, $employment_end) . ')';
             
             $experience = new Experience($request->all());

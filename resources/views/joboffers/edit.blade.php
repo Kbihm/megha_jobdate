@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 
+@section('title')
+Edit a Job Listing
+@endsection
+
 @section('content') 
 <div class="container">
 

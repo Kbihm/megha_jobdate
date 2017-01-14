@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title')
+{ $user->user->first_name }} {{ $user->user->last_name }}
+@endsection
+
     @section('content')
     
         <!--  <small>Employee Profile</small> -->

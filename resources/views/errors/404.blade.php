@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+404 Error - Page not found. 
+@endsection
+
 @section('content')
 
 <div class="container">

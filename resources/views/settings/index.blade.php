@@ -1,5 +1,10 @@
  
  @extends('layouts.app')
+
+@section('title')
+Settings
+@endsection
+ 
 @section('content')
 
     <div class="col-md-8 col-md-offset-2">
