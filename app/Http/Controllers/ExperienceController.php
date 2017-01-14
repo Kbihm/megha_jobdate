@@ -120,9 +120,9 @@ class ExperienceController extends Controller
     */
     public function destroy($id)
     {
-        if(Auth::user()->employee->id == $skill->employee_id){
-        $skill = Experience::find($id);
-        $skill->delete();
+        $exp = Experience::find($id);
+        if(Auth::user()->employee->id == $exp->employee_id){
+        $exp->delete();
         return redirect(('/profile/experience'));
         }
         else
