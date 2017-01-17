@@ -170,7 +170,7 @@
 <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                                     <label class="col-md-4 control-label">State</label>
                                      <div class="col-md-6">
-                                    <select id="state" class="form-control" name="state" value="">
+                                    <select id="state" class="form-control" name="state" value="" required="required">
                                         
                                     </select>
                                     </div>
@@ -179,7 +179,7 @@
                                 <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
                                     <label class="col-md-4 control-label">Region</label>
                                     <div class="col-md-6">
-                                    <select id="region" class="form-control" name="region" >
+                                    <select id="region" class="form-control" name="region" required="required">
                                         
                                     </select>
                                     </div>
