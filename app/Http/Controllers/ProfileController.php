@@ -61,7 +61,7 @@ class ProfileController extends Controller
         if(Auth::check()){
             $self_user = Auth::user();
             if ($self_user->employer_id != null) {
-                $jobs = Joboffer::where('status', null)->where('employer_id', $self_user->employer_id)->get();
+                $jobs = Joboffer::where('status', '!=', 'accepted')->where('employer_id', $self_user->employer_id)->get();
                 return view('user.show', compact('user', 'jobs', 'first', 'last', 'daytarget'));
             }
         }
