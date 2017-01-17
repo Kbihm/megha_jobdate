@@ -56,7 +56,7 @@ class CreateAccController extends Controller
         $user->save();
         $employer->email_verified = TRUE;
         $employer->user_id = $user->id;
-        $user->save();
+        $employer->save();
         
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
             return redirect('/email/signUp/'.$user->id);

@@ -27,7 +27,7 @@ class EmployeeJobOfferController extends Controller
 
         // This could be done better.
         for ($i = 0; $i < sizeOf($user->employee->invites); $i++) {
-            if($user->employee->invites[$i]->request_type != "details"){
+            if($user->employee->invites[$i]->request_type != 'details'){
                 if($user->employee->invites[$i]->joboffer != null)
             array_push($joboffers, $user->employee->invites[$i]->joboffer);   
             }
