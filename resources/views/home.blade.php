@@ -142,8 +142,8 @@ Home
 
                                 <h4 class="title">Employee Information</h4>
 
-                                <?php $male_count = sizeOf(App\Employee::where('gender', '0')->get()); ?>
-                                <?php $female_count = sizeOf(App\Employee::where('gender', '1')->get()); ?>
+                                <?php $male_count = sizeOf(App\Employee::where('gender', '0')->orWhere('gender', 'Male')->get()); ?>
+                                <?php $female_count = sizeOf(App\Employee::where('gender', '1')->orWhere('gender', 'Female')->get()); ?>
 
                                 <p> {{ $employee_count }} employees. ({{ $male_count }} male, {{ $female_count }} female) </p>
                                 <?php $skill_count = App\Skill::all(); ?>
