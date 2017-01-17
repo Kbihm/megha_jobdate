@@ -64,21 +64,23 @@ Job Listings
     <div class="col-md-5 pull-right">
                     <h2> Detail Requests </h2>
                 <p class="text-muted"> Here are requests for details from employers: <p>
-
+                <hr>
                 @foreach($requests as $request)
                 <div class="card">
+                <div class="content">
                 <div class="row col-md-12">
-                     <i class="fa fa-user"></i><strong>From:</strong>&nbsp;&nbsp;       {{ $request->employer->user->first_name}} {{$request->employer->user->last_name}} 
+                     <h4 class="title">{{ $request->employer->user->first_name}} {{$request->employer->user->last_name}}  <br> From:&nbsp;{{ $request->employer->establishment_name}} </h4>
                 </div>
                 <div class="row col-md-12">
-                     <i class="fa fa-building-o"></i><strong>At:</strong>&nbsp;&nbsp;       {{ $request->employer->establishment_name}}
+                <hr>
                 </div>
+
                     <div class="row">
-                   
-                     <a href="/invite/accept/{{$request->id}}" class="btn btn-success btn-outline btn-sm col-md-3 col-md-offset-1 "> Send Details </a>
-                     <a href="/invite/decline/{{$request->id}}" class="btn btn-danger btn-outline btn-sm col-md-3 col-md-offset-4"> Decline </a>
+
+                     <a href="/invite/accept/{{$request->id}}" class="btn btn-success btn-fill  col-md-3 col-md-offset-1 "> Send Details </a>
+                     <a href="/invite/decline/{{$request->id}}" class="btn btn-danger btn-fill  col-md-3 col-md-offset-4"> Decline </a>
                     </div><br>
-                    
+                </div>
                 </div>
                 @endforeach
                 </div> 
