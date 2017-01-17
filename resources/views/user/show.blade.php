@@ -211,7 +211,7 @@
                         <input type="hidden" name="joboffer_id" value="{{$job->id}}">
                         <input type="hidden" name="employee_id" value="{{$user->id}}">
                         <input type="hidden" name="employer_id" value="{{Auth::user()->employer->id}}">
-                        <li><button class="btn btn-default btn-block" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}}</button></li>
+                        <li><button class="btn btn-default btn-block" type="submit">{{ date('d F Y', strtotime($job->date)) }}, {{$job->time}} ({{ $job->role }})</button></li>
                         </form>
                         @endforeach
                     </ul>
