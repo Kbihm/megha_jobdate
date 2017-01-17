@@ -37,7 +37,7 @@ class VerificationController extends Controller
 
         });
          }            
-        return redirect('home');
+        return redirect('home')->withError("We've sent you a verification email, please check your email and click the link. Your access is limited until your account is verified. ");
     }
 
         public function destroy($link)

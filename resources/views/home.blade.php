@@ -10,16 +10,18 @@ Home
  Auth::user()->last_login = new Datetime;
  Auth::user()->save();
  ?>                       
-
+            @if (Auth::user()->employee_id != null && Auth::user()->employee->email_confirmed == false && null === (session('error')))
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="right:0 !important;"><span aria-hidden="true">&times;</span></button>
+               Your account still isn't verified, please check your email for a verification link. Cant see your verification email?  <a href="/verify/set/{{Auth::user()->id}}">Click Here for a new verification link</a>
+            </div>
+            @endif  
                         
 <div class="container-fluid">
   <div class="row">
 
             <div class="jumbotron">
 
-                        @if (Auth::user()->employee_id != null && Auth::user()->employee->email_confirmed == false)
-                        <a href="/verify/set/{{Auth::user()->id}}"><h3> Click Here for a new verification link </h3></a>
-                        @endif  
                 <h1>Hi {{ Auth::user()->first_name }}, Welcome to JobDate </h1>
                 
                         @if (Auth::user()->employer_id != null)
