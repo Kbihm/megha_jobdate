@@ -161,10 +161,18 @@ class UserController extends Controller
                     File::delete($imgpath);
                     }
               }
-                
-
-                $user = Auth::user();
-                $user->delete();
+              
+            if ($user->employee_id != null) {
+                $employee = Employee::find($user->employee_id);
+                $employee->delete();
+            } else if ($user->employer_id != null) {
+                $employer = Employer::find($user->employer_id);
+                $employer->delete();
+            } else if ($user->admin_id != null) {
+                $admin = Admin::find($user->admin_id);
+                $admin->delete();
+            }
+            $user->delete();
             }
 
             return redirect('/')->with('error', 'Account Deleted.');
