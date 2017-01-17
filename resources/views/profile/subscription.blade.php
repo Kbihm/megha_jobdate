@@ -188,7 +188,9 @@ Manage my Subscription
         </div>
 
         </div>
-<p class="text-center">Discounts from coupons will be deducted after checkout. If your coupon code is invalid you'll be able to re-enter it.</p>
+<p class="text-center">There will be no charge to your card until after your trial ends. Cancel any time - 
+Coupons will be deducted after checkout. If you enter a coupon code incorrectly or it is invalid the charge
+ will be cancelled and you can re-enter the code. </p>
 
             @endif
 
