@@ -238,6 +238,7 @@
               <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;" width="100%">
                 <tr>
                   <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-top: 10px; padding-bottom: 10px; font-size: 12px; color: #999999; text-align: center;" valign="top" align="center">
+                    <p>If you are not currently logged into your account on this device, you will be required to log back in to the account to complete this request .</p> <br>
                     <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Jobdate Pty Ltd, Robina, QLD, 4226</span>
                     <br><p style="color: #999999; font-size: 12px; text-align: center;">This email, including any attachments, may contain information that is confidential, commercially sensitive and may be subject to legal privilege. If you are not the intended recipient you must not read, use, disseminate, distribute or copy any part of this email, disclose its contents to any other party, or take any action in reliance on it. If you have received this email in error, please contact the sender immediately and delete this email. Jobdate does not warrant that this email or any attachments are free from viruses or other defects. Please ensure that you check for viruses and defects prior to opening any attachments. </p>
                   </td>

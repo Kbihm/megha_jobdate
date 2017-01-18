@@ -12,6 +12,7 @@
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>{{$employee->first_name}}</strong> has accepted your job request for the {{$joboffer->date}} during the {{$joboffer->time}},<br> congratulations and thanks for using Jobdate, please see the employees details below if you need to contact them prior to date of employment.
 <br><br>
 Employee Mobile Number: <strong> {{$employee->employee->phone}} </strong> <br>
+Employee E-mail Address: <strong> {{$employee->email}} </strong> <br>
 Jobdate, it's as simple as that!
 </p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;" width="100%">

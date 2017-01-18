@@ -24,7 +24,7 @@
 
                                     <div style="float: left; width:33%;" class="col-md-3">
                                         <label>
-                                            <input type="radio" name="rating" data-toggle="radio" id="Positive" value="2">
+                                            <input type="radio" name="rating" id="Positive" value="2">
                                             <span class="text-success">Positive</span>
                                         </label>
                                     </div>

@@ -30,7 +30,7 @@ class EmailsController extends Controller
 
             $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to('admin@jobdate.com')->subject('JobDate - Dispute');
+            $message->to('admin@jobdate.com.au')->subject('JobDate - Dispute');
 
         });
         $dispute_submitted = TRUE;

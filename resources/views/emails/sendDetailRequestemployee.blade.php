@@ -9,9 +9,11 @@
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi, {{$employee->first_name}}, <br></p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">{{$user->establishment_name}} has requested your contact details regarding possible employment opportunities, please follow the link below to (accept/ deny) this request.
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">{{$user->employer->establishment_name}} has requested your contact details regarding possible employment opportunities, please follow the link below to (accept/ deny) this request.
 <br> app.jobdate.com.au/offers <br>
-    Jobdate, it’s as simple as that.<br>
+
+<p>when you have logged into your account, go to your offers tab and from there you can accept/decline this request.<br>
+    Jobdate, it’s as simple as that.<br></p>
 Any questions or concerns please contact us at admin@jobdate.com.au<br>
 
 

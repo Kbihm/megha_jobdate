@@ -10,8 +10,8 @@ Job Listings
 
 
             <h2> Job Listings </h2>
-            <a href="/archivedE" class="btn btn-success pull-right">Accepted Jobs</a>
-            <p class="text-muted"> These are the Jobs you've been invited to.</p>
+            <a href="/offers" class="btn btn-primary pull-right">&nbsp;Offered Jobs</a>
+            <p class="text-muted"> These are the Jobs you've accepted.</p>
             <hr>
 
             @foreach($joboffers as $joboffer)
@@ -62,7 +62,7 @@ Job Listings
             @endforeach 
             
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 pull-right">
                     <h2> Detail Requests </h2>
                 <p class="text-muted"> Here are requests for details from employers: <p>
                 <hr>
