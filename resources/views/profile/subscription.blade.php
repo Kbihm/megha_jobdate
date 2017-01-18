@@ -117,8 +117,9 @@ Manage my Subscription
 
             @else
 
-            <h4 class="title">You're not currently subscribed, have a look at our subscriptions.</h4>                
-            <p>If you have more than one business you wish to register, please contact us for pricing</p>
+            <h4 class="title text-center">You're not currently subscribed, have a look at our subscriptions.</h4>                
+            <p class="text-center">If you have more than one business you wish to register, please contact us for pricing</p>
+            <hr>
             <div class="row">
 
             <div class=" col-md-offset-1 col-md-4">
@@ -129,6 +130,7 @@ Manage my Subscription
                         <h1 class="price">
                             <small>$</small>35
                         </h1>
+                        <p class="text-center">14 Day free trial </p>
                         <p class="text-muted text-center small">Price includes GST. </p>
 
                     <label>Coupon Code </label>
@@ -162,6 +164,7 @@ Manage my Subscription
                         <h1 class="price">
                             <small>$</small>330
                         </h1>
+                        <p class="text-center">30 Day free trial </p>
                         <p class="text-muted text-center small">Price includes GST. </p>
 
                     <label>Coupon Code </label>
@@ -188,6 +191,7 @@ Manage my Subscription
         </div>
 
         </div>
+        <hr>
 <p class="text-center">There will be no charge to your card until after your trial ends. Cancel any time - 
 Coupons will be deducted after checkout. If you enter a coupon code incorrectly or it is invalid the charge
  will be cancelled and you can re-enter the code. </p>
