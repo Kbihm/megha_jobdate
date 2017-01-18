@@ -54,11 +54,11 @@ Reviews
                                     @if ($comment-> approved == 0)
                                         <span class="label label-default">Pending Admin Approval</span>
                                     @endif
-                                    @if ($comment->rating == 1)
+                                    @if ($comment->rating == 0)
                                         <span class="label label-danger">Negative</span>
-                                    @elseif ($comment->rating == 2)
+                                    @elseif ($comment->rating == 1)
                                         <span class="label label-default">Neutral</span>
-                                    @elseif ($comment->rating == 3)
+                                    @elseif ($comment->rating == 2)
                                         <span class="label label-success">Positive</span>
                                     @endif
                                     </div>
