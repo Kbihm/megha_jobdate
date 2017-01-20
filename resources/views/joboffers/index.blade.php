@@ -50,20 +50,25 @@
                         <br>
 
                         <hr>
+                        <div class="row" >
                           @if (Auth::user()->employer_id != null && $joboffer->status != "accepted")
-                        <a href="/jobs/{{ $joboffer->id }}/edit" class="btn btn-primary">Edit </a>
-                            <form class="col-md-2"  role="form" method="POST" action="/jobs/{{ $joboffer->id }}">
+                          <div class="col-md-4">
+                        <a href="/jobs/{{ $joboffer->id }}/edit"  class="btn btn-primary pull-left">Edit </a>
+                        </div>
+                        <div class="col-md-2 pull-right">
+                            <form class=""  role="form" method="POST" action="/jobs/{{ $joboffer->id }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type-"submit" class="pull-right btn btn-danger "> Delete </button>
+                                <button  type-"submit" class="btn btn-danger"> Delete </button>
                             </form>
-
+                        </div>  
                           @elseif (Auth::user()->employee_id != null && $joboffer->status != "accepted")
                             <a href="/jobs/{{ $joboffer->id }}" class="btn btn-primary"> Reply to offer </a>
                           @endif
                           @if ($joboffer->status == "accepted")
                             <button class="btn btn-success right"> Accepted </button>
                           @endif
+                          </div>
                     </div>
                 </div>
                 

@@ -9,7 +9,7 @@
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Dear, {{ $user->first_name }}<br> </p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Please note that your job request has successfully been sent to {{$employee->first_name}} for the job request on {{$joboffer->date}}
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Please note that your job request has successfully been sent to {{$employee->first_name}} for the job request on {{$date}}
 <br> <br>
 We hope you continue to find staff through Jobdate and if there is anything we can do, please don’t hesitate to contact us on admin@jobdate.com.au
 <br> <br>

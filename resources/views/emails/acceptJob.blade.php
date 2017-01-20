@@ -10,7 +10,7 @@
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there, {{ $user->first_name }} </p>
              <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
-Congratulations on your employment with <strong>{{ $employer->establishment_name }}</strong> on the <strong>{{ $joboffer->date }}, during the {{$joboffer->time}}</strong>, if you need to contact the employer please do so on the following details, good luck with the job. <br>
+Congratulations on your employment with <strong>{{ $employer->establishment_name }}</strong> on the <strong>{{ $date }}, during the {{$joboffer->time}}</strong>, if you need to contact the employer please do so on the following details, good luck with the job. <br>
 Please ensure you bring with you to the job all certificates required for that job role (e.g RSA for bartender) and also take with you all payment information (e.g TFN and bank details)
 <br>
 <strong> Employer Phone: </strong> {{$employer->phone}} <br>
