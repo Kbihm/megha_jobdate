@@ -9,6 +9,8 @@
 
             <h2 class="">Reviews about you</h2>
             <p class="text-muted">Here's what people are saying about you. </p>
+            <?php $user = Auth::user(); ?>
+            {{ sizeOf($comments )}} Reviews - {{ number_format($user->average_rating / 2 * 100, 2) }}% Rating
             <hr>
 
             <div class="card">

@@ -91,6 +91,7 @@ class CommentsController extends Controller
             $comment->update_rating();
         }
         // @TODO Update this route.
+        $employee->calc_rating();
         return back();
     }
 
