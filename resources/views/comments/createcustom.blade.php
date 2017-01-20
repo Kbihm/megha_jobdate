@@ -22,23 +22,23 @@
                                         <label class="control-label">Use a predefined review</label>
                                     </div>
 
-                                    <div style="float: left; width:33%;" class="col-md-3">
-                                        <label>
-                                            <input type="radio" name="rating" id="Positive" value="2">
+                                    <div  class="col-md-4">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="rating" id="Positive" value="2" >
                                             <span class="text-success">Positive</span>
                                         </label>
                                     </div>
 
 
-                                    <div style="float: left; width:33%;" class="col-md-3">
-                                        <label>
+                                    <div class="col-md-4">
+                                        <label class="radio-inline">
                                             <input type="radio" name="rating" id="Neutral" value="1">
                                             <span class="text-muted">Neutral</span>
                                         </label>
                                     </div>
 
-                                    <div style="float: left; width:33%;" class="col-md-3">
-                                        <label>
+                                    <div  class="col-md-4">
+                                        <label class="radio-inline">
                                             <input type="radio" name="rating" id="Negative" value="0">
                                             <span class="text-danger">Negative</span>
                                         </label>

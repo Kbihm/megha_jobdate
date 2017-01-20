@@ -80,10 +80,13 @@ class EmailsController extends Controller
     {
         $joboffer = Joboffer::find($id);
         $employer = Employer::where('id', '=', $joboffer->employer_id)->first();
+        $dates = explode('-', $joboffer->date);
+        $date = $dates[2].'-'.$dates[1].'-'.$dates[0];
         $data = array(
             'user' => Auth::user(),
             'joboffer' => $joboffer,
             'employer' => $employer,
+            'date' => $date,
             );
 
         Mail::send('emails.acceptJob', $data, function ($message) {
@@ -156,11 +159,13 @@ class EmailsController extends Controller
         $user = Auth::user();
         $employee = Employee::find($invite->employee_id);
         $employee = $employee->user;
-
+        $dates = explode('-', $joboffer->date);
+        $date = $dates[2].'-'.$dates[1].'-'.$dates[0];
         $data = array(
             'user' => $user,
             'joboffer' => $joboffer,
             'employee' => $employee,
+            'date' => $date
             );
 
         Mail::send('emails.sendJobRequestemployer', $data, function ($message) use ($user) {

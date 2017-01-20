@@ -57,9 +57,12 @@ class remindEmployee extends Command
             */
                 foreach($joboffer as $joboffer){
                     if($joboffer->created_at < $date ){
+                    $dates = explode('-', $joboffer->date);
+                    $date = $dates[2].'-'.$dates[1].'-'.$dates[0];
                         $data = array(
                             'joboffer' => $joboffer,
-                            'employee' => $employee
+                            'employee' => $employee,
+                            'date' => $date
                             );
                 Mail::send('emails.remindEmployee', $data, function ($message) use ($employee) {
 

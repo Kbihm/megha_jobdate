@@ -40,23 +40,23 @@ class EmployerCommentsController extends Controller
         //$this->validate($request, Comment::$rules);
         $comment = new Comment($request->all());
         //punctual and able  - positive
-        if(substr_compare(substr($comment->comment, -7), "future.", 1)){
+        if(substr($comment->comment, -7) == "future."){
             $comment->rating = 2;
         }
         //Neutral – Employee did not turn up
-        elseif(substr_compare(substr($comment->comment, -7), " level.", 1)){
+        elseif(substr($comment->comment, -7) == " level."){
             $comment->rating = 1;
         }
         //Neutral – Employee was a 
-        elseif(substr_compare(substr($comment->comment, -7), "ployer.", 1)){
+        elseif(substr($comment->comment, -7) == "ployer."){
             $comment->rating = 1;
         }
         //Negative – Employee was not able
-        elseif(substr_compare(substr($comment->comment, -7), "istory.", 1)){
+        elseif(substr($comment->comment, -7) == "istory."){
             $comment->rating = 0;
         }
         //Negative – Employee never showed
-        elseif(substr_compare(substr($comment->comment, -7), "he job.", 1)){
+        elseif(substr($comment->comment, -7) == "he job."){
             $comment->rating = 0;
         }
         $comment->approved = true;

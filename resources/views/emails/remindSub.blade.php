@@ -11,7 +11,7 @@
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">just a friendly reminder that your subscription is due to expire soon. <br>
 If you do not wish to renew or to update your subscription to an annual subscription please follow the link below to log into your account.
-<br><td style="font-family: sans-serif; font-size: 14px; vertical-align: top; text-align: center; background-color: #3498db; border-radius: 5px; text-align: center;" valign="top" bgcolor="#3498db" align="center"> <a href="www.jobdate.com.au" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Log In</a> </td><br>
+<br><td style="font-family: sans-serif; font-size: 14px; vertical-align: top; text-align: center; background-color: #3498db; border-radius: 5px; text-align: center;" valign="top" bgcolor="#3498db" align="center"> <a href="https://app.jobdate.com.au" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Log In</a> </td><br>
 Jobdate, it's as simple as that! <br>
 Any questions or concerns please contact us at admin@jobdate.com.au
 
