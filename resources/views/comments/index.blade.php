@@ -34,9 +34,9 @@ Comments
                     <td>{{ $comment->employer->establishment_name }}  ({{ $comment->employer->user->first_name }})</td>
                     <td><a href="/admin/user/{{ $comment->employee->user->id }}">{{ $comment->employee->user->first_name }} {{ $comment->employee->user->last_name }}</a></td>
                     <td>
-                        @if($comment->rating == 1) <span class="text-danger">Negative</span>
-                        @elseif($comment->rating == 2) <span class="text-muted">Neutral</span>
-                        @elseif($comment->rating == 3) <span class="text-success">Positive</span>
+                        @if($comment->rating == 0) <span class="text-danger">Negative</span>
+                        @elseif($comment->rating == 1) <span class="text-muted">Neutral</span>
+                        @elseif($comment->rating == 2) <span class="text-success">Positive</span>
                         @endif
                     </td>
                     <td>{{ $comment->comment }}</td>

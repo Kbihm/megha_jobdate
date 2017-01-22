@@ -23,7 +23,7 @@ class CommentSeeder extends Seeder
         $comment->employee_id = 1;
         $comment->employer_id = 1;
         $comment->comment = 'Poor performance all around, terrible work ethic.';
-        $comment->rating = 2;
+        $comment->rating = 0;
         $comment->approved = true;
         $comment->save();
 
@@ -31,7 +31,7 @@ class CommentSeeder extends Seeder
         $comment->employee_id = 1;
         $comment->employer_id = 1;
         $comment->comment = 'Medicore at Best.';
-        $comment->rating = 2;
+        $comment->rating = 1;
         $comment->save();
 
         $comment = new Comment;
@@ -46,7 +46,7 @@ class CommentSeeder extends Seeder
         $comment->employee_id = 1;
         $comment->employer_id = 1;
         $comment->comment = 'Awesome Performance!';
-        $comment->rating = 3;
+        $comment->rating = 2;
         $comment->approved = true;
         $comment->save();
 
@@ -57,7 +57,7 @@ class CommentSeeder extends Seeder
         $comment->employee_id = 2;
         $comment->employer_id = 1;
         $comment->comment = 'Awesome Performance!';
-        $comment->rating = 3;
+        $comment->rating = 2;
         $comment->approved = true;
         $comment->save();
 

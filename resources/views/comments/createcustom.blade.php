@@ -18,11 +18,7 @@
                                     <form class="form-horizontal" role="form" method="POST" action="/reviews/custom">
                                     {{ csrf_field() }}
 
-                                    <div class="col-md-12">
-                                        <label class="control-label">Use a predefined review</label>
-                                    </div>
-
-                                    <div  class="col-md-4">
+                                    <!--<div  class="col-md-4">
                                         <label class="radio-inline">
                                             <input type="radio" name="rating" id="Positive" value="2" >
                                             <span class="text-success">Positive</span>
@@ -42,11 +38,25 @@
                                             <input type="radio" name="rating" id="Negative" value="0">
                                             <span class="text-danger">Negative</span>
                                         </label>
+                                    </div>-->
+
+                                    <div class="col-md-12">
+                                        <br/>
+                                        <label> Your Rating </label>
+                                        <select name="rating" class="form-control">
+                                            <option value="2">Positive</option>
+                                            <option value="1">Neutral</option>
+                                            <option value="0">Negative</option>
+                                        </select>
+                                        <br/>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <textarea class="form-control" name="comment" id="comment"> </textarea>
+                                        <label> Review </label>
+                                        <textarea class="form-control" name="comment" id="comment" rows="5"> </textarea>
+                                        </br>
                                     </div>
+                                    
                                 </div>
                                   <input type="hidden" name="employee_id" value="{{$user->id}}">
                             </div>
