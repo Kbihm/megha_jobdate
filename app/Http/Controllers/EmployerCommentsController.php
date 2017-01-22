@@ -78,7 +78,8 @@ class EmployerCommentsController extends Controller
         $comment->employer_id = Auth::user()->employer->id;
         $comment->save();
         //sets the jobs that the employer is leave a review for to 'reviewed'.
-        $joboffers = $this->fetchJobs($comment->employee_id);
+        // $joboffers = $this->fetchJobs($comment->employee_id);
+        $joboffers = Joboffer::where('employer_id', $comment->employer_id)->where('employee_id', $comment->employee_id)->get();
         foreach($joboffers as $joboffer){
             $joboffer->review_left = 1;
             $joboffer->save();
