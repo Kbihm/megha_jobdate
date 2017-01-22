@@ -9,8 +9,18 @@
 
             <h2 class="">Reviews about you</h2>
             <p class="text-muted">Here's what people are saying about you. </p>
-            <?php $user = Auth::user(); ?>
-            {{ sizeOf($comments )}} Reviews - {{ number_format($user->average_rating / 2 * 100, 2) }}% Rating
+            <?php $user = Auth::user(); 
+                  $approved_size = 0;
+
+                  for ($i = 0; $i < sizeOf($comments); $i++) {
+                      if ($comments[$i]->approved != 0) {
+                          $approved_size += 1;
+                      }
+                  }
+            ?>
+
+
+            {{ $approved_size }} Reviews - {{ number_format($user->average_rating / 2 * 100, 2) }}% Rating
             <hr>
 
             <div class="card">
