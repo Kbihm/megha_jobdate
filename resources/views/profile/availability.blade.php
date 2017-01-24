@@ -276,6 +276,7 @@
                     dataType: "json",
                     contentType: "application/json",
                     success:function(data) {
+                        window.scrollTo(0,0);
                         location.reload();
                     } 
                 }).error(function(response){
