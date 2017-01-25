@@ -10,7 +10,7 @@
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;" valign="top">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi, {{$employee->first_name}}, <br></p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">{{$user->employer->establishment_name}} has requested your contact details regarding possible employment opportunities, please follow the link below to (accept/ deny) this request.
-<a href="https://app.jobdate.com.au/offers" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Log In</a>
+<br><a href="https://app.jobdate.com.au/offers" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Log In</a>
 
 <p>when you have logged into your account, go to your offers tab and from there you can accept/decline this request.<br>
     Jobdate, it’s as simple as that.<br></p>
