@@ -20,7 +20,7 @@ class EmployeeJobOfferController extends Controller
     }
 
     public function index()
-    {
+    {   
         $user = Auth::user();
         $joboffers = [];
         $requests = [];
