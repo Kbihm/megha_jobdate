@@ -105,12 +105,13 @@
                             </span>
                             </br>
                         @if($user->second_role !== null)
-                            <span class="price">Secondary Role</span>
+                            <span class="price">2nd Role</span>
                             <span class="pull-right">
                                 {{ $user->second_role }}
                             </span>
                             </br>
                         @endif
+
                             <span class="price">Hourly Rate</span>
                             <span class="pull-right">
                                 <i class="fa fa-usd"></i>{{ number_format($user->hourly_rate, 2) }}
