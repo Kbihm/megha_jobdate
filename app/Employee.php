@@ -69,22 +69,22 @@ class Employee extends Model
         
         if(sizeof($comments) != 0){
 
-        $sum = 0;
+            $sum = 0;
 
-        foreach ($comments as $comment)
-            $sum += $comment->rating;
+            foreach ($comments as $comment)
+                $sum += $comment->rating;
 
-        $sum -= sizeof($comments);
-        $avg = $sum / sizeof($comments);
-        $this->average_rating = $avg;
-        $this->save();
-        }
+            // $sum -= sizeof($comments);
+            $avg = $sum / sizeof($comments);
+            $this->average_rating = $avg;
+            $this->save();
+            }
 
-        else{
-        $avg = 0;
-        $this->average_rating = $avg;
-        $this->save();
-        }
+            else{
+            $avg = 0;
+            $this->average_rating = $avg;
+            $this->save();
+            }
 
     }
 
