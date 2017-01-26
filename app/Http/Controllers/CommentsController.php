@@ -55,7 +55,7 @@ class CommentsController extends Controller
         $comment = new Comment($request->all());
         $comment->owner_user_id = Auth::user()->id;
         $comment->save();
-        $comment->update_rating();
+        $comment->employee->update_rating();
         // @TODO Update This Route.
         return view('comments.index');
     }
@@ -69,7 +69,7 @@ class CommentsController extends Controller
         $comment = Comment::find($id);
          if(Auth::user()->employer->id == $comment->employer_id){
         $comment->update($request->all()); 
-        $comment->update_rating();
+        $comment->employee->update_rating();
         // @TODO Update this route
         return back();
          }
@@ -86,6 +86,7 @@ class CommentsController extends Controller
         try {
             $comment = Comment::find($id); 
             $user = Auth::user();
+            // dd($comment);
 
             // Check if employee
             if ($user->employee_id != null)
@@ -101,7 +102,7 @@ class CommentsController extends Controller
 
             $employee = Employee::find($comment->employee_id);
             $comment->delete();
-            $employee->update_rating();
+            // $employee->update_rating();
             return back();
 
         } catch (Exception $e) {

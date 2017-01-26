@@ -47,7 +47,7 @@ Comments
                         @endif
                     </td>
                     <td> 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ $comment->id }}">
+                    <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                     <button  class="btn btn-sm btn-danger"> Delete</button>
