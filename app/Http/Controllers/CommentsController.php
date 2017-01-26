@@ -83,20 +83,30 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        $comment = Comment::find($id); 
-        $user = Auth::user();
+        try {
+            $comment = Comment::find($id); 
+            $user = Auth::user();
 
-        if  (null === $comment->id);
-            return back()->withError("Comment can not be deleted, comment not showing in database. Try again.");
+            // Check if employee
+            if ($user->employee_id != null)
+                return back()->withError("Employee's can not delete comments.");
 
-            // If the users is an employer who owns the comment                            or logged in as admin
-        if ((null != $user->employer_id && $user->employer_id == $comment->employer_id) || $user->admin_id != null) {
+            // Check data is correct. 
+            if  (null === $comment->id)
+                return back()->withError("Comment can not be deleted, comment not showing in database. Try again.");
+            
+            // Check if the user is either an employee who owns comment or an admin - reject if not. 
+            if ((null === $user->employer_id && $user->employer_id == $comment->employer_id)|| $user->admin_id === null)
+                return back()->withError("You don't own this comment");
+
             $employee = Employee::find($comment->employee_id);
             $comment->delete();
             $employee->update_rating();
-        }
+            return back();
 
-        return back();
+        } catch (Exception $e) {
+            return back()->withError("Error occured, please try again.");
+        }
     }
 
     public function edit($id)
