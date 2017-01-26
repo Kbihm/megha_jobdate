@@ -244,7 +244,11 @@
             <div class="card">
                 <div class="content">
                     <h4 class="title">About {{$user->user->first_name}}</h4>
+                    @if ($user->about !== null)
                     <pre class="description">{{$user->about}}</pre>
+                    @else
+                    <p> No bio added. </p>
+                    @endif
                 </div>
             </div> 
 
