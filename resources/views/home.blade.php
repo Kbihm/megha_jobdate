@@ -215,11 +215,11 @@ Home
         @if(sizeof($review) > 0)
                                 <blockquote>    
                                    <div class="pull-right">
-                                   @if ($review->rating == 1)
+                                   @if ($review->rating == 0)
                                         <span class="label label-danger">Negative</span>
-                                    @elseif ($review->rating == 2)
+                                    @elseif ($review->rating == 1)
                                         <span class="label label-default">Neutral</span>
-                                    @elseif ($review->rating == 3)
+                                    @elseif ($review->rating == 2)
                                         <span class="label label-success">Positive</span>
                                     @endif
                                     </div>
