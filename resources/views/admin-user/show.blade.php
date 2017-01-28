@@ -99,7 +99,7 @@
             <tr>
                 <th>Subscription</th>
                 @if($user->subscription('main'))
-                <td>{{ $user->subscription('main') }}</td>
+                <td>{{ $user->subscription('main')->stripe_id }}</td>
                 @else
                 <td> None </td>
                 @endif
