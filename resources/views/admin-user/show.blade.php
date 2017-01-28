@@ -44,15 +44,15 @@
         <table class="table">
             <tr>
                 <th>User ID</th>
-                <td>{{ $user->employer->user_id }}</td>
+                <td>{{ $user->id }}</td>
             </tr>
             <tr>
                 <th>Account Created At</th>
-                <td>{{ $user->employer->created_at }}</td>
+                <td>{{ $user->created_at }}</td>
             </tr>
             <tr>
                 <th>Updated At</th>
-                <td>{{ $user->employer->updated_at }}</td>
+                <td>{{ $user->updated_at }}</td>
             </tr>
             <tr>
                 <th>Phone</th>
@@ -72,8 +72,9 @@
             </tr>
             <tr>
                 <th>Email Confirmed</th>
-                <td>{{ $user->employer->email_confirmed }}</td>
+                <td>{{ $user->email_verified }}</td>
             </tr>
+            @if($user->stripe_id != null)
             <tr>
                 <th>Stripe ID</th>
                 <td>{{ $user->stripe_id }}</td>
@@ -94,9 +95,14 @@
                 <th>Stripe Plan</th>
                 <td>{{ $user->subscription('main')->stripe_plan }}</td>
             </tr>
+            @endif
             <tr>
                 <th>Subscription</th>
-                <td>{{ $user->subscription('main') }}</td>
+                @if($user->subscription('main'))
+                <td>{{ $user->subscription('main')->stripe_id }}</td>
+                @else
+                <td> None </td>
+                @endif
             </tr>
             <tr>
                 <th>Banned</th>
@@ -104,7 +110,7 @@
             </tr>              
         </table>
         </div>
-        </div>
+        </div>  
     @elseif ($user->employee_id != null)
         <div class="row">
         
