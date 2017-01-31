@@ -13,7 +13,7 @@
                   $user = Auth::user(); 
                   $approved_size = 0;
 
-                  for ($i = 0; $i < sizeOf($comments); $i++) {
+                  for ($i = 0; $i < count($comments); $i++) {
                       if ($comments[$i]->approved != 0) {
                           $approved_size += 1;
                       }
