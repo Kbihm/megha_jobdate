@@ -67,6 +67,10 @@ class EmployerCommentsController extends Controller
             $joboffer->review_left = 1;
             $joboffer->save();
         }
+        
+        $employee = Employee::find($comment->employee_id);
+        $employee->calc_rating();
+
         return redirect('/reviews');
     }
 
