@@ -42,7 +42,7 @@
                                     @endif
                                     </div>
                                     <p>{{$comment->comment}}<p>
-                                    <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }} </small>
+                                    <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }}  ({{ date('F, Y', strtotime($comment->created_at)) }}) </small>
                                     
                                     <a type="button" class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#myModal">Dispute </a>
 
@@ -51,7 +51,7 @@
                                         <form class="form-horizontal" role="form" method="POST" action="/admin/comments/{{ $comment->id }}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
-                                            <button type-"submit" class="btn btn-danger btn-xs"> Delete </button>
+                                            <button type-"submit" class="btn btn-danger btn-sm"> Delete </button>
                                         </form>
                                     @endif
                                 </blockquote>                             
