@@ -224,6 +224,7 @@ Home
                                     @endif
                                     </div>
                                     <p>{{$review->comment}}<p>
+                                    <small>{{ $review->employer->user->first_name }} at {{ $review->employer->establishment_name }}  ({{ date('F, Y', strtotime($review->created_at)) }}) </small>
                                 </blockquote>                             
         @else
                     <p> There doesn't seem to be any reviews that have been left for you. </p>
