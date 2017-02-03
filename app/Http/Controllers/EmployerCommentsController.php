@@ -22,7 +22,7 @@ class EmployerCommentsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $comments = Comment::where('employer_id', $user->employer->id)->orderBy("updated_at", "desc")->paginate(10);
+        $comments = Comment::where('employer_id', $user->employer->id)->orderBy("id", "desc")->paginate(10);
                 
         $today = date("Y-m-d");
         $joboffers = Joboffer::where([

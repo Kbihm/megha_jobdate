@@ -134,7 +134,7 @@ Home
                                 <p> {{ sizeOf($joboffer_count) }} Job Offers sent.</p>
                                
                                 <?php $joboffer_approved_count = App\Joboffer::where('status', 'accepted'); ?>
-                                <p> {{ sizeOf($joboffer_approved_count) }} Job Offers approved.</p>
+                                <!-- <p> {{ sizeOf($joboffer_approved_count) }} Job Offers approved.</p> -->
 
                             </div>
                         </div>
