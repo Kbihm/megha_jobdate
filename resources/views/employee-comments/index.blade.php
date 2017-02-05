@@ -43,7 +43,7 @@
                                     <p>{{$comment->comment}}<p>
                                     <small>{{ $comment->employer->user->first_name }} at {{ $comment->employer->establishment_name }}  ({{ date('F, Y', strtotime($comment->created_at)) }}) </small>
                                     
-                                    <a type="button" class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#myModal">Dispute </a>
+                                    <a type="button" class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#myModal-{{ $comment->id }}">Dispute </a>
 
 
                                     @if (Auth::user()->admin_id != null || Auth::user()->employer_id ==  $comment->employer_id)
@@ -53,23 +53,15 @@
                                             <button type-"submit" class="btn btn-danger btn-sm"> Delete </button>
                                         </form>
                                     @endif
+
+                                    
                                 </blockquote>                             
                                 
                                 <br>
                                     
-    
-                        @endif
-                    @endforeach
-                    @else
-                     Looks like there aren't any reviews for you just yet.
-                    @endif
-                </div>
-            </div>
-
-    </div>
-@if ($comments != null && sizeof($comments) > 0)
+    @if ($comments != null && sizeof($comments) > 0)
     @if(Auth::User()->employee_id != null)
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal-{{$comment->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -79,7 +71,7 @@
                 <h4 class="modal-title" id="myModalLabel">Dispute a Review</h4>
             </div>
             <div class="modal-body">
-                <p class="text-danger"> </p>
+                <p class="text-muted"> Comment: {{ $comment->comment }}</p>
                 <hr>
                     <form action="/email/dispute/{{Auth::user()->id}}/{{$comment->id}}" method="GET" role="form">
                         {{ csrf_field() }}
@@ -96,5 +88,14 @@
     </div>
     @endif
 @endif
+                        @endif
+                    @endforeach
+                    @else
+                     Looks like there aren't any reviews for you just yet.
+                    @endif
+                </div>
+            </div>
+
+    </div>
 @endsection
 
