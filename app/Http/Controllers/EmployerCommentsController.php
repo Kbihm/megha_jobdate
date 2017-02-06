@@ -22,7 +22,7 @@ class EmployerCommentsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $comments = Comment::where('employer_id', $user->employer->id)->paginate(10);
+        $comments = Comment::where('employer_id', $user->employer->id)->orderBy("id", "desc")->paginate(10);
                 
         $today = date("Y-m-d");
         $joboffers = Joboffer::where([
@@ -67,6 +67,10 @@ class EmployerCommentsController extends Controller
             $joboffer->review_left = 1;
             $joboffer->save();
         }
+        
+        $employee = Employee::find($comment->employee_id);
+        $employee->calc_rating();
+
         return redirect('/reviews');
     }
 

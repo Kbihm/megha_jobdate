@@ -45,7 +45,7 @@ class Employee extends Model
     public function comments()
     {
         $comments = $this->hasMany(Comment::class);
-        return $comments->where('approved', true)->orderBy('created_at', 'desc');
+        return $comments->where('approved', true)->orderBy('id', 'desc');
     }
 
     public function user()

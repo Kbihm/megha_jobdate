@@ -41,7 +41,7 @@
             @if ($user->employer_id != null)
                 Employer
             @elseif ($user->employee_id != null)
-                <a href="/staff/{{ $user->id }}" target="_blank">Employee</a>
+                <a href="/staff/{{ $user->employee_id }}" target="_blank">Employee</a>
             @elseif($user->admin_id != null)
                 Admin
             @else

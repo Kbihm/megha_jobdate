@@ -73,6 +73,8 @@
                 array_push($availability, $tmp);
             }
 
+            $user->calc_rating();
+
         ?>
 
             <div class="row">

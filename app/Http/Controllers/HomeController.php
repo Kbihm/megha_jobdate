@@ -38,8 +38,7 @@ class HomeController extends Controller
         }
         if(Auth::User()->employee_id != null){
 
-        $review = Comment::where('employee_id', '=', Auth::User()->employee->id)->first();
-
+        $review = Comment::where('employee_id', '=', Auth::User()->employee->id)->where('approved', true)->orderBy("id", "desc")->first();
 
         return view('home', compact('review'));
         }

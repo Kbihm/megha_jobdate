@@ -20,9 +20,8 @@ class EmployeeCommentsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $comments = Comment::where('employee_id', $user->employee_id)->get();
+        $comments = Comment::where('employee_id', $user->employee_id)->orderBy("id", "desc")->get();
         return view('employee-comments.index', compact('comments'));
-
     }
 
 

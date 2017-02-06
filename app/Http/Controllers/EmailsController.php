@@ -19,6 +19,7 @@ class EmailsController extends Controller
         //Any time a dispute is filed through the dispute system
     public function dispute(Request $request, $id, $cid) 
     {
+        // dd($cid);
         $input = $request->all();
         $data = array(
             'user' => Auth::user(),
@@ -29,7 +30,6 @@ class EmailsController extends Controller
         Mail::send('emails.sendDispute', $data, function ($message) {
 
             $message->from('team@jobdate.com', 'JobDate');
-
             $message->to('admin@jobdate.com.au')->subject('JobDate - Dispute');
 
         });
