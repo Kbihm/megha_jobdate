@@ -181,7 +181,7 @@
                 </div>
 
                 @if (Auth::check() && Auth::user()->employer_id != null)
-                    <a href="/reviews/create/{{$user->id}}"  class="btn btn-default btn-block">
+                    <a href="/reviews/create/{{$user->id}}"  class="btn btn-primary btn-block">
                         Review {{ $user->user->first_name }}
                     </a>
                 
@@ -191,7 +191,7 @@
                     <input type="hidden" name="employee_id" value="{{$user->id}}">
                     <input type="hidden" name="employer_id" value="{{Auth::user()->employer->id}}">
                     
-                    <button type="submit" class="btn btn-default btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                         <div class="col-md-12 pull-left"> 
                             Request Contact Details 
                         </div> 
@@ -200,7 +200,7 @@
                 @endif
                     
                     @if (sizeOf($jobs) > 0)
-                    <button type="button" class="btn btn-default btn-block dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-primary btn-block dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="col-md-12"> 
                             Invite {{ $user->user->first_name }} to a Job 
                         </div> 
