@@ -28,8 +28,8 @@ class JobofferController extends Controller
         ->orWhere([
             ['employer_id', '=', $user->employer->id],
             ['status', '=', 'none']
+        ])->orderBy('updated_at', 'desc')->get();  
 
-        ])->get();  
         return view('joboffers.index', compact('joboffers'));
     }
 
