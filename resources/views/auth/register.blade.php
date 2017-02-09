@@ -29,7 +29,7 @@
 
                                         <ul class="list-unstyled list-lines">
                                             <li>
-                                                <i class="fa fa-calendar"></i> 14 Day Free Trial
+                                                <i class="fa fa-calendar"></i> 14 or 30 Day Free Trial
                                             </li>
                                             <li>
                                                 <i class="fa fa-money"></i> Pay Monthly or Yearly
