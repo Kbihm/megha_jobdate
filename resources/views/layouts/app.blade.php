@@ -221,7 +221,7 @@
                                     </a>
                                 </li>
                                                                 <li>
-                                     <a href="https://www.instagram.com/jobdateau/"  target="_blank" class="btn btn-social btn-tumblr btn-simple">
+                                     <a href="https://www.instagram.com/jobdate/"  target="_blank" class="btn btn-social btn-tumblr btn-simple">
                                         <i class="fa fa-instagram"></i> Instagram
                                     </a>
                                 </li>
