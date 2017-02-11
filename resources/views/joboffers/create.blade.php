@@ -44,7 +44,8 @@ Create New Job Listing
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Description</label>
                             <div class="col-sm-10">
-                                <textarea style="resize: none;" type="input" name="description" class="form-control" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
+                                <p class="text-muted">Ensure you include a start time for the Job. </p>
+                                <textarea style="resize: none;" type="input" name="description" class="form-control" rows="5" @if (count($errors)) value="{{ old('description') }}" @endif></textarea>
                                 @if ($errors->has('description'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('description') }}</strong>
@@ -85,6 +86,7 @@ Create New Job Listing
                                 </span>
                             @endif
                                 <div class="col-sm-4">
+                                    <p> &nbsp; </p>
                                     <button class="btn btn-success form-control" type="submit" >
                                         Create
                                     </button>

@@ -78,8 +78,12 @@ Job Listings
 
                     <div class="row">
 
-                     <a href="/invite/accept/{{$request->id}}" class="btn btn-success btn-fill  col-md-3 col-md-offset-1 "> Send Details </a>
-                     <a href="/invite/decline/{{$request->id}}" class="btn btn-danger btn-fill  col-md-3 col-md-offset-4"> Decline </a>
+                    <div class="col-xs-6">
+                     <a href="/invite/accept/{{$request->id}}" class="btn btn-success btn-fill"> Send Details </a>
+                     </div>
+                     <div class="col-xs-6 text-right">
+                     <a href="/invite/decline/{{$request->id}}" class="btn btn-danger btn-fill"> Decline </a>
+                    </div>
                     </div><br>
                 </div>
                 </div>

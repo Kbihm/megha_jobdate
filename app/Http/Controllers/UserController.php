@@ -132,8 +132,12 @@ class UserController extends Controller
 
         $user->update($request->all());
         $employee->update($request->all());
+
         if($request->second_role == "")
-        $employee->second_role = null;
+            $employee->second_role = null;
+        if ($request->area == 'any' || $request->area == 'Any')
+            $employee->suburb = 'any';
+
         $employee->save();
         $user->save();
 

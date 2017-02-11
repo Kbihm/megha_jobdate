@@ -30,8 +30,13 @@ class CreateAccController extends Controller
         $user->employee_id = $employee->id;
         $user->save();
 
+        if ($request->area == 'any' || $request->area == 'Any')
+            $employee->suburb = 'any';
+
         $employee->user_id = $user->id;
         $employee->save();
+
+    
 
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
             return redirect('verify/set/'.$user->id);
