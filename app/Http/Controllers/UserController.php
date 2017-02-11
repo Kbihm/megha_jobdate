@@ -156,9 +156,12 @@ class UserController extends Controller
      public function destroy($id)
     {
 
-            $user = Auth::user();
-            if(Auth::user()->id == $id){
-              if(Auth::user()->employee_id != null){
+            $curruser = Auth::user();
+            $user = User::Where('id', '=', $id)->first();
+
+            if($curruser->id == $id || $curruser->admin_id != null){
+              if($user->employee_id != null){
+
                     $filename = $user->employee->id . '.jpg';
                     $imgpath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix().$filename;
                     if (File::exists($imgpath)) {

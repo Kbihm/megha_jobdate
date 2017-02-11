@@ -205,10 +205,9 @@
                     <th>Description</th>
                     <th>Approved</th>
                     <th>Delete </th>
-                </tr>
-
+                </tr>   
                 @foreach($user->employee->comments as $comment)
-               <tr> 
+               <tr>    
                     <td>{{ $comment->employer->establishment_name }}  ({{ $comment->employer->user->first_name }})</td>
                     <td><a href="/admin/user/{{ $comment->employee->user->id }}">{{ $comment->employee->user->first_name }} {{ $comment->employee->user->last_name }}</a></td>
                     <td>
@@ -241,7 +240,32 @@
     @else
         Error.
     @endif
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+  Delete
+</button>
 
+
+
+
+
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this user?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+        </button>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a class="btn btn-danger" href="/profile/destroy/{{$user->id}}">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 @endsection           
 
