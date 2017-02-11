@@ -1328,7 +1328,7 @@
 },  {
  "area" : "Wooden Valley Area",
 "suburbs": ["Chifley", "Curtin", "Farrer", "Garran", "Hughes", "Isaacs", "Lyons", "Mawson", "Oâ€™Malley", "Pearce", "Phillip", "Torrens"]
-			}]
+}]
 		}]
 	},
     {
@@ -1351,23 +1351,8 @@
  "area" : "Cambridge Area",
 "suburbs": ["Wembley", "Floreat", "City Beach", "West Leederville"] 
 },  {
-
  "area" : "Canning Area",
 "suburbs": ["Bentley", "Canning Vale", "Cannington", "East Cannington", "Ferndale", "Lynwood", "Parkwood", "Queens Park", "Riverton", "Rossmoyne", "Shelley", "Welshpool", "Willetton", "Wilson"] 
-
- "area" : 
-"suburbs": ["Tennant Creek"]
-			}]
-		}]
-	},
-    {
-    "state": "QLD",
-		"regions": [{
-"region": "Brisbane Region", 
- "areas": [{
- "area" : "Brisbane City",
-"suburbs": ["Any"] 
-
 },  {
  "area" : "Cockburn Area",
 "suburbs": ["Atwell", "Aubin Grove", "Banjup", "Beeliar", "Bibra Lake", "Coogee", "Coolbellup", "Hamilton Hill", "Hammond Park", "Henderson", "Jandakot", "Munster", "North Lake", "South Lake", "Spearwood", "Success", "Wattleup", "Yangebup"] 
