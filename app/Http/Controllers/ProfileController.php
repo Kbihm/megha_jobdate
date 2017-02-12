@@ -25,7 +25,7 @@ class ProfileController extends Controller
     
     public function index()
     {
-        $employees = Employee::where('email_confirmed', true)->orderBy("average_rating", "desc")->paginate(15);
+        $employees = Employee::where('email_confirmed', true)->orderBy("average_rating", "desc")->get();
         $users = [];
         foreach ($employees as $employee)
             array_push($users, $employee->user);
