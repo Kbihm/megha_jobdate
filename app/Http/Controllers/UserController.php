@@ -174,6 +174,9 @@ class UserController extends Controller
                 $employee->delete();
             } else if ($user->employer_id != null) {
                 $employer = Employer::find($user->employer_id);
+                $reviews = Comment::where('employer_id', $employer->id)->get();
+                foreach($reviews as $review)
+                    $review->delete();
                 $employer->delete();
             } else if ($user->admin_id != null) {
                 $admin = Admin::find($user->admin_id);

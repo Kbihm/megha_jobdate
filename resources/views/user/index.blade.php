@@ -187,7 +187,6 @@ Search Employees
                 @endif
         
                     @foreach($users as $user)
-                        @if($user->employee_id != null)
 
                         <div class="card card-horizontal">
                             <div class="row">
@@ -259,7 +258,6 @@ Search Employees
                             </div>
                         </div>
 
-                        @endif
                     @endforeach
 
                     {{ $users->links() }}
