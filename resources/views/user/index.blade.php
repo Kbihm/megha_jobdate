@@ -224,7 +224,11 @@ Search Employees
                                             <h4 class="title">{{$employee->user->first_name}} {{$employee->user->last_name}} </h4>
                                         </a>
                                         <a class="card-link" href="/staff/{{ $employee->id }}">
-                                            <p class="description">{{ str_limit($employee->about, $limit = 200, $end = '...') }}</p>
+                                            <p class="description">
+                                                @if ($employee->about != null)
+                                                    {{ str_limit($employee->about, $limit = 200, $end = '...') }}
+                                                @endif
+                                            </p>
                                         </a>
                                          <div class="footer">
                                             <div class="stats">
