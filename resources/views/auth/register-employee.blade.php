@@ -134,7 +134,7 @@
                         </div>
                                                 
                         <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
-                            <label for="fulltime" class="col-md-4 control-label">Are you looking for fullime work?</label>
+                            <label for="fulltime" class="col-md-4 control-label">Are you looking for fulltime work?</label>
 
                             <div class="col-md-6">
                                  <select class="form-control" name="fulltime" id="fulltime">
