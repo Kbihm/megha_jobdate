@@ -160,9 +160,9 @@ Search Employees
                                                     <option value="0">No</option>
                                                 </select>
                                             </div>
-                <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
-                    Search <i class="fa fa-search"></i>
-                </button>
+                                        <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
+                                            Search <i class="fa fa-search"></i>
+                                        </button>
                                       </div>
                                     </div>
                                   </div><!-- end panel -->
@@ -184,10 +184,12 @@ Search Employees
                     <h2 class="text-muted"> No Results Found </h2>
                     <p> Try widening your search query. </p>
                 </div>
-                @endif
+                @else
         
                     @foreach($employees as $employee)
-
+                        @if ($employee->user == null)
+                            
+                        @else 
                         <div class="card card-horizontal">
                             <div class="row">
                                 @if (Storage::disk('local')->has($employee->id . '.jpg'))
@@ -221,11 +223,11 @@ Search Employees
                                         @endif
 
                                         <a class="card-link" href="/staff/{{ $employee->id }}">
-                                            <h4 class="title">{{$employee->user->first_name}} {{$employee->user->last_name}} </h4>
+                                            <h4 class="title">Name {{ $employee->user}} </h4>
                                         </a>
                                         <a class="card-link" href="/staff/{{ $employee->id }}">
                                             <p class="description">
-                                                @if ($employee->about != null)
+                                                @if ($employee->about !== null)
                                                     {{ str_limit($employee->about, $limit = 200, $end = '...') }}
                                                 @endif
                                             </p>
@@ -233,7 +235,10 @@ Search Employees
                                          <div class="footer">
                                             <div class="stats">
                                                 <a class="card-link" href="/staff/{{ $employee->id }}">
-                                                   <i class="fa fa-usd"></i> {{ number_format($employee->hourly_rate, 2) }}
+                                                   <i class="fa fa-usd"></i> 
+                                                   @if ($employee->hourly_rate !== null)
+                                                        {{ number_format($employee->hourly_rate, 2) }}
+                                                   @endif
                                                 </a>
                                             </div>
                                             <div class="stats">
@@ -261,12 +266,12 @@ Search Employees
                                 </div>
                             </div>
                         </div>
-
+                    @endif
                     @endforeach
 
                     {{ $employees->links() }}
 
-
+                    @endif
 </div>
 
 <script type="text/javascript" src="/region-script.js"></script>
