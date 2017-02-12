@@ -25,7 +25,15 @@ class ProfileController extends Controller
     
     public function index()
     {
-        $users = User::where('employee_id', '!=', 'null')->orderBy('average_rating', 'desc')->paginate(15);
+        $employees = Employee::where('email_confirmed', true)->orderBy("average_rating", "desc")->paginate(15);
+        $users = [];
+        foreach ($employees as $employee)
+            array_push($users, $employee->user);
+
+        $user_count = sizeOf($users);
+        $paginated = new Paginator($users, $user_count, 15);
+        $users = $paginated;
+
         return view('user.index', compact('users'));
     }
     
