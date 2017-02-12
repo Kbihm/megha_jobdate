@@ -223,7 +223,7 @@ Search Employees
                                         @endif
 
                                         <a class="card-link" href="/staff/{{ $employee->id }}">
-                                            <h4 class="title">Name {{ $employee->user}} </h4>
+                                            <h4 class="title"> {{ $employee->user->first_name }} {{ $employee->user->last_name }}</h4>
                                         </a>
                                         <a class="card-link" href="/staff/{{ $employee->id }}">
                                             <p class="description">
