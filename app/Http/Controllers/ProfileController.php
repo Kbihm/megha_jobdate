@@ -25,7 +25,7 @@ class ProfileController extends Controller
     
     public function index()
     {
-        $users = User::where('employee_id', '!=', 'null')->paginate(15);
+        $users = User::where('employee_id', '!=', 'null')->orderBy('average_rating', 'desc')->paginate(15);
         return view('user.index', compact('users'));
     }
     
