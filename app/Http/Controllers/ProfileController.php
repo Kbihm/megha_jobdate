@@ -25,16 +25,8 @@ class ProfileController extends Controller
     
     public function index()
     {
-        $employees = Employee::where('email_confirmed', true)->orderBy("average_rating", "desc")->get();
-        $users = [];
-        foreach ($employees as $employee)
-            array_push($users, $employee->user);
-
-        $user_count = sizeOf($users);
-        $paginated = new Paginator($users, $user_count, 15);
-        $users = $paginated;
-
-        return view('user.index', compact('users'));
+        $employees = Employee::where('email_confirmed', true)->orderBy("average_rating", "desc")->paginate(15);
+        return view('user.index', compact('employees'));
     }
     
     public function show($id)
@@ -186,26 +178,22 @@ class ProfileController extends Controller
                 if ($request->time == 'any') {
                     
                 } elseif ($request->time == 'morning' && $emp_avl[0]->morning == false) {
-                    array_push($unfavourable_users, $employee->user);
+                    array_push($unfavourable_users, $employee);
                     continue;
                 }
                 elseif ($request->time == 'day' && $emp_avl[0]->day == false) {
-                    array_push($unfavourable_users, $employee->user);
+                    array_push($unfavourable_users, $employee);
                     continue;
                 }
                 elseif ($request->time == 'night' && $emp_avl[0]->night == false) {
-                    array_push($unfavourable_users, $employee->user);
+                    array_push($unfavourable_users, $employee);
                     continue;
                 }
                 
                 
             }
             
-            
-            
-            
-            
-            array_push($users, $employee->user);
+            array_push($users, $employee);
         }
         
         $users = array_merge($users, $unfavourable_users);
@@ -214,7 +202,7 @@ class ProfileController extends Controller
         $paginated = new Paginator($users, $user_count, 15);
         $users = $paginated;
         
-        return view('user.index', compact('users'));
+        return view('user.index', ['employees' => $users]);
     }
     
 }
