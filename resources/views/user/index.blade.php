@@ -160,9 +160,9 @@ Search Employees
                                                     <option value="0">No</option>
                                                 </select>
                                             </div>
-                <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
-                    Search <i class="fa fa-search"></i>
-                </button>
+                                        <button class="btn btn-default btn-xs btn pull-right btn-simple" type="submit">
+                                            Search <i class="fa fa-search"></i>
+                                        </button>
                                       </div>
                                     </div>
                                   </div><!-- end panel -->
@@ -179,26 +179,27 @@ Search Employees
 
     <div class="col-md-9">
 
-                @if (sizeOf($users) == 0)
+                @if (sizeOf($employees) == 0)
                 <div class="text-center">
                     <h2 class="text-muted"> No Results Found </h2>
                     <p> Try widening your search query. </p>
                 </div>
-                @endif
+                @else
         
-                    @foreach($users as $user)
-                        @if($user->employee_id != null)
-
+                    @foreach($employees as $employee)
+                        @if ($employee->user == null)
+                            
+                        @else 
                         <div class="card card-horizontal">
                             <div class="row">
-                                @if (Storage::disk('local')->has($user->employee->id . '.jpg'))
+                                @if (Storage::disk('local')->has($employee->id . '.jpg'))
                                 <div class="col-md-5">
                                 
                                 
-                                    <div class="image" style="background-image: url({{route('image', ['filename' => $user->employee->id.'.jpg'])}}); background-position: center center; background-size: cover;">
-                                        <img src="{{route('image', ['filename' => $user->employee->id.'.jpg'])}}" alt="..." style="display: none;">
+                                    <div class="image" style="background-image: url({{route('image', ['filename' => $employee->id.'.jpg'])}}); background-position: center center; background-size: cover;">
+                                        <img src="{{route('image', ['filename' => $employee->id.'.jpg'])}}" alt="..." style="display: none;">
                                         <div class="filter filter-azure">
-                                            <a type="button" class="btn btn-neutral btn-round" href="/staff/{{ $user->employee->id }}">
+                                            <a type="button" class="btn btn-neutral btn-round" href="/staff/{{ $employee->id }}">
                                                 <i class="fa fa-heart"></i> Hire
                                             </a>
                                         </div>
@@ -213,7 +214,7 @@ Search Employees
 
                                      <div class="content">
 
-                                        @if( $user->employee->average_rating > 1.9 && sizeOf($user->employee->comments) > 2 )
+                                        @if( $employee->average_rating > 1.9 && sizeOf($employee->comments) > 2 )
                                        <p class="category text-info">
                                             <i class="fa fa-trophy"></i> Best of JobDate
                                         </p>
@@ -221,35 +222,42 @@ Search Employees
                                             <p> &nbsp; </p>
                                         @endif
 
-                                        <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                            <h4 class="title">{{$user->first_name}} {{$user->last_name}} </h4>
+                                        <a class="card-link" href="/staff/{{ $employee->id }}">
+                                            <h4 class="title"> {{ $employee->user->first_name }} {{ $employee->user->last_name }}</h4>
                                         </a>
-                                        <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                            <p class="description">{{ str_limit($user->employee->about, $limit = 200, $end = '...') }}</p>
+                                        <a class="card-link" href="/staff/{{ $employee->id }}">
+                                            <p class="description">
+                                                @if ($employee->about !== null)
+                                                    {{ str_limit($employee->about, $limit = 200, $end = '...') }}
+                                                @endif
+                                            </p>
                                         </a>
                                          <div class="footer">
                                             <div class="stats">
-                                                <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                   <i class="fa fa-usd"></i> {{ number_format($user->employee->hourly_rate, 2) }}
+                                                <a class="card-link" href="/staff/{{ $employee->id }}">
+                                                   <i class="fa fa-usd"></i> 
+                                                   @if ($employee->hourly_rate !== null)
+                                                        {{ number_format($employee->hourly_rate, 2) }}
+                                                   @endif
                                                 </a>
                                             </div>
                                             <div class="stats">
-                                              <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                <i class="fa fa-briefcase"></i> {{ $user->employee->role }} 
-                                                @if($user->employee->second_role !== null)
-                                                 / {{$user->employee->second_role}}
+                                              <a class="card-link" href="/staff/{{ $employee->id }}">
+                                                <i class="fa fa-briefcase"></i> {{ $employee->role }} 
+                                                @if($employee->second_role !== null)
+                                                 / {{$employee->second_role}}
                                                 @endif
                                               </a>
                                             </div>
                                             <div class="stats">
-                                               <a class="card-link" href="/staff/{{ $user->employee->id }}">
-                                                <i class="fa fa-star"></i> {{ sizeOf($user->employee->comments) }} Reviews ({{ number_format($user->employee->average_rating / 2 * 100, 0) }}%)
+                                               <a class="card-link" href="/staff/{{ $employee->id }}">
+                                                <i class="fa fa-star"></i> {{ sizeOf($employee->comments) }} Reviews ({{ number_format($employee->average_rating / 2 * 100, 0) }}%)
                                                </a>
                                             </div>
                                             <div class="stats">
-                                                @if ($user->employee->gender == 0)
+                                                @if ($employee->gender == 0)
                                                     <i class="fa fa-male"></i> 
-                                                @elseif ($user->employee->gender == 1)
+                                                @elseif ($employee->gender == 1)
                                                     <i class="fa fa-female"></i> 
                                                 @endif  
                                             </div>
@@ -258,13 +266,12 @@ Search Employees
                                 </div>
                             </div>
                         </div>
-
-                        @endif
+                    @endif
                     @endforeach
 
-                    {{ $users->links() }}
+                    {{ $employees->links() }}
 
-
+                    @endif
 </div>
 
 <script type="text/javascript" src="/region-script.js"></script>
