@@ -14,7 +14,7 @@ Welcome
                 <h1>Welcome to JobDate! </h1>
                 <p>Jobdate aims to bridge a gap in the Hospitality Industry, making it simpler to find staff and gain employment through a new age hiring process. </p>
                 <p>Register now to start finding staff or to seek employment.</p>
-                <a href="/register/employer" class="btn btn-success btn-fill">Start Finding Staff</a>
+                <a href="/staff" class="btn btn-success btn-fill">Start Finding Staff</a>
                 <a href="/register/employee" class="btn btn-success btn-fill">Seek Employment</a>
             </div>
 
