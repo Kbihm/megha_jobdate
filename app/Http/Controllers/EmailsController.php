@@ -15,9 +15,9 @@ use App\Comment;
 
 class EmailsController extends Controller
 {
-        
+
         //Any time a dispute is filed through the dispute system
-    public function dispute(Request $request, $id, $cid) 
+    public function dispute(Request $request, $id, $cid)
     {
         // dd($cid);
         $input = $request->all();
@@ -39,44 +39,44 @@ class EmailsController extends Controller
         return view('employee-comments.index', compact('comments', 'dispute_submitted'));
     }
         //When a new user signs signs Up
-    public function signUp($id) 
+    public function signUp($id)
     {
         $user = Auth::user();
         $data = array(
             'user' => User::find($id),
             );
         if($user->employee_id != null){
-        Mail::send('emails.signUp', $data, function ($message) use ($user) {
+        /*Mail::send('emails.signUp', $data, function ($message) use ($user) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
             $message->to($user->email)->subject('JobDate - Sign Up');
 
-        });
+        });*/
         }
         if($user->employer_id != null){
-        Mail::send('emails.welcome', $data, function ($message) use ($user) {
+        /*Mail::send('emails.welcome', $data, function ($message) use ($user) {
 
             $message->from('team@jobdate.com', 'JobDate');
 
             $message->to($user->email)->subject('JobDate - Sign Up');
 
-        });
+        });*/
         }
         return redirect('home');
     }
         // When a user hasn't logged in for 7 days after a job request
-    public function noLogin() 
+    public function noLogin()
     {
 
     }
         // When an employer requests the details of an employee
-    public function requestDetails() 
+    public function requestDetails()
     {
 
     }
         // Acceptance of a job
-        public function acceptJob($id) 
+        public function acceptJob($id)
     {
         $joboffer = Joboffer::find($id);
         $employer = Employer::where('id', '=', $joboffer->employer_id)->first();
@@ -103,12 +103,12 @@ class EmailsController extends Controller
 
     }
         // Declination of a job
-        public function declineJob() 
+        public function declineJob()
     {
 
     }
         // Confirmation of a job
-        public function confirmJob($id) 
+        public function confirmJob($id)
     {
         $joboffer = Joboffer::find($id);
         $user = Employer::find($joboffer->employer_id);
@@ -128,7 +128,7 @@ class EmailsController extends Controller
         });
     }
         // Reminding an employer to renew their sub (PASS USER ID NOT EMPLOYEE ID.)
-        public function renewSub($id) 
+        public function renewSub($id)
     {
         $data = array(
             'user' => User::find($id),
@@ -146,12 +146,12 @@ class EmailsController extends Controller
 
     }
         // Reminding and employer to review and employee
-        public function reviewRemind() 
+        public function reviewRemind()
     {
 
     }
         // When a job request is sent
-        public function sendJobRequest($id) 
+        public function sendJobRequest($id)
     {
         $invite = Invite::find($id);
         if($invite->request_type == "job"){
@@ -195,7 +195,7 @@ class EmailsController extends Controller
             $user = Auth::user();
             $employee = Employee::find($invite->employee_id);
             $employee = $employee->user;
-                        
+
             $data = array(
                 'user' => $user,
                 'employee' => $employee

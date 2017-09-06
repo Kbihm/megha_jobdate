@@ -12,31 +12,31 @@ use App\User;
 
 class VerificationController extends Controller
 {
-        public function store($id)
-    {   
-        $user = User::where('id', '=', $id)->first();
-        $prevers = Verification::where('user_id', '=', $user->id)->get();
-        foreach($prevers as $pre){
+    public function store($id)
+    {
+         $user = User::where('id', '=', $id)->first();
+         $prevers = Verification::where('user_id', '=', $user->id)->get();
+         foreach($prevers as $pre){
             $pre->delete();
-        }
+         }
          if(Auth::user()->employee->id == $user->employee->id){
-        $verification = new Verification();
-        $verification->hash = str_random(8);
-        $verification->user_id = $id;
-        $verification->save();
+              $verification = new Verification();
+              $verification->hash = str_random(8);
+              $verification->user_id = $id;
+              $verification->save();
 
-                $data = array(
-            'verification' => $verification,
-            'user' => $user
-            );
+              $data = array(
+                  'verification' => $verification,
+                  'user' => $user
+                  );
 
-        Mail::send('emails.verify', $data, function ($message) use ($user) {
-            $message->from('team@jobdate.com', 'JobDate');
+            /*Mail::send('emails.verify', $data, function ($message) use ($user) {  //commented on 5 september
+                $message->from('team@jobdate.com', 'JobDate');
 
-            $message->to($user->email)->subject('JobDate - Verify Your Account');
+                $message->to($user->email)->subject('JobDate - Verify Your Account');
 
-        });
-         }            
+            });*/
+        }
         return redirect('home')->withError("We've sent you a verification email, please check your email and click the link. Your access is limited until your account is verified. ");
     }
 

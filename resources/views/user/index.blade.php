@@ -20,10 +20,9 @@ Search Employees
         </div>
 
         <div class="content">
-
                         <div class="panel-group" id="accordion">
                             <form class="form" role="form" method="POST" action="/search">
-                                                    {{ csrf_field() }} 
+                                                    {{ csrf_field() }}
                                   <div class="panel panel-default">
                                     <div class="panel-heading">
                                       <h6 class="panel-title">
@@ -35,7 +34,18 @@ Search Employees
                                     </div>
                                     <div id="refinePrice" class="panel-collapse collapse in">
                                       <div class="panel-body">
-                                         
+
+                                        <div class="form-group">
+                                            <label>Search</label>
+                                            <input id="pac-input" type="text" class="form-control" placeholder="Enter a location">
+                                            <input type="hidden" id="lat" value="" >
+                                            <input type="hidden" id="lon" value="">
+                                            <input type="range" id="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);" >
+                                            <input type="hidden" id="textInput" value="">
+                                            <input type="button" id="click_search"value="search">
+                                        </div>
+                                        <div id="map" style="display:none;"></div>
+
                                                      <div class="form-group">
                                                         <label>State</label>
                                                         <select id="state" class="form-control" required name="state" value="">
@@ -62,7 +72,7 @@ Search Employees
                                                                 <option value="{{ $_POST['area'] }}" id="">{{ $_POST['area'] }}</option>
                                                             @endif
                                                             <option value="any">Any</option>
-                                                            
+
                                                         </select>
                                                     </div>
 
@@ -75,7 +85,7 @@ Search Employees
                                                             <option value="any">Any</option>
                                                         </select>
                                                     </div>
-                                         
+
                                          </div>
                                     </div>
                                   </div>
@@ -97,7 +107,7 @@ Search Employees
                                              </label>
 
                                             </div>                    -->
-                                            
+
                                             <div class="form-group">
                                                 <label>Date (Optional)</label>
                                                 <input name="date" type="text" id="date"  class="datepicker form-control"
@@ -177,7 +187,7 @@ Search Employees
     </div>
 
 
-    <div class="col-md-9">
+    <div class="col-md-9"   id="result_insert">
 
                 @if (sizeOf($employees) == 0)
                 <div class="text-center">
@@ -185,17 +195,17 @@ Search Employees
                     <p> Try widening your search query. </p>
                 </div>
                 @else
-        
+
                     @foreach($employees as $employee)
                         @if ($employee->user == null)
-                            
-                        @else 
+
+                        @else
                         <div class="card card-horizontal">
                             <div class="row">
                                 @if (Storage::disk('local')->has($employee->id . '.jpg'))
                                 <div class="col-md-5">
-                                
-                                
+
+
                                     <div class="image" style="background-image: url({{route('image', ['filename' => $employee->id.'.jpg'])}}); background-position: center center; background-size: cover;">
                                         <img src="{{route('image', ['filename' => $employee->id.'.jpg'])}}" alt="..." style="display: none;">
                                         <div class="filter filter-azure">
@@ -204,7 +214,7 @@ Search Employees
                                             </a>
                                         </div>
                                     </div>
-                                
+
                                 </div>
                                 <div class="col-md-7">
                                 @else
@@ -235,7 +245,7 @@ Search Employees
                                          <div class="footer">
                                             <div class="stats">
                                                 <a class="card-link" href="/staff/{{ $employee->id }}">
-                                                   <i class="fa fa-usd"></i> 
+                                                   <i class="fa fa-usd"></i>
                                                    @if ($employee->hourly_rate !== null)
                                                         {{ number_format($employee->hourly_rate, 2) }}
                                                    @endif
@@ -243,7 +253,7 @@ Search Employees
                                             </div>
                                             <div class="stats">
                                               <a class="card-link" href="/staff/{{ $employee->id }}">
-                                                <i class="fa fa-briefcase"></i> {{ $employee->role }} 
+                                                <i class="fa fa-briefcase"></i> {{ $employee->role }}
                                                 @if($employee->second_role !== null)
                                                  / {{$employee->second_role}}
                                                 @endif
@@ -256,10 +266,10 @@ Search Employees
                                             </div>
                                             <div class="stats">
                                                 @if ($employee->gender == 0)
-                                                    <i class="fa fa-male"></i> 
+                                                    <i class="fa fa-male"></i>
                                                 @elseif ($employee->gender == 1)
-                                                    <i class="fa fa-female"></i> 
-                                                @endif  
+                                                    <i class="fa fa-female"></i>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -274,9 +284,7 @@ Search Employees
                     @endif
 </div>
 
-<script type="text/javascript" src="/region-script.js"></script>
-
-
+<!--<script type="text/javascript" src="/region-script.js"></script>-->
 <script type="text/javascript" >
 
     // $("#any_date").click(function () {
@@ -287,5 +295,101 @@ Search Employees
 
 </script>
 
-@endsection           
+@endsection
+@section('view.scripts')
+<script>
+function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -33.8688, lng: 151.2195},
+        zoom: 13
+      });
 
+
+      var input = document.getElementById('pac-input');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      // Bind the map's bounds (viewport) property to the autocomplete object,
+      // so that the autocomplete requests use the current map bounds for the
+      // bounds option in the request.
+      autocomplete.bindTo('bounds', map);
+
+      /*var infowindow = new google.maps.InfoWindow();
+      var infowindowContent = document.getElementById('infowindow-content')
+      infowindow.setContent(infowindowContent);*/
+      var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29)
+      });
+
+      autocomplete.addListener('place_changed', function() {
+        //infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert("No details available for input: '" + place.name + "'");
+          return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(17);  // Why 17? Because it looks good.
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        var address = '';
+        if (place.address_components) {
+          address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+          ].join(' ');
+        }
+
+        /*infowindowContent.children['place-icon'].src = place.icon;
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-address'].textContent = address;
+        document.getElementById('location').innerHTML = place.formatted_address;*/
+        document.getElementById('lat').value = place.geometry.location.lat();
+        document.getElementById('lon').value = place.geometry.location.lng();
+        //infowindow.open(map, marker);
+      });
+ }
+</script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj7WUySaRkd1dlnpKckEXSE7adrUkgzoA&libraries=places&callback=initMap" async defer></script>
+<script>
+function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+}
+$(document).on('click','#click_search',function(e){
+           var lat = $('#lat').val();
+           lon = $('#lon').val();
+           rangeInput = $('#textInput').val();
+           $.ajaxSetup({
+               headers: {
+                   'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+               }
+           })
+           $.ajax({
+
+               type: "POST",
+               url: 'search_staff',
+               data:{lat:lat,lon:lon,radius:rangeInput},
+               success: function (data) {
+                   console.log(data);
+                   //$('.row_'+id).remove();
+                   $('#result_insert').html('');
+                   $('#result_insert').html(data);
+               },
+               error: function (data) {
+                   console.log('Error:', data);
+               }
+           });
+});
+</script>
+@endsection

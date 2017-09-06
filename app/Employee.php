@@ -21,7 +21,11 @@ class Employee extends Model
         'region',
         'area',
         'suburb',
-        'state'
+        'state',
+        'address',
+        'lat',
+        'lon',
+        'radius'
     ];
 
     public static $rules = [
@@ -29,7 +33,8 @@ class Employee extends Model
         // 'average_rating' => 'required',
         // 'about' => 'required',
         'gender' => 'required',
-        'hourly_rate' => 'required|digits_between:0,150'
+        'hourly_rate' => 'required|digits_between:0,150',
+        'radius' => 'digits_between:0,100'
     ];
 
     public function experience()
@@ -66,7 +71,7 @@ class Employee extends Model
     public function calc_rating()
     {
         $comments = Comment::where('employee_id', $this->id)->where('approved', true)->get();
-        
+
         if(sizeof($comments) != 0){
 
             $sum = 0;

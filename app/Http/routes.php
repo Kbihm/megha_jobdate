@@ -23,7 +23,7 @@ Route::get('archived', 'JobofferController@archived_index');
  /*  Routes to be removed after testing: */
 Route::get('/jobs', function () {
     return view('/joboffers/index');
-});  
+});
 
 Route::get('/transaction', function() {
     return view('/Employer/transaction');
@@ -47,7 +47,7 @@ Route::resource('/skills', 'SkillsController');
 Route::resource('/experience', 'ExperienceController');
 Route::resource('/offers', 'EmployeeJobOfferController');
 Route::resource('/search', 'ProfileController@search');
-
+Route::resource('/search_staff', 'ProfileController@search_staff');
 
 //Employer
 Route::resource('/reviews', 'EmployerCommentsController');

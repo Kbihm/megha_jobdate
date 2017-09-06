@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- 
+
 <div class="container">
 
 <div class="col-md-8 col-md-offset-2">
@@ -11,7 +11,7 @@
 
             <div class="card">
                 <div class="content">
- 
+
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register/employee') }}">
                         {{ csrf_field() }}
 
@@ -71,20 +71,20 @@
                             </div>
                         </div>
 
-                        
+
 
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Role</label>
-                            
+
                             <div class="col-md-6">
                                 <select id="role" class="form-control" name="role" value="{{ old('role')}}">
                                 @foreach($roles as $role)
                                 <option value="{{$role}}">{{$role}}</option>
                                 @endforeach
-                                </select>                      
-                            
-                                
+                                </select>
+
+
 
                                 @if ($errors->has('role'))
                                     <span class="help-block">
@@ -96,15 +96,15 @@
 
                         <div class="form-group{{ $errors->has('second_role') ? ' has-error' : '' }}">
                             <label for="second_role" class="col-md-4 control-label">Secondary Role</label>
-                            
+
                             <div class="col-md-6">
                                 <select id="second_role" class="form-control" name="second_role" value="{{ old('second_role')}}">
                                <option default disabled selected value> None </option>
                                 @foreach($roles as $role)
                                 <option value="{{$role}}">{{$role}}</option>
                                 @endforeach
-                                </select>                       
-                                
+                                </select>
+
 
                                 @if ($errors->has('second_role'))
                                     <span class="help-block">
@@ -116,14 +116,14 @@
 
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <label for="role" class="col-md-4 control-label">Gender</label>
-                            
+
                             <div class="col-md-6">
 
                                 <select id="role" class="form-control" name="gender" value="{{ old('gender')}}">
                                     <option value="Male"> Male </option>
                                     <option value="Female"> Female </option>
                                     <option value="Other"> Other </option>
-                                </select> 
+                                </select>
 
                                 @if ($errors->has('role'))
                                     <span class="help-block">
@@ -132,15 +132,15 @@
                                 @endif
                             </div>
                         </div>
-                                                
-                        <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}">
+
+                        <div class="form-group{{ $errors->has('fulltime') ? ' has-error' : '' }}" style="display:none;">
                             <label for="fulltime" class="col-md-4 control-label">Are you looking for fulltime work?</label>
 
                             <div class="col-md-6">
                                  <select class="form-control" name="fulltime" id="fulltime">
                                 <option value="TRUE">Yes</option>
                                 <option value="FALSE">No</option>
-                                </select> 
+                                </select>
                                 @if ($errors->has('fulltime'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('fulltime') }}</strong>
@@ -148,7 +148,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
 
                         <div class="form-group{{ $errors->has('hourly_rate') ? ' has-error' : '' }}">
                             <label for="hourly_rate" class="col-md-4 control-label">Desired Hourly Rate</label>
@@ -163,15 +163,38 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <hr>
                         <h5 class="text-center"> Where you want to work </h5>
+                               <div class="form-group">
+                                  <label class="col-md-10 control-label text-center">Search</label>
+                                   <div class="col-md-10 text-center">
+                                        <input id="pac-input" type="text" class="form-control" placeholder="Enter a location">
+                                   </div>
 
-<div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                               </div>
+                               <div id="map" style="display:none;"></div>
+                               <div class="form-group">
+                                   <label class="col-md-4 control-label">Address</label>
+                                   <div class="col-md-6">
+                                       <textarea id="location" name="address" class="form-control" ></textarea>
+                                       <input type="text"  name="lat" id="lat" value="" style="display:none;"><br>
+                                       <input type="text" name="lon" id="lon" value="" style="display:none;"><br>
+                                   </div>
+                              </div>
+
+                              <div class="form-group">
+                                   <label class="col-md-4 control-label">Radius</label>
+                                    <div class="col-md-6">
+                                       <input type="text" class="form-control" name="radius" value="">
+                                   </div>
+                               </div>
+
+                               <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                                     <label class="col-md-4 control-label">State</label>
                                      <div class="col-md-6">
                                     <select id="state" class="form-control" name="state" value="" required="required">
-                                        
+
                                     </select>
                                     </div>
                                 </div>
@@ -180,7 +203,7 @@
                                     <label class="col-md-4 control-label">Region</label>
                                     <div class="col-md-6">
                                     <select id="region" class="form-control" name="region" required="required">
-                                        
+
                                     </select>
                                     </div>
                                 </div>
@@ -190,7 +213,7 @@
 
                                     <div class="col-md-6">
                                     <select id="area" class="form-control" name="area" value="">
-                                        
+
                                     </select>
                                     </div>
                                 </div>
@@ -199,7 +222,7 @@
                                     <label class="col-md-4 control-label">Suburb</label>
                                     <div class="col-md-6">
                                     <select id="suburb" class="form-control" name="suburb" value="">
-                                        
+
                                     </select>
                                     </div>
                                 </div>
@@ -247,6 +270,72 @@
     </div>
 
     </div>
-    <script type="text/javascript" src="/region-script.js"></script>
-    
+  <script type="text/javascript" src="/region-script.js"></script>
+@endsection
+@section('view.scripts')
+<script>
+function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -33.8688, lng: 151.2195},
+        zoom: 13
+      });
+
+
+      var input = document.getElementById('pac-input');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+
+      // Bind the map's bounds (viewport) property to the autocomplete object,
+      // so that the autocomplete requests use the current map bounds for the
+      // bounds option in the request.
+      autocomplete.bindTo('bounds', map);
+
+      /*var infowindow = new google.maps.InfoWindow();
+      var infowindowContent = document.getElementById('infowindow-content')
+      infowindow.setContent(infowindowContent);*/
+      var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29)
+      });
+
+      autocomplete.addListener('place_changed', function() {
+        //infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert("No details available for input: '" + place.name + "'");
+          return;
+        }
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+          map.fitBounds(place.geometry.viewport);
+        } else {
+          map.setCenter(place.geometry.location);
+          map.setZoom(17);  // Why 17? Because it looks good.
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+
+        var address = '';
+        if (place.address_components) {
+          address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+          ].join(' ');
+        }
+
+        /*infowindowContent.children['place-icon'].src = place.icon;
+        infowindowContent.children['place-name'].textContent = place.name;
+        infowindowContent.children['place-address'].textContent = address;*/
+        document.getElementById('location').value  = place.formatted_address;
+        document.getElementById('lat').value = place.geometry.location.lat();
+        document.getElementById('lon').value = place.geometry.location.lng();
+        //infowindow.open(map, marker);
+      });
+ }
+</script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj7WUySaRkd1dlnpKckEXSE7adrUkgzoA&libraries=places&callback=initMap" async defer></script>
 @endsection

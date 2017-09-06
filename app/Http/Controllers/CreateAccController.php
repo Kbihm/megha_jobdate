@@ -20,7 +20,7 @@ class CreateAccController extends Controller
 
         $this->validate($request, User::$rules);
         $this->validate($request, Employee::$rules);
-
+        
         $user = new User($request->all());
         $employee = new Employee($request->all());
         $employee->average_rating = 0;
@@ -36,7 +36,7 @@ class CreateAccController extends Controller
         $employee->user_id = $user->id;
         $employee->save();
 
-    
+
 
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
             return redirect('verify/set/'.$user->id);
@@ -61,7 +61,7 @@ class CreateAccController extends Controller
         $user->save();
         $employer->user_id = $user->id;
         $employer->save();
-        
+
         if (Auth::attempt(['email' => $user->email, 'password' => $request['password']])) {
             return redirect('/email/signUp/'.$user->id);
         } else {

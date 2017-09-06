@@ -55,7 +55,7 @@
 
                     @if (Auth::guest())
 
-                         <li><a href="/staff">Search</a></li> 
+                         <li><a href="/staff">Search</a></li>
 
                     @elseif (Auth::user()->admin_id != null)
 
@@ -79,7 +79,7 @@
                         <li><a href="/reviews">Reviews</a></li>
 
                     @else
-                        
+
                         No role set.
 
                     @endif
@@ -93,7 +93,7 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->first_name }} <span class="caret"></span>
@@ -133,7 +133,7 @@
     </div>
 
         @yield('content')
-                
+
     </div>
 </div>
 
@@ -269,5 +269,7 @@
 	<script src="/assets/js/get-shit-done.js"></script>
     <script src="/assets/js/chartist.min.js"></script>
     <script src="/assets/js/gsdk-checkbox.js"></script>
+    <meta name="_token" content="{!! csrf_token() !!}" />
+    @yield('view.scripts')
 </body>
 </html>
